@@ -2,17 +2,21 @@
 
 use PDO;
 use Illuminate\Support\Fluent;
+use Illuminate\Events\Dispatcher;
 use Illuminate\Cache\CacheManager;
 use Illuminate\Container\Container;
 use Illuminate\Database\DatabaseManager;
-use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Connectors\ConnectionFactory;
-use Illuminate\Support\Traits\CapsuleManagerTrait;
 
 class Manager {
 
-	use CapsuleManagerTrait;
+	/**
+	 * The current globally used instance.
+	 *
+	 * @var \Illuminate\Database\Capsule\Manager
+	 */
+	protected static $instance;
 
 	/**
 	 * The database manager instance.
@@ -22,6 +26,13 @@ class Manager {
 	protected $manager;
 
 	/**
+	 * The container instance.
+	 *
+	 * @var \Illuminate\Container\Container
+	 */
+	protected $container;
+
+	/**
 	 * Create a new database capsule manager.
 	 *
 	 * @param  \Illuminate\Container\Container|null  $container
@@ -29,7 +40,7 @@ class Manager {
 	 */
 	public function __construct(Container $container = null)
 	{
-		$this->setupContainer($container ?: new Container);
+		$this->setupContainer($container);
 
 		// Once we have the container setup, we will setup the default configuration
 		// options in the container "config" binding. This will make the database
@@ -37,6 +48,22 @@ class Manager {
 		$this->setupDefaultConfiguration();
 
 		$this->setupManager();
+	}
+
+	/**
+	 * Setup the IoC container instance.
+	 *
+	 * @param  \Illuminate\Container\Container|null  $container
+	 * @return void
+	 */
+	protected function setupContainer($container)
+	{
+		$this->container = $container ?: new Container;
+
+		if ( ! $this->container->bound('config'))
+		{
+			$this->container->instance('config', new Fluent);
+		}
 	}
 
 	/**
@@ -156,6 +183,16 @@ class Manager {
 	}
 
 	/**
+	 * Make this capsule instance available globally.
+	 *
+	 * @return void
+	 */
+	public function setAsGlobal()
+	{
+		static::$instance = $this;
+	}
+
+	/**
 	 * Get the database manager instance.
 	 *
 	 * @return \Illuminate\Database\Manager
@@ -168,7 +205,7 @@ class Manager {
 	/**
 	 * Get the current event dispatcher instance.
 	 *
-	 * @return \Illuminate\Contracts\Events\Dispatcher
+	 * @return \Illuminate\Events\Dispatcher
 	 */
 	public function getEventDispatcher()
 	{
@@ -181,7 +218,7 @@ class Manager {
 	/**
 	 * Set the event dispatcher instance to be used by connections.
 	 *
-	 * @param  \Illuminate\Contracts\Events\Dispatcher  $dispatcher
+	 * @param  \Illuminate\Events\Dispatcher  $dispatcher
 	 * @return void
 	 */
 	public function setEventDispatcher(Dispatcher $dispatcher)
@@ -211,6 +248,27 @@ class Manager {
 	public function setCacheManager(CacheManager $cache)
 	{
 		$this->container->instance('cache', $cache);
+	}
+
+	/**
+	 * Get the IoC container instance.
+	 *
+	 * @return \Illuminate\Container\Container
+	 */
+	public function getContainer()
+	{
+		return $this->container;
+	}
+
+	/**
+	 * Set the IoC container instance.
+	 *
+	 * @param  \Illuminate\Container\Container  $container
+	 * @return void
+	 */
+	public function setContainer(Container $container)
+	{
+		$this->container = $container;
 	}
 
 	/**

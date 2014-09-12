@@ -82,7 +82,9 @@ abstract class Bundle extends ContainerAware implements BundleInterface
                 $expectedAlias = Container::underscore($basename);
                 if ($expectedAlias != $extension->getAlias()) {
                     throw new \LogicException(sprintf(
-                        'Users will expect the alias of the default extension of a bundle to be the underscored version of the bundle name ("%s"). You can override "Bundle::getContainerExtension()" if you want to use "%s" or another alias.',
+                        'The extension alias for the default extension of a '.
+                        'bundle must be the underscored version of the '.
+                        'bundle name ("%s" instead of "%s")',
                         $expectedAlias, $extension->getAlias()
                     ));
                 }

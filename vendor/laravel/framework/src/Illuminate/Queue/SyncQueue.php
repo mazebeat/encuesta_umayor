@@ -1,8 +1,6 @@
 <?php namespace Illuminate\Queue;
 
-use Illuminate\Contracts\Queue\Queue as QueueContract;
-
-class SyncQueue extends Queue implements QueueContract {
+class SyncQueue extends Queue implements QueueInterface {
 
 	/**
 	 * Push a new job onto the queue.
@@ -50,7 +48,7 @@ class SyncQueue extends Queue implements QueueContract {
 	 * Pop the next job off of the queue.
 	 *
 	 * @param  string  $queue
-	 * @return \Illuminate\Contracts\Queue\Job|null
+	 * @return \Illuminate\Queue\Jobs\Job|null
 	 */
 	public function pop($queue = null) {}
 

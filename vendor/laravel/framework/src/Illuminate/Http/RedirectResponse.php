@@ -4,7 +4,7 @@ use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
 use Symfony\Component\HttpFoundation\Cookie;
 use Illuminate\Session\Store as SessionStore;
-use Illuminate\Contracts\Support\MessageProvider;
+use Illuminate\Support\Contracts\MessageProviderInterface;
 
 class RedirectResponse extends \Symfony\Component\HttpFoundation\RedirectResponse {
 
@@ -100,7 +100,7 @@ class RedirectResponse extends \Symfony\Component\HttpFoundation\RedirectRespons
 	/**
 	 * Flash an array of input to the session.
 	 *
-	 * @param  mixed  string
+	 * @param  dynamic  string
 	 * @return \Illuminate\Http\RedirectResponse
 	 */
 	public function exceptInput()
@@ -111,7 +111,7 @@ class RedirectResponse extends \Symfony\Component\HttpFoundation\RedirectRespons
 	/**
 	 * Flash a container of errors to the session.
 	 *
-	 * @param  \Illuminate\Contracts\Support\MessageProvider|array  $provider
+	 * @param  \Illuminate\Support\Contracts\MessageProviderInterface|array  $provider
 	 * @param  string  $key
 	 * @return $this
 	 */
@@ -129,12 +129,12 @@ class RedirectResponse extends \Symfony\Component\HttpFoundation\RedirectRespons
 	/**
 	 * Parse the given errors into an appropriate value.
 	 *
-	 * @param  \Illuminate\Contracts\Support\MessageProvider|array  $provider
+	 * @param  \Illuminate\Support\Contracts\MessageProviderInterface|array  $provider
 	 * @return \Illuminate\Support\MessageBag
 	 */
 	protected function parseErrors($provider)
 	{
-		if ($provider instanceof MessageProvider)
+		if ($provider instanceof MessageProviderInterface)
 		{
 			return $provider->getMessageBag();
 		}

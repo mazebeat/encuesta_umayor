@@ -2,7 +2,6 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Connection;
-use Illuminate\Contracts\Auth\Remindable;
 
 class DatabaseReminderRepository implements ReminderRepositoryInterface {
 
@@ -54,14 +53,12 @@ class DatabaseReminderRepository implements ReminderRepositoryInterface {
 	/**
 	 * Create a new reminder record and token.
 	 *
-	 * @param  \Illuminate\Contracts\Auth\Remindable  $user
+	 * @param  \Illuminate\Auth\Reminders\RemindableInterface  $user
 	 * @return string
 	 */
-	public function create(Remindable $user)
+	public function create(RemindableInterface $user)
 	{
 		$email = $user->getReminderEmail();
-
-		$this->deleteExisting($user);
 
 		// We will create a new, random token for the user so that we can e-mail them
 		// a safe link to the password reset form. Then we will insert a record in
@@ -71,17 +68,6 @@ class DatabaseReminderRepository implements ReminderRepositoryInterface {
 		$this->getTable()->insert($this->getPayload($email, $token));
 
 		return $token;
-	}
-
-	/**
-	 * Delete all existing reset tokens from the database.
-	 *
-	 * @param  \Illuminate\Contracts\Auth\Remindable  $user
-	 * @return string
-	 */
-	protected function deleteExisting(Remindable $user)
-	{
-		return $this->getTable()->where('email', $user->getReminderEmail())->delete();
 	}
 
 	/**
@@ -99,11 +85,11 @@ class DatabaseReminderRepository implements ReminderRepositoryInterface {
 	/**
 	 * Determine if a reminder record exists and is valid.
 	 *
-	 * @param  \Illuminate\Contracts\Auth\Remindable  $user
+	 * @param  \Illuminate\Auth\Reminders\RemindableInterface  $user
 	 * @param  string  $token
 	 * @return bool
 	 */
-	public function exists(Remindable $user, $token)
+	public function exists(RemindableInterface $user, $token)
 	{
 		$email = $user->getReminderEmail();
 
@@ -161,10 +147,10 @@ class DatabaseReminderRepository implements ReminderRepositoryInterface {
 	/**
 	 * Create a new token for the user.
 	 *
-	 * @param  \Illuminate\Contracts\Auth\Remindable  $user
+	 * @param  \Illuminate\Auth\Reminders\RemindableInterface  $user
 	 * @return string
 	 */
-	public function createNewToken(Remindable $user)
+	public function createNewToken(RemindableInterface $user)
 	{
 		$email = $user->getReminderEmail();
 

@@ -1,9 +1,8 @@
 <?php namespace Illuminate\Events;
 
 use Illuminate\Container\Container;
-use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 
-class Dispatcher implements DispatcherContract {
+class Dispatcher {
 
 	/**
 	 * The IoC container instance.

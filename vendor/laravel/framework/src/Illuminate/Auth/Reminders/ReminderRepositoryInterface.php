@@ -1,25 +1,23 @@
 <?php namespace Illuminate\Auth\Reminders;
 
-use Illuminate\Contracts\Auth\Remindable;
-
 interface ReminderRepositoryInterface {
 
 	/**
 	 * Create a new reminder record and token.
 	 *
-	 * @param  \Illuminate\Contracts\Auth\Remindable  $user
+	 * @param  \Illuminate\Auth\Reminders\RemindableInterface  $user
 	 * @return string
 	 */
-	public function create(Remindable $user);
+	public function create(RemindableInterface $user);
 
 	/**
 	 * Determine if a reminder record exists and is valid.
 	 *
-	 * @param  \Illuminate\Contracts\Auth\Remindable  $user
+	 * @param  \Illuminate\Auth\Reminders\RemindableInterface  $user
 	 * @param  string  $token
 	 * @return bool
 	 */
-	public function exists(Remindable $user, $token);
+	public function exists(RemindableInterface $user, $token);
 
 	/**
 	 * Delete a reminder record by token.

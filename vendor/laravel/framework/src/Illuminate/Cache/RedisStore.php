@@ -111,11 +111,11 @@ class RedisStore extends TaggableStore implements StoreInterface {
 	 * Remove an item from the cache.
 	 *
 	 * @param  string  $key
-	 * @return bool
+	 * @return void
 	 */
 	public function forget($key)
 	{
-		return (bool) $this->connection()->del($this->prefix.$key);
+		$this->connection()->del($this->prefix.$key);
 	}
 
 	/**
@@ -131,7 +131,7 @@ class RedisStore extends TaggableStore implements StoreInterface {
 	/**
 	 * Begin executing a new tags operation.
 	 *
-	 * @param  array|mixed  $names
+	 * @param  array|dynamic  $names
 	 * @return \Illuminate\Cache\RedisTaggedCache
 	 */
 	public function tags($names)

@@ -5,9 +5,8 @@ use DateTime;
 use ArrayAccess;
 use Carbon\Carbon;
 use Illuminate\Support\Traits\MacroableTrait;
-use Illuminate\Contracts\Cache\Cache as CacheContract;
 
-class Repository implements CacheContract, ArrayAccess {
+class Repository implements ArrayAccess {
 
 	use MacroableTrait {
 		__call as macroCall;
@@ -90,10 +89,7 @@ class Repository implements CacheContract, ArrayAccess {
 	{
 		$minutes = $this->getMinutes($minutes);
 
-		if ( ! is_null($minutes))
-		{
-			$this->store->put($key, $value, $minutes);
-		}
+		$this->store->put($key, $value, $minutes);
 	}
 
 	/**
@@ -169,17 +165,6 @@ class Repository implements CacheContract, ArrayAccess {
 		$this->forever($key, $value = $callback());
 
 		return $value;
-	}
-
-	/**
-	 * Remove an item from the cache.
-	 *
-	 * @param  string $key
-	 * @return bool
-	 */
-	public function forget($key)
-	{
-		return $this->store->forget($key);
 	}
 
 	/**
@@ -262,18 +247,16 @@ class Repository implements CacheContract, ArrayAccess {
 	 * Calculate the number of minutes with the given duration.
 	 *
 	 * @param  \DateTime|int  $duration
-	 * @return int|null
+	 * @return int
 	 */
 	protected function getMinutes($duration)
 	{
 		if ($duration instanceof DateTime)
 		{
-			$fromNow = Carbon::instance($duration)->diffInMinutes();
-
-			return $fromNow > 0 ? $fromNow : null;
+			return max(0, Carbon::instance($duration)->diffInMinutes());
 		}
 
-		return is_string($duration) ? (int) $duration : $duration;
+		return is_string($duration) ? intval($duration) : $duration;
 	}
 
 	/**

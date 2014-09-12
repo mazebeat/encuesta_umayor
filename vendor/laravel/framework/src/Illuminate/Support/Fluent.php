@@ -2,10 +2,10 @@
 
 use ArrayAccess;
 use JsonSerializable;
-use Illuminate\Contracts\Support\Jsonable;
-use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Contracts\JsonableInterface;
+use Illuminate\Support\Contracts\ArrayableInterface;
 
-class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable {
+class Fluent implements ArrayAccess, ArrayableInterface, JsonableInterface, JsonSerializable {
 
 	/**
 	 * All of the attributes set on the container.
@@ -17,15 +17,12 @@ class Fluent implements ArrayAccess, Arrayable, Jsonable, JsonSerializable {
 	/**
 	 * Create a new fluent container instance.
 	 *
-	 * @param  array|object	$attributes
+	 * @param  array  $attributes
 	 * @return void
 	 */
 	public function __construct($attributes = array())
 	{
-		foreach ($attributes as $key => $value)
-		{
-			$this->attributes[$key] = $value;
-		}
+		$this->attributes = $attributes;
 	}
 
 	/**

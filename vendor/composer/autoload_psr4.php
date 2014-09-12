@@ -6,9 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Predis\\' => array($vendorDir . '/predis/predis/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
-    'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
-    'ClassPreloader\\' => array($vendorDir . '/classpreloader/classpreloader/src'),
-    'App\\' => array($baseDir . '/app'),
+    'Barryvdh\\Debugbar\\' => array($vendorDir . '/barryvdh/laravel-debugbar/src'),
 );

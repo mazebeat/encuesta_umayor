@@ -13,8 +13,6 @@ namespace Symfony\Component\Console;
 
 use Symfony\Component\Console\Descriptor\TextDescriptor;
 use Symfony\Component\Console\Descriptor\XmlDescriptor;
-use Symfony\Component\Console\Helper\DebugFormatterHelper;
-use Symfony\Component\Console\Helper\ProcessHelper;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\ArgvInput;
@@ -894,20 +892,16 @@ class Application
         $event = new ConsoleCommandEvent($command, $input, $output);
         $this->dispatcher->dispatch(ConsoleEvents::COMMAND, $event);
 
-        if ($event->commandShouldRun()) {
-            try {
-                $exitCode = $command->run($input, $output);
-            } catch (\Exception $e) {
-                $event = new ConsoleTerminateEvent($command, $input, $output, $e->getCode());
-                $this->dispatcher->dispatch(ConsoleEvents::TERMINATE, $event);
+        try {
+            $exitCode = $command->run($input, $output);
+        } catch (\Exception $e) {
+            $event = new ConsoleTerminateEvent($command, $input, $output, $e->getCode());
+            $this->dispatcher->dispatch(ConsoleEvents::TERMINATE, $event);
 
-                $event = new ConsoleExceptionEvent($command, $input, $output, $e, $event->getExitCode());
-                $this->dispatcher->dispatch(ConsoleEvents::EXCEPTION, $event);
+            $event = new ConsoleExceptionEvent($command, $input, $output, $e, $event->getExitCode());
+            $this->dispatcher->dispatch(ConsoleEvents::EXCEPTION, $event);
 
-                throw $event->getException();
-            }
-        } else {
-            $exitCode = ConsoleCommandEvent::RETURN_CODE_DISABLED;
+            throw $event->getException();
         }
 
         $event = new ConsoleTerminateEvent($command, $input, $output, $exitCode);
@@ -970,8 +964,6 @@ class Application
             new DialogHelper(),
             new ProgressHelper(),
             new TableHelper(),
-            new DebugFormatterHelper(),
-            new ProcessHelper(),
             new QuestionHelper(),
         ));
     }

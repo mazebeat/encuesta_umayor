@@ -9,7 +9,6 @@ use Illuminate\Database\Console\Migrations\InstallCommand;
 use Illuminate\Database\Console\Migrations\MigrateCommand;
 use Illuminate\Database\Console\Migrations\RollbackCommand;
 use Illuminate\Database\Console\Migrations\MigrateMakeCommand;
-use Illuminate\Database\Console\Migrations\StatusCommand;
 use Illuminate\Database\Migrations\DatabaseMigrationRepository;
 
 class MigrationServiceProvider extends ServiceProvider {
@@ -78,7 +77,7 @@ class MigrationServiceProvider extends ServiceProvider {
 	 */
 	protected function registerCommands()
 	{
-		$commands = array('Migrate', 'Rollback', 'Reset', 'Refresh', 'Install', 'Make', 'Status');
+		$commands = array('Migrate', 'Rollback', 'Reset', 'Refresh', 'Install', 'Make');
 
 		// We'll simply spin through the list of commands that are migration related
 		// and register each one of them with an application container. They will
@@ -94,8 +93,7 @@ class MigrationServiceProvider extends ServiceProvider {
 		$this->commands(
 			'command.migrate', 'command.migrate.make',
 			'command.migrate.install', 'command.migrate.rollback',
-			'command.migrate.reset', 'command.migrate.refresh',
-			'command.migrate.status'
+			'command.migrate.reset', 'command.migrate.refresh'
 		);
 	}
 
@@ -147,17 +145,9 @@ class MigrationServiceProvider extends ServiceProvider {
 	 */
 	protected function registerRefreshCommand()
 	{
-		$this->app->bindShared('command.migrate.refresh', function()
+		$this->app->bindShared('command.migrate.refresh', function($app)
 		{
 			return new RefreshCommand;
-		});
-	}
-
-	protected function registerStatusCommand()
-	{
-		$this->app->bindShared('command.migrate.status', function($app)
-		{
-			return new StatusCommand($app['migrator']);
 		});
 	}
 
@@ -175,13 +165,16 @@ class MigrationServiceProvider extends ServiceProvider {
 	}
 
 	/**
-	 * Register the "make" migration command.
+	 * Register the "install" migration command.
 	 *
 	 * @return void
 	 */
 	protected function registerMakeCommand()
 	{
-		$this->registerCreator();
+		$this->app->bindShared('migration.creator', function($app)
+		{
+			return new MigrationCreator($app['files']);
+		});
 
 		$this->app->bindShared('command.migrate.make', function($app)
 		{
@@ -197,19 +190,6 @@ class MigrationServiceProvider extends ServiceProvider {
 	}
 
 	/**
-	 * Register the migration creator.
-	 *
-	 * @return void
-	 */
-	protected function registerCreator()
-	{
-		$this->app->bindShared('migration.creator', function($app)
-		{
-			return new MigrationCreator($app['files']);
-		});
-	}
-
-	/**
 	 * Get the services provided by the provider.
 	 *
 	 * @return array
@@ -220,8 +200,7 @@ class MigrationServiceProvider extends ServiceProvider {
 			'migrator', 'migration.repository', 'command.migrate',
 			'command.migrate.rollback', 'command.migrate.reset',
 			'command.migrate.refresh', 'command.migrate.install',
-			'command.migrate.status', 'migration.creator',
-			'command.migrate.make',
+			'migration.creator', 'command.migrate.make',
 		);
 	}
 

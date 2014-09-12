@@ -3,21 +3,19 @@
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Contracts\Routing\RoutableInterface;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
-use Illuminate\Contracts\Routing\Registrar as RegistrarContract;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class Router implements HttpKernelInterface, RegistrarContract, RouteFiltererInterface {
+class Router implements HttpKernelInterface, RouteFiltererInterface {
 
 	/**
 	 * The event dispatcher instance.
 	 *
-	 * @var \Illuminate\Contracts\Events\Dispatcher
+	 * @var \Illuminate\Events\Dispatcher
 	 */
 	protected $events;
 
@@ -122,7 +120,7 @@ class Router implements HttpKernelInterface, RegistrarContract, RouteFiltererInt
 	/**
 	 * Create a new Router instance.
 	 *
-	 * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+	 * @param  \Illuminate\Events\Dispatcher  $events
 	 * @param  \Illuminate\Container\Container  $container
 	 * @return void
 	 */
@@ -300,7 +298,7 @@ class Router implements HttpKernelInterface, RegistrarContract, RouteFiltererInt
 		// If a given controller method has been named, we will assign the name to the
 		// controller action array, which provides for a short-cut to method naming
 		// so you don't have to define an individual route for these controllers.
-		$action['as'] = array_get($names, $method);
+		$action['as'] = array_pull($names, $method);
 
 		$this->{$route['verb']}($route['uri'], $action);
 	}
@@ -854,7 +852,7 @@ class Router implements HttpKernelInterface, RegistrarContract, RouteFiltererInt
 	 */
 	protected function newRoute($methods, $uri, $action)
 	{
-		return (new Route($methods, $uri, $action))->setContainer($this->container);
+		return new Route($methods, $uri, $action);
 	}
 
 	/**
@@ -919,20 +917,22 @@ class Router implements HttpKernelInterface, RegistrarContract, RouteFiltererInt
 	{
 		if (is_string($action)) $action = array('uses' => $action);
 
-		// Here we'll merge any group "uses" statement if necessary so that the action
-		// has the proper clause for this property. Then we can simply set the name
-		// of the controller on the action and return the action array for usage.
+		// Here we'll get an instance of this controller dispatcher and hand it off to
+		// the Closure so it will be used to resolve the class instances out of our
+		// IoC container instance and call the appropriate methods on the class.
 		if ( ! empty($this->groupStack))
 		{
 			$action['uses'] = $this->prependGroupUses($action['uses']);
 		}
 
-		// Here we will set this controller name on the action array just so we always
-		// have a copy of it for reference if we need it. This can be used while we
-		// search for a controller name or do some other type of fetch operation.
+		// Here we'll get an instance of this controller dispatcher and hand it off to
+		// the Closure so it will be used to resolve the class instances out of our
+		// IoC container instance and call the appropriate methods on the class.
 		$action['controller'] = $action['uses'];
 
-		return $action;
+		$closure = $this->getClassClosure($action['uses']);
+
+		return array_set($action, 'uses', $closure);
 	}
 
 	/**
@@ -1025,9 +1025,7 @@ class Router implements HttpKernelInterface, RegistrarContract, RouteFiltererInt
 
 		if (is_null($response))
 		{
-			$response = $route->run(
-				$request, $this->getControllerDispatcher()
-			);
+			$response = $route->run($request);
 		}
 
 		$response = $this->prepareResponse($request, $response);
@@ -1049,8 +1047,6 @@ class Router implements HttpKernelInterface, RegistrarContract, RouteFiltererInt
 	protected function findRoute($request)
 	{
 		$this->current = $route = $this->routes->match($request);
-
-		$this->container->instance('Illuminate\Routing\Route', $route);
 
 		return $this->substituteBindings($route);
 	}
@@ -1208,7 +1204,7 @@ class Router implements HttpKernelInterface, RegistrarContract, RouteFiltererInt
 		{
 			if (is_null($value)) return null;
 
-			// For model binders, we will attempt to retrieve the models using the first
+			// For model binders, we will attempt to retrieve the models using the find
 			// method on the model instance. If we cannot retrieve the models we'll
 			// throw a not found exception otherwise we will return the instance.
 			if ($model = (new $class)->find($value))
@@ -1596,7 +1592,7 @@ class Router implements HttpKernelInterface, RegistrarContract, RouteFiltererInt
 	/**
 	 * Alias for the "currentRouteNamed" method.
 	 *
-	 * @param  mixed  string
+	 * @param  dynamic  string
 	 * @return bool
 	 */
 	public function is()
@@ -1640,7 +1636,7 @@ class Router implements HttpKernelInterface, RegistrarContract, RouteFiltererInt
 	/**
 	 * Alias for the "currentRouteUses" method.
 	 *
-	 * @param  mixed  string
+	 * @param  dynamic  string
 	 * @return bool
 	 */
 	public function uses()
@@ -1685,24 +1681,6 @@ class Router implements HttpKernelInterface, RegistrarContract, RouteFiltererInt
 	public function getRoutes()
 	{
 		return $this->routes;
-	}
-
-	/**
-	 * Set the route collection instance.
-	 *
-	 * @param  \Illuminate\Routing\RouteCollection  $routes
-	 * @return void
-	 */
-	public function setRoutes(RouteCollection $routes)
-	{
-		foreach ($routes as $route)
-		{
-			$route->setContainer($this->container);
-		}
-
-		$this->routes = $routes;
-
-		$this->container->instance('routes', $this->routes);
 	}
 
 	/**

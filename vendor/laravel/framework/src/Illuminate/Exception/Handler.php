@@ -1,20 +1,18 @@
 <?php namespace Illuminate\Exception;
 
 use Closure;
-use Exception;
 use ErrorException;
 use ReflectionFunction;
-use Illuminate\Contracts\Support\ResponsePreparer;
-use Illuminate\Contracts\Exception\Handler as HandlerContract;
+use Illuminate\Support\Contracts\ResponsePreparerInterface;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Symfony\Component\Debug\Exception\FatalErrorException as FatalError;
 
-class Handler implements HandlerContract {
+class Handler {
 
 	/**
 	 * The response preparer implementation.
 	 *
-	 * @var \Illuminate\Contracts\Support\ResponsePreparer
+	 * @var \Illuminate\Support\Contracts\ResponsePreparerInterface
 	 */
 	protected $responsePreparer;
 
@@ -56,13 +54,13 @@ class Handler implements HandlerContract {
 	/**
 	 * Create a new error handler instance.
 	 *
-	 * @param  \Illuminate\Contracts\Support\ResponsePreparer  $responsePreparer
+	 * @param  \Illuminate\Support\Contracts\ResponsePreparerInterface  $responsePreparer
 	 * @param  \Illuminate\Exception\ExceptionDisplayerInterface  $plainDisplayer
 	 * @param  \Illuminate\Exception\ExceptionDisplayerInterface  $debugDisplayer
 	 * @param  bool  $debug
 	 * @return void
 	 */
-	public function __construct(ResponsePreparer $responsePreparer,
+	public function __construct(ResponsePreparerInterface $responsePreparer,
                                 ExceptionDisplayerInterface $plainDisplayer,
                                 ExceptionDisplayerInterface $debugDisplayer,
                                 $debug = true)
@@ -143,7 +141,7 @@ class Handler implements HandlerContract {
 	 * @param  \Exception  $exception
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
-	public function handleException(Exception $exception)
+	public function handleException($exception)
 	{
 		$response = $this->callCustomHandlers($exception);
 
@@ -299,7 +297,7 @@ class Handler implements HandlerContract {
 	/**
 	 * Determine if the given handler type hints the exception.
 	 *
-	 * @param  \ReflectionFunction  $reflection
+	 * @param  ReflectionFunction  $reflection
 	 * @param  \Exception  $exception
 	 * @return bool
 	 */

@@ -7,11 +7,11 @@ use Illuminate\Support\Fluent;
 use Illuminate\Support\MessageBag;
 use Illuminate\Container\Container;
 use Symfony\Component\HttpFoundation\File\File;
-use Illuminate\Contracts\Support\MessageProvider;
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Illuminate\Support\Contracts\MessageProviderInterface;
 
-class Validator implements MessageProvider {
+class Validator implements MessageProviderInterface {
 
 	/**
 	 * The Translator implementation.
@@ -61,13 +61,6 @@ class Validator implements MessageProvider {
 	 * @var array
 	 */
 	protected $rules;
-
-	/**
-	 * All of the registered "after" callbacks.
-	 *
-	 * @var array
-	 */
-	protected $after = array();
 
 	/**
 	 * The array of custom error messages.
@@ -196,22 +189,6 @@ class Validator implements MessageProvider {
 	}
 
 	/**
-	 * After an after validation callback.
-	 *
-	 * @param  callable|string  $callback
-	 * @return $this
-	 */
-	public function after($callback)
-	{
-		$this->after[] = function() use ($callback)
-		{
-			return $this->container->call($callback, [], 'validate');
-		};
-
-		return $this;
-	}
-
-	/**
 	 * Add conditions to a given field based on a Closure.
 	 *
 	 * @param  string  $attribute
@@ -297,14 +274,6 @@ class Validator implements MessageProvider {
 			}
 		}
 
-		// Here we will spin through all of the "after" hooks on this validator and
-		// fire them off. This gives the callbacks a chance to perform all kinds
-		// of other validation that needs to get wrapped up in this operation.
-		foreach ($this->after as $after)
-		{
-			call_user_func($after);
-		}
-
 		return count($this->messages->all()) === 0;
 	}
 
@@ -327,9 +296,9 @@ class Validator implements MessageProvider {
 	 */
 	protected function validate($attribute, $rule)
 	{
-		list($rule, $parameters) = $this->parseRule($rule);
+		if (trim($rule) == '') return;
 
-		if ($rule == '') return;
+		list($rule, $parameters) = $this->parseRule($rule);
 
 		// We will get the value for the given attribute from the array of data and then
 		// verify that the attribute is indeed validatable. Unless the rule implies
@@ -1181,15 +1150,10 @@ class Validator implements MessageProvider {
 			return false;
 		}
 
-		if ($value instanceof UploadedFile && ! $value->isValid())
-		{
-			return false;
-		}
-
 		// The Symfony File class should do a decent job of guessing the extension
 		// based on the true MIME type so we'll just loop through the array of
 		// extensions and compare it to the guessed extension of the files.
-		if ($value->getPath() != '')
+		if ($value->isValid() && $value->getPath() != '')
 		{
 			return in_array($value->guessExtension(), $parameters);
 		}
@@ -1864,7 +1828,7 @@ class Validator implements MessageProvider {
 	 */
 	protected function replaceRequiredIf($message, $attribute, $rule, $parameters)
 	{
-		$parameters[1] = $this->getDisplayableValue($parameters[0], array_get($this->data, $parameters[0]));
+		$parameters[1] = $this->getDisplayableValue($parameters[0], $parameters[1]);
 
 		$parameters[0] = $this->getAttribute($parameters[0]);
 
@@ -1969,12 +1933,12 @@ class Validator implements MessageProvider {
 	 */
 	protected function getRule($attribute, $rules)
 	{
+		$rules = (array) $rules;
+
 		if ( ! array_key_exists($attribute, $this->rules))
 		{
 			return;
 		}
-
-		$rules = (array) $rules;
 
 		foreach ($this->rules[$attribute] as $rule)
 		{
@@ -1987,51 +1951,24 @@ class Validator implements MessageProvider {
 	/**
 	 * Extract the rule name and parameters from a rule.
 	 *
-	 * @param  array|string  $rules
+	 * @param  string  $rule
 	 * @return array
 	 */
-	protected function parseRule($rules)
+	protected function parseRule($rule)
 	{
-		if (is_array($rules))
-		{
-			return $this->parseArrayRule($rules);
-		}
-
-		return $this->parseStringRule($rules);
-	}
-
-	/**
-	 * Parse an array based rule.
-	 *
-	 * @param  array  $rules
-	 * @return array
-	 */
-	protected function parseArrayRule(array $rules)
-	{
-		return array(studly_case(trim(array_get($rules, 0))), array_slice($rules, 1));
-	}
-
-	/**
-	 * Parse a string based rule.
-	 *
-	 * @param  string  $rules
-	 * @return array
-	 */
-	protected function parseStringRule($rules)
-	{
-		$parameters = [];
+		$parameters = array();
 
 		// The format for specifying validation rules and parameters follows an
 		// easy {rule}:{parameters} formatting convention. For instance the
 		// rule "Max:3" states that the value may only be three letters.
-		if (strpos($rules, ':') !== false)
+		if (strpos($rule, ':') !== false)
 		{
-			list($rules, $parameter) = explode(':', $rules, 2);
+			list($rule, $parameter) = explode(':', $rule, 2);
 
-			$parameters = $this->parseParameters($rules, $parameter);
+			$parameters = $this->parseParameters($rule, $parameter);
 		}
 
-		return array(studly_case(trim($rules)), $parameters);
+		return array(studly_case($rule), $parameters);
 	}
 
 	/**
@@ -2216,19 +2153,6 @@ class Validator implements MessageProvider {
 	}
 
 	/**
-	 * Set the custom values on the validator.
-	 *
-	 * @param  array  $values
-	 * @return $this
-	 */
-	public function setValueNames(array $values)
-	{
-		$this->customValues = $values;
-
-		return $this;
-	}
-
-	/**
 	 * Get the files under validation.
 	 *
 	 * @return array
@@ -2319,52 +2243,6 @@ class Validator implements MessageProvider {
 	public function setCustomMessages(array $messages)
 	{
 		$this->customMessages = array_merge($this->customMessages, $messages);
-	}
-
-	/**
-	 * Get the custom attributes used by the validator.
-	 *
-	 * @return array
-	 */
-	public function getCustomAttributes()
-	{
-		return $this->customAttributes;
-	}
-
-	/**
-	 * Add custom attributes to the validator.
-	 *
-	 * @param  array  $customAttributes
-	 * @return $this
-	 */
-	public function addCustomAttributes(array $customAttributes)
-	{
-		$this->customAttributes = array_merge($this->customAttributes, $customAttributes);
-
-		return $this;
-	}
-
-	/**
-	 * Get the custom values for the validator.
-	 *
-	 * @return array
-	 */
-	public function getCustomValues()
-	{
-		return $this->customValues;
-	}
-
-	/**
-	 * Add the custom values for the validator.
-	 *
-	 * @param  array  $customValues
-	 * @return $this
-	 */
-	public function addCustomValues(array $customValues)
-	{
-		$this->customValues = array_merge($this->customValues, $customValues);
-
-		return $this;
 	}
 
 	/**

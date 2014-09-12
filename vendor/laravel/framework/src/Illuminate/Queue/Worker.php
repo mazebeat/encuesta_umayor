@@ -1,8 +1,8 @@
 <?php namespace Illuminate\Queue;
 
-use Illuminate\Contracts\Queue\Job;
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Contracts\Cache\Cache as CacheContract;
+use Illuminate\Queue\Jobs\Job;
+use Illuminate\Events\Dispatcher;
+use Illuminate\Cache\Repository as CacheRepository;
 use Illuminate\Queue\Failed\FailedJobProviderInterface;
 
 class Worker {
@@ -24,14 +24,14 @@ class Worker {
 	/**
 	 * The event dispatcher instance.
 	 *
-	 * @var \Illuminate\Contracts\Events\Dispatcher
+	 * @var \Illuminate\Events\Dispatcher
 	 */
 	protected $events;
 
 	/**
 	 * The cache repository implementation.
 	 *
-	 * @var \Illuminate\Contracts\Cache\Cache
+	 * @var \Illuminate\Cache\Repository
 	 */
 	protected $cache;
 
@@ -47,7 +47,7 @@ class Worker {
 	 *
 	 * @param  \Illuminate\Queue\QueueManager  $manager
 	 * @param  \Illuminate\Queue\Failed\FailedJobProviderInterface  $failer
-	 * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+	 * @param  \Illuminate\Events\Dispatcher  $events
 	 * @return void
 	 */
 	public function __construct(QueueManager $manager,
@@ -123,11 +123,6 @@ class Worker {
 	 */
 	protected function daemonShouldRun()
 	{
-		if ($this->manager->isDownForMaintenance())
-		{
-			return false;
-		}
-
 		return $this->events->until('illuminate.queue.looping') !== false;
 	}
 
@@ -169,7 +164,7 @@ class Worker {
 	 *
 	 * @param  \Illuminate\Queue\Queue  $connection
 	 * @param  string  $queue
-	 * @return \Illuminate\Contracts\Queue\Job|null
+	 * @return \Illuminate\Queue\Jobs\Job|null
 	 */
 	protected function getNextJob($connection, $queue)
 	{
@@ -185,7 +180,7 @@ class Worker {
 	 * Process a given job from the queue.
 	 *
 	 * @param  string  $connection
-	 * @param  \Illuminate\Contracts\Queue\Job  $job
+	 * @param  \Illuminate\Queue\Jobs\Job  $job
 	 * @param  int  $maxTries
 	 * @param  int  $delay
 	 * @return void
@@ -206,6 +201,8 @@ class Worker {
 			// the delete method on the job. Otherwise we will just keep moving.
 			$job->fire();
 
+			if ($job->autoDelete()) $job->delete();
+
 			return ['job' => $job, 'failed' => false];
 		}
 
@@ -224,7 +221,7 @@ class Worker {
 	 * Log a failed job into storage.
 	 *
 	 * @param  string  $connection
-	 * @param  \Illuminate\Contracts\Queue\Job  $job
+	 * @param  \Illuminate\Queue\Jobs\Job  $job
 	 * @return array
 	 */
 	protected function logFailedJob($connection, Job $job)
@@ -245,7 +242,7 @@ class Worker {
 	 * Raise the failed queue job event.
 	 *
 	 * @param  string  $connection
-	 * @param  \Illuminate\Contracts\Queue\Job  $job
+	 * @param  \Illuminate\Queue\Jobs\Job  $job
 	 * @return void
 	 */
 	protected function raiseFailedJobEvent($connection, Job $job)
@@ -330,10 +327,10 @@ class Worker {
 	/**
 	 * Set the cache repository implementation.
 	 *
-	 * @param  \Illuminate\Contracts\Cache\Cache  $cache
+	 * @param  \Illuminate\Cache\Repository  $cache
 	 * @return void
 	 */
-	public function setCache(CacheContract $cache)
+	public function setCache(CacheRepository $cache)
 	{
 		$this->cache = $cache;
 	}

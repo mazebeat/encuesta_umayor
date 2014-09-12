@@ -3,7 +3,6 @@
 use PDO;
 use Closure;
 use DateTime;
-use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Database\Query\Processors\Processor;
 use Doctrine\DBAL\Connection as DoctrineConnection;
 
@@ -54,7 +53,7 @@ class Connection implements ConnectionInterface {
 	/**
 	 * The event dispatcher instance.
 	 *
-	 * @var \Illuminate\Contracts\Events\Dispatcher
+	 * @var \Illuminate\Events\Dispatcher
 	 */
 	protected $events;
 
@@ -274,45 +273,21 @@ class Connection implements ConnectionInterface {
 	 * @param  array   $bindings
 	 * @return array
 	 */
-	public function selectFromWriteConnection($query, $bindings = array())
+	public function select($query, $bindings = array())
 	{
-		return $this->select($query, $bindings, false);
-	}
-
-	/**
-	 * Run a select statement against the database.
-	 *
-	 * @param  string  $query
-	 * @param  array  $bindings
-	 * @param  bool  $useReadPdo
-	 * @return array
-	 */
-	public function select($query, $bindings = array(), $useReadPdo = true)
-	{
-		return $this->run($query, $bindings, function($me, $query, $bindings) use ($useReadPdo)
+		return $this->run($query, $bindings, function($me, $query, $bindings)
 		{
 			if ($me->pretending()) return array();
 
 			// For select statements, we'll simply execute the query and return an array
 			// of the database result set. Each element in the array will be a single
 			// row from the database table, and will either be an array or objects.
-			$statement = $this->getPdoForSelect($useReadPdo)->prepare($query);
+			$statement = $me->getReadPdo()->prepare($query);
 
 			$statement->execute($me->prepareBindings($bindings));
 
 			return $statement->fetchAll($me->getFetchMode());
 		});
-	}
-
-	/**
-	 * Get the PDO connection to use for a select query.
-	 *
-	 * @param  bool  $useReadPdo
-	 * @return \PDO
-	 */
-	protected function getPdoForSelect($useReadPdo = true)
-	{
-		return $useReadPdo ? $this->getReadPdo() : $this->getPdo();
 	}
 
 	/**
@@ -565,7 +540,7 @@ class Connection implements ConnectionInterface {
 	 * @param  \Closure  $callback
 	 * @return mixed
 	 *
-	 * @throws \Illuminate\Database\QueryException
+	 * @throws QueryException
 	 */
 	protected function run($query, $bindings, Closure $callback)
 	{
@@ -605,7 +580,7 @@ class Connection implements ConnectionInterface {
 	 * @param  \Closure  $callback
 	 * @return mixed
 	 *
-	 * @throws \Illuminate\Database\QueryException
+	 * @throws QueryException
 	 */
 	protected function runQueryCallback($query, $bindings, Closure $callback)
 	{
@@ -638,10 +613,8 @@ class Connection implements ConnectionInterface {
 	 * @param  array     $bindings
 	 * @param  \Closure  $callback
 	 * @return mixed
-	 *
-	 * @throws \Illuminate\Database\QueryException
 	 */
-	protected function tryAgainIfCausedByLostConnection(QueryException $e, $query, $bindings, Closure $callback)
+	protected function tryAgainIfCausedByLostConnection(QueryException $e, $query, $bindings, $callback)
 	{
 		if ($this->causedByLostConnection($e))
 		{
@@ -678,8 +651,6 @@ class Connection implements ConnectionInterface {
 	 * Reconnect to the database.
 	 *
 	 * @return void
-	 *
-	 * @throws \LogicException
 	 */
 	public function reconnect()
 	{
@@ -804,7 +775,7 @@ class Connection implements ConnectionInterface {
 	/**
 	 * Get the current PDO connection.
 	 *
-	 * @return \PDO
+	 * @return PDO
 	 */
 	public function getPdo()
 	{
@@ -814,7 +785,7 @@ class Connection implements ConnectionInterface {
 	/**
 	 * Get the current PDO connection used for reading.
 	 *
-	 * @return \PDO
+	 * @return PDO
 	 */
 	public function getReadPdo()
 	{
@@ -959,7 +930,7 @@ class Connection implements ConnectionInterface {
 	/**
 	 * Get the event dispatcher used by the connection.
 	 *
-	 * @return \Illuminate\Contracts\Events\Dispatcher
+	 * @return \Illuminate\Events\Dispatcher
 	 */
 	public function getEventDispatcher()
 	{
@@ -969,10 +940,10 @@ class Connection implements ConnectionInterface {
 	/**
 	 * Set the event dispatcher instance on the connection.
 	 *
-	 * @param  \Illuminate\Contracts\Events\Dispatcher
+	 * @param  \Illuminate\Events\Dispatcher
 	 * @return void
 	 */
-	public function setEventDispatcher(Dispatcher $events)
+	public function setEventDispatcher(\Illuminate\Events\Dispatcher $events)
 	{
 		$this->events = $events;
 	}

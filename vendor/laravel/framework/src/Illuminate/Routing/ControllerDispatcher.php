@@ -1,14 +1,10 @@
 <?php namespace Illuminate\Routing;
 
 use Closure;
-use ReflectionMethod;
 use Illuminate\Http\Request;
 use Illuminate\Container\Container;
-use Illuminate\Routing\RouteDependencyResolverTrait;
 
 class ControllerDispatcher {
-
-	use RouteDependencyResolverTrait;
 
 	/**
 	 * The routing filterer implementation.
@@ -79,7 +75,7 @@ class ControllerDispatcher {
 	{
 		Controller::setFilterer($this->filterer);
 
-		return $this->container->make($controller)->setContainer($this->container);
+		return $this->container->make($controller);
 	}
 
 	/**
@@ -92,9 +88,7 @@ class ControllerDispatcher {
 	 */
 	protected function call($instance, $route, $method)
 	{
-		$parameters = $this->resolveClassMethodDependencies(
-			$route->parametersWithoutNulls(), $instance, $method
-		);
+		$parameters = $route->parametersWithoutNulls();
 
 		return $instance->callAction($method, $parameters);
 	}

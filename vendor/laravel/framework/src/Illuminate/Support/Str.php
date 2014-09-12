@@ -1,6 +1,5 @@
 <?php namespace Illuminate\Support;
 
-use Patchwork\Utf8;
 use Illuminate\Support\Traits\MacroableTrait;
 
 class Str {
@@ -15,7 +14,7 @@ class Str {
 	 */
 	public static function ascii($value)
 	{
-		return Utf8::toAscii($value);
+		return \Patchwork\Utf8::toAscii($value);
 	}
 
 	/**

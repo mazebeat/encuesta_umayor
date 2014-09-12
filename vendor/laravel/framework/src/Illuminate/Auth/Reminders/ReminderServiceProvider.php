@@ -1,6 +1,9 @@
 <?php namespace Illuminate\Auth\Reminders;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Auth\Console\RemindersTableCommand;
+use Illuminate\Auth\Console\ClearRemindersCommand;
+use Illuminate\Auth\Console\RemindersControllerCommand;
 use Illuminate\Auth\Reminders\DatabaseReminderRepository as DbRepository;
 
 class ReminderServiceProvider extends ServiceProvider {
@@ -22,6 +25,8 @@ class ReminderServiceProvider extends ServiceProvider {
 		$this->registerPasswordBroker();
 
 		$this->registerReminderRepository();
+
+		$this->registerCommands();
 	}
 
 	/**
@@ -78,13 +83,40 @@ class ReminderServiceProvider extends ServiceProvider {
 	}
 
 	/**
+	 * Register the auth related console commands.
+	 *
+	 * @return void
+	 */
+	protected function registerCommands()
+	{
+		$this->app->bindShared('command.auth.reminders', function($app)
+		{
+			return new RemindersTableCommand($app['files']);
+		});
+
+		$this->app->bindShared('command.auth.reminders.clear', function($app)
+		{
+			return new ClearRemindersCommand;
+		});
+
+		$this->app->bindShared('command.auth.reminders.controller', function($app)
+		{
+			return new RemindersControllerCommand($app['files']);
+		});
+
+		$this->commands(
+			'command.auth.reminders', 'command.auth.reminders.clear', 'command.auth.reminders.controller'
+		);
+	}
+
+	/**
 	 * Get the services provided by the provider.
 	 *
 	 * @return array
 	 */
 	public function provides()
 	{
-		return array('auth.reminder', 'auth.reminder.repository');
+		return array('auth.reminder', 'auth.reminder.repository', 'command.auth.reminders');
 	}
 
 }

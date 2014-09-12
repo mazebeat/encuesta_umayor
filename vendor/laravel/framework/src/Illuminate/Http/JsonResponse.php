@@ -1,6 +1,6 @@
 <?php namespace Illuminate\Http;
 
-use Illuminate\Contracts\Support\Jsonable;
+use Illuminate\Support\Contracts\JsonableInterface;
 
 class JsonResponse extends \Symfony\Component\HttpFoundation\JsonResponse {
 
@@ -45,24 +45,11 @@ class JsonResponse extends \Symfony\Component\HttpFoundation\JsonResponse {
 	 */
 	public function setData($data = array())
 	{
-		$this->data = $data instanceof Jsonable
-								   ? $data->toJson($this->jsonOptions)
-								   : json_encode($data, $this->jsonOptions);
+		$this->data = $data instanceof JsonableInterface
+                                   ? $data->toJson($this->jsonOptions)
+                                   : json_encode($data, $this->jsonOptions);
 
 		return $this->update();
-	}
-
-	/**
-	 * Set the JSON encoding options.
-	 *
-	 * @param  int  $options
-	 * @return mixed
-	 */
-	public function setJsonOptions($options)
-	{
-		$this->jsonOptions = $options;
-
-		return $this->setData($this->getData());
 	}
 
 }

@@ -1,11 +1,11 @@
 <?php namespace Illuminate\Cookie;
 
+use Illuminate\Encryption\Encrypter;
+use Illuminate\Encryption\DecryptException;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Illuminate\Contracts\Encryption\DecryptException;
-use Illuminate\Contracts\Encryption\Encrypter as EncrypterContract;
 
 class Guard implements HttpKernelInterface {
 
@@ -19,7 +19,7 @@ class Guard implements HttpKernelInterface {
 	/**
 	 * The encrypter instance.
 	 *
-	 * @var \Illuminate\Contracts\Encryption\Encrypter
+	 * @var \Illuminate\Encryption\Encrypter
 	 */
 	protected $encrypter;
 
@@ -27,10 +27,10 @@ class Guard implements HttpKernelInterface {
 	 * Create a new CookieGuard instance.
 	 *
 	 * @param  \Symfony\Component\HttpKernel\HttpKernelInterface  $app
-	 * @param  \Illuminate\Contracts\Encryption\Encrypter  $encrypter
+	 * @param  \Illuminate\Encryption\Encrypter  $encrypter
 	 * @return void
 	 */
-	public function __construct(HttpKernelInterface $app, EncrypterContract $encrypter)
+	public function __construct(HttpKernelInterface $app, Encrypter $encrypter)
 	{
 		$this->app = $app;
 		$this->encrypter = $encrypter;

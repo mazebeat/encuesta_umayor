@@ -5,14 +5,13 @@ use ArrayAccess;
 use Carbon\Carbon;
 use LogicException;
 use JsonSerializable;
-use Illuminate\Contracts\Support\Jsonable;
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Contracts\Routing\UrlRoutable;
+use Illuminate\Events\Dispatcher;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Contracts\JsonableInterface;
+use Illuminate\Support\Contracts\ArrayableInterface;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -23,7 +22,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\ConnectionResolverInterface as Resolver;
 
-abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, JsonSerializable {
+abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterface, JsonSerializable {
 
 	/**
 	 * The connection name for the model.
@@ -182,7 +181,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 	/**
 	 * The event dispatcher instance.
 	 *
-	 * @var \Illuminate\Contracts\Events\Dispatcher
+	 * @var \Illuminate\Events\Dispatcher
 	 */
 	protected static $dispatcher;
 
@@ -326,38 +325,6 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 	}
 
 	/**
-	 * Fill the model with an array of attributes.
-	 *
-	 * @param  array  $attributes
-	 * @return $this
-	 *
-	 * @throws \Illuminate\Database\Eloquent\MassAssignmentException
-	 */
-	public function fill(array $attributes)
-	{
-		$totallyGuarded = $this->totallyGuarded();
-
-		foreach ($this->fillableFromArray($attributes) as $key => $value)
-		{
-			$key = $this->removeTableFromKey($key);
-
-			// The developers may choose to place some attributes in the "fillable"
-			// array, which means only those attributes may be set through mass
-			// assignment to the model, and all others will just be ignored.
-			if ($this->isFillable($key))
-			{
-				$this->setAttribute($key, $value);
-			}
-			elseif ($totallyGuarded)
-			{
-				throw new MassAssignmentException($key);
-			}
-		}
-
-		return $this;
-	}
-
-	/**
 	 * Determine if a model has a global scope.
 	 *
 	 * @param  \Illuminate\Database\Eloquent\ScopeInterface  $scope
@@ -385,7 +352,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 	/**
 	 * Get the global scopes for this class instance.
 	 *
-	 * @return \Illuminate\Database\Eloquent\ScopeInterface[]
+	 * @return array
 	 */
 	public function getGlobalScopes()
 	{
@@ -414,6 +381,38 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 				static::registerModelEvent($event, $className.'@'.$event);
 			}
 		}
+	}
+
+	/**
+	 * Fill the model with an array of attributes.
+	 *
+	 * @param  array  $attributes
+	 * @return $this
+	 *
+	 * @throws MassAssignmentException
+	 */
+	public function fill(array $attributes)
+	{
+		$totallyGuarded = $this->totallyGuarded();
+
+		foreach ($this->fillableFromArray($attributes) as $key => $value)
+		{
+			$key = $this->removeTableFromKey($key);
+
+			// The developers may choose to place some attributes in the "fillable"
+			// array, which means only those attributes may be set through mass
+			// assignment to the model, and all others will just be ignored.
+			if ($this->isFillable($key))
+			{
+				$this->setAttribute($key, $value);
+			}
+			elseif ($totallyGuarded)
+			{
+				throw new MassAssignmentException($key);
+			}
+		}
+
+		return $this;
 	}
 
 	/**
@@ -591,7 +590,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 	/**
 	 * Begin querying the model.
 	 *
-	 * @return \Illuminate\Database\Eloquent\Builder
+	 * @return \Illuminate\Database\Eloquent\Builder|static
 	 */
 	public static function query()
 	{
@@ -602,7 +601,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 	 * Begin querying the model on a given connection.
 	 *
 	 * @param  string  $connection
-	 * @return \Illuminate\Database\Eloquent\Builder
+	 * @return \Illuminate\Database\Eloquent\Builder|static
 	 */
 	public static function on($connection = null)
 	{
@@ -666,26 +665,13 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 	 * @param  array  $columns
 	 * @return \Illuminate\Support\Collection|static
 	 *
-	 * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+	 * @throws ModelNotFoundException
 	 */
 	public static function findOrFail($id, $columns = array('*'))
 	{
 		if ( ! is_null($model = static::find($id, $columns))) return $model;
 
 		throw (new ModelNotFoundException)->setModel(get_called_class());
-	}
-
-	/**
-	 * Reload a fresh model instance from the database.
-	 *
-	 * @param  array  $with
-	 * @return $this
-	 */
-	public function fresh(array $with = array())
-	{
-		$key = $this->getKeyName();
-
-		return $this->exists ? static::with($with)->where($key, $this->getKey())->first() : null;
 	}
 
 	/**
@@ -1140,96 +1126,88 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 	 * Register a saving model event with the dispatcher.
 	 *
 	 * @param  \Closure|string  $callback
-	 * @param  int  $priority
 	 * @return void
 	 */
-	public static function saving($callback, $priority = 0)
+	public static function saving($callback)
 	{
-		static::registerModelEvent('saving', $callback, $priority);
+		static::registerModelEvent('saving', $callback);
 	}
 
 	/**
 	 * Register a saved model event with the dispatcher.
 	 *
 	 * @param  \Closure|string  $callback
-	 * @param  int  $priority
 	 * @return void
 	 */
-	public static function saved($callback, $priority = 0)
+	public static function saved($callback)
 	{
-		static::registerModelEvent('saved', $callback, $priority);
+		static::registerModelEvent('saved', $callback);
 	}
 
 	/**
 	 * Register an updating model event with the dispatcher.
 	 *
 	 * @param  \Closure|string  $callback
-	 * @param  int  $priority
 	 * @return void
 	 */
-	public static function updating($callback, $priority = 0)
+	public static function updating($callback)
 	{
-		static::registerModelEvent('updating', $callback, $priority);
+		static::registerModelEvent('updating', $callback);
 	}
 
 	/**
 	 * Register an updated model event with the dispatcher.
 	 *
 	 * @param  \Closure|string  $callback
-	 * @param  int  $priority
 	 * @return void
 	 */
-	public static function updated($callback, $priority = 0)
+	public static function updated($callback)
 	{
-		static::registerModelEvent('updated', $callback, $priority);
+		static::registerModelEvent('updated', $callback);
 	}
 
 	/**
 	 * Register a creating model event with the dispatcher.
 	 *
 	 * @param  \Closure|string  $callback
-	 * @param  int  $priority
 	 * @return void
 	 */
-	public static function creating($callback, $priority = 0)
+	public static function creating($callback)
 	{
-		static::registerModelEvent('creating', $callback, $priority);
+		static::registerModelEvent('creating', $callback);
 	}
 
 	/**
 	 * Register a created model event with the dispatcher.
 	 *
 	 * @param  \Closure|string  $callback
-	 * @param  int  $priority
 	 * @return void
 	 */
-	public static function created($callback, $priority = 0)
+	public static function created($callback)
 	{
-		static::registerModelEvent('created', $callback, $priority);
+		static::registerModelEvent('created', $callback);
 	}
 
 	/**
 	 * Register a deleting model event with the dispatcher.
 	 *
 	 * @param  \Closure|string  $callback
-	 * @param  int  $priority
 	 * @return void
 	 */
-	public static function deleting($callback, $priority = 0)
+	public static function deleting($callback)
 	{
-		static::registerModelEvent('deleting', $callback, $priority);
+		static::registerModelEvent('deleting', $callback);
 	}
 
 	/**
 	 * Register a deleted model event with the dispatcher.
 	 *
 	 * @param  \Closure|string  $callback
-	 * @param  int  $priority
 	 * @return void
 	 */
-	public static function deleted($callback, $priority = 0)
+	public static function deleted($callback)
 	{
-		static::registerModelEvent('deleted', $callback, $priority);
+		static::registerModelEvent('deleted', $callback);
 	}
 
 	/**
@@ -1254,16 +1232,15 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 	 *
 	 * @param  string  $event
 	 * @param  \Closure|string  $callback
-	 * @param  int  $priority
 	 * @return void
 	 */
-	protected static function registerModelEvent($event, $callback, $priority = 0)
+	protected static function registerModelEvent($event, $callback)
 	{
 		if (isset(static::$dispatcher))
 		{
 			$name = get_called_class();
 
-			static::$dispatcher->listen("eloquent.{$event}: {$name}", $callback, $priority);
+			static::$dispatcher->listen("eloquent.{$event}: {$name}", $callback);
 		}
 	}
 
@@ -1282,42 +1259,6 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 			),
 			$this->observables
 		);
-	}
-
-	/**
-	 * Set the observable event names.
-	 *
-	 * @return void
-	 */
-	public function setObservableEvents(array $observables)
-	{
-		$this->observables = $observables;
-	}
-
-	/**
-	 * Add an observable event name.
-	 *
-	 * @param  mixed  $observables
-	 * @return void
-	 */
-	public function addObservableEvents($observables)
-	{
-		$observables = is_array($observables) ? $observables : func_get_args();
-
-		$this->observables = array_unique(array_merge($this->observables, $observables));
-	}
-
-	/**
-	 * Remove an observable event name.
-	 *
-	 * @param  mixed  $observables
-	 * @return void
-	 */
-	public function removeObservableEvents($observables)
-	{
-		$observables = is_array($observables) ? $observables : func_get_args();
-
-		$this->observables = array_diff($this->observables, $observables);
 	}
 
 	/**
@@ -1588,8 +1529,6 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 		foreach ($this->touches as $relation)
 		{
 			$this->$relation()->touch();
-
-			$this->$relation->touchOwners();
 		}
 	}
 
@@ -1752,7 +1691,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 	/**
 	 * Get a new query builder for the model's table.
 	 *
-	 * @return \Illuminate\Database\Eloquent\Builder
+	 * @return \Illuminate\Database\Eloquent\Builder|static
 	 */
 	public function newQuery()
 	{
@@ -1811,7 +1750,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 	 * Remove all of the global scopes from an Eloquent builder.
 	 *
 	 * @param  \Illuminate\Database\Eloquent\Builder  $builder
-	 * @return \Illuminate\Database\Eloquent\Builder
+	 * @return void
 	 */
 	public function removeGlobalScopes($builder)
 	{
@@ -1917,16 +1856,6 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 	}
 
 	/**
-	 * Set the primary key for the model.
-	 *
-	 * @return void
-	 */
-	public function setKeyName($key)
-	{
-		$this->primaryKey = $key;
-	}
-
-	/**
 	 * Get the table qualified key name.
 	 *
 	 * @return string
@@ -1934,26 +1863,6 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 	public function getQualifiedKeyName()
 	{
 		return $this->getTable().'.'.$this->getKeyName();
-	}
-
-	/**
-	 * Get the value of the model's route key.
-	 *
-	 * @return mixed
-	 */
-	public function getRouteKey()
-	{
-	    return $this->getAttribute($this->getRouteKeyName());
-	}
-
-	/**
-	 * Get the route key for the model.
-	 *
-	 * @return string
-	 */
-	public function getRouteKeyName()
-	{
-	    return $this->getKeyName();
 	}
 
 	/**
@@ -2345,7 +2254,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 			// If the values implements the Arrayable interface we can just call this
 			// toArray method on the instances which will convert both models and
 			// collections to their proper array form and we'll set the values.
-			if ($value instanceof Arrayable)
+			if ($value instanceof ArrayableInterface)
 			{
 				$relation = $value->toArray();
 			}
@@ -2540,7 +2449,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 	{
 		$value = $this->mutateAttribute($key, $value);
 
-		return $value instanceof Arrayable ? $value->toArray() : $value;
+		return $value instanceof ArrayableInterface ? $value->toArray() : $value;
 	}
 
 	/**
@@ -2633,7 +2542,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 		// If this value is some other type of string, we'll create the DateTime with
 		// the format used by the database connection. Once we get the instance we
 		// can return back the finally formatted DateTime instances to the devs.
-		else
+		elseif ( ! $value instanceof DateTime)
 		{
 			$value = Carbon::createFromFormat($format, $value);
 		}
@@ -2771,25 +2680,23 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 	}
 
 	/**
-	 * Determine if the model or given attribute(s) have been modified.
+	 * Determine if the model or a given attribute has been modified.
 	 *
-	 * @param  array|string|null  $attributes
+	 * @param  string|null  $attribute
 	 * @return bool
 	 */
-	public function isDirty($attributes = null)
+	public function isDirty($attribute = null)
 	{
 		$dirty = $this->getDirty();
 
-		if (is_null($attributes)) return count($dirty) > 0;
-
-		if ( ! is_array($attributes)) $attributes = func_get_args();
-
-		foreach ($attributes as $attribute)
+		if (is_null($attribute))
 		{
-			if (array_key_exists($attribute, $dirty)) return true;
+			return count($dirty) > 0;
 		}
-
-		return false;
+		else
+		{
+			return array_key_exists($attribute, $dirty);
+		}
 	}
 
 	/**
@@ -2958,7 +2865,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 	/**
 	 * Get the event dispatcher instance.
 	 *
-	 * @return \Illuminate\Contracts\Events\Dispatcher
+	 * @return \Illuminate\Events\Dispatcher
 	 */
 	public static function getEventDispatcher()
 	{
@@ -2968,7 +2875,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, UrlRoutable, J
 	/**
 	 * Set the event dispatcher instance.
 	 *
-	 * @param  \Illuminate\Contracts\Events\Dispatcher  $dispatcher
+	 * @param  \Illuminate\Events\Dispatcher  $dispatcher
 	 * @return void
 	 */
 	public static function setEventDispatcher(Dispatcher $dispatcher)

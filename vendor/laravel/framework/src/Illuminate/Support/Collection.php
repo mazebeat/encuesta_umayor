@@ -7,10 +7,10 @@ use ArrayIterator;
 use CachingIterator;
 use JsonSerializable;
 use IteratorAggregate;
-use Illuminate\Contracts\Support\Jsonable;
-use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Contracts\JsonableInterface;
+use Illuminate\Support\Contracts\ArrayableInterface;
 
-class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate, Jsonable, JsonSerializable {
+class Collection implements ArrayAccess, ArrayableInterface, Countable, IteratorAggregate, JsonableInterface, JsonSerializable {
 
 	/**
 	 * The items contained in the collection.
@@ -22,14 +22,12 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 	/**
 	 * Create a new collection.
 	 *
-	 * @param  mixed  $items
+	 * @param  array  $items
 	 * @return void
 	 */
-	public function __construct($items = array())
+	public function __construct(array $items = array())
 	{
-		$items = is_null($items) ? [] : $this->getArrayableItems($items);
-
-		$this->items = (array) $items;
+		$this->items = $items;
 	}
 
 	/**
@@ -38,9 +36,13 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 	 * @param  mixed  $items
 	 * @return static
 	 */
-	public static function make($items = null)
+	public static function make($items)
 	{
-		return new static($items);
+		if (is_null($items)) return new static;
+
+		if ($items instanceof Collection) return $items;
+
+		return new static(is_array($items) ? $items : array($items));
 	}
 
 	/**
@@ -64,8 +66,6 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 
 		foreach ($this->items as $values)
 		{
-			if ($values instanceof Collection) $values = $values->all();
-
 			$results = array_merge($results, $values);
 		}
 
@@ -91,7 +91,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 	/**
 	 * Diff the collection with the given items.
 	 *
-	 * @param  \Illuminate\Support\Collection|\Illuminate\Contracts\Support\Arrayable|array  $items
+	 * @param  \Illuminate\Support\Collection|\Illuminate\Support\Contracts\ArrayableInterface|array  $items
 	 * @return static
 	 */
 	public function diff($items)
@@ -193,7 +193,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 	 */
 	public function get($key, $default = null)
 	{
-		if ($this->offsetExists($key))
+		if (array_key_exists($key, $this->items))
 		{
 			return $this->items[$key];
 		}
@@ -249,7 +249,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 	 */
 	public function has($key)
 	{
-		return $this->offsetExists($key);
+		return array_key_exists($key, $this->items);
 	}
 
 	/**
@@ -269,7 +269,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 	/**
 	 * Intersect the collection with the given items.
 	 *
- 	 * @param  \Illuminate\Support\Collection|\Illuminate\Contracts\Support\Arrayable|array  $items
+ 	 * @param  \Illuminate\Support\Collection|\Illuminate\Support\Contracts\ArrayableInterface|array  $items
 	 * @return static
 	 */
 	public function intersect($items)
@@ -333,7 +333,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 	/**
 	 * Merge the collection with the given items.
 	 *
-	 * @param  \Illuminate\Support\Collection|\Illuminate\Contracts\Support\Arrayable|array  $items
+	 * @param  \Illuminate\Support\Collection|\Illuminate\Support\Contracts\ArrayableInterface|array  $items
 	 * @return static
 	 */
 	public function merge($items)
@@ -405,8 +405,6 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 	 */
 	public function random($amount = 1)
 	{
-		if ($this->isEmpty()) return null;
-
 		$keys = array_rand($this->items, $amount);
 
 		return is_array($keys) ? array_intersect_key($this->items, array_flip($keys)) : $this->items[$keys];
@@ -425,7 +423,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 	}
 
 	/**
-	 * Create a collection of all elements that do not pass a given truth test.
+	 * Create a colleciton of all elements that do not pass a given truth test.
 	 *
 	 * @param  \Closure|mixed  $callback
 	 * @return static
@@ -696,7 +694,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 	{
 		return array_map(function($value)
 		{
-			return $value instanceof Arrayable ? $value->toArray() : $value;
+			return $value instanceof ArrayableInterface ? $value->toArray() : $value;
 
 		}, $this->items);
 	}
@@ -725,7 +723,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 	/**
 	 * Get an iterator for the items.
 	 *
-	 * @return \ArrayIterator
+	 * @return ArrayIterator
 	 */
 	public function getIterator()
 	{
@@ -816,9 +814,9 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 	}
 
 	/**
-	 * Results array of items from Collection or Arrayable.
+	 * Results array of items from Collection or ArrayableInterface.
 	 *
-  	 * @param  \Illuminate\Support\Collection|\Illuminate\Contracts\Support\Arrayable|array  $items
+  	 * @param  \Illuminate\Support\Collection|\Illuminate\Support\Contracts\ArrayableInterface|array  $items
 	 * @return array
 	 */
 	protected function getArrayableItems($items)
@@ -827,7 +825,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 		{
 			$items = $items->all();
 		}
-		elseif ($items instanceof Arrayable)
+		elseif ($items instanceof ArrayableInterface)
 		{
 			$items = $items->toArray();
 		}

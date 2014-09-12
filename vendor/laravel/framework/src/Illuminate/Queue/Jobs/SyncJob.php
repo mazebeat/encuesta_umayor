@@ -2,9 +2,8 @@
 
 use Closure;
 use Illuminate\Container\Container;
-use Illuminate\Contracts\Queue\Job as JobContract;
 
-class SyncJob extends Job implements JobContract {
+class SyncJob extends Job {
 
 	/**
 	 * The class name of the job.

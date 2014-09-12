@@ -1,13 +1,12 @@
 <?php namespace Illuminate\View;
 
 use Closure;
+use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
-use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\View\Engines\EngineResolver;
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Contracts\View\Factory as FactoryContract;
+use Illuminate\Support\Contracts\ArrayableInterface as Arrayable;
 
-class Factory implements FactoryContract {
+class Factory {
 
 	/**
 	 * The engine implementation.
@@ -26,7 +25,7 @@ class Factory implements FactoryContract {
 	/**
 	 * The event dispatcher instance.
 	 *
-	 * @var \Illuminate\Contracts\Events\Dispatcher
+	 * @var \Illuminate\Events\Dispatcher
 	 */
 	protected $events;
 
@@ -98,7 +97,7 @@ class Factory implements FactoryContract {
 	 *
 	 * @param  \Illuminate\View\Engines\EngineResolver  $engines
 	 * @param  \Illuminate\View\ViewFinderInterface  $finder
-	 * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+	 * @param  \Illuminate\Events\Dispatcher  $events
 	 * @return void
 	 */
 	public function __construct(EngineResolver $engines, ViewFinderInterface $finder, Dispatcher $events)
@@ -359,7 +358,7 @@ class Factory implements FactoryContract {
 	 * @param  \Closure|string  $callback
 	 * @param  string  $prefix
 	 * @param  int|null  $priority
-	 * @return \Closure
+	 * @return Closure
 	 */
 	protected function addViewEvent($view, $callback, $prefix = 'composing: ', $priority = null)
 	{
@@ -496,10 +495,7 @@ class Factory implements FactoryContract {
 	{
 		if ($content === '')
 		{
-			if (ob_start())
-			{
-				$this->sectionStack[] = $section;
-			}
+			ob_start() && $this->sectionStack[] = $section;
 		}
 		else
 		{
@@ -761,7 +757,7 @@ class Factory implements FactoryContract {
 	/**
 	 * Get the event dispatcher instance.
 	 *
-	 * @return \Illuminate\Contracts\Events\Dispatcher
+	 * @return \Illuminate\Events\Dispatcher
 	 */
 	public function getDispatcher()
 	{
@@ -771,7 +767,7 @@ class Factory implements FactoryContract {
 	/**
 	 * Set the event dispatcher instance.
 	 *
-	 * @param  \Illuminate\Contracts\Events\Dispatcher
+	 * @param  \Illuminate\Events\Dispatcher
 	 * @return void
 	 */
 	public function setDispatcher(Dispatcher $events)

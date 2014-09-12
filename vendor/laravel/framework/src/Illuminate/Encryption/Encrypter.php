@@ -1,11 +1,11 @@
 <?php namespace Illuminate\Encryption;
 
-use Illuminate\Contracts\Encryption\DecryptException;
 use Symfony\Component\Security\Core\Util\StringUtils;
 use Symfony\Component\Security\Core\Util\SecureRandom;
-use Illuminate\Contracts\Encryption\Encrypter as EncrypterContract;
 
-class Encrypter implements EncrypterContract {
+class DecryptException extends \RuntimeException {}
+
+class Encrypter {
 
 	/**
 	 * The encryption key.
@@ -127,7 +127,7 @@ class Encrypter implements EncrypterContract {
 	 * @param  string  $payload
 	 * @return array
 	 *
-	 * @throws \Illuminate\Contracts\Encryption\DecryptException
+	 * @throws \Illuminate\Encryption\DecryptException
 	 */
 	protected function getJsonPayload($payload)
 	{

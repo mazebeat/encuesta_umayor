@@ -27,11 +27,6 @@ class AuthServiceProvider extends ServiceProvider {
 
 			return new AuthManager($app);
 		});
-
-		$this->app->bindShared('auth.driver', function($app)
-		{
-			return $app['auth']->driver();
-		});
 	}
 
 	/**
@@ -41,7 +36,7 @@ class AuthServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return ['auth', 'auth.driver'];
+		return array('auth');
 	}
 
 }

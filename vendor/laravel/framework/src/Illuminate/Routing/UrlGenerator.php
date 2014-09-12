@@ -2,10 +2,8 @@
 
 use Illuminate\Http\Request;
 use InvalidArgumentException;
-use Illuminate\Contracts\Routing\UrlRoutable;
-use Illuminate\Contracts\Routing\UrlGenerator as UrlGeneratorContract;
 
-class UrlGenerator implements UrlGeneratorContract {
+class UrlGenerator {
 
 	/**
 	 * The route collection.
@@ -34,13 +32,6 @@ class UrlGenerator implements UrlGeneratorContract {
 	 * @var string
 	 */
 	protected $forceSchema;
-
-	/**
-	 * The root namespace being applied to controller actions.
-	 *
-	 * @var string
-	 */
-	protected $rootNamespace;
 
 	/**
 	 * Characters that should not be URL encoded.
@@ -120,8 +111,6 @@ class UrlGenerator implements UrlGeneratorContract {
 		if ($this->isValidUrl($path)) return $path;
 
 		$scheme = $this->getScheme($secure);
-
-		$extra = $this->formatParameters($extra);
 
 		$tail = implode('/', array_map(
 			'rawurlencode', (array) $extra)
@@ -234,7 +223,7 @@ class UrlGenerator implements UrlGeneratorContract {
 	{
 		$route = $route ?: $this->routes->getByName($name);
 
-		$parameters = $this->formatParameters($parameters);
+		$parameters = (array) $parameters;
 
 		if ( ! is_null($route))
 		{
@@ -312,38 +301,6 @@ class UrlGenerator implements UrlGeneratorContract {
 			return isset($parameters[$m[1]]) ? array_pull($parameters, $m[1]) : $m[0];
 
 		}, $path);
-	}
-
-	/**
-	 * Format the array of URL parameters.
-	 *
-	 * @param  mixed|array  $parameters
-	 * @return array
-	 */
-	protected function formatParameters($parameters)
-	{
-		return $this->replaceRoutableParameters($parameters);
-	}
-
-	/**
-	 * Replace UrlRoutable parameters with their route parameter.
-	 *
-	 * @param  array  $parameters
-	 * @return array
-	 */
-	protected function replaceRoutableParameters($parameters = array())
-	{
-		$parameters = is_array($parameters) ? $parameters : array($parameters);
-
-		foreach ($parameters as $key => $parameter)
-		{
-			if ($parameter instanceof UrlRoutable)
-			{
-				$parameters[$key] = $parameter->getRouteKey();
-			}
-		}
-
-		return $parameters;
 	}
 
 	/**
@@ -495,15 +452,6 @@ class UrlGenerator implements UrlGeneratorContract {
 	 */
 	public function action($action, $parameters = array(), $absolute = true)
 	{
-		if ($this->rootNamespace && ! (strpos($action, '\\') === 0))
-		{
-			$action = $this->rootNamespace.'\\'.$action;
-		}
-		else
-		{
-			$action = trim($action, '\\');
-		}
-
 		return $this->route($action, $parameters, $absolute, $this->routes->getByAction($action));
 	}
 
@@ -582,32 +530,6 @@ class UrlGenerator implements UrlGeneratorContract {
 	public function setRequest(Request $request)
 	{
 		$this->request = $request;
-	}
-
-	/**
-	 * Set the route collection.
-	 *
-	 * @param  \Illuminate\Routing\RouteCollection  $routes
-	 * @return $this
-	 */
-	public function setRoutes(RouteCollection $routes)
-	{
-		$this->routes = $routes;
-
-		return $this;
-	}
-
-	/**
-	 * Set the root controller namespace.
-	 *
-	 * @param  string  $rootNamespace
-	 * @return $this
-	 */
-	public function setRootControllerNamespace($rootNamespace)
-	{
-		$this->rootNamespace = $rootNamespace;
-
-		return $this;
 	}
 
 }

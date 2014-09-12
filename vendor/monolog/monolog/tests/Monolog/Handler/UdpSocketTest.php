@@ -4,9 +4,6 @@ namespace Monolog\Handler;
 
 use Monolog\TestCase;
 
-/**
- * @requires extension sockets
- */
 class UdpSocketTest extends TestCase
 {
     public function testWeDoNotSplitShortMessages()
