@@ -12,7 +12,7 @@ class CreateSurveysTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('survey', function(Blueprint $table)
+		Schema::create('surveys', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('title');

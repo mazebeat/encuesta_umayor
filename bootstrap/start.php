@@ -25,7 +25,8 @@ $app = new Illuminate\Foundation\Application;
 */
 
 $env = $app->detectEnvironment(array(
-	'local' => array('DPINTO-HP'),
+//	'local' => array('DPINTO-HP'),
+	'local' => array('MAZEPC'),
 ));
 
 /*

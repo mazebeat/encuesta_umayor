@@ -25,7 +25,7 @@ return array(
 			'host'			=> 'localhost',
 			'database'	=> 'survey',
 			'username'	=> 'root',
-			'password'	=> '1234',
+			'password'	=> '120712',
 			'charset'		=> 'utf8',
 			'collation'	=> 'utf8_unicode_ci',
 			'prefix'		=> '',

@@ -12,11 +12,13 @@ class CreateQuestionTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('question', function(Blueprint $table)
+		Schema::create('questions', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('text');
 			$table->tinyInteger('state');
+			$table->integer('survey_id')->unsigned();
+			$table->foreign('survey_id')->references('id')->on('surveys');
 			$table->timestamps();
 		});
 	}
