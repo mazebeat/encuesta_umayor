@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function()
+{
 	return View::make('hello');
 });
 
@@ -21,20 +22,35 @@ Route::get('survey', function () {
 });
 
 HTML::macro('survey', function ($questions, $title = "SURVEY DEMO") {
-	$count  = 1;
+	$count = 1;
 	$output = '';
-	$output .= '<fieldset class="col-md-offset-1"><legend>' . $title . '</legend>';
+	$output .= '<fieldset class=""><legend>' . $title . '</legend>';
 	$output .= Form::open();
 	foreach ($questions as $question) {
 		$answers = Question::find($question->id)->answers()->select('text')->get();
 		$output .= '<h4>' . $count++ . '- ' . $question->text . '</h4>';
 		foreach ($answers as $answer) {
-			$output .= '<div class="input-group col-xs-8 col-sm-8 col-md-8"><span class="input-group-addon">';
-			$output .= '<input type="radio" name="' . $question->id . '" value="' . $answer->id . '></span>';
-			$output .= '<label type="text" class="form-control">' . $answer->text . '</label></div>';
+			$output .= '<div class="col-xs-12 col-sm-12 col-lg-12">';
+			$output .= '<div class="input-group">';
+			$output .= '<span class="input-group-addon beautiful">';
+			$output .= '<input type="radio" name=" ' . $question->id . ' " value=" ' . $answer->id . ' ">';
+			$output .= '</span>';
+			$output .= '<input type="text" class="form-control" placeholder=" '  . $answer->text . ' " readonly>';
+			// $output .= '<label type="text" class="">' . $answer->text . '</label>';
+			$output .= '</div><!-- /input-group -->';
+			$output .= '</div><!-- /.col-lg-6 -->';
+
+			// <div class="col-lg-6">
+			// 	<div class="input-group">
+			// 		<span class="input-group-addon">
+			// 			<input type="radio">
+			// 		</span>
+			// 		<input type="text" class="form-control">
+			// 	</div><!-- /input-group -->
+			// </div><!-- /.col-lg-6 -->
 		}
 	}
-	$output .= '<button class="btn btn-primary btn-lg pull-right" id="botonRegistrar">CONTESTAR</button>';
+	$output .= '<button class="btn btn-primary">CONTESTAR</button>';
 	$output .= Form::close();
 	$output .= '</fieldset>';
 

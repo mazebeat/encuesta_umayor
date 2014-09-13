@@ -1,26 +1,26 @@
 <?php
 
-use Illuminate\Auth\Reminders\RemindableInterface;
-use Illuminate\Auth\Reminders\RemindableTrait;
-use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\UserTrait;
+use Illuminate\Auth\UserInterface;
+use Illuminate\Auth\Reminders\RemindableTrait;
+use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface
-{
+class User extends Eloquent implements UserInterface, RemindableInterface {
+
 	use UserTrait, RemindableTrait;
 
-	protected $table = 'users';
-	protected $primaryKey = 'id';
-	protected $guarded = array();
-	protected $fillable = array();
-	protected $hidden = array();
+	/**
+	 * The database table used by the model.
+	 *
+	 * @var string
+	 */
+	protected $table = 'user';
 
-	public static $rules = array(// 'title' => 'required'
-	);
-
-	public function User_answer()
-	{
-		return $this->hasMany('User_answer', 'user_id');
-	}
+	/**
+	 * The attributes excluded from the model's JSON form.
+	 *
+	 * @var array
+	 */
+	protected $hidden = array('password', 'remember_token');
 
 }

@@ -16,7 +16,6 @@ class CreateAnswerTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('text');
-			$table->tinyInteger('state');
 			$table->timestamps();
 		});
 	}

@@ -1,9 +1,6 @@
 <?php
 
-use Illuminate\View\View;
-
-class HomeController extends BaseController
-{
+class HomeController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------

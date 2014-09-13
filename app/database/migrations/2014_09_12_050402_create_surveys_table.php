@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateSurveyTable extends Migration {
+class CreateSurveysTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -16,7 +16,7 @@ class CreateSurveyTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('title');
-			$table->string('slgan');
+			$table->mediumText('slogan');
 			$table->timestamps();
 		});
 	}
@@ -29,7 +29,7 @@ class CreateSurveyTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('surveys');
+		Schema::drop('survey');
 	}
 
 }
