@@ -6,7 +6,7 @@
 @stop
 
 @section('content')
-{{ HTML::survey($questions, 'FIRST SURVEY') }}
+	{{ HTML::survey($questions, 'FIRST SURVEY') }}
 @stop
 
 @section('script')
