@@ -23,7 +23,7 @@ HTML::macro('survey', function ($survey, $questions) {
 		}
 	}
 	$output .= '<div class="clearfix"></div><div>';
-	$output .=  HTML::link('/', 'Volver', array('class' => 'btn btn-default btn-lg text-uppercase'));
+	$output .=  HTML::link('/logout', 'Salir', array('class' => 'btn btn-default btn-lg text-uppercase'));
 	$output .=  Form::submit('Contestar!', array('id' => 'submit_survey', 'class' => 'btn btn-hot text-uppercase btn-lg pull-right'));
 	$output .= '</div>';
 	$output .= '</div><!-- /.col-lg-12 -->';

@@ -11,11 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-	return View::make('index');
-});
-
-Route::post('/', 'HomeController@index');
+Route::get('/', 'HomeController@index');
+Route::post('/', 'HomeController@validate');
+Route::get('logout', 'HomeController@logout');
 
 Route::resource('survey', 'SurveyController');
 

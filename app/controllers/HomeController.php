@@ -14,8 +14,12 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
 	public function index()
+	{
+		return View::make('index');
+	}
+
+	public function validate()
 	{
 		$user = new User();
 		if($user->surveyComplete(1, 1)){
@@ -25,4 +29,9 @@ class HomeController extends BaseController {
 		}
 	}
 
+	public function logout()
+	{
+		Session::flush();
+		return View::make('index');
+	}
 }
