@@ -17,36 +17,38 @@ Route::get('/', function () {
 
 Route::resource('survey', 'SurveyController');
 
-//Route::get('test', function(){});
+//Route::get('test', function(){
+//	printr();
+//});
 
-function printr($a) {
+function printr($a)
+{
 	echo "<pre>" . htmlspecialchars(print_r($a, true)) . "</pre>";
 }
 
 HTML::macro('survey', function ($questions, $title = "SURVEY DEMO") {
 	$count  = 1;
-	$output = '';
-	$output .= '<fieldset class=""><legend>' . $title . '</legend>';
-//	$output .= Form::open(array('url' => 'question', 'method' => 'POST'));
+	$output = '<fieldset><legend>' . $title . '</legend>';
+	//	$output .= Form::open(array('url' => 'question', 'method' => 'POST'));
 	$output .= Form::open();
-	foreach ($questions as $question) {
-		$answers = Question::find($question->id)->answers()->select('text')->get();
-		if (count($answers)) {
+	$output .= '<div class="col-xs-12 col-sm-12 col-lg-12">';
+	foreach($questions as $question) {
+		$answers = Question::find($question->id)->answers()->select(array('answers.id','text'))->get();
+		if(count($answers)) {
 			$output .= '<h4>' . $count++ . ' - ' . $question->text . '</h4>';
-			foreach ($answers as $answer) {
-				$output .= '<div class="col-xs-12 col-sm-12 col-lg-12">';
-				$output .= '<div class="input-group">';
-				$output .= '<span class="input-group-addon">';
-				$output .= '<input type="radio" name="' . $question->id . '" data-question="' . $question->id . '" value="' . $answer->id . '">';
-				$output .= '</span>';
-				$output .= '<input type="text" class="form-control" value="' . $answer->text . '" readonly>';
-				$output .= '</div><!-- /input-group -->';
-				$output .= '</div><!-- /.col-lg-6 -->';
+			foreach($answers as $answer) {
+				$output .= '<div class="radio">
+				<label>
+				<input type="radio" name="' . $question->id . '" value="' . $answer->id . '">
+				' . $answer->text . '
+				</label>
+				</div>';
 			}
 		}
 	}
-	$output .= HTML::link('/logout', 'VOLVER', array('class' => 'btn btn-default btn-lg'));
-	$output .= Form::submit('CONTESTAR!', array('id' => 'submit_survey' , 'class' => 'btn btn-primary btn-lg'));
+	$output .= '</div><!-- /.col-lg-12 -->';
+	$output .= HTML::link('/logout', 'VOLVER', array('class' => 'btn btn-default'));
+	$output .= Form::submit('CONTESTAR!', array('id' => 'submit_survey', 'class' => 'btn btn-warning'));
 	$output .= Form::close();
 	$output .= '</fieldset>';
 

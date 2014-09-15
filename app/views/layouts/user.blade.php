@@ -6,15 +6,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{{ $title or 'DEMO' }}}</title>
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	{{ HTML::script('//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js') }}
+	{{ HTML::script('//oss.maxcdn.com/respond/1.4.2/respond.min.js') }}
 	<![endif]-->
+
+	<!-- Latest compiled and minified CSS -->
+<!--	{{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}-->
+<!--	{{ HTML::style('css/custom.css') }}-->
+	{{ HTML::style('css/skins/all.css') }}
+	{{ HTML::style('css/test.php') }}
 	@yield('style')
 </head>
 <body>
@@ -26,12 +29,15 @@
 		</div>
 	</div>
 	<footer class="container">
-		<p>Copyright 2014 Intelidata© - Universidad Mayor</p>
+		<p>Copyright 2014 Intelidata - Universidad Mayor</p>
 	</footer>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!--	{{ HTML::script('//code.jquery.com/jquery-1.11.0.min.js') }}-->
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!--	{{ HTML::script('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}-->
+	<!-- iCheck Plugin -->
+	{{ HTML::script('js/icheck.js') }}
+	<!-- Custom script -->
 	@yield('script')
 </body>
 </html>

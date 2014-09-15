@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Laravel PHP Framework</title>
+	<link href="css/skins/all.css" rel="stylesheet">
 	<style>
 		@import url(//fonts.googleapis.com/css?family=Lato:700);
 
@@ -34,6 +35,7 @@
 	</style>
 </head>
 <body>
+
 <input type="checkbox">
 <input type="checkbox" checked>
 <input type="radio" name="iCheck">
@@ -46,12 +48,12 @@
 
 	<h1>You have arrived.</h1>
 </div>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/icheck.js"></script>
 <script>
 	$(document).ready(function(){
-		$('input').iCheck({
-			checkboxClass: 'icheckbox_square-red',
-			radioClass: 'iradio_square-red',
-			increaseArea: '20%' // optional
+		$('input[type=radio]').iCheck({
+			radioClass: 'iradio_flat-yellow'
 		});
 	});
 </script>

@@ -194,7 +194,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 
 		'Debugbar'           => 'Barryvdh\Debugbar\Facade',
-		'Faker' => 'Faker\Factory',
+		'Faker'             => 'Faker\Factory',
 
 	),
 

@@ -10,7 +10,8 @@
         "way/generators": "~2.0",
         "barryvdh/laravel-debugbar": "1.*",
         "barryvdh/laravel-ide-helper": "1.*",
-        "doctrine/dbal": "~2.3"
+        "doctrine/dbal": "~2.3",
+        "leafo/lessphp": "0.4.0"
 	},
 	"autoload": {
 		"classmap": [

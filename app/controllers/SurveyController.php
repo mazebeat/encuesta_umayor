@@ -11,8 +11,7 @@ class SurveyController extends BaseController
 	 */
 	public function index()
 	{
-		$questions = Question::all();
-
+		$questions = Question::select(array('id','text'))->whereState(true);
 		return View::make('showSurvey')->with('questions', $questions);
 	}
 
@@ -39,7 +38,6 @@ class SurveyController extends BaseController
 		$inputs          = Input::except('_token');
 		$question        = new Question();
 		$question_answer = new QuestionAnswer();
-		$user            = new User();
 
 		foreach($inputs as $question_id => $answer_id) {
 			$new_question_answer_id = $question_answer->returnId((int)$question_id, (int)$answer_id);
@@ -54,6 +52,9 @@ class SurveyController extends BaseController
 			$user_answer->question_answer_id = (int) $new_question_answer_id;
 			$user_answer->save();
 		}
+//		unset($inputs);
+//		unset($question);
+//		unset($question_answer);
 	}
 
 	/**

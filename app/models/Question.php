@@ -3,13 +3,13 @@
 /**
  * Question
  *
- * @property integer $id
- * @property string $text
- * @property boolean $state
- * @property integer $survey_id
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
- * @property-read \Survey $survey
+ * @property integer                                                 $id
+ * @property string                                                  $text
+ * @property boolean                                                 $state
+ * @property integer                                                 $survey_id
+ * @property \Carbon\Carbon                                          $created_at
+ * @property \Carbon\Carbon                                          $updated_at
+ * @property-read \Survey                                            $survey
  * @property-read \Illuminate\Database\Eloquent\Collection|\Answer[] $answers
  * @method static \Illuminate\Database\Query\Builder|\Question whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Question whereText($value)
@@ -23,8 +23,9 @@ class Question extends Eloquent
 	protected $table = 'questions';
 	protected $primaryKey = 'id';
 	//	protected $fillable = array('text');
-	protected $hidden = array('id','survey_id');
+	//	protected $hidden = array('id','survey_id');
 	//	public static $rules = array(// 'title' => 'required');
+
 	public function survey()
 	{
 		return $this->belongsTo('Survey');
@@ -38,15 +39,13 @@ class Question extends Eloquent
 	public function responsed($user_id, $question_id)
 	{
 		$user = new User();
-		return $user->find($user_id)
-		->questionAnswers()
-		->where('question_id', $question_id)
-		->where('state',true)
-		->first();
+
+		return $user->find($user_id)->questionAnswers()->where('question_id', $question_id)->where('state', true)->first();
 		// return Cliente::find(Session::get('ses_user_id'))->clientePreguntas()->where(DB::raw('return_pregunta(id_pregunta_respuesta)'), $idPregunta)->where('estado', 'A')->first();
 	}
 
-	public function scopeActive($query) {
+	public function scopeActive($query)
+	{
 		return $query->whereState(true);
 	}
 }
