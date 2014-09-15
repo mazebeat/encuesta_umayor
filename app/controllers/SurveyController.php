@@ -35,23 +35,23 @@ class SurveyController extends BaseController
 	 */
 	public function store()
 	{
-		$user_id  = 1;
-		$inputs   = Input::except('_token');
-		$question = new Question();
+		$user_id         = 1;
+		$inputs          = Input::except('_token');
+		$question        = new Question();
 		$question_answer = new QuestionAnswer();
-		foreach ($inputs as $question_id => $answer_id) {
+		$user            = new User();
 
-			$question_answer_id = $question_answer->returnId((int)$question_id, (int)$answer_id);
-
-			if($a = $question->responsed($user_id, $question_answer_id)) {
-				$a->estado = 'B';
-				$a->save();
+		foreach($inputs as $question_id => $answer_id) {
+			$new_question_answer_id = $question_answer->returnId((int)$question_id, (int)$answer_id);
+			$responsed              = $question->responsed((int)$user_id, (int)$question_id);
+			if(count($responsed)) {
+				$responsed->pivot->state = false;
+				$responsed->pivot->save();
 			}
-
 			$user_answer                     = new UserAnswer();
-			$user_answer->user_id            = $user_id;
+			$user_answer->user_id            = (int) $user_id;
 			$user_answer->state              = true;
-			$user_answer->question_answer_id = $question_answer_id;
+			$user_answer->question_answer_id = (int) $new_question_answer_id;
 			$user_answer->save();
 		}
 	}

@@ -35,13 +35,13 @@ class Question extends Eloquent
 		return $this->belongsToMany('Answer', 'question_answer', 'question_id', 'answer_id');
 	}
 
-	public function responsed($user_id, $question_answer_id)
+	public function responsed($user_id, $question_id)
 	{
 		$user = new User();
 		return $user->find($user_id)
 		->questionAnswers()
-		->where('question_answer_id', $question_answer_id)
-		->where('state',1)
+		->where('question_id', $question_id)
+		->where('state',true)
 		->first();
 		// return Cliente::find(Session::get('ses_user_id'))->clientePreguntas()->where(DB::raw('return_pregunta(id_pregunta_respuesta)'), $idPregunta)->where('estado', 'A')->first();
 	}

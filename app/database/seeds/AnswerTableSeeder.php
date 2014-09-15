@@ -1,16 +1,16 @@
 <?php
 
-class AnswerTableSeeder extends Seeder {
+class AnswerTableSeeder extends Seeder
+{
 
 	public function run()
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 8) as $index)
-		{
-			Answer::create([
-                    	'text' => $faker->word,
-			]);
+		foreach(range(1, 8) as $index) {
+			Answer::create(array(
+				'text' => $faker->word,
+			));
 		}
 	}
 

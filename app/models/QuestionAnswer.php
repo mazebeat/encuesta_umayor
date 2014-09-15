@@ -22,11 +22,11 @@ class QuestionAnswer extends Eloquent
 	protected $primaryKey = 'id';
 	protected $fillable = array();
 	protected $hidden = array('id');
-	//	public static $rules = array(// 'title' => 'required' 	);
+	//	public static $rules = array(// 'title' => 'required');
 
 	public function users()
 	{
-		return $this->belongsToMany('User', 'user_answer', 'question_answer_id', 'user_id');
+		return $this->belongsToMany('User', 'user_answer', 'question_answer_id', 'user_id')->withPivot('state');
 	}
 
 	public function userAnswer()

@@ -17,6 +17,8 @@ class CreateSurveysTable extends Migration {
 			$table->increments('id');
 			$table->string('title');
 			$table->mediumText('slogan');
+			$table->longText('description');
+			$table->tinyInteger('state');
 			$table->timestamps();
 		});
 	}

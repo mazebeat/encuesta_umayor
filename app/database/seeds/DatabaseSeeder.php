@@ -1,6 +1,7 @@
 <?php
 
-class DatabaseSeeder extends Seeder {
+class DatabaseSeeder extends Seeder
+{
 
 	/**
 	 * Run the database seeds.
@@ -16,8 +17,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('QuestionTableSeeder');
 		$this->call('AnswerTableSeeder');
 		$this->call('QuestionAnswerTableSeeder');
-		$this->call('UserAnswerTableSeeder');
-
+//		$this->call('UserAnswerTableSeeder');
 	}
 
 }

@@ -17,19 +17,7 @@ Route::get('/', function () {
 
 Route::resource('survey', 'SurveyController');
 
-Route::get('test', function(){
-	$a = new Question();
-	// $a = $a->returnId(1,1);
-	// $a = QuestionAnswer::find(31)->users;
-	$a = $a->responsed(1, 2);
-	// $a = new User();
-	// $a = $a->find(1)
-	// ->questionAnswers()
-	// ->where('id', 36);
-	// $a = $a->questionAnswers;
-	printr($a);
-});
-
+//Route::get('test', function(){});
 
 function printr($a) {
 	echo "<pre>" . htmlspecialchars(print_r($a, true)) . "</pre>";
