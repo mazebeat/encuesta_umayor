@@ -39,19 +39,17 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 		return $this->hasMany('UserAnswer', 'user_id');
 	}
 
-	public function surveyComplete($user_id = 1, $survey_id = 1)
+	public function surveyComplete($user_id, $survey_id)
 	{
-		$pass = false;
 		$question  = new Question();
 		$questions = $question->whereState(true)->whereSurveyId($survey_id)->get();
 		foreach($questions as $value) {
 			$responsed = $question->responsed((int)$user_id, (int)$value->id);
-			if(count($responsed)) {
-				$pass = true;
-			} else {
-				$pass = false;
-			}
+
+			if(!count($responsed))
+				return false;
 		}
-		return $pass;
+
+		return true;
 	}
 }

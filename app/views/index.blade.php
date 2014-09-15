@@ -1,10 +1,7 @@
-
 @extends('layouts.user')
 
 @section('style')
-<style>
-	body{padding-top:20px;}
-</style>
+@parent
 @stop
 
 @section('content')
@@ -19,10 +16,13 @@
 					<div class="form-group">
 						<input class="form-control" placeholder="Rut" name="rut" type="text" value="">
 					</div>
-					<input class="btn btn-lg btn-danger btn-block" type="submit" value="Login">
+					<input class="btn btn-lg btn-hot btn-block" type="submit" value="Login">
 				</fieldset>
 			{{ Form::close()  }}
 		</div>
 	</div>
 </div>
+@stop
+
+@section('script')
 @stop

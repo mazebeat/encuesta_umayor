@@ -17,6 +17,7 @@
 	{{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}
 	{{-- iCheck style --}}
 	{{ HTML::style('css/skins/all.css') }}
+	{{ HTML::style('css/custom.css') }}
 	{{ HTML::style('css/test.php') }}
 	<style type="text/css">
 	@section('style')

@@ -11,6 +11,6 @@ class Func {
 	public static function printr($a)
 	{
 		echo "<pre>" . htmlspecialchars(print_r($a, true)) . "</pre>";
-		die();
+//		die();
 	}
 } 

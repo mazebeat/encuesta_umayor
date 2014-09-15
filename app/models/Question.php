@@ -39,6 +39,7 @@ class Question extends Eloquent
 	public function responsed($user_id, $question_id)
 	{
 		$user = new User();
+//		Func::printr(($user->find($user_id)->questionAnswers()->where('question_id', $question_id)->where('state', true)->first()));
 		return $user->find($user_id)->questionAnswers()->where('question_id', $question_id)->where('state', true)->first();
 	}
 

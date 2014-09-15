@@ -11,9 +11,11 @@ class SurveyController extends BaseController
 	 */
 	public function index()
 	{
+		$survey = new Survey();
+		$survey = $survey->whereState(true)->firstOrFail();
 		$questions = new Question();
-		$questions = $questions->select(array('id', 'text'))->where('state', 1)->where('survey_id', 1)->get();
-		return View::make('showSurvey')->with('questions', $questions);
+		$questions = $questions->select(array('id', 'text'))->where('state', true)->where('survey_id', 1)->get();
+		return View::make('showSurvey')->with('survey', $survey)->with('questions', $questions);
 	}
 
 	/**
@@ -36,6 +38,7 @@ class SurveyController extends BaseController
 	public function store()
 	{
 		$user_id         = 1;
+		$pass = false;
 		$inputs          = Input::except('_token');
 		$question        = new Question();
 		$question_answer = new QuestionAnswer();
@@ -52,10 +55,17 @@ class SurveyController extends BaseController
 			$user_answer->state              = true;
 			$user_answer->question_answer_id = (int)$new_question_answer_id;
 			$user_answer->save();
+			$pass = true;
 		}
 		unset($inputs);
 		unset($question);
 		unset($question_answer);
+
+		if($pass)
+			return View::make('success');
+		else
+			$msg = 'Error al enviar el formulario';
+			return Redirect::back()->compact('msg');
 	}
 
 	/**

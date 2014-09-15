@@ -4,7 +4,10 @@
 @parent
 	label {
 		padding-left: 0;
-		min-width: 80%;
+		min-width: 100%;
+	}
+	label.hover {
+		background-color: rgba(0, 0, 0, 0.1);
 	}
 	input[type=radio] {
 		margin-right: 10px;
@@ -12,7 +15,10 @@
 @stop
 
 @section('content')
-	{{ HTML::survey($questions, 'FIRST SURVEY') }}
+	<div class="col-md-12">
+		{{ $msg or ''  }}
+		{{ HTML::survey($survey, $questions) }}
+	</div>
 @stop
 
 @section('script')
@@ -21,7 +27,7 @@
 		$('input[type=radio]').iCheck({
 			radioClass: 'iradio_square-yellow',
 			increaseArea: '20%',
-			labelHover: false,
+			labelHover: true,
 			cursor: true
 		});
 	});
