@@ -12,6 +12,9 @@
 	input[type=radio] {
 		margin-right: 10px;
 	}
+	.question {
+		margin-bottom: 30px;
+	}
 @stop
 
 @section('content')

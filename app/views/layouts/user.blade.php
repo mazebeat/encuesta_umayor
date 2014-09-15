@@ -24,6 +24,7 @@
 		body {
 			padding-top: 60px;
     	    padding-bottom: 40px;
+    	    background: url("image/background.jpg") top center repeat-x;
         }
 	@show
 	</style>
