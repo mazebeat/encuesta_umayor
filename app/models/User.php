@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Auth\UserTrait;
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
+use Illuminate\Auth\Reminders\RemindableTrait;
+use Illuminate\Auth\UserInterface;
+use Illuminate\Auth\UserTrait;
 
 /**
  * User
@@ -37,5 +37,21 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 	public function userAnswer()
 	{
 		return $this->hasMany('UserAnswer', 'user_id');
+	}
+
+	public function surveyComplete($user_id = 1, $survey_id = 1)
+	{
+		$pass = false;
+		$question  = new Question();
+		$questions = $question->whereState(true)->whereSurveyId($survey_id)->get();
+		foreach($questions as $value) {
+			$responsed = $question->responsed((int)$user_id, (int)$value->id);
+			if(count($responsed)) {
+				$pass = true;
+			} else {
+				$pass = false;
+			}
+		}
+		return $pass;
 	}
 }

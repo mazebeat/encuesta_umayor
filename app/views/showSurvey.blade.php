@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 @section('style')
-<style>
+@parent
 	label {
 		padding-left: 0;
 		min-width: 80%;
@@ -9,12 +9,9 @@
 	input[type=radio] {
 		margin-right: 10px;
 	}
-</style>
 @stop
 
 @section('content')
-
-
 	{{ HTML::survey($questions, 'FIRST SURVEY') }}
 @stop
 

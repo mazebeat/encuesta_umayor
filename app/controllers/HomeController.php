@@ -15,9 +15,14 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function index()
 	{
-		return View::make('hello');
+		$user = new User();
+		if($user->surveyComplete(1, 1)){
+			return View::make('user_decision');
+		} else {
+			return Redirect::action('SurveyController@index');
+		}
 	}
 
 }

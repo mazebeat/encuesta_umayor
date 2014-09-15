@@ -6,19 +6,26 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{{ $title or 'DEMO' }}}</title>
 
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
+	{{-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --}}
+	{{-- WARNING: Respond.js doesn't work if you view the page via file:// --}}
+	{{--[if lt IE 9]>
 	{{ HTML::script('//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js') }}
 	{{ HTML::script('//oss.maxcdn.com/respond/1.4.2/respond.min.js') }}
-	<![endif]-->
+	<![endif]--}}
 
-	<!-- Latest compiled and minified CSS -->
-<!--	{{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}-->
-<!--	{{ HTML::style('css/custom.css') }}-->
+	{{-- Latest compiled and minified CSS --}}
+	{{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}
+	{{-- iCheck style --}}
 	{{ HTML::style('css/skins/all.css') }}
 	{{ HTML::style('css/test.php') }}
-	@yield('style')
+	<style type="text/css">
+	@section('style')
+		body {
+			padding-top: 60px;
+    	    padding-bottom: 40px;
+        }
+	@show
+	</style>
 </head>
 <body>
 	<header class="container">
@@ -31,13 +38,13 @@
 	<footer class="container">
 		<p>Copyright 2014 Intelidata - Universidad Mayor</p>
 	</footer>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!--	{{ HTML::script('//code.jquery.com/jquery-1.11.0.min.js') }}-->
-	<!-- Latest compiled and minified JavaScript -->
-<!--	{{ HTML::script('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}-->
-	<!-- iCheck Plugin -->
+	{{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
+	{{ HTML::script('//code.jquery.com/jquery-1.11.0.min.js') }}
+	{{-- Latest compiled and minified JavaScript --}}
+	{{ HTML::script('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}
+	{{-- iCheck Plugin --}}
 	{{ HTML::script('js/icheck.js') }}
-	<!-- Custom script -->
+	{{-- Custom script --}}
 	@yield('script')
 </body>
 </html>

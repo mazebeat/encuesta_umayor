@@ -12,45 +12,15 @@
 */
 
 Route::get('/', function () {
-	return View::make('hello');
+	return View::make('index');
 });
+
+Route::post('/', 'HomeController@index');
 
 Route::resource('survey', 'SurveyController');
 
-//Route::get('test', function(){
-//	printr();
-//});
-
-function printr($a)
-{
-	echo "<pre>" . htmlspecialchars(print_r($a, true)) . "</pre>";
-}
-
-HTML::macro('survey', function ($questions, $title = "SURVEY DEMO") {
-	$count  = 1;
-	$output = '<fieldset><legend>' . $title . '</legend>';
-	//	$output .= Form::open(array('url' => 'question', 'method' => 'POST'));
-	$output .= Form::open();
-	$output .= '<div class="col-xs-12 col-sm-12 col-lg-12">';
-	foreach($questions as $question) {
-		$answers = Question::find($question->id)->answers()->select(array('answers.id','text'))->get();
-		if(count($answers)) {
-			$output .= '<h4>' . $count++ . ' - ' . $question->text . '</h4>';
-			foreach($answers as $answer) {
-				$output .= '<div class="radio">
-				<label>
-				<input type="radio" name="' . $question->id . '" value="' . $answer->id . '">
-				' . $answer->text . '
-				</label>
-				</div>';
-			}
-		}
-	}
-	$output .= '</div><!-- /.col-lg-12 -->';
-	$output .= HTML::link('/logout', 'VOLVER', array('class' => 'btn btn-default'));
-	$output .= Form::submit('CONTESTAR!', array('id' => 'submit_survey', 'class' => 'btn btn-warning'));
-	$output .= Form::close();
-	$output .= '</fieldset>';
-
-	return $output;
+Route::get('test', function(){
+	$u = new User();
+	Func::printr($u->surveyComplete(1, 1));
+//	return View::make('test');
 });

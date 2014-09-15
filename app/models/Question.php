@@ -39,9 +39,7 @@ class Question extends Eloquent
 	public function responsed($user_id, $question_id)
 	{
 		$user = new User();
-
 		return $user->find($user_id)->questionAnswers()->where('question_id', $question_id)->where('state', true)->first();
-		// return Cliente::find(Session::get('ses_user_id'))->clientePreguntas()->where(DB::raw('return_pregunta(id_pregunta_respuesta)'), $idPregunta)->where('estado', 'A')->first();
 	}
 
 	public function scopeActive($query)

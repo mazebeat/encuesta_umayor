@@ -11,7 +11,8 @@ class SurveyController extends BaseController
 	 */
 	public function index()
 	{
-		$questions = Question::select(array('id','text'))->whereState(true);
+		$questions = new Question();
+		$questions = $questions->select(array('id', 'text'))->where('state', 1)->where('survey_id', 1)->get();
 		return View::make('showSurvey')->with('questions', $questions);
 	}
 
@@ -47,14 +48,14 @@ class SurveyController extends BaseController
 				$responsed->pivot->save();
 			}
 			$user_answer                     = new UserAnswer();
-			$user_answer->user_id            = (int) $user_id;
+			$user_answer->user_id            = (int)$user_id;
 			$user_answer->state              = true;
-			$user_answer->question_answer_id = (int) $new_question_answer_id;
+			$user_answer->question_answer_id = (int)$new_question_answer_id;
 			$user_answer->save();
 		}
-//		unset($inputs);
-//		unset($question);
-//		unset($question_answer);
+		unset($inputs);
+		unset($question);
+		unset($question_answer);
 	}
 
 	/**
