@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 @section('style')
-@parent
+<style type="text/css">
 	label {
 		padding-left: 0;
 		min-width: 100%;
@@ -15,6 +15,7 @@
 	.question {
 		margin-bottom: 30px;
 	}
+</style>
 @stop
 
 @section('content')

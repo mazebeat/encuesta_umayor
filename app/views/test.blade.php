@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 @section('style')
-<style>
+<style type="text/css">
 .stepwizard-step p {
     margin-top: 10px;
 }

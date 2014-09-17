@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 @section('style')
-@parent
+<style type="text/css">
 hr.message-inner-separator
 {
     clear: both;
@@ -14,6 +14,7 @@ hr.message-inner-separator
     background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
     background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
 }
+</style>
 @stop
 
 @section('content')

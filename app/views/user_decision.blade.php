@@ -1,7 +1,8 @@
 @extends('layouts.user')
 
 @section('style')
-@parent
+<style type="text/css">
+</style>
 @stop
 
 @section('content')

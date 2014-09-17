@@ -19,15 +19,7 @@
 	{{ HTML::style('css/skins/all.css') }}
 	{{ HTML::style('css/custom.css') }}
 	{{ HTML::style('css/test.php') }}
-	<style type="text/css">
-	@section('style')
-		body {
-			padding-top: 60px;
-    	    padding-bottom: 40px;
-    	    background: url("image/background.jpg") top center repeat-x;
-        }
-	@show
-	</style>
+	@yield('style')
 </head>
 <body>
 	<header class="container">

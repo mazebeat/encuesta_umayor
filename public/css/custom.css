@@ -2,6 +2,11 @@
 
 body {
     font-family: 'Oswald', sans-serif;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    background: url("image/bg.jpg");
+    background-position: top center;
+    background-repeat: repeat;
 }
 
 .btn {
