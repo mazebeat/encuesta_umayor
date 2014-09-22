@@ -1,0 +1,39 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    /*background: #ffd202;*/
+    margin: 0 0 100px;
+}
+
+.content {
+}
+
+header, footer {
+    background: #ffd202;
+}
+
+header.login,  footer.login {
+    height: 180px;
+    width: 100%;
+}
+
+header.login {
+    background: #ffd202 url("../image/HEADER-1.jpg") top center no-repeat;
+}
+
+footer.login {
+    background: #ffd202 url("../image/FOOTER-1.jpg") bottom center no-repeat;
+}
+
+.fixed-bottom {
+    bottom: 0;
+    position: absolute;
+    clear: both;
+    overflow: hidden;
+}

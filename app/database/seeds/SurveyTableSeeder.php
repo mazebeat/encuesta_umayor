@@ -9,10 +9,10 @@ class SurveyTableSeeder extends Seeder
 
 		foreach(range(1, 10) as $index) {
 			Survey::create(array(
-				'title' => $faker->sentence,
-				'slogan' => $faker->paragraph,
-				'description' => $faker->text,
-				'state' => true,
+				'title'			=> $faker->sentence,
+				'slogan'			=> $faker->paragraph,
+				'description'		=> $faker->text,
+				'state'			=> true,
 			));
 		}
 	}
