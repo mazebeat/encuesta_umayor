@@ -7,7 +7,8 @@
 	<title>{{{ $title or 'DEMO' }}}</title>
 
 	<!-- Latest compiled and minified CSS -->
-	{{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}
+	{{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css') }}
+	@yield('style')
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -15,7 +16,6 @@
 	{{ HTML::script('//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js') }}
 	{{ HTML::script('//oss.maxcdn.com/respond/1.4.2/respond.min.js') }}
 	<![endif]-->
-	@yield('style')
 </head>
 <body>
 <header class="container">

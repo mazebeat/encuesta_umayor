@@ -24,11 +24,7 @@
 	</header>
 	<div class="container">
 		<div class="row">
-			<div class="panel panel-default">
-				<div class="panel-body">
-					@yield('content')
-				</div>
-			</div>
+			@yield('content')
 		</div>
 	</div>
 	<footer class="container">

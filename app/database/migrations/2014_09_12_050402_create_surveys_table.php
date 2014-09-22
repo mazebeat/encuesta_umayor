@@ -19,6 +19,8 @@ class CreateSurveysTable extends Migration {
 			$table->mediumText('slogan');
 			$table->longText('description');
 			$table->tinyInteger('state');
+			$table->integer('colorshemes_id');
+			$table->foreign('survey_id')->references('id')->on('surveys');
 			$table->timestamps();
 		});
 	}

@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.message')
 
 @section('style')
 <style type="text/css">

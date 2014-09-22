@@ -8,20 +8,13 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    'model_template_path' => 'C:\xampp\htdocs\encuesta_umayor\app/templates/model.txt',
-
-    'scaffold_model_template_path' => 'C:\xampp\htdocs\encuesta_umayor\app/templates/scaffolding/model.txt',
-
-    'controller_template_path' => 'C:\xampp\htdocs\encuesta_umayor\app/templates/controller.txt',
-
-    'scaffold_controller_template_path' => 'C:\xampp\htdocs\encuesta_umayor\app/templates/scaffolding/controller.txt',
-
-    'migration_template_path' => 'C:\xampp\htdocs\encuesta_umayor\app/templates/migration.txt',
-
-    'seed_template_path' => 'C:\xampp\htdocs\encuesta_umayor\app/templates/seed.txt',
-
-    'view_template_path' => 'C:\xampp\htdocs\encuesta_umayor\app/templates/view.txt',
-
+    'model_template_path'               => 'D:\xampp\htdocs\github\encuesta_umayor\app/templates/model.txt',
+    'scaffold_model_template_path'      => 'D:\xampp\htdocs\github\encuesta_umayor\app/templates/scaffolding/model.txt',
+    'controller_template_path'          => 'D:\xampp\htdocs\github\encuesta_umayor\app/templates/controller.txt',
+    'scaffold_controller_template_path' => 'D:\xampp\htdocs\github\encuesta_umayor\app/templates/scaffolding/controller.txt',
+    'migration_template_path'           => 'D:\xampp\htdocs\github\encuesta_umayor\app/templates/migration.txt',
+    'seed_template_path'                => 'D:\xampp\htdocs\github\encuesta_umayor\app/templates/seed.txt',
+    'view_template_path'                => 'D:\xampp\htdocs\github\encuesta_umayor\app/templates/view.txt',
 
     /*
     |--------------------------------------------------------------------------
@@ -29,14 +22,10 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    'model_target_path'   => app_path('models'),
-
-    'controller_target_path'   => app_path('controllers'),
-
-    'migration_target_path'   => app_path('database/migrations'),
-
-    'seed_target_path'   => app_path('database/seeds'),
-
-    'view_target_path'   => app_path('views')
+    'model_target_path'      => app_path('models'),
+    'controller_target_path' => app_path('controllers'),
+    'migration_target_path'  => app_path('database/migrations'),
+    'seed_target_path'       => app_path('database/seeds'),
+    'view_target_path'       => app_path('views')
 
 ];
