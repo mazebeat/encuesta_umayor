@@ -1,197 +1,22 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald);
 
-body {
-    padding-top: 60px;
-    padding-bottom: 40px;
-    background: url('../image/background.png ') top center repeat-x;
+header.container, footer.container {
+    background: #ffd202;
+    width: 100%;
 }
 
-html{
-    /*font-family: "helvetica neue", helvetica, arial, sans-serif;*/
-    /*line-height: 1.4;*/
-    font-size: 13px;
-    font-size: 16px;   // 1rem = 16px
+header.user {
+    background: #ffd202 url("../image/HEADER-2.jpg") top center no-repeat;
+    height: 180px;
+    width: 100%;
 }
 
-@media screen and (min-width: 500px){
-    html{
-        font-size: 14px;
-    }
-}
-@media screen and (min-width: 570px){
-    html{
-        font-size: 15px;
-    }
-}
-@media screen and (min-width: 620px){
-    html{
-        font-size: 16px;
-    }
-}
-@media screen and (min-width: 680px){
-    html{
-        font-size: 17px;
-    }
-}
-@media screen and (min-width: 720px){
-    html{
-        font-size: 18px;
-    }
-}
-@media screen and (min-width: 800px){
-    html{
-        font-size: 19px;
-    }
-}
-@media screen and (min-width: 860px){
-    html{
-        font-size: 20px;
-    }
-}
-@media screen and (min-width: 920px){
-    html{
-        font-size: 21px;
-    }
-}
-@media screen and (min-width: 1000px){
-    html{
-        font-size: 22px;
-    }
+footer.user {
+    background: #ffd202 url("../image/FOOTER-2.jpg") bottom center no-repeat;
+    height: 180px;
+    width: 100%;
 }
 
-h1{
-    font-size: 2rem;
-    /*margin: 0 0 1rem;*/
-}
-h2{
-     font-size: 1.5rem;
-     /*margin: 1rem 0 2rem;*/
- }
-h3{
-    font-size: 1.3rem;
-    /*margin: 1rem 0 2rem;*/
-}
-h4{
-    font-size: 1rem;
-    /*margin: 1rem 0 2rem;*/
-}
-p{
-    font-size: 0.8rem;
-    /*margin: 1rem 0;*/
-}
-
-@media (max-width: 768px) {
-    .btn-responsive {
-        padding:2px 4px;
-        font-size:80%;
-        line-height: 1;
-        border-radius:3px;
-    }
-}
-
-@media (min-width: 769px) and (max-width: 992px) {
-    .btn-responsive {
-        padding:4px 9px;
-        font-size:90%;
-        line-height: 1.2;
-    }
-}
-
-.btn {
-    font-family: 'Oswald', sans-serif;
-    box-shadow: 1px 1px 5px #888888;
-}
-
-.btn-xs {
-    font-weight: 300;
-}
-
-.btn-hot {
-    color: #fff;
-    background-color: #db5566;
-    border-bottom: 2px solid #af4451;
-}
-
-.btn-hot:hover, .btn-sky.active:focus, .btn-hot:focus, .open > .dropdown-toggle.btn-hot {
-    color: #fff;
-    background-color: #df6a78;
-    border-bottom: 2px solid #b25560;
-    outline: none;
-}
-
-.btn-hot:active, .btn-hot.active {
-    color: #fff;
-    background-color: #c04b59;
-    border-top: 2px solid #9a3c47;
-    margin-top: 2px;
-}
-
-.btn-sunny {
-    color: #fff;
-    background-color: #f4ad49;
-    border-bottom: 2px solid #c38a3a;
-}
-
-.btn-sunny:hover, .btn-sky.active:focus, .btn-sunny:focus, .open > .dropdown-toggle.btn-sunny {
-    color: #fff;
-    background-color: #f5b75f;
-    border-bottom: 2px solid #c4924c;
-    outline: none;
-}
-
-.btn-sunny:active, .btn-sunny.active {
-    color: #fff;
-    background-color: #d69840;
-    border-top: 2px solid #ab7a33;
-    margin-top: 2px;
-}
-
-.btn-fresh {
-    color: #fff;
-    background-color: #51bf87;
-    border-bottom: 2px solid #41996c;
-}
-
-.btn-fresh:hover, .btn-sky.active:focus, .btn-fresh:focus, .open > .dropdown-toggle.btn-fresh {
-    color: #fff;
-    background-color: #66c796;
-    border-bottom: 2px solid #529f78;
-    outline: none;
-}
-
-.btn-fresh:active, .btn-fresh.active {
-    color: #fff;
-    background-color: #47a877;
-    border-top: 2px solid #39865f;
-    outline: none;
-    outline-offset: none;
-    margin-top: 2px;
-}
-
-.btn-sky {
-    color: #fff;
-    background-color: #0bacd3;
-    border-bottom: 2px solid #098aa9;
-}
-
-.btn-sky:hover, .btn-sky.active:focus, .btn-sky:focus, .open > .dropdown-toggle.btn-sky {
-    color: #fff;
-    background-color: #29b6d8;
-    border-bottom: 2px solid #2192ad;
-    outline: none;
-}
-
-.btn-sky:active, .btn-sky.active {
-    color: #fff;
-    background-color: #0a97b9;
-    border-top: 2px solid #087994;
-    outline-offset: none;
-    margin-top: 2px;
-}
-
-.btn:focus,
-.btn:active:focus,
-.btn.active:focus {
-    outline: none;
-    outline-offset: 0px;
+article.question {
+    margin-bottom: 15px;
 }

@@ -793,62 +793,6 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "swiftmailer/swiftmailer",
-        "version": "v5.2.1",
-        "version_normalized": "5.2.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swiftmailer/swiftmailer.git",
-            "reference": "2b9af56cc676c338d52fca4c657e5bdff73bb7af"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/2b9af56cc676c338d52fca4c657e5bdff73bb7af",
-            "reference": "2b9af56cc676c338d52fca4c657e5bdff73bb7af",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.2.4"
-        },
-        "require-dev": {
-            "mockery/mockery": "~0.9.1"
-        },
-        "time": "2014-06-13 11:44:54",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "5.2-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "lib/swift_required.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": "http://fabien.potencier.org",
-                "role": "Lead Developer"
-            },
-            {
-                "name": "Chris Corbyn"
-            }
-        ],
-        "description": "Swiftmailer, free feature-rich PHP mailer",
-        "homepage": "http://swiftmailer.org",
-        "keywords": [
-            "mail",
-            "mailer"
-        ]
-    },
-    {
         "name": "stack/builder",
         "version": "v1.0.2",
         "version_normalized": "1.0.2.0",
@@ -1467,12 +1411,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/fzaninotto/Faker.git",
-            "reference": "942e90d797ea4e6c470659a8aa7cda9d52e48551"
+            "reference": "7f6c460ca74ee988a79a3d0015be25ee3d4726b2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/942e90d797ea4e6c470659a8aa7cda9d52e48551",
-            "reference": "942e90d797ea4e6c470659a8aa7cda9d52e48551",
+            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/7f6c460ca74ee988a79a3d0015be25ee3d4726b2",
+            "reference": "7f6c460ca74ee988a79a3d0015be25ee3d4726b2",
             "shasum": ""
         },
         "require": {
@@ -1482,7 +1426,7 @@
             "phpunit/phpunit": "~4.0",
             "squizlabs/php_codesniffer": "~1.5"
         },
-        "time": "2014-09-15 15:53:53",
+        "time": "2014-09-19 08:17:45",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1519,18 +1463,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/twbs/bootstrap.git",
-            "reference": "48c67095b01406b4b8c89230bab000a4a9dd1900"
+            "reference": "1f329f8f17aa989eabc6e94bdcab93e69ef0e463"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/48c67095b01406b4b8c89230bab000a4a9dd1900",
-            "reference": "48c67095b01406b4b8c89230bab000a4a9dd1900",
+            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/1f329f8f17aa989eabc6e94bdcab93e69ef0e463",
+            "reference": "1f329f8f17aa989eabc6e94bdcab93e69ef0e463",
             "shasum": ""
         },
         "replace": {
             "twitter/bootstrap": "self.version"
         },
-        "time": "2014-09-16 20:01:00",
+        "time": "2014-09-21 22:34:57",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2595,6 +2539,60 @@
         "keywords": [
             "cache",
             "caching"
+        ]
+    },
+    {
+        "name": "swiftmailer/swiftmailer",
+        "version": "v5.2.2",
+        "version_normalized": "5.2.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swiftmailer/swiftmailer.git",
+            "reference": "e02f71a35436af4bd58a1bd90116089e632e29e1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/e02f71a35436af4bd58a1bd90116089e632e29e1",
+            "reference": "e02f71a35436af4bd58a1bd90116089e632e29e1",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.4"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.9.1"
+        },
+        "time": "2014-09-20 07:17:36",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "lib/swift_required.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Chris Corbyn"
+            },
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Swiftmailer, free feature-rich PHP mailer",
+        "homepage": "http://swiftmailer.org",
+        "keywords": [
+            "mail",
+            "mailer"
         ]
     }
 ]

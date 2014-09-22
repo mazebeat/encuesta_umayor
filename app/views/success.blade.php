@@ -1,9 +1,8 @@
-@extends('layouts.message')
+@extends('layouts.user')
 
 @section('style')
 <style type="text/css">
-hr.message-inner-separator
-{
+hr.message-inner-separator {
     clear: both;
     margin-top: 10px;
     margin-bottom: 13px;
@@ -23,20 +22,12 @@ hr.message-inner-separator
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 		<span class="glyphicon glyphicon-ok"></span> <strong>Felicitaciones</strong>
 		<hr class="message-inner-separator">
-		<p>Gracias por contestar nuestra encuesta.</p>
+		<p>Gracias por tu tiempo y disponibilidad en responder. ¡Tu opinión es muy importante!</p>
 	</div>
 </div>
 @stop
 
 @section('script')
 <script>
-	$(document).ready(function(){
-		$('input[type=radio]').iCheck({
-			radioClass: 'iradio_square-yellow',
-			increaseArea: '20%',
-			labelHover: false,
-			cursor: true
-		});
-	});
 </script>
 @stop

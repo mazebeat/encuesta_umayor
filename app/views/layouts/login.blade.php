@@ -15,12 +15,14 @@
 
 	{{-- Latest compiled and minified CSS --}}
 	{{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}
+	{{ HTML::style('css/general.css') }}
+	{{-- Custom style --}}
 	{{ HTML::style('css/login.css') }}
 	@yield('style')
 </head>
 <body>
 	<header class="container login hidden-xs hidden-sm"></header>
-	<header class="container text-center hidden-md hidden-lg">
+	<header class="container login text-center hidden-md hidden-lg">
 		<p>{{ HTML::image('image/HEADER-1.jpg', 'header', array('class' => 'img-responsive'))  }}</p>
 	</header>
 	<div class="container content">
@@ -30,8 +32,8 @@
 	</div>
 	<footer class="container navbar-fixed-bottom login hidden-xs hidden-sm"></footer>
 	<footer class="container navbar-fixed-bottom text-center hidden-md hidden-lg">
-    		<p>{{ HTML::image('image/FOOTER-1.jpg', 'header', array('class' => 'img-responsive'))  }}</p>
-    </footer>
+		<p>{{ HTML::image('image/FOOTER-1.jpg', 'header', array('class' => 'img-responsive'))  }}</p>
+	</footer>
 	{{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
 	{{ HTML::script('//code.jquery.com/jquery-1.11.0.min.js') }}
 	{{-- Latest compiled and minified JavaScript --}}
