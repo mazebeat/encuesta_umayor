@@ -1463,18 +1463,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/twbs/bootstrap.git",
-            "reference": "1f329f8f17aa989eabc6e94bdcab93e69ef0e463"
+            "reference": "ccecb7cde4f954a8941100b24c1b0c2008088276"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/1f329f8f17aa989eabc6e94bdcab93e69ef0e463",
-            "reference": "1f329f8f17aa989eabc6e94bdcab93e69ef0e463",
+            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/ccecb7cde4f954a8941100b24c1b0c2008088276",
+            "reference": "ccecb7cde4f954a8941100b24c1b0c2008088276",
             "shasum": ""
         },
         "replace": {
             "twitter/bootstrap": "self.version"
         },
-        "time": "2014-09-21 22:34:57",
+        "time": "2014-09-23 03:27:23",
         "type": "library",
         "extra": {
             "branch-alias": {
