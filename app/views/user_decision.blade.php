@@ -1,4 +1,4 @@
-@extends('layouts.login')
+@extends('layouts.user')
 
 @section('style')
 <style type="text/css">
@@ -6,7 +6,7 @@
 @stop
 
 @section('content')
-<div class="col-md-8 col-md-offset-2">
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
 <h1></h1>
 	<div role="alert" class="alert alert-warning fade in">
           <button data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>

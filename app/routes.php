@@ -17,6 +17,9 @@ Route::get('logout', 'HomeController@logout');
 
 Route::resource('survey', 'SurveyController');
 
+Route::get('politicas', function(){
+  return View::make('politicas');
+});
 Route::get('test', function(){
 	return View::make('test');
 });

@@ -31,6 +31,15 @@
 			@yield('content')
 		</div>
 	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="text-center">
+					<h4><span class="label label-primary"><a href="{{ URL::to('politicas') }}"><i class="fa fa-lock"></i> Politicas de Privacidad</a></span></h4>
+				</div>
+			</div>
+		</div>
+	</div>
 	<footer class="container user hidden-xs hidden-sm"></footer>
 	<footer class="container text-center hidden-md hidden-lg">
 		<p>{{ HTML::image('image/FOOTER-2.jpg', 'header', array('class' => 'img-responsive'))  }}</p>

@@ -9,7 +9,7 @@
 <div class="col-md-4 col-md-offset-4">
 	<h1 class="text-center"></h1>
 	{{--<h1 class="text-center">{{ HTML::image('image/logo.png') }}</h1>--}}
-	<div class="panel panel-warning">
+	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h3 class="panel-title">Ingresa tu RUT</h3>
 		</div>

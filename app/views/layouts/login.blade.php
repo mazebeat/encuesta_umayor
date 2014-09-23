@@ -21,10 +21,10 @@
 	@yield('style')
 </head>
 <body>
-	<header class="container login hidden-xs hidden-sm"></header>
-	<header class="container login text-center hidden-md hidden-lg">
+	<header class="container login"></header>
+	<!-- <header class="container login text-center hidden-md hidden-lg">
 		<p>{{ HTML::image('image/HEADER-1.jpg', 'header', array('class' => 'img-responsive'))  }}</p>
-	</header>
+	</header> -->
 	<div class="container content">
 		<div class="row">
 			@yield('content')

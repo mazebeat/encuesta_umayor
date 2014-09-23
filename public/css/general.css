@@ -1,13 +1,48 @@
 html {
     position: relative;
     min-height: 100%;
-    font-size: 13px;
+    font-size: 13px;+
+    color: #000000;
 }
 
 body {
     font-family: 'Oswald', sans-serif;
     background: #ffd202;
     margin: 0 0 100px;
+    color: #000000;
+}
+
+a {
+    color: #ffffff;
+    font-weight: lighter;
+}
+
+.btn-primary, .label-primary, .alert-info {
+    background: #01474F;
+}
+
+.panel-primary {
+    border-color: #01474F;
+}
+
+.panel-primary > .panel-heading {
+    background-color: #01474F;
+    border-color: #01474F;
+    color: #fff;
+}
+
+.btn-danger, .label-danger, .alert-danger {
+    background: #01474F;
+}
+
+.panel-danger {
+    border-color: #01474F;
+}
+
+.panel-danger > .panel-heading {
+    background-color: #01474F;
+    border-color: #01474F;
+    color: #fff;
 }
 
 /* HR */
@@ -25,7 +60,7 @@ hr {
 /* RESPONSIVE FONTS */
 @media screen and (min-width: 500px){
     html{
-        font-size: 14px;
+        font-size: 15px;
     }
 }
 @media screen and (min-width: 570px){
@@ -86,13 +121,13 @@ h4{
     /*margin: 1rem 0 2rem;*/
 }
 p{
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     /*margin: 1rem 0;*/
 }
 
 /* BUTTONS */
 .btn {
-    box-shadow: 1px 1px 5px #888888;
+    /*box-shadow: 1px 1px 5px #888888;*/
 }
 
 .btn-xs {
@@ -101,7 +136,7 @@ p{
 
 .btn-hot {
     color: #fff;
-    background-color: #db5566;
+    background-color: #a4222c; // #db5566
     border-bottom: 2px solid #af4451;
 }
 

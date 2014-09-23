@@ -38,38 +38,43 @@ class SurveyController extends BaseController
 	public function store()
 	{
 		$user_id         = 1;
-		$pass = false;
-		$inputs          = Input::except('_token');
-		$question        = new Question();
-		$question_answer = new QuestionAnswer();
+		$pass = true; // false
+//		$inputs          = Input::except('_token');
+//		$question        = new Question();
+//		$question_answer = new QuestionAnswer();
 
-		echo "<pre>";
-		var_dump(Input::all());
-		echo "</pre>";
-		die();
-		foreach($inputs as $question_id => $answer_id) {
-			$new_question_answer_id = $question_answer->returnId((int)$question_id, (int)$answer_id);
-			$responsed              = $question->responsed((int)$user_id, (int)$question_id);
-			if(count($responsed)) {
-				$responsed->pivot->state = false;
-				$responsed->pivot->save();
-			}
-			$user_answer                     = new UserAnswer();
-			$user_answer->user_id            = (int)$user_id;
-			$user_answer->state              = true;
-			$user_answer->question_answer_id = (int)$new_question_answer_id;
-			$user_answer->save();
-			$pass = true;
+//		echo "<pre>";
+//		var_dump(Input::all());
+//		echo "</pre>";
+//		die();
+//		foreach($inputs as $question_id => $answer_id) {
+//			$new_question_answer_id = $question_answer->returnId((int)$question_id, (int)$answer_id);
+//			$responsed              = $question->responsed((int)$user_id, (int)$question_id);
+//			if(count($responsed)) {
+//				$responsed->pivot->state = false;
+//				$responsed->pivot->save();
+//			}
+//			$user_answer                     = new UserAnswer();
+//			$user_answer->user_id            = (int)$user_id;
+//			$user_answer->state              = true;
+//			$user_answer->question_answer_id = (int)$new_question_answer_id;
+//			$user_answer->save();
+//			$pass = true;
+//		}
+//		unset($inputs);
+//		unset($question);
+//		unset($question_answer);
+
+		if($pass) {
+			$msg = '<p><span class="glyphicon glyphicon-ok"></span> Gracias por tu tiempo y disponibilidad en responder. ¡Tu opinión es muy importante!</p>';
+
+			return View::make('success')->with('msg', $msg);
 		}
-		unset($inputs);
-		unset($question);
-		unset($question_answer);
-
-		if($pass)
-			return View::make('success');
-		else
+		else {
 			$msg = 'Error al enviar el formulario';
-			return Redirect::back()->compact('msg');
+
+			return Redirect::back()->with('msg', $msg);
+		}
 	}
 
 	/**

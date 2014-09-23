@@ -26,6 +26,15 @@
 		@yield('content')
 	</div>
 </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="text-center">
+					<h4><span class="label label-primary"><a href="{{ URL::to('politicas') }}"><i class="fa fa-lock"></i> Politicas de Privacidad</a></span></h4>
+				</div>
+			</div>
+		</div>
+	</div>
 <footer class="container">
 	<p>Copyright 2014 Intelidata© - Universidad Mayor</p>
 </footer>
