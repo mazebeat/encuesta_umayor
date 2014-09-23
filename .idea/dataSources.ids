@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - umayor@localhost" uuid="9470bed1-632f-409d-880c-43f5730785ad">
+    <database-info product="MySQL" version="5.6.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="umayor"/>
+    <table name="bdd_umayor" schema="" catalog="umayor" type="TABLE">
+      <column name="Id_Alumno" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Id_Negocio" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Facultad" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Escuela" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Carrera" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Jornada" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Sede" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Campus" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="RUT" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Apellido_Paterno" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Apellido_Materno" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Nombres" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Sexo" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Año_Ingreso_1Año_Carrera" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="Año_Ingreso_Carrera" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="Año_Egreso_Plan_Regular" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="Fecha_Registro" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="Negocio_Id_Negocio" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Id_Alumno,Negocio_Id_Negocio"/>
+      <foreign-key name="fk_BDD_UMayor_Negocio1" columns="Negocio_Id_Negocio" ref-table="negocio" ref-schema="" ref-catalog="umayor" ref-columns="Id_Negocio" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_Clientes_BDD_UMayor1" table="clientes" schema="" catalog="umayor" columns="BDD_UMayor_Id_Alumno"/>
+      <index name="Id_Alumno_UNIQUE" unique="true" columns="Id_Alumno"/>
+      <index name="fk_BDD_UMayor_Negocio1_idx" unique="false" columns="Negocio_Id_Negocio"/>
+    </table>
+    <table name="canal_conexion" schema="" catalog="umayor" type="TABLE">
+      <column name="Id_Canal" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Descripcion" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Respuesta_Id_Respuestas" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Id_Canal,Respuesta_Id_Respuestas"/>
+      <foreign-key name="fk_Canal_Conexion_Respuesta1" columns="Respuesta_Id_Respuestas" ref-table="respuesta" ref-schema="" ref-catalog="umayor" ref-columns="Id_Respuestas" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="Id_Canal_UNIQUE" unique="true" columns="Id_Canal"/>
+      <index name="fk_Canal_Conexion_Respuesta1_idx" unique="false" columns="Respuesta_Id_Respuestas"/>
+    </table>
+    <table name="clientes" schema="" catalog="umayor" type="TABLE">
+      <column name="Id_Negocio" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Estado" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Id_Clientes" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="BDD_UMayor_Id_Alumno" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Excepciones_Clientes_Clientes_Id_Negocio" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Excepciones_Clientes_Clientes_Id_Clientes" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Excepciones_Clientes_Clientes_BDD_UMayor_Id_Alumno" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Id_Negocio,Id_Clientes,BDD_UMayor_Id_Alumno,Excepciones_Clientes_Clientes_Id_Negocio,Excepciones_Clientes_Clientes_Id_Clientes,Excepciones_Clientes_Clientes_BDD_UMayor_Id_Alumno"/>
+      <foreign-key name="fk_Clientes_BDD_UMayor1" columns="BDD_UMayor_Id_Alumno" ref-table="bdd_umayor" ref-schema="" ref-catalog="umayor" ref-columns="Id_Alumno" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Clientes_Excepciones_Clientes1" columns="Excepciones_Clientes_Clientes_Id_Negocio,Excepciones_Clientes_Clientes_Id_Clientes,Excepciones_Clientes_Clientes_BDD_UMayor_Id_Alumno" ref-table="excepciones_clientes" ref-schema="" ref-catalog="umayor" ref-columns="Clientes_Id_Negocio,Clientes_Id_Clientes,Clientes_BDD_UMayor_Id_Alumno" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_Estado_Clientes1" table="estado" schema="" catalog="umayor" columns="Clientes_Id_Negocio,Clientes_Id_Clientes,Clientes_BDD_UMayor_Id_Alumno"/>
+      <index name="Id_Clientes_UNIQUE" unique="true" columns="Id_Clientes"/>
+      <index name="Id_Negocio_UNIQUE" unique="true" columns="Id_Negocio"/>
+      <index name="fk_Clientes_BDD_UMayor1_idx" unique="false" columns="BDD_UMayor_Id_Alumno"/>
+      <index name="fk_Clientes_Excepciones_Clientes1_idx" unique="false" columns="Excepciones_Clientes_Clientes_Id_Negocio,Excepciones_Clientes_Clientes_Id_Clientes,Excepciones_Clientes_Clientes_BDD_UMayor_Id_Alumno"/>
+    </table>
+    <table name="encuesta" schema="" catalog="umayor" type="TABLE">
+      <column name="Id_Encuestas" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Id_Negocio" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Titulo" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Estado" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Fecha_Creacion" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="Fecha_Modificacion" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="Negocio_Id_Negocio" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Id_Encuestas,Negocio_Id_Negocio"/>
+      <foreign-key name="fk_Encuesta_Negocio1" columns="Negocio_Id_Negocio" ref-table="negocio" ref-schema="" ref-catalog="umayor" ref-columns="Id_Negocio" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_Estado_Encuesta1" table="estado" schema="" catalog="umayor" columns="Encuesta_Id_Encuestas"/>
+      <exported-key name="fk_Pregunta_Encuestas1" table="pregunta" schema="" catalog="umayor" columns="Encuestas_Id_Encuestas"/>
+      <index name="Id_Encuestas_UNIQUE" unique="true" columns="Id_Encuestas"/>
+      <index name="fk_Encuesta_Negocio1_idx" unique="false" columns="Negocio_Id_Negocio"/>
+    </table>
+    <table name="estado" schema="" catalog="umayor" type="TABLE">
+      <column name="Id_Estado" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Descripcion" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Tipo" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Pregunta_Detalle_Id_Pregunta_Detalle" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Pregunta_Id_Pregunta" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Pregunta_Encuestas_Id_Encuestas" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Pregunta_Pregunta_Detalle_Id_Pregunta_Detalle" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Encuesta_Id_Encuestas" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Respuesta_Id_Respuestas" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Clientes_Id_Negocio" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Clientes_Id_Clientes" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Clientes_BDD_UMayor_Id_Alumno" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Negocio_Id_Negocio" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Id_Estado,Pregunta_Detalle_Id_Pregunta_Detalle,Pregunta_Id_Pregunta,Pregunta_Encuestas_Id_Encuestas,Pregunta_Pregunta_Detalle_Id_Pregunta_Detalle,Encuesta_Id_Encuestas,Respuesta_Id_Respuestas,Clientes_Id_Negocio,Clientes_Id_Clientes,Clientes_BDD_UMayor_Id_Alumno,Negocio_Id_Negocio"/>
+      <foreign-key name="fk_Estado_Clientes1" columns="Clientes_Id_Negocio,Clientes_Id_Clientes,Clientes_BDD_UMayor_Id_Alumno" ref-table="clientes" ref-schema="" ref-catalog="umayor" ref-columns="Id_Negocio,Id_Clientes,BDD_UMayor_Id_Alumno" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Estado_Encuesta1" columns="Encuesta_Id_Encuestas" ref-table="encuesta" ref-schema="" ref-catalog="umayor" ref-columns="Id_Encuestas" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Estado_Negocio1" columns="Negocio_Id_Negocio" ref-table="negocio" ref-schema="" ref-catalog="umayor" ref-columns="Id_Negocio" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Estado_Pregunta1" columns="Pregunta_Id_Pregunta,Pregunta_Encuestas_Id_Encuestas,Pregunta_Pregunta_Detalle_Id_Pregunta_Detalle" ref-table="pregunta" ref-schema="" ref-catalog="umayor" ref-columns="Id_Pregunta,Encuestas_Id_Encuestas,Pregunta_Detalle_Id_Pregunta_Detalle" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Estado_Pregunta_Detalle1" columns="Pregunta_Detalle_Id_Pregunta_Detalle" ref-table="pregunta_detalle" ref-schema="" ref-catalog="umayor" ref-columns="Id_Pregunta_Detalle" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Estado_Respuesta1" columns="Respuesta_Id_Respuestas" ref-table="respuesta" ref-schema="" ref-catalog="umayor" ref-columns="Id_Respuestas" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="Id_Estado_UNIQUE" unique="true" columns="Id_Estado"/>
+      <index name="fk_Estado_Clientes1_idx" unique="false" columns="Clientes_Id_Negocio,Clientes_Id_Clientes,Clientes_BDD_UMayor_Id_Alumno"/>
+      <index name="fk_Estado_Encuesta1_idx" unique="false" columns="Encuesta_Id_Encuestas"/>
+      <index name="fk_Estado_Negocio1_idx" unique="false" columns="Negocio_Id_Negocio"/>
+      <index name="fk_Estado_Pregunta1_idx" unique="false" columns="Pregunta_Id_Pregunta,Pregunta_Encuestas_Id_Encuestas,Pregunta_Pregunta_Detalle_Id_Pregunta_Detalle"/>
+      <index name="fk_Estado_Pregunta_Detalle1_idx" unique="false" columns="Pregunta_Detalle_Id_Pregunta_Detalle"/>
+      <index name="fk_Estado_Respuesta1_idx" unique="false" columns="Respuesta_Id_Respuestas"/>
+    </table>
+    <table name="excepciones" schema="" catalog="umayor" type="TABLE">
+      <column name="Id_Excepciones" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Descripcion" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Id_Negocio" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Negocio_Id_Negocio" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Excepciones_Clientes_Clientes_Id_Negocio" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Excepciones_Clientes_Clientes_Id_Clientes" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Excepciones_Clientes_Clientes_BDD_UMayor_Id_Alumno" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Id_Excepciones,Negocio_Id_Negocio,Excepciones_Clientes_Clientes_Id_Negocio,Excepciones_Clientes_Clientes_Id_Clientes,Excepciones_Clientes_Clientes_BDD_UMayor_Id_Alumno"/>
+      <foreign-key name="fk_Excepciones_Excepciones_Clientes1" columns="Excepciones_Clientes_Clientes_Id_Negocio,Excepciones_Clientes_Clientes_Id_Clientes,Excepciones_Clientes_Clientes_BDD_UMayor_Id_Alumno" ref-table="excepciones_clientes" ref-schema="" ref-catalog="umayor" ref-columns="Clientes_Id_Negocio,Clientes_Id_Clientes,Clientes_BDD_UMayor_Id_Alumno" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Excepciones_Negocio1" columns="Negocio_Id_Negocio" ref-table="negocio" ref-schema="" ref-catalog="umayor" ref-columns="Id_Negocio" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="Id_Excepciones_UNIQUE" unique="true" columns="Id_Excepciones"/>
+      <index name="fk_Excepciones_Excepciones_Clientes1_idx" unique="false" columns="Excepciones_Clientes_Clientes_Id_Negocio,Excepciones_Clientes_Clientes_Id_Clientes,Excepciones_Clientes_Clientes_BDD_UMayor_Id_Alumno"/>
+      <index name="fk_Excepciones_Negocio1_idx" unique="false" columns="Negocio_Id_Negocio"/>
+    </table>
+    <table name="excepciones_clientes" schema="" catalog="umayor" type="TABLE">
+      <column name="Id_Cliente" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Id_Excepciones" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Fecha" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="Clientes_Id_Negocio" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Clientes_Id_Clientes" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Clientes_BDD_UMayor_Id_Alumno" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Clientes_Id_Negocio,Clientes_Id_Clientes,Clientes_BDD_UMayor_Id_Alumno"/>
+      <exported-key name="fk_Clientes_Excepciones_Clientes1" table="clientes" schema="" catalog="umayor" columns="Excepciones_Clientes_Clientes_Id_Negocio,Excepciones_Clientes_Clientes_Id_Clientes,Excepciones_Clientes_Clientes_BDD_UMayor_Id_Alumno"/>
+      <exported-key name="fk_Excepciones_Excepciones_Clientes1" table="excepciones" schema="" catalog="umayor" columns="Excepciones_Clientes_Clientes_Id_Negocio,Excepciones_Clientes_Clientes_Id_Clientes,Excepciones_Clientes_Clientes_BDD_UMayor_Id_Alumno"/>
+    </table>
+    <table name="negocio" schema="" catalog="umayor" type="TABLE">
+      <column name="Id_Negocio" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Descripcion" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Estado" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Id_Negocio"/>
+      <exported-key name="fk_BDD_UMayor_Negocio1" table="bdd_umayor" schema="" catalog="umayor" columns="Negocio_Id_Negocio"/>
+      <exported-key name="fk_Encuesta_Negocio1" table="encuesta" schema="" catalog="umayor" columns="Negocio_Id_Negocio"/>
+      <exported-key name="fk_Estado_Negocio1" table="estado" schema="" catalog="umayor" columns="Negocio_Id_Negocio"/>
+      <exported-key name="fk_Excepciones_Negocio1" table="excepciones" schema="" catalog="umayor" columns="Negocio_Id_Negocio"/>
+      <index name="Id_Negocio_UNIQUE" unique="true" columns="Id_Negocio"/>
+    </table>
+    <table name="pregunta" schema="" catalog="umayor" type="TABLE">
+      <column name="Id_Pregunta" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Id_Encuesta" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Estado" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Descripcion_1" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Descripcion_2" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Descripcion_3" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Encuestas_Id_Encuestas" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Pregunta_Detalle_Id_Pregunta_Detalle" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Id_Pregunta,Encuestas_Id_Encuestas,Pregunta_Detalle_Id_Pregunta_Detalle"/>
+      <foreign-key name="fk_Pregunta_Encuestas1" columns="Encuestas_Id_Encuestas" ref-table="encuesta" ref-schema="" ref-catalog="umayor" ref-columns="Id_Encuestas" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Pregunta_Pregunta_Detalle1" columns="Pregunta_Detalle_Id_Pregunta_Detalle" ref-table="pregunta_detalle" ref-schema="" ref-catalog="umayor" ref-columns="Id_Pregunta_Detalle" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_Estado_Pregunta1" table="estado" schema="" catalog="umayor" columns="Pregunta_Id_Pregunta,Pregunta_Encuestas_Id_Encuestas,Pregunta_Pregunta_Detalle_Id_Pregunta_Detalle"/>
+      <index name="Id_Pregunta_UNIQUE" unique="true" columns="Id_Pregunta"/>
+      <index name="fk_Pregunta_Encuestas1_idx" unique="false" columns="Encuestas_Id_Encuestas"/>
+      <index name="fk_Pregunta_Pregunta_Detalle1_idx" unique="false" columns="Pregunta_Detalle_Id_Pregunta_Detalle"/>
+    </table>
+    <table name="pregunta_detalle" schema="" catalog="umayor" type="TABLE">
+      <column name="Id_Pregunta_Detalle" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Id_Encuesta" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Id_Pregunta" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Fecha_Creacion" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="Fecha_Modificacion" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="Estado" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Descripcion" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Respuesta_Id_Respuestas" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Id_Pregunta_Detalle,Respuesta_Id_Respuestas"/>
+      <foreign-key name="fk_Pregunta_Detalle_Respuesta1" columns="Respuesta_Id_Respuestas" ref-table="respuesta" ref-schema="" ref-catalog="umayor" ref-columns="Id_Respuestas" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_Estado_Pregunta_Detalle1" table="estado" schema="" catalog="umayor" columns="Pregunta_Detalle_Id_Pregunta_Detalle"/>
+      <exported-key name="fk_Pregunta_Pregunta_Detalle1" table="pregunta" schema="" catalog="umayor" columns="Pregunta_Detalle_Id_Pregunta_Detalle"/>
+      <index name="Id_Pregunta_Detalle_UNIQUE" unique="true" columns="Id_Pregunta_Detalle"/>
+      <index name="fk_Pregunta_Detalle_Respuesta1_idx" unique="false" columns="Respuesta_Id_Respuestas"/>
+    </table>
+    <table name="respuesta" schema="" catalog="umayor" type="TABLE">
+      <column name="Id_Respuestas" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Id_Encuesta" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Id_Pregunta" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Id_Pregunta_Detalle" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Estado" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Id_Cliente" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Fecha" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="Canal" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="RWwgQ2FuYWwgZXMgcG9yIGVsIG1lZGlvIGRvbmRlIHNlIGluZ3Jlc28gYSBsYSBlbmN1ZW50YSwgRmFjZWJvb2ssIE1haWwsIFBvcnRhbCBVIE1heW9yLCBldGMuLi4="/>
+      <column name="Respuesta_Detalle_Id_Respuesta_Detalle" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Id_Respuestas,Respuesta_Detalle_Id_Respuesta_Detalle"/>
+      <foreign-key name="fk_Respuesta_Respuesta_Detalle1" columns="Respuesta_Detalle_Id_Respuesta_Detalle" ref-table="respuesta_detalle" ref-schema="" ref-catalog="umayor" ref-columns="Id_Respuesta_Detalle" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_Canal_Conexion_Respuesta1" table="canal_conexion" schema="" catalog="umayor" columns="Respuesta_Id_Respuestas"/>
+      <exported-key name="fk_Estado_Respuesta1" table="estado" schema="" catalog="umayor" columns="Respuesta_Id_Respuestas"/>
+      <exported-key name="fk_Pregunta_Detalle_Respuesta1" table="pregunta_detalle" schema="" catalog="umayor" columns="Respuesta_Id_Respuestas"/>
+      <index name="Id_Respuestas_UNIQUE" unique="true" columns="Id_Respuestas"/>
+      <index name="fk_Respuesta_Respuesta_Detalle1_idx" unique="false" columns="Respuesta_Detalle_Id_Respuesta_Detalle"/>
+    </table>
+    <table name="respuesta_detalle" schema="" catalog="umayor" type="TABLE">
+      <column name="Id_Respuesta_Detalle" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Id_Respuesta" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Valor_Respuesta" sqlType="VARCHAR" precision="900" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Id_Respuesta_Detalle"/>
+      <exported-key name="fk_Respuesta_Respuesta_Detalle1" table="respuesta" schema="" catalog="umayor" columns="Respuesta_Detalle_Id_Respuesta_Detalle"/>
+      <index name="Id_Respuesta_Detalle_UNIQUE" unique="true" columns="Id_Respuesta_Detalle"/>
+    </table>
+  </data-source>
+</component>

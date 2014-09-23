@@ -4,6 +4,8 @@
 {{-- iCheck.JS style --}}
 {{ HTML::style('css/skins/all.css') }}
 {{ HTML::style('css/bootstrap-select.min.css') }}
+{{ HTML::style('css/select2.css') }}
+{{ HTML::style('css/select2-bootstrap.css') }}
 <style type="text/css">
 	label {
 		padding-left: 0;
@@ -34,7 +36,7 @@
 <div class="panel panel-default col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
 				<div class="panel-body">
 <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	{{ Form::open()  }}
+	{{ Form::open() }}
 	{{-- Pregunta 1.1 --}}
 	<article class="question">
 		<h4>1.1- De los siguientes factores, ¿cuál te hace disfrutar más de la Universidad?</h4>
@@ -54,43 +56,43 @@
 				<tbody class="text-center">
 					<tr>
 						<td class="text-left">Sistema Aprendizaje</td>
-						<td><input type="radio" name="pregunta_1-1-1" value="1" required></td>
-						<td><input type="radio" name="pregunta_1-1-1" value="2" required></td>
-						<td><input type="radio" name="pregunta_1-1-1" value="3" required></td>
-						<td><input type="radio" name="pregunta_1-1-1" value="4" required></td>
-						<td><input type="radio" name="pregunta_1-1-1" value="5" required></td>
+						<td><input type="radio" name="pregunta_1_1_1" value="1" ></td>
+						<td><input type="radio" name="pregunta_1_1_1" value="2" ></td>
+						<td><input type="radio" name="pregunta_1_1_1" value="3" ></td>
+						<td><input type="radio" name="pregunta_1_1_1" value="4" ></td>
+						<td><input type="radio" name="pregunta_1_1_1" value="5" ></td>
 					</tr>
 					<tr>
 						<td class="text-left">Profesores</td>
-						<td><input type="radio" name="pregunta_1-1-2" value="1" required></td>
-						<td><input type="radio" name="pregunta_1-1-2" value="2" required></td>
-						<td><input type="radio" name="pregunta_1-1-2" value="3" required></td>
-						<td><input type="radio" name="pregunta_1-1-2" value="4" required></td>
-						<td><input type="radio" name="pregunta_1-1-2" value="5" required></td>
+						<td><input type="radio" name="pregunta_1_1_2" value="1" ></td>
+						<td><input type="radio" name="pregunta_1_1_2" value="2" ></td>
+						<td><input type="radio" name="pregunta_1_1_2" value="3" ></td>
+						<td><input type="radio" name="pregunta_1_1_2" value="4" ></td>
+						<td><input type="radio" name="pregunta_1_1_2" value="5" ></td>
 					</tr>
 					<tr>
 						<td class="text-left">Infraestructura</td>
-						<td><input type="radio" name="pregunta_1-1-3" value="1" required></td>
-						<td><input type="radio" name="pregunta_1-1-3" value="2" required></td>
-						<td><input type="radio" name="pregunta_1-1-3" value="3" required></td>
-						<td><input type="radio" name="pregunta_1-1-3" value="4" required></td>
-						<td><input type="radio" name="pregunta_1-1-3" value="5" required></td>
+						<td><input type="radio" name="pregunta_1_1_3" value="1" ></td>
+						<td><input type="radio" name="pregunta_1_1_3" value="2" ></td>
+						<td><input type="radio" name="pregunta_1_1_3" value="3" ></td>
+						<td><input type="radio" name="pregunta_1_1_3" value="4" ></td>
+						<td><input type="radio" name="pregunta_1_1_3" value="5" ></td>
 					</tr>
 					<tr>
 						<td class="text-left">Material de apoyo</td>
-						<td><input type="radio" name="pregunta_1-1-4" value="1" required></td>
-						<td><input type="radio" name="pregunta_1-1-4" value="2" required></td>
-						<td><input type="radio" name="pregunta_1-1-4" value="3" required></td>
-						<td><input type="radio" name="pregunta_1-1-4" value="4" required></td>
-						<td><input type="radio" name="pregunta_1-1-4" value="5" required></td>
+						<td><input type="radio" name="pregunta_1_1_4" value="1" ></td>
+						<td><input type="radio" name="pregunta_1_1_4" value="2" ></td>
+						<td><input type="radio" name="pregunta_1_1_4" value="3" ></td>
+						<td><input type="radio" name="pregunta_1_1_4" value="4" ></td>
+						<td><input type="radio" name="pregunta_1_1_4" value="5" ></td>
 					</tr>
 					<tr>
 						<td class="text-left">Espacios recreativos</td>
-						<td><input type="radio" name="pregunta_1-1-5" value="1" required></td>
-						<td><input type="radio" name="pregunta_1-1-5" value="2" required></td>
-						<td><input type="radio" name="pregunta_1-1-5" value="3" required></td>
-						<td><input type="radio" name="pregunta_1-1-5" value="4" required></td>
-						<td><input type="radio" name="pregunta_1-1-5" value="5" required></td>
+						<td><input type="radio" name="pregunta_1_1_5" value="1" ></td>
+						<td><input type="radio" name="pregunta_1_1_5" value="2" ></td>
+						<td><input type="radio" name="pregunta_1_1_5" value="3" ></td>
+						<td><input type="radio" name="pregunta_1_1_5" value="4" ></td>
+						<td><input type="radio" name="pregunta_1_1_5" value="5" ></td>
 					</tr>
 				</tbody>
 			</table>
@@ -106,23 +108,23 @@
 				<tbody class="text-center">
 					<tr>
 						<td class="text-left">Sistema Aprendizaje</td>
-						<td class="pull-right">{{ Form::selectRange('pregunta_1-1-1', 1, 5, array('required' => 'required')) }}</td>
+						<td class="pull-right">{{ Form::selectRange('pregunta_1_1_1', 0, 5, array('class' => 'col-md-3')) }}</td>
 					</tr>
 					<tr>
 						<td class="text-left">Profesores</td>
-						<td class="pull-right">{{ Form::selectRange('pregunta_1-1-2', 1, 5, array('required' => 'required')) }}</td>
+						<td class="pull-right">{{ Form::selectRange('pregunta_1_1_2', 0, 5, array('class' => 'col-md-3')) }}</td>
 					</tr>
 					<tr>
 						<td class="text-left">Infraestructura</td>
-						<td class="pull-right">{{ Form::selectRange('pregunta_1-1-3', 1, 5, array('required' => 'required')) }}</td>
+						<td class="pull-right">{{ Form::selectRange('pregunta_1_1_3', 0, 5, array('class' => 'col-md-3')) }}</td>
 					</tr>
 					<tr>
 						<td class="text-left">Material de apoyo</td>
-						<td class="pull-right">{{ Form::selectRange('pregunta_1-1-4', 1, 5, array('required' => 'required')) }}</td>
+						<td class="pull-right">{{ Form::selectRange('pregunta_1_1_4', 0, 5, array('class' => 'col-md-3')) }}</td>
 					</tr>
 					<tr>
 						<td class="text-left">Espacios recreativos</td>
-						<td class="pull-right">{{ Form::selectRange('pregunta_1-1-5', 1, 5, array('required' => 'required')) }}</td>
+						<td class="pull-right">{{ Form::selectRange('pregunta_1_1_5', 0, 5, array('class' => 'col-md-3')) }}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -149,13 +151,13 @@
 				<tbody class="text-center">
 					<tr>
 						<td class="text-left">Calificación</td>
-						<td><input type="radio" name="pregunta_1-2" value="1" required></td>
-						<td><input type="radio" name="pregunta_1-2" value="2" required></td>
-						<td><input type="radio" name="pregunta_1-2" value="3" required></td>
-						<td><input type="radio" name="pregunta_1-2" value="4" required></td>
-						<td><input type="radio" name="pregunta_1-2" value="5" required></td>
-						<td><input type="radio" name="pregunta_1-2" value="6" required></td>
-						<td><input type="radio" name="pregunta_1-2" value="7" required></td>
+						<td><input type="radio" name="pregunta_1-2" value="1" ></td>
+						<td><input type="radio" name="pregunta_1-2" value="2" ></td>
+						<td><input type="radio" name="pregunta_1-2" value="3" ></td>
+						<td><input type="radio" name="pregunta_1-2" value="4" ></td>
+						<td><input type="radio" name="pregunta_1-2" value="5" ></td>
+						<td><input type="radio" name="pregunta_1-2" value="6" ></td>
+						<td><input type="radio" name="pregunta_1-2" value="7" ></td>
 					</tr>
 				</tbody>
 			</table>
@@ -171,13 +173,13 @@
 				<tbody class="text-center">
 					<tr>
 						<td class="text-left">Calificación</td>
-						<td class="pull-right">{{ Form::selectRange('pregunta_1-2', 1, 7, array('required' => 'required')) }}</td>
+						<td class="pull-right">{{ Form::selectRange('pregunta_1-2', 0, 7, array('class' => 'col-md-3')) }}</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 		<h5>¿Por qué evalúa con esa nota?</h5>
-		<textarea class="form-control" rows="3"  placeholder="Porque..."></textarea>
+		<textarea class="form-control" rows="3" name="pregunta_1-2_text" placeholder="Porque..."></textarea>
 	</article>
 	<hr>
 	{{-- Pregunta 2 --}}
@@ -201,13 +203,13 @@
 				<tbody class="text-center">
 					<tr>
 						<td class="text-left">Calificación</td>
-						<td><input type="radio" name="pregunta_2" value="1" required></td>
-						<td><input type="radio" name="pregunta_2" value="2" required></td>
-						<td><input type="radio" name="pregunta_2" value="3" required></td>
-						<td><input type="radio" name="pregunta_2" value="4" required></td>
-						<td><input type="radio" name="pregunta_2" value="5" required></td>
-						<td><input type="radio" name="pregunta_2" value="6" required></td>
-						<td><input type="radio" name="pregunta_2" value="7" required></td>
+						<td><input type="radio" name="pregunta_2" value="1" ></td>
+						<td><input type="radio" name="pregunta_2" value="2" ></td>
+						<td><input type="radio" name="pregunta_2" value="3" ></td>
+						<td><input type="radio" name="pregunta_2" value="4" ></td>
+						<td><input type="radio" name="pregunta_2" value="5" ></td>
+						<td><input type="radio" name="pregunta_2" value="6" ></td>
+						<td><input type="radio" name="pregunta_2" value="7" ></td>
 					</tr>
 				</tbody>
 			</table>
@@ -223,13 +225,13 @@
 				<tbody class="text-center">
 					<tr>
 						<td class="text-left">Calificación</td>
-						<td class="pull-right">{{ Form::selectRange('pregunta_2', 1, 7, array('required' => 'required')) }}</td>
+						<td class="pull-right">{{ Form::selectRange('pregunta_2', 0, 7, array('class' => 'col-md-3')) }}</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 		<h5>¿Por qué evalúa con esa nota?</h5>
-		<textarea class="form-control" rows="3"  placeholder="Porque..."></textarea>
+		<textarea class="form-control" rows="3" name="pregunta_2_text" placeholder="Porque..."></textarea>
 	</article>
 	<hr>
 	{{-- Pregunta 3 --}}
@@ -253,13 +255,13 @@
 				<tbody class="text-center">
 					<tr>
 						<td class="text-left">Calificación</td>
-						<td><input type="radio" name="pregunta_3" value="1" required></td>
-						<td><input type="radio" name="pregunta_3" value="2" required></td>
-						<td><input type="radio" name="pregunta_3" value="3" required></td>
-						<td><input type="radio" name="pregunta_3" value="4" required></td>
-						<td><input type="radio" name="pregunta_3" value="5" required></td>
-						<td><input type="radio" name="pregunta_3" value="6" required></td>
-						<td><input type="radio" name="pregunta_3" value="7" required></td>
+						<td><input type="radio" name="pregunta_3" value="1" ></td>
+						<td><input type="radio" name="pregunta_3" value="2" ></td>
+						<td><input type="radio" name="pregunta_3" value="3" ></td>
+						<td><input type="radio" name="pregunta_3" value="4" ></td>
+						<td><input type="radio" name="pregunta_3" value="5" ></td>
+						<td><input type="radio" name="pregunta_3" value="6" ></td>
+						<td><input type="radio" name="pregunta_3" value="7" ></td>
 					</tr>
 				</tbody>
 			</table>
@@ -275,13 +277,13 @@
 				<tbody class="text-center">
 					<tr>
 						<td class="text-left">Calificación</td>
-						<td class="pull-right">{{ Form::selectRange('pregunta_3', 1, 7, array('required' => 'required')) }}</td>
+						<td class="pull-right">{{ Form::selectRange('pregunta_3', 0, 7, array('class' => 'col-md-3')) }}</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 		<h5>¿Por qué evalúa con esa nota?</h5>
-		<textarea class="form-control" rows="3"  placeholder="Porque..."></textarea>
+		<textarea class="form-control" rows="3" name="pregunta_3_text" placeholder="Porque..."></textarea>
 	</article>
 	<hr>
 	{{-- Pregunta 4 --}}
@@ -299,8 +301,8 @@
 				<tbody class="text-center">
 					<tr>
 						{{--<td class="text-left">Calificación</td>--}}
-						<td><input type="radio" name="pregunta_4" value="0" required></td>
-						<td><input type="radio" name="pregunta_4" value="1" required></td>
+						<td><input type="radio" name="pregunta_4" value="0" ></td>
+						<td><input type="radio" name="pregunta_4" value="1" ></td>
 					</tr>
 				</tbody>
 			</table>
@@ -319,18 +321,31 @@
 {{-- iCheck.JS Plugin --}}
 {{ HTML::script('js/icheck.min.js') }}
 {{ HTML::script('js/bootstrap-select.min.js') }}
+{{ HTML::script('js/select2.min.js') }}
+{{ HTML::script('js/select2_locale_es.js') }}
 <script>
-	console.log('INIT');
-	$('input').iCheck('check', function(){
-      alert('Well done, Sir');
-    });
+	var $name;
+	var $value;
 
 	$('input[type=radio]').iCheck({
 		radioClass: 'iradio_square-red',
 		increaseArea: '20%',
 		labelHover: true,
 		cursor: true
+	})
+	.on('ifChecked', function (event){
+    	event.preventDefault()
+		$name = $(this).attr('name');
+		$value = $(this).val();
+		$('select[name=' + $name +  ']').select2('val', $value);
 	});
-//	$('select').selectpicker();
+
+	$('select').select2()
+    .on("change", function (event) {
+    	event.preventDefault()
+		$name = $(this).attr('name');
+		$value = event.val;
+		$('input[type=radio][name=' + $name + '][value=' + $value++ + ']').iCheck('toggle');
+    });
 </script>
 @stop

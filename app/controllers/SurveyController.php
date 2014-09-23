@@ -43,6 +43,10 @@ class SurveyController extends BaseController
 		$question        = new Question();
 		$question_answer = new QuestionAnswer();
 
+		echo "<pre>";
+		var_dump(Input::all());
+		echo "</pre>";
+		die();
 		foreach($inputs as $question_id => $answer_id) {
 			$new_question_answer_id = $question_answer->returnId((int)$question_id, (int)$answer_id);
 			$responsed              = $question->responsed((int)$user_id, (int)$question_id);

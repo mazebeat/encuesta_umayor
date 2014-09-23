@@ -1,5 +1,31 @@
 <?php
 
+Form::macro('radio_scale', function ($data = array(), $max_number = 0, $order = 'ASC', $options = array()) {
+	$output = ''; $header = '';	$body = '';
+	$name = array_get($data, 'name', 'default');
+	$header.= '<div class="table-responsive hidden-xs hidden-sm"><table class="table table-hover table-condensed"><thead class="text-center"><tr><td></td>';
+	for ($i = 1; $i <= $max_number; $i++) {
+		$header .= '<td>' . $i . '</td>';
+	}
+	$header .= '</tr></thead><tbody class="text-center"><tr><td class="text-left">' . $name . '</td>';
+	switch (Str::upper($order)) {
+		case 'ASC':
+			for($i = 1; $i <= $max_number; $i ++) {
+				$body .= '<td>' . Form::radio('name', $i, false, $options) . '</td>';
+			}
+			break;
+		case 'DESC':
+			for($i = $max_number; $i >= 1; $i --) {
+				$body .= '<td>' . Form::radio('name', $i, false, array('required' => 'required')) . '</td>';
+			}
+			break;
+	}
+	$body .= '</tr>
+				</tbody>
+				</table>';
+	echo $header.$body;
+});
+
 HTML::macro('survey', function ($survey, $questions) {
 	$count  = 1;
 	$output = '<fieldset><legend><h2>' . $survey->title . '</h2></legend>';
@@ -32,4 +58,3 @@ HTML::macro('survey', function ($survey, $questions) {
 
 	return $output;
 });
-

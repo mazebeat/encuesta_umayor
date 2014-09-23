@@ -18,7 +18,5 @@ Route::get('logout', 'HomeController@logout');
 Route::resource('survey', 'SurveyController');
 
 Route::get('test', function(){
-	$u = new User();
-	Func::printr($u->surveyComplete(1, 1));
-//	return View::make('test');
+	return View::make('test');
 });
