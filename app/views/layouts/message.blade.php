@@ -39,7 +39,7 @@
     </div>
     <div class="clearfix"></div>
     	<footer class="container login"></footer>
-    	<a href="#" class="go-top"><i class="fa fa-chevron-circle-up fa-4x"></i></a>
+    	<a href="#" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left" id="go-top"><i class="fa fa-chevron-circle-up fa-4x"></i></a>
     	{{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
     	{{ HTML::script('//code.jquery.com/jquery-1.11.0.min.js') }}
     	{{-- Latest compiled and minified JavaScript --}}

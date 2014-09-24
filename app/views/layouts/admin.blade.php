@@ -38,7 +38,7 @@
 <footer class="container">
 	<p>Copyright 2014 Intelidata© - Universidad Mayor</p>
 </footer>
-<a href="#" class="go-top"><i class="fa fa-chevron-circle-up fa-4x"></i></a>
+<a href="#" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left" id="go-top"><i class="fa fa-chevron-circle-up fa-4x"></i></a>
 {{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
 {{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') }}
 {{-- Latest compiled and minified JavaScript --}}
@@ -49,3 +49,10 @@
 @yield('script')
 </body>
 </html>
+		"twitter/bootstrap": "3.2.*@dev",
+		"fzaninotto/faker": "1.5.*@dev",
+		"way/generators": "~2.0",
+		"barryvdh/laravel-debugbar": "1.*",
+		"barryvdh/laravel-ide-helper": "1.*",
+		"doctrine/dbal": "~2.3",
+		"freshwork/chilean-bundle": "dev-master"
