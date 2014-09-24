@@ -1,28 +1,10 @@
 <?php
 
-/**
- * QuestionAnswer
- *
- * @property integer                                                     $id
- * @property integer                                                     $question_id
- * @property integer                                                     $answer_id
- * @property \Carbon\Carbon                                              $created_at
- * @property \Carbon\Carbon                                              $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\User[]       $users
- * @property-read \Illuminate\Database\Eloquent\Collection|\UserAnswer[] $userAnswer
- * @method static \Illuminate\Database\Query\Builder|\QuestionAnswer whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\QuestionAnswer whereQuestionId($value)
- * @method static \Illuminate\Database\Query\Builder|\QuestionAnswer whereAnswerId($value)
- * @method static \Illuminate\Database\Query\Builder|\QuestionAnswer whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\QuestionAnswer whereUpdatedAt($value)
- */
 class QuestionAnswer extends Eloquent
 {
 	protected $table = 'question_answer';
 	protected $primaryKey = 'id';
-	//	protected $fillable = array();
-	//	protected $hidden = array('id');
-	//	public static $rules = array(// 'title' => 'required');
+	protected $fillable = array();
 
 	public function users()
 	{

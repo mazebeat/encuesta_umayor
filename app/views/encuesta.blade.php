@@ -28,7 +28,6 @@
 @stop
 
 @section('content')
-<h1>{{ $msg or ''  }}</h1>
 {{--{{ HTML::survey($survey, $questions) }}--}}
 <div class="col-xs-12 col-xm-12 col-md-12 col-lg-12 text-center">
 	<h3><strong>Nombre Alumno</strong>, en nuestro afán de mejorar la calidad de servicio de la Universidad Mayor, queremos invitarte a contestar este breve cuestionario para conocer la satisfacción con la Universidad.</h3>
@@ -109,23 +108,23 @@
 						<tbody class="text-center">
 							<tr>
 								<td class="text-left vertical-align">Sistema Aprendizaje</td>
-								<td class="">{{ Form::selectRange('pregunta_1_1_1', 1, 5, null, array('class' => 'form-control', 'data-placeholder' => 'Select a state')) }}</td>
+								<td class="">{{ Form::selectRange('pregunta_1_1_1', '1', '5', null, array('class' => 'form-control', 'data-placeholder' => 'Select a state')) }}</td>
 							</tr>
 							<tr>
 								<td class="text-left vertical-align">Profesores</td>
-								<td class="">{{ Form::selectRange('pregunta_1_1_2', 1, 5, null, array('class' => 'form-control', 'data-placeholder' => 'Select a state')) }}</td>
+								<td class="">{{ Form::selectRange('pregunta_1_1_2', '1', '5', null, array('class' => 'form-control', 'data-placeholder' => 'Select a state')) }}</td>
 							</tr>
 							<tr>
 								<td class="text-left vertical-align">Infraestructura</td>
-								<td class="">{{ Form::selectRange('pregunta_1_1_3', 1, 5, null, array('class' => 'form-control', 'data-placeholder' => 'Select a state')) }}</td>
+								<td class="">{{ Form::selectRange('pregunta_1_1_3', '1', '5', null, array('class' => 'form-control', 'data-placeholder' => 'Select a state')) }}</td>
 							</tr>
 							<tr>
 								<td class="text-left vertical-align">Material de apoyo</td>
-								<td class="">{{ Form::selectRange('pregunta_1_1_4', 1, 5, null, array('class' => 'form-control', 'data-placeholder' => 'Select a state')) }}</td>
+								<td class="">{{ Form::selectRange('pregunta_1_1_4', '1', '5', null, array('class' => 'form-control', 'data-placeholder' => 'Select a state')) }}</td>
 							</tr>
 							<tr>
 								<td class="text-left vertical-align">Espacios recreativos</td>
-								<td class="">{{ Form::selectRange('pregunta_1_1_5', 1, 5, null, array('class' => 'form-control', 'data-placeholder' => 'Select a state')) }}</td>
+								<td class="">{{ Form::selectRange('pregunta_1_1_5', '1', '5', null, array('class' => 'form-control', 'data-placeholder' => 'Select a state')) }}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -174,7 +173,7 @@
 						<tbody class="text-center">
 							<tr>
 								<td class="text-left vertical-align">Calificación</td>
-								<td class="">{{ Form::selectRange('pregunta_1-2', 1, 7, null, array('class' => 'form-control', 'data-placeholder' => 'Select a state')) }}</td>
+								<td class="">{{ Form::selectRange('pregunta_1-2', '1', '7', null, array('class' => 'form-control', 'data-placeholder' => 'Select a state')) }}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -226,7 +225,7 @@
 						<tbody class="text-center">
 							<tr>
 								<td class="text-left vertical-align">Calificación</td>
-								<td class="">{{ Form::selectRange('pregunta_2', 1, 7, null, array('class' => 'form-control', 'data-placeholder' => 'Select a state')) }}</td>
+								<td class="">{{ Form::selectRange('pregunta_2', '1', '7', null, array('class' => 'form-control', 'data-placeholder' => 'Select a state')) }}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -278,7 +277,7 @@
 						<tbody class="text-center">
 							<tr>
 								<td class="text-left vertical-align">Calificación</td>
-								<td class="">{{ Form::selectRange ('pregunta_3', 1, 7, null, array('class' => 'form-control', 'data-placeholder' => 'Select a state')) }}</td>
+								<td class="">{{ Form::selectRange ('pregunta_3', '1', '7', null, array('class' => 'form-control', 'data-placeholder' => 'Select a state')) }}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -310,8 +309,8 @@
 				</div>
 			</article>
 			<br/>
-			{{ HTML::link('/logout', 'Salir', array('class' => 'col-md-3 text-uppercase btn btn-default btn-lg')) }}
-			{{ Form::submit('Enviar', array('class' => 'col-md-3 text-uppercase btn btn-lg btn-hot pull-right'))  }}
+			{{ HTML::link('/logout', 'Salir', array('class' => 'col-xs-4 col-sm-4 col-md-3 col-lg-3 text-uppercase btn btn-default btn-lg')) }}
+			{{ Form::submit('Enviar', array('class' => 'col-xs-4 col-sm-4 col-md-3 col-lg-3 text-uppercase btn btn-hot btn-lg pull-right'))  }}
 			{{ Form::close() }}
 		</section>
 	</div>
@@ -327,30 +326,44 @@
 	var $name;
 	var $value;
 
-	$('input[type=radio]').iCheck({
-		radioClass: 'iradio_square-red',
-		increaseArea: '20%',
-		labelHover: true,
-		cursor: true
-	})
-	.on('ifChecked', function (event){
-		event.preventDefault()
-		$name = $(this).attr('name');
-		$value = $(this).val();
-		$('select[name=' + $name +  ']').select2('val', $value);
-	});
+	$('.table td').hover(
+		function() {
+			$(this).find('.iradio_square-red').addClass('hover');
+		}, function() {
+			$(this).find('.iradio_square-red').removeClass( "hover" );
+		}
+		).click(function(event) {
+			event.preventDefault();
+			$(this).find('.iradio_square-red').iCheck('toggle');
+			event.stopPropagation();
+		});
 
-	$('select').select2({
-		width: '100%',
-		containerCssClass: '',
-		dropdownAutoWidth  : true,
-		dropdownCssClass: 'text-center '
-	})
-	.on("change", function (event) {
-		event.preventDefault()
-		$name = $(this).attr('name');
-		$value = event.val;
-		$('input[type=radio][name=' + $name + '][value=' + $value++ + ']').iCheck('toggle');
-	});
-</script>
-@stop
+		$('input[type=radio]').iCheck({
+			radioClass: 'iradio_square-red',
+			increaseArea: '20%',
+			labelHover: true,
+			cursor: true
+		})
+		.on('ifChecked', function (event){
+			event.preventDefault();
+			$name = $(this).attr('name');
+			$value = $(this).val();
+			$('select[name=' + $name +  ']').select2('val', $value);
+			event.stopPropagation();
+		});
+
+		$('select').select2({
+			width: '100%',
+			containerCssClass: '',
+			dropdownAutoWidth  : true,
+			dropdownCssClass: 'text-center '
+		})
+		.change(function (event) {
+			event.preventDefault();
+			$name = $(this).attr('name');
+			$value = event.val;
+			$('input[type=radio][name=' + $name + '][value=' + $value++ + ']').iCheck('toggle');
+			event.stopPropagation();
+		});
+	</script>
+	@stop

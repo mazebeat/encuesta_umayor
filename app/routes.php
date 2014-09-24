@@ -12,14 +12,14 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::post('/', 'HomeController@validate');
+Route::post('/', 'HomeController@login');
 Route::get('logout', 'HomeController@logout');
 
-Route::resource('survey', 'SurveyController');
+Route::resource('survey', 'EncuestaController');
 
 Route::get('politicas', function(){
   return View::make('politicas');
 });
 Route::get('test', function(){
-	return View::make('test');
+	dd(URL::getGenerator());
 });

@@ -8,7 +8,7 @@ class SurveyTableSeeder extends Seeder
 		$faker = Faker::create();
 
 		foreach(range(1, 10) as $index) {
-			Survey::create(array(
+			Encuesta::create(array(
 				'title'			=> $faker->sentence,
 				'slogan'			=> $faker->paragraph,
 				'description'		=> $faker->text,

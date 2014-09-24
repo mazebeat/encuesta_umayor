@@ -15,17 +15,15 @@
 
 	<!-- Latest compiled and minified CSS -->
 	{{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css') }}
-	{{ HTML::style('css/general.css') }}
+	{{ HTML::style('css/frontend.css') }}
 	@yield('style')
 </head>
 <body>
-<header class="container">
-</header>
+<header class="container"></header>
 <div class="container">
 	<div class="row">
 		@yield('content')
 	</div>
-</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -35,13 +33,19 @@
 			</div>
 		</div>
 	</div>
+</div>
+<div class="clearfix"></div>
 <footer class="container">
 	<p>Copyright 2014 Intelidata© - Universidad Mayor</p>
 </footer>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<a href="#" class="go-top"><i class="fa fa-chevron-circle-up fa-4x"></i></a>
+{{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
 {{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') }}
-<!-- Latest compiled and minified JavaScript -->
+{{-- Latest compiled and minified JavaScript --}}
 {{ HTML::script('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}
+{{-- Main script --}}
+{{ HTML::script('js/frontend.js') }}
+{{-- Custom script --}}
 @yield('script')
 </body>
 </html>

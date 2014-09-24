@@ -27,7 +27,7 @@
         $name = $(this).attr('name');
         $value = parseInt($(this).val());
         console.log($value++);
-        $('input[type=radio][name=' + $name + '][value=' + $value++ + ']').prop("checked", true)
+        $('input[type=radio][name=' + $name + '][value=' + $value++ + ']').prop("checked", true);
     });
 </script>
 @stop

@@ -15,39 +15,38 @@
 
 	{{-- Latest compiled and minified CSS --}}
 	{{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}
-	{{ HTML::style('css/general.css') }}
+	{{ HTML::style('css/frontend.css') }}
 	{{-- Custom style --}}
 	{{ HTML::style('css/custom.css') }}
 	@yield('style')
 
 </head>
 <body>
-	<header class="container user hidden-xs hidden-sm"></header>
-	<header class="container text-center hidden-md hidden-lg">
-		<p>{{ HTML::image('image/HEADER-2.jpg', 'header', array('class' => 'img-responsive'))  }}</p>
-	</header>
+	<header class="container user"></header>
 	<div class="container">
 		<div class="row">
 			@yield('content')
 		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="text-center">
-					<h4><span class="label label-primary"><a href="{{ URL::to('politicas') }}"><i class="fa fa-lock"></i> Politicas de Privacidad</a></span></h4>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="text-center">
+						<h4><span class="label label-primary"><a href="{{ URL::to('politicas') }}"><i class="fa fa-lock"></i> Politicas de Privacidad</a></span></h4>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<footer class="container user hidden-xs hidden-sm"></footer>
-	<footer class="container text-center hidden-md hidden-lg">
-		<p>{{ HTML::image('image/FOOTER-2.jpg', 'header', array('class' => 'img-responsive'))  }}</p>
-	</footer>
+	<div class="clearfix"></div>
+	<footer class="container user"></footer>
+	<a href="#" class="go-top"><i class="fa fa-chevron-circle-up fa-4x"></i></a>
+
 	{{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
 	{{ HTML::script('//code.jquery.com/jquery-1.11.0.min.js') }}
 	{{-- Latest compiled and minified JavaScript --}}
 	{{ HTML::script('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}
+	{{-- Main script --}}
+	{{ HTML::script('js/frontend.js') }}
 	{{-- Custom script --}}
 	@yield('script')
 </body>

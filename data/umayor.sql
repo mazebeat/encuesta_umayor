@@ -366,9 +366,17 @@ CREATE TABLE `respuesta` (
   `Fecha` datetime NOT NULL,
   `Canal` varchar(45) NOT NULL COMMENT 'El Canal es por el medio donde se ingreso a la encuenta, Facebook, Mail, Portal U Mayor, etc...',
   `Respuesta_Detalle_Id_Respuesta_Detalle` varchar(45) NOT NULL,
-  PRIMARY KEY (`Id_Respuestas`,`Respuesta_Detalle_Id_Respuesta_Detalle`),
+  `Clientes_Id_Negocio` varchar(45) NOT NULL,
+  `Clientes_Id_Clientes` varchar(45) NOT NULL,
+  `Clientes_BDD_UMayor_Id_Alumno` varchar(45) NOT NULL,
+  `Clientes_Excepciones_Clientes_Clientes_Id_Negocio` varchar(45) NOT NULL,
+  `Clientes_Excepciones_Clientes_Clientes_Id_Clientes` varchar(45) NOT NULL,
+  `Clientes_Excepciones_Clientes_Clientes_BDD_UMayor_Id_Alumno` varchar(45) NOT NULL,
+  PRIMARY KEY (`Id_Respuestas`,`Respuesta_Detalle_Id_Respuesta_Detalle`,`Clientes_Id_Negocio`,`Clientes_Id_Clientes`,`Clientes_BDD_UMayor_Id_Alumno`,`Clientes_Excepciones_Clientes_Clientes_Id_Negocio`,`Clientes_Excepciones_Clientes_Clientes_Id_Clientes`,`Clientes_Excepciones_Clientes_Clientes_BDD_UMayor_Id_Alumno`),
   UNIQUE KEY `Id_Respuestas_UNIQUE` (`Id_Respuestas`),
   KEY `fk_Respuesta_Respuesta_Detalle1_idx` (`Respuesta_Detalle_Id_Respuesta_Detalle`),
+  KEY `fk_Respuesta_Clientes1_idx` (`Clientes_Id_Negocio`,`Clientes_Id_Clientes`,`Clientes_BDD_UMayor_Id_Alumno`,`Clientes_Excepciones_Clientes_Clientes_Id_Negocio`,`Clientes_Excepciones_Clientes_Clientes_Id_Clientes`,`Clientes_Excepciones_Clientes_Clientes_BDD_UMayor_Id_Alumno`),
+  CONSTRAINT `fk_Respuesta_Clientes1` FOREIGN KEY (`Clientes_Id_Negocio`, `Clientes_Id_Clientes`, `Clientes_BDD_UMayor_Id_Alumno`, `Clientes_Excepciones_Clientes_Clientes_Id_Negocio`, `Clientes_Excepciones_Clientes_Clientes_Id_Clientes`, `Clientes_Excepciones_Clientes_Clientes_BDD_UMayor_Id_Alumno`) REFERENCES `clientes` (`Id_Negocio`, `Id_Clientes`, `BDD_UMayor_Id_Alumno`, `Excepciones_Clientes_Clientes_Id_Negocio`, `Excepciones_Clientes_Clientes_Id_Clientes`, `Excepciones_Clientes_Clientes_BDD_UMayor_Id_Alumno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Respuesta_Respuesta_Detalle1` FOREIGN KEY (`Respuesta_Detalle_Id_Respuesta_Detalle`) REFERENCES `respuesta_detalle` (`Id_Respuesta_Detalle`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -424,4 +432,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-22 18:36:32
+-- Dump completed on 2014-09-23 18:22:33

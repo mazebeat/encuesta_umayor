@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 4, to provide autocomplete information to your IDE
- * Generated for Laravel 4.2.9 on 2014-09-23.
+ * Generated for Laravel 4.2.9 on 2014-09-24.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -4867,7 +4867,7 @@ namespace {
     }
 
 
-    class Event extends \Illuminate\Support\Facades\Event{
+    class Events extends \Illuminate\Support\Facades\Event{
         
         /**
          * Register an event listener with the dispatcher.
@@ -12688,6 +12688,122 @@ namespace {
 
 
     class Faker extends \Faker\Factory{
+        
+    }
+
+
+    class Rut extends \Freshwork\ChileanBundle\Facades\Rut{
+        
+        /**
+         * Check if the $rut argument is a valid RUT
+         * 
+         * Devuelve true si el parámetro $rut es válido
+         *
+         * @param $rut
+         * @param null $dv
+         * @return bool 
+         * @static 
+         */
+        public static function isValid($rut, $dv = null){
+            return \Freshwork\ChileanBundle\Validations\Rut::isValid($rut, $dv);
+        }
+        
+        /**
+         * Alias of isValid($rut,$dv);
+         *
+         * @param $rut
+         * @param $dv
+         * @return bool 
+         * @static 
+         */
+        public static function validate($rut, $dv = null){
+            return \Freshwork\ChileanBundle\Validations\Rut::validate($rut, $dv);
+        }
+        
+        /**
+         * Returns the valid verification number that $rut has to have.
+         * 
+         * Devuelve el dígito verificador que debe tener el $rut ingresado.
+         * Si quieres pasarle el RUT completo, puedes 'setear' el último
+         * parámetro como true para que la función lo haga por ti
+         * 
+         * Fuente: http://www.dcc.uchile.cl/~mortega/microcodigos/validarrut/php.php
+         *
+         * @author Luis Dujovne
+         * @param $r
+         * @param bool $has_to_remove_last_char
+         * @return string 
+         * @static 
+         */
+        public static function getVerificationNumber($r, $has_to_remove_last_char = false){
+            return \Freshwork\ChileanBundle\Validations\Rut::getVerificationNumber($r, $has_to_remove_last_char);
+        }
+        
+        /**
+         * Splits the rut into rut and verification number.
+         * 
+         * Si no le pasas el $dv digito verificador, separa el rut del dígito verificador.
+         * Si le pasas el $dv digito verificador te devuelve ambos parámetros como array.
+         *
+         * @param $rut
+         * @param null $dv
+         * @return array [$rut,$dv]
+         * @static 
+         */
+        public static function split($rut, $dv = null){
+            return \Freshwork\ChileanBundle\Validations\Rut::split($rut, $dv);
+        }
+        
+        /**
+         * Escape the RUT
+         * Quita los carácteres ($scape_chars) que no queremos del RUT
+         *
+         * @param string $rut
+         * @return string 
+         * @static 
+         */
+        public static function normalize($rut){
+            return \Freshwork\ChileanBundle\Validations\Rut::normalize($rut);
+        }
+        
+        /**
+         * Format R.U.T
+         * Formatea el RUt en alguno de los 3 formatos disponibles.
+         *
+         * @param $rut
+         * @param null $dv
+         * @param int $format
+         * @return string 
+         * @static 
+         */
+        public static function format($rut, $dv = null, $format = 0){
+            return \Freshwork\ChileanBundle\Validations\Rut::format($rut, $dv, $format);
+        }
+        
+        /**
+         * Check if RUT has a valid format. If not, throws an Exception
+         *
+         * @param $rut
+         * @param null $dv
+         * @throws \Freshwork\ChileanBundle\Exceptions\InvalidFormatException
+         * @return bool 
+         * @static 
+         */
+        public static function hasValidFormat($rut, $dv = null){
+            return \Freshwork\ChileanBundle\Validations\Rut::hasValidFormat($rut, $dv);
+        }
+        
+        /**
+         * Join two parts of a RUT. Rut and verification number.
+         *
+         * @param $rut
+         * @param $dv
+         * @return string 
+         * @static 
+         */
+        public static function join($rut, $dv){
+            return \Freshwork\ChileanBundle\Validations\Rut::join($rut, $dv);
+        }
         
     }
 

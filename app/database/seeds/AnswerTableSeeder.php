@@ -8,7 +8,7 @@ class AnswerTableSeeder extends Seeder
 		$faker = Faker::create();
 
 		foreach(range(1, 8) as $index) {
-			Answer::create(array(
+			Respuesta::create(array(
 				'text' => $faker->word,
 			));
 		}

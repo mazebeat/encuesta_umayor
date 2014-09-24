@@ -1411,12 +1411,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/fzaninotto/Faker.git",
-            "reference": "7f6c460ca74ee988a79a3d0015be25ee3d4726b2"
+            "reference": "7ca018d51b066c8db9b6ed4b9d1f8886bccfb47b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/7f6c460ca74ee988a79a3d0015be25ee3d4726b2",
-            "reference": "7f6c460ca74ee988a79a3d0015be25ee3d4726b2",
+            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/7ca018d51b066c8db9b6ed4b9d1f8886bccfb47b",
+            "reference": "7ca018d51b066c8db9b6ed4b9d1f8886bccfb47b",
             "shasum": ""
         },
         "require": {
@@ -1426,7 +1426,7 @@
             "phpunit/phpunit": "~4.0",
             "squizlabs/php_codesniffer": "~1.5"
         },
-        "time": "2014-09-19 08:17:45",
+        "time": "2014-09-23 09:07:05",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2593,6 +2593,54 @@
         "keywords": [
             "mail",
             "mailer"
+        ]
+    },
+    {
+        "name": "freshwork/chilean-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/freshworkstudio/ChileanBundle.git",
+            "reference": "d27bcb24bd57dfd282a1ff8e64b33de10b57ba69"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/freshworkstudio/ChileanBundle/zipball/d27bcb24bd57dfd282a1ff8e64b33de10b57ba69",
+            "reference": "d27bcb24bd57dfd282a1ff8e64b33de10b57ba69",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "codeception/codeception": "~2.0"
+        },
+        "time": "2014-08-07 07:40:58",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Freshwork\\ChileanBundle": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPLv3"
+        ],
+        "authors": [
+            {
+                "name": "Gonzalo De Spirito | Freshwork Studio Chile",
+                "email": "gonzalo@freshworkstudio.com"
+            }
+        ],
+        "description": "A PHP composer package with Chilean validations, common variables, etc. (RUT, IVA, ETC). Ready for Laravel 4. Grande chile ctm :)",
+        "keywords": [
+            "chile",
+            "freshwork",
+            "rut",
+            "tools",
+            "validation"
         ]
     }
 ]
