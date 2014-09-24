@@ -31,7 +31,7 @@ class HomeController extends BaseController {
 	public function login()
 	{
 		$rules = array(
-			'rut' => 'required|validate_rut'
+			'rut' => 'required|rut'
 		);
 
 		$validator = Validator::make(Input::all(), $rules);
@@ -40,9 +40,9 @@ class HomeController extends BaseController {
 			$messages = $validator->messages();
 			$failed   = $validator->failed();
 			$errors   = $validator->errors();
+			return Redirect::back()->withErrors($messages);
 			// The given data did not pass validation
 		}
-		dd($messages);
 		$user = new User();
 		if($user->surveyComplete(1, 1)) {
 			$msg = array(

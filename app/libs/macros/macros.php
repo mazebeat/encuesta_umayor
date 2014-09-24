@@ -106,3 +106,29 @@ HTML::macro('create_alert', function ($data = array(), $options = array()) {
 			</div>';
 	echo $output;
 });
+
+HTML::macro('alert', function ($type, $message, $head = null) {
+	switch($type) {
+		case 'danger': //red
+			$head = $head ? $head : 'Error';
+			break;
+		case 'warning': //yellow
+			$head = $head ? $head : 'Warning';
+			break;
+		case 'info': //blue
+			$head = $head ? $head : 'Info';
+			break;
+		case 'success': //green
+			$head = $head ? $head : 'Success';
+			break;
+	}
+	$script = '
+	<script type="text/javascript">
+		setTimeout(function () {
+			$(".errors").removeClass("in");
+			$(".errors").slideToggle("slow");
+		}, 5000);
+	</script>
+	';
+	return '<div class="errors alert alert-' . $type . '"><strong>' . $head . ': </strong>' . $message . '</div>' . $script;
+});

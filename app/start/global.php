@@ -17,9 +17,15 @@ ClassLoader::addDirectories(array(
 	app_path().'/controllers',
 	app_path().'/models',
 	app_path().'/libs',
+	app_path().'/libs/functions',
+	app_path().'/libs/validators',
 	app_path().'/database/seeds',
 
 ));
+
+Validator::resolver(function($translator, $data, $rules, $messages) {
+	return new CustomValidator($translator, $data, $rules, $messages);
+});
 
 /*
 |--------------------------------------------------------------------------
