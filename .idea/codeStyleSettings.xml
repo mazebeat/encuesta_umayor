@@ -23,6 +23,8 @@
         <option name="HTML_SPACE_INSIDE_EMPTY_TAG" value="true" />
         <option name="FORMATTER_TAGS_ENABLED" value="true" />
         <PHPCodeStyleSettings>
+          <option name="INDENT_CODE_IN_PHP_TAGS" value="true" />
+          <option name="ALIGN_KEY_VALUE_PAIRS" value="true" />
           <option name="ALIGN_PHPDOC_PARAM_NAMES" value="true" />
           <option name="ALIGN_PHPDOC_COMMENTS" value="true" />
           <option name="ALIGN_ASSIGNMENTS" value="true" />
@@ -63,6 +65,7 @@
           <option name="SPACE_BEFORE_FOR_PARENTHESES" value="false" />
           <option name="SPACE_BEFORE_CATCH_PARENTHESES" value="false" />
           <option name="SPACE_BEFORE_SWITCH_PARENTHESES" value="false" />
+          <option name="ARRAY_INITIALIZER_WRAP" value="2" />
           <option name="ARRAY_INITIALIZER_LBRACE_ON_NEXT_LINE" value="true" />
           <option name="ARRAY_INITIALIZER_RBRACE_ON_NEXT_LINE" value="true" />
           <indentOptions>

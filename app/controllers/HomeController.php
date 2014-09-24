@@ -38,24 +38,23 @@ class HomeController extends BaseController {
 
 		if($validator->fails()) {
 			$messages = $validator->messages();
-			$failed   = $validator->failed();
-			$errors   = $validator->errors();
 			return Redirect::back()->withErrors($messages);
-			// The given data did not pass validation
 		}
-		$user = new User();
-		if($user->surveyComplete(1, 1)) {
+
+		$cliente = new Cliente();
+		$pass = true;
+		if($pass) {
 			$msg = array(
 				'data' => array(
 					'type' => 'warning', 'title' => 'Nombre Alumno', 'text' => 'En el actual periodo, ya registramos tus respuestas con fecha <strong>dd-mm-aa</strong> a las <strong>hh:mm</strong>, ¿deseas actualizar esta información?',
 				), 'options' => array(
-					HTML::link("/", "NO", array("class" => "col-md-3 btn btn-default btn-lg text-uppercase")), HTML::link("survey", "SI", array("class" => "col-md-3 btn btn-hot btn-lg text-uppercase pull-right"))
+					HTML::link("/", "NO", array("class" => "col-md-3 btn btn-default btn-lg text-uppercase")), HTML::link("encuesta", "SI", array("class" => "col-md-3 btn btn-hot btn-lg text-uppercase pull-right"))
 				)
 			);
 
 			return View::make('messages')->with('msg', $msg);
 		} else {
-			return Redirect::action('EncuestaController@index');
+			return Redirect::action('EncuestasController@index');
 		}
 	}
 

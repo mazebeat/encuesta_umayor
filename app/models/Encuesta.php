@@ -1,13 +1,26 @@
 <?php
 
-class Encuesta extends Eloquent
-{
-	protected $table = 'surveys';
-	protected $primaryKey = 'id';
-	protected $fillable = array();
-
-	public function preguntas()
+	class Encuesta extends \Eloquent
 	{
-		return $this->hasMany('Pregunta');
+
+		public static $rules = array(
+			'titulo'             => 'required',
+			'estado'             => 'required',
+			'fecha_Creacion'     => 'required',
+			'fecha_Modificacion' => 'required'
+		);
+		protected $table = 'encuestas';
+
+		// Add your validation rules here
+		protected $primaryKey = 'id_encuesta';
+
+		// Don't forget to fill this array
+		protected $fillable = array(
+			'id_Negocio',
+			'titulo',
+			'estado',
+			'fecha_Creacion',
+			'fecha_Modificacion'
+		);
+
 	}
-}

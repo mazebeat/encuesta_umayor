@@ -19,33 +19,33 @@
 	@yield('style')
 </head>
 <body>
-<header class="container"></header>
-<div class="container">
-	<div class="row">
-		@yield('content')
-	</div>
+	<header class="container"></header>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="text-center">
-					<h4><span class="label label-primary"><a href="{{ URL::to('politicas') }}"><i class="fa fa-lock"></i> Politicas de Privacidad</a></span></h4>
+			@yield('content')
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="text-center">
+						<h4><span class="label label-primary"><a href="{{ URL::to('politicas') }}"><i class="fa fa-lock"></i> Politicas de Privacidad</a></span></h4>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<div class="clearfix"></div>
-<footer class="container">
-	<p>Copyright 2014 Intelidata© - Universidad Mayor</p>
-</footer>
-<a href="#" class="go-top"><i class="fa fa-chevron-circle-up fa-4x"></i></a>
-{{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
-{{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') }}
-{{-- Latest compiled and minified JavaScript --}}
-{{ HTML::script('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}
-{{-- Main script --}}
-{{ HTML::script('js/frontend.js') }}
-{{-- Custom script --}}
-@yield('script')
+	<div class="clearfix"></div>
+	<footer class="container">
+		<p>Copyright 2014 Intelidata© - Universidad Mayor</p>
+	</footer>
+	<a href="#" id="go-top" role="button" title="Click para ir al comienzo!" data-toggle="tooltip" data-placement="left"><i class="fa fa-chevron-circle-up fa-4x"></i></a>
+	{{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
+	{{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') }}
+	{{-- Latest compiled and minified JavaScript --}}
+	{{ HTML::script('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}
+	{{-- Main script --}}
+	{{ HTML::script('js/frontend.js') }}
+	{{-- Custom script --}}
+	@yield('script')
 </body>
 </html>

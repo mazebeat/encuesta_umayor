@@ -1,0 +1,1 @@
+C:\xampp\htdocs\encuesta_umayor\app/views/clientes/index.blade.php

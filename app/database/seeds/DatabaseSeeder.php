@@ -1,7 +1,6 @@
 <?php
 
-class DatabaseSeeder extends Seeder
-{
+class DatabaseSeeder extends Seeder {
 
 	/**
 	 * Run the database seeds.
@@ -12,12 +11,8 @@ class DatabaseSeeder extends Seeder
 	{
 		Eloquent::unguard();
 
-		$this->call('UserTableSeeder');
-		$this->call('SurveyTableSeeder');
-		$this->call('QuestionTableSeeder');
-		$this->call('AnswerTableSeeder');
-		$this->call('QuestionAnswerTableSeeder');
-//		$this->call('UserAnswerTableSeeder');
+		// $this->call('UserTableSeeder');
+		 $this->call('NegociosTableSeeder');
 	}
 
 }
