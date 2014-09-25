@@ -13,13 +13,14 @@ class CreatePreguntasTable extends Migration {
 	public function up()
 	{
 		Schema::create('preguntas', function (Blueprint $table) {
-			$table->increments('id_pregunta');
+			$table->increments('id_pregunta')->unique();
 			$table->string('descripcion_1');
 			$table->string('descripcion_2')->nullable();
 			$table->string('descripcion_3')->nullable();
-			$table->string('numero');
-			$table->integer('tipo');
+			$table->string('numero_pregunta');
 			$table->integer('id_pregunta_padre')->nullable();
+			$table->integer('id_tipo_pregunta')->unsigned();
+			$table->foreign('id_tipo_pregunta')->references('id_tipo_pregunta')->on('tipos_pregunta');
 			$table->integer('id_estado')->unsigned();
 			$table->foreign('id_estado')->references('id_estado')->on('estados');
 			$table->integer('id_encuesta')->unsigned();

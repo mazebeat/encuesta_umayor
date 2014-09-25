@@ -13,10 +13,10 @@ class CreatePreguntasDetalleTable extends Migration {
 	public function up()
 	{
 		Schema::create('preguntas_detalle', function (Blueprint $table) {
-			$table->increments('id_pregunta_detalle');
+			$table->increments('id_pregunta_detalle')->unique();
 			$table->string('descripcion');
-			$table->datetime('fecha_creacion');
-			$table->datetime('fecha_modificacion');
+			$table->datetime('fecha_creacion')->default('1900-01-01 00:00:00');
+			$table->datetime('fecha_modificacion')->default('1900-01-01 00:00:00');
 			$table->integer('id_estado')->unsigned();
 			$table->foreign('id_estado')->references('id_estado')->on('estados');
 			$table->integer('id_encuesta')->unsigned();

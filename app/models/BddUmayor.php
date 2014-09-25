@@ -91,6 +91,6 @@
 
 		public function clientes()
 		{
-			return $this->hasMany('Cliente', 'bdd_umayor_id_alumno');
+			return $this->hasMany('Cliente', 'id_alumno');
 		}
 	}

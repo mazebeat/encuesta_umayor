@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateCanalesTable extends Migration {
+class CreateTiposPreguntaTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class CreateCanalesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('canales', function (Blueprint $table) {
-			$table->increments('id_canal');
-			$table->char('codigo', 2);
-			$table->string('descripcion');
+		Schema::create('tipos_pregunta', function(Blueprint $table)
+		{
+			$table->increments('id_tipo_pregunta')->unique();
+			$table->string('tipo');
 			$table->timestamps();
 		});
 	}
@@ -28,7 +28,7 @@ class CreateCanalesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('canales');
+		Schema::drop('tipos_pregunta');
 	}
 
 }

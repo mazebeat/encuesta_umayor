@@ -13,7 +13,7 @@ class CreateBddUmayorTable extends Migration {
 	public function up()
 	{
 		Schema::create('bdd_umayor', function (Blueprint $table) {
-			$table->increments('id_alumno');
+			$table->increments('id_alumno')->unique();
 			$table->string('facultad');
 			$table->string('escuela');
 			$table->string('carrera');
@@ -24,13 +24,14 @@ class CreateBddUmayorTable extends Migration {
 			$table->string('apellido_paterno');
 			$table->string('apellido_materno');
 			$table->string('nombres');
-			$table->string('sexo');
-			$table->dateTime('año_ingreso_1año_carrera');
-			$table->dateTime('año_ingreso_carrera')->nullable();
-			$table->dateTime('año_egreso_plan_regular')->nullable();
-			$table->dateTime('fecha_registro');
+			$table->char('sexo', 1);
+			$table->integer('año_ingreso_1año_carrera');
+			$table->integer('año_ingreso_carrera')->nullable();
+			$table->integer('año_egreso_plan_regular')->nullable();
+			$table->datetime('fecha_registro')->default('1900-01-01 00:00:00');
 			$table->integer('id_negocio')->unsigned();
 			$table->foreign('id_negocio')->references('id_negocio')->on('negocios');
+			$table->index('rut');
 			$table->timestamps();
 		});
 	}

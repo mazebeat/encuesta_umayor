@@ -6,7 +6,7 @@
 	 * @property integer         $id_cliente
 	 * @property integer         $id_estado
 	 * @property integer         $id_negocio
-	 * @property integer         $bdd_umayor_id_alumno
+	 * @property integer         $id_alumno
 	 * @property \Carbon\Carbon  $created_at
 	 * @property \Carbon\Carbon  $updated_at
 	 * @property-read \Test      $test
@@ -21,24 +21,21 @@
 	class Cliente extends \Eloquent
 	{
 		public static $rules = array(
-			'id_negocio'           => 'required',
-			'estado'               => 'required',
-			'bdd_umayor_id_alumno' => 'readdir()quired',
+			'id_negocio' => 'required',
+			'estado'     => 'required',
+			'id_alumno'  => 'required',
 		);
 		protected $table = 'clientes';
 		protected $primaryKey = 'id_cliente';
-//		protected $fillable = array(
-//			'id_negocio',
-//			'estado',
-//			'bdd_umayor_id_alumno',
-//			'excepciones_clientes_clientes_id_negocio',
-//			'excepciones_clientes_clientes_id_cliente',
-//			'excepciones_clientes_clientes_bdd_umayor_id_alumno',
-//		);
+		protected $fillable = array(
+			'id_negocio',
+			'estado',
+			'id_alumno',
+		);
 
 		public function bddumayor()
 		{
-			return $this->belongsTo('BddUmayor', 'bdd_umayor_id_alumno');
+			return $this->belongsTo('BddUmayor', 'id_alumno');
 		}
 
 	}

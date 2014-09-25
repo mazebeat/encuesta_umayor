@@ -631,9 +631,9 @@ class Blueprint {
 	 */
 	public function timestamps()
 	{
-		$this->timestamp('created_at');
+		$this->timestamp('created_at')->default('1970-01-01 00:00:01');
 
-		$this->timestamp('updated_at');
+		$this->timestamp('updated_at')->default('1970-01-01 00:00:01');
 	}
 
 	/**

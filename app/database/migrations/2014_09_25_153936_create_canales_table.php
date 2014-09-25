@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateNegociosTable extends Migration {
+class CreateCanalesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,9 @@ class CreateNegociosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('negocios', function (Blueprint $table) {
-			$table->increments('id_negocio');
+		Schema::create('canales', function (Blueprint $table) {
+			$table->increments('id_canal')->unique();
 			$table->string('descripcion');
-			$table->integer('id_estado')->unsigned();
-			$table->foreign('id_estado')->references('id_estado')->on('estados');
 			$table->timestamps();
 		});
 	}
@@ -29,7 +27,7 @@ class CreateNegociosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('negocios');
+		Schema::drop('canales');
 	}
 
 }

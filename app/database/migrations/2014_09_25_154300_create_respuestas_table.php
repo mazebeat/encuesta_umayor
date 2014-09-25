@@ -13,8 +13,8 @@ class CreateRespuestasTable extends Migration {
 	public function up()
 	{
 		Schema::create('respuestas', function (Blueprint $table) {
-			$table->increments('id_respuesta');
-			$table->datetime('fecha');
+			$table->increments('id_respuesta')->unique();
+			$table->datetime('fecha')->default('1900-01-01 00:00:00');
 			$table->integer('id_estado')->unsigned();
 			$table->foreign('id_estado')->references('id_estado')->on('estados');
 			$table->integer('id_canal')->unsigned();

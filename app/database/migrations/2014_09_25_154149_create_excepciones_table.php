@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateEncuestasTable extends Migration {
+class CreateExcepcionesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,9 @@ class CreateEncuestasTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('encuestas', function (Blueprint $table) {
-			$table->increments('id_encuesta');
-			$table->string('titulo');
-			$table->datetime('fecha_creacion');
-			$table->datetime('fecha_modificacion');
-			$table->integer('id_estado')->unsigned();
-			$table->foreign('id_estado')->references('id_estado')->on('estados');
+		Schema::create('excepciones', function (Blueprint $table) {
+			$table->increments('id_excepcion')->unique();
+			$table->string('descripcion');
 			$table->integer('id_negocio')->unsigned();
 			$table->foreign('id_negocio')->references('id_negocio')->on('negocios');
 			$table->timestamps();
@@ -33,7 +29,7 @@ class CreateEncuestasTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('encuestas');
+		Schema::drop('excepciones');
 	}
 
 }
