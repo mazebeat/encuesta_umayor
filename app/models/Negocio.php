@@ -1,5 +1,20 @@
 <?php
 
+	/**
+ * Negocio
+ *
+ * @property integer        $id_negocio
+ * @property string         $descripcion
+ * @property integer        $id_estado
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @method static \Illuminate\Database\Query\Builder|\Negocio whereIdNegocio($value)
+ * @method static \Illuminate\Database\Query\Builder|\Negocio whereDescripcion($value)
+ * @method static \Illuminate\Database\Query\Builder|\Negocio whereIdEstado($value)
+ * @method static \Illuminate\Database\Query\Builder|\Negocio whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Negocio whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\BddUmayor[] $bddumayor
+ */
 	class Negocio extends \Eloquent
 	{
 
@@ -17,5 +32,10 @@
 			'descripcion',
 			'estado'
 		);
+
+		public function bddumayor()
+		{
+			return $this->hasMany('BddUmayor', 'id_negocio');
+		}
 
 	}

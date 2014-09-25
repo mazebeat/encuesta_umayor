@@ -1,6 +1,10 @@
 <?php
 
-class Respuestum extends \Eloquent {
+/**
+ * Respuesta
+ *
+ */
+class Respuesta extends \Eloquent {
 
 	protected $table      = '';
 	protected $primaryKey = '';

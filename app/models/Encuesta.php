@@ -1,6 +1,26 @@
 <?php
 
-	class Encuesta extends \Eloquent
+	/**
+ * Encuesta
+ *
+ * @property integer $id_encuesta
+ * @property string $titulo
+ * @property string $fecha_creacion
+ * @property string $fecha_modificacion
+ * @property integer $id_estado
+ * @property integer $id_negocio
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @method static \Illuminate\Database\Query\Builder|\Encuesta whereIdEncuesta($value)
+ * @method static \Illuminate\Database\Query\Builder|\Encuesta whereTitulo($value)
+ * @method static \Illuminate\Database\Query\Builder|\Encuesta whereFechaCreacion($value)
+ * @method static \Illuminate\Database\Query\Builder|\Encuesta whereFechaModificacion($value)
+ * @method static \Illuminate\Database\Query\Builder|\Encuesta whereIdEstado($value)
+ * @method static \Illuminate\Database\Query\Builder|\Encuesta whereIdNegocio($value)
+ * @method static \Illuminate\Database\Query\Builder|\Encuesta whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Encuesta whereUpdatedAt($value)
+ */
+class Encuesta extends \Eloquent
 	{
 
 		public static $rules = array(

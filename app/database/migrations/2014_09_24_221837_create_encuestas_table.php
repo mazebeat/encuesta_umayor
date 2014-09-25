@@ -12,14 +12,15 @@ class CreateEncuestasTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('encuestas', function(Blueprint $table)
-		{
-			$table->increments('id_encuesta')->unique();
+		Schema::create('encuestas', function (Blueprint $table) {
+			$table->increments('id_encuesta');
 			$table->string('titulo');
-			$table->integer('id_estado');
-			$table->integer('id_negocio');
 			$table->datetime('fecha_creacion');
 			$table->datetime('fecha_modificacion');
+			$table->integer('id_estado')->unsigned();
+			$table->foreign('id_estado')->references('id_estado')->on('estados');
+			$table->integer('id_negocio')->unsigned();
+			$table->foreign('id_negocio')->references('id_negocio')->on('negocios');
 			$table->timestamps();
 		});
 	}

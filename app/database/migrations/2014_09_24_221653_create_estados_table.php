@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateRespuestasDetallesTable extends Migration {
+class CreateEstadosTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,10 @@ class CreateRespuestasDetallesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('respuestas_detalles', function(Blueprint $table)
-		{
-			$table->increments('id_respuesta_detalle')->unique();
-			$table->string('valor_respuesta');
-			$table->integer('id_respuesta');
+		Schema::create('estados', function (Blueprint $table) {
+			$table->increments('id_estado');
+			$table->string('tipo');
+			$table->string('descripcion')->nullable();
 			$table->timestamps();
 		});
 	}
@@ -29,7 +28,7 @@ class CreateRespuestasDetallesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('respuestas_detalles');
+		Schema::drop('estados');
 	}
 
 }

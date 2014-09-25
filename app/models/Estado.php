@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Estado
+ *
+ */
 class Estado extends \Eloquent {
 
 	protected $table      = '';

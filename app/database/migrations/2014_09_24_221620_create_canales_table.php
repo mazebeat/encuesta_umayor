@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateEstadosTable extends Migration {
+class CreateCanalesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,9 @@ class CreateEstadosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('estados', function(Blueprint $table)
-		{
-			$table->increments('id_estado')->unique();
-			$table->string('tipo');
+		Schema::create('canales', function (Blueprint $table) {
+			$table->increments('id_canal');
+			$table->char('codigo', 2);
 			$table->string('descripcion');
 			$table->timestamps();
 		});
@@ -29,7 +28,7 @@ class CreateEstadosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('estados');
+		Schema::drop('canales');
 	}
 
 }

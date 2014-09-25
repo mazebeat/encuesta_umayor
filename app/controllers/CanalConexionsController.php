@@ -9,7 +9,7 @@ class CanalConexionsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$canalconexions = Canalconexion::all();
+		$canalconexions = Canal::all();
 
 		return View::make('canalconexions.index', compact('canalconexions'));
 	}
@@ -31,14 +31,14 @@ class CanalConexionsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Canalconexion::$rules);
+		$validator = Validator::make($data = Input::all(), Canal::$rules);
 
 		if ($validator->fails())
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		Canalconexion::create($data);
+		Canal::create($data);
 
 		return Redirect::route('canalconexions.index');
 	}
@@ -51,7 +51,7 @@ class CanalConexionsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$canalconexion = Canalconexion::findOrFail($id);
+		$canalconexion = Canal::findOrFail($id);
 
 		return View::make('canalconexions.show', compact('canalconexion'));
 	}
@@ -64,7 +64,7 @@ class CanalConexionsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$canalconexion = Canalconexion::find($id);
+		$canalconexion = Canal::find($id);
 
 		return View::make('canalconexions.edit', compact('canalconexion'));
 	}
@@ -77,9 +77,9 @@ class CanalConexionsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$canalconexion = Canalconexion::findOrFail($id);
+		$canalconexion = Canal::findOrFail($id);
 
-		$validator = Validator::make($data = Input::all(), Canalconexion::$rules);
+		$validator = Validator::make($data = Input::all(), Canal::$rules);
 
 		if ($validator->fails())
 		{
@@ -99,7 +99,7 @@ class CanalConexionsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		Canalconexion::destroy($id);
+		Canal::destroy($id);
 
 		return Redirect::route('canalconexions.index');
 	}
