@@ -13,10 +13,8 @@ class CreateExcepcionesTable extends Migration {
 	public function up()
 	{
 		Schema::create('excepciones', function (Blueprint $table) {
-			$table->increments('id_excepcion')->unique();
+			$table->increments('id_excepcion');
 			$table->string('descripcion');
-			$table->integer('id_negocio')->unsigned();
-			$table->foreign('id_negocio')->references('id_negocio')->on('negocios')->onDelete('cascade')->onUpdate('cascade');
 			$table->timestamps();
 		});
 	}

@@ -13,7 +13,8 @@ class CreateCanalesTable extends Migration {
 	public function up()
 	{
 		Schema::create('canales', function (Blueprint $table) {
-			$table->increments('id_canal')->unique();
+			$table->increments('id_canal');
+			$table->char('codigo', 2);
 			$table->string('descripcion');
 			$table->timestamps();
 		});

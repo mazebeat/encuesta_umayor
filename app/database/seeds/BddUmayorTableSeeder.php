@@ -25,7 +25,7 @@
 				'sexo'                     => 'M',
 				'año_ingreso_1año_carrera' => 2008,
 				'año_egreso_plan_regular'  => 2014,
-				'id_negocio'               => 1
+				// 'id_negocio'               => 1
 			]);
 			BddUmayor::create([
 				'facultad'                 => 'Instituto Arte y Tecnología Audiovisual',
@@ -40,7 +40,7 @@
 				'nombres'                  => 'FELIPE',
 				'sexo'                     => 'M',
 				'año_ingreso_1año_carrera' => 2014,
-				'id_negocio'               => 1
+				// 'id_negocio'               => 1
 			]);
 			BddUmayor::create([
 				'facultad'                 => 'Fac. Arquitectura, Diseño y Construcción',
@@ -56,7 +56,7 @@
 				'sexo'                     => 'M',
 				'año_ingreso_1año_carrera' => 9999,
 				'año_ingreso_carrera'      => 2009,
-				'id_negocio'               => 1
+				// 'id_negocio'               => 1
 			]);
 			BddUmayor::create([
 				'facultad'                 => 'Facultad de Arte',
@@ -72,7 +72,7 @@
 				'sexo'                     => 'M',
 				'año_ingreso_1año_carrera' => 2007,
 				'año_egreso_plan_regular'  => 2013,
-				'id_negocio'               => 1
+				// 'id_negocio'               => 1
 			]);
 			BddUmayor::create([
 				'facultad'                 => 'Facultad de Ciencias',
@@ -87,7 +87,23 @@
 				'nombres'                  => 'JUAN',
 				'sexo'                     => 'M',
 				'año_ingreso_1año_carrera' => 2014,
-				'id_negocio'               => 1
+				// 'id_negocio'               => 1
+			]);
+			BddUmayor::create([
+				'facultad'                 => 'Facultad de Derecho y Ciencias Sociales',
+				'escuela'                  => 'Escuela de Derecho',
+				'carrera'                  => 'Derecho',
+				'jornada'                  => 'Diurno',
+				'sede'                     => 'División Santiago',
+				'campus'                   => 'Campus Manuel Montt',
+				'rut'                      => '189412002',
+				'apellido_paterno'         => 'LAZO',
+				'apellido_materno'         => 'TENORIO',
+				'nombres'                  => 'ALEJANDRA',
+				'sexo'                     => 'M',
+				'año_ingreso_1año_carrera' => 9999,
+				'año_ingreso_carrera'      => 2004,
+				// 'id_negocio'               => 1
 			]);
 			//			}
 		}

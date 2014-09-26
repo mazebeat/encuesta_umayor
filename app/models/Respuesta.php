@@ -6,8 +6,8 @@
  */
 class Respuesta extends \Eloquent {
 
-	protected $table      = '';
-	protected $primaryKey = '';
+	protected $table      = 'respuestas';
+	protected $primaryKey = 'id_respuesta';
 
 	// Add your validation rules here
 	public static $rules  = array(
@@ -16,5 +16,4 @@ class Respuesta extends \Eloquent {
 	
 	// Don't forget to fill this array
 	protected $fillable   = array();
-
 }

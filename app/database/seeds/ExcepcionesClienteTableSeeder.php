@@ -10,13 +10,13 @@
 		{
 			$faker = Faker::create();
 
-			foreach(range(6, 9) as $index) {
+//			foreach(range(6, 9) as $index) {
 				ExcepcionesCliente::create([
 					'fecha'        => $faker->dateTimeThisYear(),
-					'id_cliente'   => $index,
+					'id_cliente'   => 6,
 					'id_excepcion' => 1,
 				]);
-			}
+//			}
 		}
 
 	}

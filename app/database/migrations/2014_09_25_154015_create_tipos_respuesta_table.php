@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateTiposPreguntaTable extends Migration {
+class CreateTiposRespuestaTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,9 @@ class CreateTiposPreguntaTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('tipos_pregunta', function(Blueprint $table)
+		Schema::create('tipos_respuesta', function(Blueprint $table)
 		{
-			$table->increments('id_tipo_pregunta')->unique();
+			$table->increments('id_tipo_respuesta');
 			$table->string('tipo');
 			$table->string('opciones')->nullable();
 			$table->timestamps();
@@ -29,7 +29,7 @@ class CreateTiposPreguntaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tipos_pregunta');
+		Schema::drop('tipos_respuesta');
 	}
 
 }

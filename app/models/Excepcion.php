@@ -1,13 +1,9 @@
 <?php
 
-/**
- * Estado
- *
- */
-class Estado extends \Eloquent {
+class Excepcion extends \Eloquent {
 
-	protected $table      = 'estados';
-	protected $primaryKey = 'id_estado';
+	protected $table      = 'excepciones';
+	protected $primaryKey = 'id_excepcion';
 
 	// Add your validation rules here
 	public static $rules  = array(

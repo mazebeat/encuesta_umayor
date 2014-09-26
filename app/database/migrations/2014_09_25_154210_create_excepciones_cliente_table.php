@@ -13,12 +13,12 @@ class CreateExcepcionesClienteTable extends Migration {
 	public function up()
 	{
 		Schema::create('excepciones_cliente', function (Blueprint $table) {
-			$table->increments('id_excepcion_cliente')->unique();
+			$table->increments('id_excepcion_cliente');
 			$table->datetime('fecha')->default('1900-01-01 00:00:00');
 			$table->integer('id_cliente')->unsigned();
-			$table->foreign('id_cliente')->references('id_cliente')->on('clientes')->onDelete('cascade')->onUpdate('cascade');
+			$table->foreign('id_cliente')->references('id_cliente')->on('clientes');
 			$table->integer('id_excepcion')->unsigned();
-			$table->foreign('id_excepcion')->references('id_excepcion')->on('excepciones')->onDelete('cascade')->onUpdate('cascade');
+			$table->foreign('id_excepcion')->references('id_excepcion')->on('excepciones');
 			$table->timestamps();
 		});
 	}

@@ -65,24 +65,22 @@
 		);
 		protected $table = 'bdd_umayor';
 		protected $primaryKey = 'id_alumno';
-//		protected $fillable = array(
-//			'id_alumno',
-//			'id_negocio',
-//			'facultad',
-//			'escuela',
-//			'carrera',
-//			'jornada',
-//			'sede',
-//			'campus',
-//			'rut',
-//			'apellido_paterno',
-//			'apellido_materno',
-//			'nombre',
-//			'año_ingreso_1año_carrera',
-//			'año_ingreso_carrera',
-//			'año_egreso_plan_regular',
-//			'fecha_registro',
-//		);
+		protected $fillable = array(
+			'facultad',
+			'escuela',
+			'carrera',
+			'jornada',
+			'sede',
+			'campus',
+			'rut',
+			'apellido_paterno',
+			'apellido_materno',
+			'nombre',
+			'año_ingreso_1año_carrera',
+			'año_ingreso_carrera',
+			'año_egreso_plan_regular',
+			'fecha_registro',
+		);
 
 		public function negocio()
 		{

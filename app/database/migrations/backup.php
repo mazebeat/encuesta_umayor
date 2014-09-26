@@ -18,7 +18,7 @@
 	});
 	Schema::create('tipos_pregunta', function(Blueprint $table)
 	{
-		$table->increments('id_tipo_pregunta')->unique();
+		$table->increments('id_tipo_pregunta');
 		$table->string('tipo');
 		$table->timestamps()->default('1900-01-01 00:00:00.000');
 	});

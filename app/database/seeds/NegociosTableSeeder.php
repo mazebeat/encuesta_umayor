@@ -9,8 +9,8 @@
 
 			foreach(range(1, 1) as $index) {
 				Negocio::create([
-					'Descripcion' => 'Universidad Mayor',
-					'Estado'      => 1
+					'descripcion' => 'Universidad Mayor',
+					'id_estado'      => 1
 				]);
 			}
 		}

@@ -12,9 +12,9 @@
 
 			//		foreach(range(1, 10) as $index)
 			//		{
-			Excepcione::create([
+			Excepcion::create([
 				'descripcion' => 'No desea responder encuesta',
-				'id_negocio'  => 1,
+				// 'id_negocio'  => 1,
 			]);
 			//		}
 		}

@@ -10,11 +10,11 @@
 		{
 			$faker = Faker::create();
 
-			foreach(range(1, 17) as $index) {
+			foreach(range(1, 6) as $index) {
 				Cliente::create([
 					'id_estado'            => 1,
-					'id_negocio'           => 1,
-					'bdd_umayor_id_alumno' => $index
+					// 'id_negocio'           => 1,
+					'id_alumno' => $index
 				]);
 			}
 		}

@@ -13,7 +13,7 @@ class CreateBddUmayorTable extends Migration {
 	public function up()
 	{
 		Schema::create('bdd_umayor', function (Blueprint $table) {
-			$table->increments('id_alumno')->unique();
+			$table->increments('id_alumno');
 			$table->string('facultad');
 			$table->string('escuela');
 			$table->string('carrera');
@@ -29,8 +29,7 @@ class CreateBddUmayorTable extends Migration {
 			$table->integer('año_ingreso_carrera')->nullable();
 			$table->integer('año_egreso_plan_regular')->nullable();
 			$table->datetime('fecha_registro')->default('1900-01-01 00:00:00');
-			$table->integer('id_negocio')->unsigned();
-			$table->foreign('id_negocio')->references('id_negocio')->on('negocios')->onDelete('cascade')->onUpdate('cascade');
+//			$table->integer('id_negocio');
 			$table->index('rut');
 			$table->timestamps();
 		});
