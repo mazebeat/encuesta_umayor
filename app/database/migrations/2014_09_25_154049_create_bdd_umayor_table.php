@@ -30,7 +30,7 @@ class CreateBddUmayorTable extends Migration {
 			$table->integer('año_egreso_plan_regular')->nullable();
 			$table->datetime('fecha_registro')->default('1900-01-01 00:00:00');
 			$table->integer('id_negocio')->unsigned();
-			$table->foreign('id_negocio')->references('id_negocio')->on('negocios');
+			$table->foreign('id_negocio')->references('id_negocio')->on('negocios')->onDelete('cascade')->onUpdate('cascade');
 			$table->index('rut');
 			$table->timestamps();
 		});

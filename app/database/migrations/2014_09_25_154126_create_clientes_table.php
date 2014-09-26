@@ -15,11 +15,11 @@ class CreateClientesTable extends Migration {
 		Schema::create('clientes', function (Blueprint $table) {
 			$table->increments('id_cliente')->unique();
 			$table->integer('id_estado')->unsigned();
-			$table->foreign('id_estado')->references('id_estado')->on('estados');
+			$table->foreign('id_estado')->references('id_estado')->on('estados')->onDelete('cascade')->onUpdate('cascade');
 			$table->integer('id_negocio')->unsigned();
-			$table->foreign('id_negocio')->references('id_negocio')->on('negocios');
+			$table->foreign('id_negocio')->references('id_negocio')->on('negocios')->onDelete('cascade')->onUpdate('cascade');
 			$table->integer('bdd_umayor_id_alumno')->unsigned();
-			$table->foreign('bdd_umayor_id_alumno')->references('id_alumno')->on('bdd_umayor');
+			$table->foreign('bdd_umayor_id_alumno')->references('id_alumno')->on('bdd_umayor')->onDelete('cascade')->onUpdate('cascade');
 			$table->timestamps();
 		});
 	}

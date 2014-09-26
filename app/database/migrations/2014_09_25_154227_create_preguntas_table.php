@@ -20,11 +20,11 @@ class CreatePreguntasTable extends Migration {
 			$table->string('numero_pregunta');
 			$table->integer('id_pregunta_padre')->nullable();
 			$table->integer('id_tipo_pregunta')->unsigned();
-			$table->foreign('id_tipo_pregunta')->references('id_tipo_pregunta')->on('tipos_pregunta');
+			$table->foreign('id_tipo_pregunta')->references('id_tipo_pregunta')->on('tipos_pregunta')->onDelete('cascade')->onUpdate('cascade');
 			$table->integer('id_estado')->unsigned();
-			$table->foreign('id_estado')->references('id_estado')->on('estados');
+			$table->foreign('id_estado')->references('id_estado')->on('estados')->onDelete('cascade')->onUpdate('cascade');
 			$table->integer('id_encuesta')->unsigned();
-			$table->foreign('id_encuesta')->references('id_encuesta')->on('encuestas');
+			$table->foreign('id_encuesta')->references('id_encuesta')->on('encuestas')->onDelete('cascade')->onUpdate('cascade');
 			$table->timestamps();
 		});
 	}

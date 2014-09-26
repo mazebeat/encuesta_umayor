@@ -1,20 +1,22 @@
 <?php
 
-// Composer: "fzaninotto/faker": "v1.3.0"
-use Faker\Factory as Faker;
+	// Composer: "fzaninotto/faker": "v1.3.0"
+	use Faker\Factory as Faker;
 
-class ExcepcionesClienteTableSeeder extends Seeder {
-
-	public function run()
+	class ExcepcionesClienteTableSeeder extends Seeder
 	{
-		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		public function run()
 		{
-			ExcepcionesCliente::create([
+			$faker = Faker::create();
 
-			]);
+			foreach(range(6, 9) as $index) {
+				ExcepcionesCliente::create([
+					'fecha'        => $faker->dateTimeThisYear(),
+					'id_cliente'   => $index,
+					'id_excepcion' => 1,
+				]);
+			}
 		}
-	}
 
-}
+	}

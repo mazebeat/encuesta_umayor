@@ -16,7 +16,7 @@ class CreateExcepcionesTable extends Migration {
 			$table->increments('id_excepcion')->unique();
 			$table->string('descripcion');
 			$table->integer('id_negocio')->unsigned();
-			$table->foreign('id_negocio')->references('id_negocio')->on('negocios');
+			$table->foreign('id_negocio')->references('id_negocio')->on('negocios')->onDelete('cascade')->onUpdate('cascade');
 			$table->timestamps();
 		});
 	}

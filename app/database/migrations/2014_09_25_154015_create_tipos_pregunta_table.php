@@ -16,6 +16,7 @@ class CreateTiposPreguntaTable extends Migration {
 		{
 			$table->increments('id_tipo_pregunta')->unique();
 			$table->string('tipo');
+			$table->string('opciones')->nullable();
 			$table->timestamps();
 		});
 	}

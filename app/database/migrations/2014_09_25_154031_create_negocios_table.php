@@ -16,7 +16,7 @@ class CreateNegociosTable extends Migration {
 			$table->increments('id_negocio')->unique();
 			$table->string('descripcion');
 			$table->integer('id_estado')->unsigned();
-			$table->foreign('id_estado')->references('id_estado')->on('estados');
+			$table->foreign('id_estado')->references('id_estado')->on('estados')->onDelete('cascade')->onUpdate('cascade');
 			$table->timestamps();
 		});
 	}

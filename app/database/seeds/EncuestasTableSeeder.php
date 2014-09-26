@@ -13,7 +13,7 @@
 			foreach(range(1, 1) as $index) {
 				Encuesta::create([
 					'id_negocio'         => 1,
-					'titulo'             => 'Encuesta de prueba',
+					'titulo'             => 'Encuesta Institución',
 					'estado'             => 1,
 					'fecha_creacion'     => $faker->dateTime,
 					'fecha_modificacion' => $faker->dateTime

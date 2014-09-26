@@ -18,9 +18,9 @@ class CreateEncuestasTable extends Migration {
 			$table->datetime('fecha_creacion')->default('1900-01-01 00:00:00');
 			$table->datetime('fecha_modificacion')->default('1900-01-01 00:00:00');
 			$table->integer('id_estado')->unsigned();
-			$table->foreign('id_estado')->references('id_estado')->on('estados');
+			$table->foreign('id_estado')->references('id_estado')->on('estados')->onDelete('cascade')->onUpdate('cascade');
 			$table->integer('id_negocio')->unsigned();
-			$table->foreign('id_negocio')->references('id_negocio')->on('negocios');
+			$table->foreign('id_negocio')->references('id_negocio')->on('negocios')->onDelete('cascade')->onUpdate('cascade');
 			$table->timestamps();
 		});
 	}

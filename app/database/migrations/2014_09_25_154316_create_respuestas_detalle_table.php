@@ -17,7 +17,7 @@ class CreateRespuestasDetalleTable extends Migration {
 			$table->string('valor1')->nullable();
 			$table->integer('valor2')->nullable();
 			$table->integer('id_respuesta')->unsigned();
-			$table->foreign('id_respuesta')->references('id_respuesta')->on('respuestas');
+			$table->foreign('id_respuesta')->references('id_respuesta')->on('respuestas')->onDelete('cascade')->onUpdate('cascade');
 		});
 	}
 
