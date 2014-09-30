@@ -1,10 +1,6 @@
 @extends('layouts.user')
 
 @section('style')
-{{-- iCheck.JS style --}}
-{{ HTML::style('css/skins/all.css') }}
-{{ HTML::style('css/select2.css') }}
-{{ HTML::style('css/select2-bootstrap.css') }}
 <style type="text/css">
 	label {
 		padding-left: 0;
@@ -222,10 +218,6 @@
 @stop
 
 @section('script')
-{{-- iCheck.JS Plugin --}}
-{{ HTML::script('js/icheck.min.js') }}
-{{ HTML::script('js/select2.min.js') }}
-{{ HTML::script('js/select2_locale_es.js') }}
 <script type="text/javascript">
 	var $name;
 	var $value;

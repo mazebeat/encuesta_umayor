@@ -13,6 +13,6 @@
 		|
 		*/
 
-		'debug' => false,
+		'debug' => true,
 
 	);

@@ -32,12 +32,8 @@ Route::get('politicas', function () {
 	return View::make('politicas');
 });
 
-Route::resource('bdd_umayors', 'BddUmayorsController');
-Route::resource('negocios', 'NegociosController');
 Route::resource('encuestas', 'EncuestasController');
-Route::resource('pregunta', 'NegociosController');
-Route::resource('respuestas', 'RespuestasController');
-Route::resource('canales', 'CanalesController');
+Route::get('add_exception', array('as' => 'excepciones.add', 'uses' => 'ExcepcionesController@add'));
 
 Route::get('test', function () {
 	$a = new Respuesta();

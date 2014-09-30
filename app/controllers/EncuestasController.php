@@ -15,12 +15,9 @@ class EncuestasController extends \BaseController
 	 */
 	public function index()
 	{
-		$this->verify_login();
-
-		$encuesta = new Encuesta();
-		$id       = $encuesta->select('id_encuesta')->whereIdEstado(1)->first(array('id_encuesta'))->id_encuesta;
-		if(!empty($id) && $id != null) {
-			Session::put('encuesta', $id);
+		$e = Encuesta::select('id_encuesta')->whereIdEstado(1)->first('id_encuesta');
+		if(!empty($e) && $e != null) {
+			Session::put('encuesta', $e->id_encuesta);
 
 			return View::make('encuesta');
 		} else {
@@ -30,25 +27,12 @@ class EncuestasController extends \BaseController
 	}
 
 	/**
-	 * Show the form for creating a new encuesta
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		$this->verify_login();
-
-		return View::make('encuestas.create');
-	}
-
-	/**
 	 * Store a newly created encuesta in storage.
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
-		$this->verify_login();
 		$pass   = false;
 		$inputs = Input::all();
 
@@ -57,11 +41,11 @@ class EncuestasController extends \BaseController
 				if(!empty($value)) {
 					$resp                      = new Respuesta;
 					$resp->fecha               = Carbon::now();
-					$resp->id_estado           = 1;
+					$resp->id_estado           = 6;
 					$resp->id_canal            = Session::get('canal', 3);
 					$resp->id_encuesta         = Session::get('encuesta', 1);
 					$resp->id_pregunta         = (int)str_replace('pregunta_', '', $key);
-					$resp->id_pregunta_detalle = 1; // ????
+					$resp->id_pregunta_detalle = 1;
 					$resp->id_cliente          = Session::get('user_id');
 					if($resp->save()) {
 						$resp_d               = new RespuestasDetalle;
@@ -88,7 +72,7 @@ class EncuestasController extends \BaseController
 			);
 			Input::flush();
 			Session::flush();
-
+			unset($pass);
 			return View::make('messages', compact('msg'));
 		} else {
 			$msg = array(
@@ -97,73 +81,8 @@ class EncuestasController extends \BaseController
 					'text' => 'Error al enviar el formulario'
 				)
 			);
-
+			unset($pass);
 			return Redirect::back()->with('msg', $msg)->withInput(Input::all());
 		}
 	}
-
-	/**
-	 * Display the specified encuesta.
-	 *
-	 * @param  int $id
-	 *
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		$encuesta = Encuesta::findOrFail($id);
-
-		return View::make('encuestas.show', compact('encuesta'));
-	}
-
-	/**
-	 * Show the form for editing the specified encuesta.
-	 *
-	 * @param  int $id
-	 *
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		$encuesta = Encuesta::find($id);
-
-		return View::make('encuestas.edit', compact('encuesta'));
-	}
-
-	/**
-	 * Update the specified encuesta in storage.
-	 *
-	 * @param  int $id
-	 *
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		$encuesta = Encuesta::findOrFail($id);
-
-		$validator = Validator::make($data = Input::all(), Encuesta::$rules);
-
-		if($validator->fails()) {
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		$encuesta->update($data);
-
-		return Redirect::route('encuestas.index');
-	}
-
-	/**
-	 * Remove the specified encuesta from storage.
-	 *
-	 * @param  int $id
-	 *
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		Encuesta::destroy($id);
-
-		return Redirect::route('encuestas.index');
-	}
-
 }

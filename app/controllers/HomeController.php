@@ -24,14 +24,14 @@ class HomeController extends BaseController
 	 */
 	public function index($canal = null)
 	{
-		Session::forget('canal');
-		if(isset($canal)) {
-			$c  = new Canal();
-			$id = $c->select('id_canal')->whereCodigo($canal)->first('id_canal');
-			if(!empty($id) && $id != null) {
-				Session::put('canal', $id->id_canal);
+		if(isset($canal) && Session::has('canal')) {
+			Session::forget('canal');
+			$c = Canal::select('id_canal')->whereCodigo($canal)->first('id_canal');
+			if(!empty($c) && $c != null) {
+				Session::put('canal', $c->id_canal);
 			}
 		}
+
 		return View::make('index');
 	}
 
@@ -54,8 +54,7 @@ class HomeController extends BaseController
 		}
 
 		//		VERIFICA SI EL USUARIO RESPONDIO LA ENCUESTA
-		$alumno  = new BddUmayor();
-		$alumno  = $alumno->select(array(
+		$alumno  = BddUmayor::select(array(
 			'id_alumno',
 			'nombres',
 			'apellido_paterno',
@@ -66,21 +65,23 @@ class HomeController extends BaseController
 			'apellido_paterno',
 			'apellido_materno'
 		));
-		$cliente = new Cliente();
-		$cliente = $cliente->select('id_cliente')->whereIdAlumno($alumno->id_alumno)->first('id_cliente');
+
+		$cliente = Cliente::select('id_cliente')->whereIdAlumno($alumno->id_alumno)->first('id_cliente');
 
 		//		SE CREAN LAS VARIABLES DE SESSION DEL ALUMNO
 		Session::put('user_id', $cliente->id_cliente);
 		Session::put('user_name', $alumno->nombres . ' ' . $alumno->apellido_paterno);
+		unset($cliente);
+		unset($alumno);
 
 		//		SE VALIDAN RESPUESTAS ANTERIORES
-		$resp = new Respuesta();
-		$resp = $resp->select(array('created_at'))->whereIdCliente(Session::get('user_id'))->orderBy('id_respuesta', 'DESC')->first();
+		$resp = Respuesta::select(array('created_at'))->whereIdCliente(Session::get('user_id'))->orderBy('id_respuesta', 'DESC')->first();
 
 		$ya_respondio = false;
 		if(!empty($resp) && count($resp)) {
-			$ya_respondio  = true;
+			$ya_respondio   = true;
 			$last_responsed = $resp->created_at;
+			unset($resp);
 		}
 
 		//		SI EL ALUMNO YA RESPONDIO LA ENCUESTA
@@ -96,11 +97,12 @@ class HomeController extends BaseController
 					link_to_route("encuestas.index", "SI", array(), array("class" => "col-md-3 btn btn-hot btn-lg text-uppercase pull-right"))
 				)
 			);
+			unset($ya_respondio);
 
-			return View::make('messages')->with('msg', $msg)->with('nombre_alumno', $alumno->nombre . ' ' . $alumno->apellido_paterno);
+			return View::make('messages')->with('msg', $msg);
 		} else {
 			//			SI AÚN NO LA RESPONDE
-			return Redirect::route('encuestas.index')->with('nombre_alumno', $alumno->nombre . ' ' . $alumno->apellido_paterno);
+			return Redirect::route('encuestas.index');
 		}
 	}
 

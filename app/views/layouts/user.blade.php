@@ -15,6 +15,11 @@
 
 	{{-- Latest compiled and minified CSS --}}
 	{{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}
+	{{-- iCheck.JS style --}}
+    {{ HTML::style('css/skins/all.css') }}
+    {{ HTML::style('css/select2.css') }}
+    {{ HTML::style('css/select2-bootstrap.css') }}
+
 	{{ HTML::style('css/frontend.css') }}
 	{{-- Custom style --}}
 	{{ HTML::style('css/custom.css') }}
@@ -44,6 +49,10 @@
 	{{ HTML::script('//code.jquery.com/jquery-1.11.0.min.js') }}
 	{{-- Latest compiled and minified JavaScript --}}
 	{{ HTML::script('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}
+	{{-- iCheck.JS Plugin --}}
+    {{ HTML::script('js/icheck.min.js') }}
+    {{ HTML::script('js/select2.min.js') }}
+    {{ HTML::script('js/select2_locale_es.js') }}
 	{{-- Main script --}}
 	{{ HTML::script('js/frontend.js') }}
 	{{-- Custom script --}}
