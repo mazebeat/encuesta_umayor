@@ -1,6 +1,12 @@
 <?php
 
-class EncuestasController extends \BaseController {
+class EncuestasController extends \BaseController
+{
+	public function __construct()
+	{
+		$this->beforeFilter('auth.login');
+		$this->beforeFilter('csrf');
+	}
 
 	/**
 	 * Display a listing of encuestas
@@ -9,16 +15,18 @@ class EncuestasController extends \BaseController {
 	 */
 	public function index()
 	{
-		//		$survey = new Encuesta();
-		//		$survey = $survey->whereState(true)->firstOrFail();
-		//		$questions = new Question();
-		//		$questions = $questions->select(array('id', 'text'))->where('state', true)->where('survey_id', 1)->get();
-		//		return View::make('showSurvey')->with('survey', $survey)->with('questions', $questions);
-		return View::make('encuesta');
+		$this->verify_login();
 
-//		$encuestas = Encuesta::all();
-//
-//		return View::make('encuestas.index', compact('encuestas'));
+		$encuesta = new Encuesta();
+		$id       = $encuesta->select('id_encuesta')->whereIdEstado(1)->first(array('id_encuesta'))->id_encuesta;
+		if(!empty($id) && $id != null) {
+			Session::put('encuesta', $id);
+
+			return View::make('encuesta');
+		} else {
+			Tools::printr('No hay encuenstas activas');
+			die();
+		}
 	}
 
 	/**
@@ -28,6 +36,8 @@ class EncuestasController extends \BaseController {
 	 */
 	public function create()
 	{
+		$this->verify_login();
+
 		return View::make('encuestas.create');
 	}
 
@@ -38,47 +48,36 @@ class EncuestasController extends \BaseController {
 	 */
 	public function store()
 	{
-		if($user_id = Session::get('ses_user', 0) == 0) {
-			$msg = array(
-				'data' => array(
-					'type' => 'danger',
-					'title' => 'Atención',
-					'text' => 'Usuario no logueado'
-				),
-			    'options' => array(
-				    'left' => HTML::link(URL::previous(), 'Volver', array('class' => 'col-md-3 btn btn-default btn-lg pull-right text-uppercase'))
-			    )
-			);
+		$this->verify_login();
+		$pass   = false;
+		$inputs = Input::all();
 
-			return View::make('messages')->with('msg', $msg);
+		foreach($inputs as $key => $value) {
+			if($key != '_token') {
+				if(!empty($value)) {
+					$resp                      = new Respuesta;
+					$resp->fecha               = Carbon::now();
+					$resp->id_estado           = 1;
+					$resp->id_canal            = Session::get('canal', 3);
+					$resp->id_encuesta         = Session::get('encuesta', 1);
+					$resp->id_pregunta         = (int)str_replace('pregunta_', '', $key);
+					$resp->id_pregunta_detalle = 1; // ????
+					$resp->id_cliente          = Session::get('user_id');
+					if($resp->save()) {
+						$resp_d               = new RespuestasDetalle;
+						$resp_d->valor1       = isset($value['value']) ? $value['value'] : null;
+						$resp_d->valor2       = isset($value['text']) && !empty(trim($value['text'])) ? $value['text'] : null;
+						$resp_d->id_respuesta = $resp->id_respuesta;
+						if($resp_d->save()) {
+							$pass = true;
+						}
+					}
+					unset($resp_d);
+					unset($resp);
+				}
+			}
 		}
-		$pass   = true; // false
-		$inputs = Input::except('_token');
-
-		//		$question        = new Question();
-		//		$question_answer = new QuestionAnswer();
-
-		//		echo "<pre>";
-		//		var_dump(Input::all());
-		//		echo "</pre>";
-		//		die();
-		//		foreach($inputs as $question_id => $answer_id) {
-		//			$new_question_answer_id = $question_answer->returnId((int)$question_id, (int)$answer_id);
-		//			$responsed              = $question->responsed((int)$user_id, (int)$question_id);
-		//			if(count($responsed)) {
-		//				$responsed->pivot->state = false;
-		//				$responsed->pivot->save();
-		//			}
-		//			$user_answer                     = new UserAnswer();
-		//			$user_answer->user_id            = (int)$user_id;
-		//			$user_answer->state              = true;
-		//			$user_answer->question_answer_id = (int)$new_question_answer_id;
-		//			$user_answer->save();
-		//			$pass = true;
-		//		}
-		//		unset($inputs);
-		//		unset($question);
-		//		unset($question_answer);
+		unset($inputs);
 
 		if($pass) {
 			$msg = array(
@@ -87,7 +86,10 @@ class EncuestasController extends \BaseController {
 					'text' => '<i class="fa fa-check fa-fw"></i>Gracias por tu tiempo y disponibilidad en responder. ¡Tu opinión es muy importante!'
 				)
 			);
-			return View::make('messages')->with('msg', $msg);
+			Input::flush();
+			Session::flush();
+
+			return View::make('messages', compact('msg'));
 		} else {
 			$msg = array(
 				'data' => array(
@@ -95,25 +97,16 @@ class EncuestasController extends \BaseController {
 					'text' => 'Error al enviar el formulario'
 				)
 			);
-			return Redirect::back()->with('msg', $msg);
+
+			return Redirect::back()->with('msg', $msg)->withInput(Input::all());
 		}
-		
-		// $validator = Validator::make($data = Input::all(), Encuesta::$rules);
-
-		// if ($validator->fails())
-		// {
-		// 	return Redirect::back()->withErrors($validator)->withInput();
-		// }
-
-		// Encuesta::create($data);
-
-		// return Redirect::route('encuestas.index');
 	}
 
 	/**
 	 * Display the specified encuesta.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function show($id)
@@ -126,7 +119,8 @@ class EncuestasController extends \BaseController {
 	/**
 	 * Show the form for editing the specified encuesta.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function edit($id)
@@ -139,7 +133,8 @@ class EncuestasController extends \BaseController {
 	/**
 	 * Update the specified encuesta in storage.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function update($id)
@@ -148,8 +143,7 @@ class EncuestasController extends \BaseController {
 
 		$validator = Validator::make($data = Input::all(), Encuesta::$rules);
 
-		if ($validator->fails())
-		{
+		if($validator->fails()) {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
@@ -161,7 +155,8 @@ class EncuestasController extends \BaseController {
 	/**
 	 * Remove the specified encuesta from storage.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function destroy($id)

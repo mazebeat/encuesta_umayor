@@ -15,8 +15,8 @@
 		 * @var array
 		 */
 		private $_custom_messages = array(
-			"rut"      => "El :attribute no es correcto.",
-			"existRut" => "El :attribute ingresado no existe.",
+			"rut"       => "El :attribute no es correcto.",
+			"exist_rut" => "Usuario no registrado.",
 		);
 
 		/**
@@ -54,6 +54,7 @@
 		{
 			try {
 				Rut::$use_exceptions = false;
+
 				return Rut::isValid($value);
 			} catch(InvalidFormatException $e) {
 				return false;
@@ -69,8 +70,8 @@
 		 */
 		public static function validateExistRut($attribute, $value, $parameters)
 		{
-			if(Cliente::existRut($value))
-				return true; else
-				return false;
+			$alumn = new BddUmayor();
+
+			return $alumn->existRut($value);
 		}
 	}

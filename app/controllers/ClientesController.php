@@ -1,6 +1,7 @@
 <?php
 
-class ClientesController extends \BaseController {
+class ClientesController extends \BaseController
+{
 
 	/**
 	 * Display a listing of clientes
@@ -33,8 +34,7 @@ class ClientesController extends \BaseController {
 	{
 		$validator = Validator::make($data = Input::all(), Cliente::$rules);
 
-		if ($validator->fails())
-		{
+		if($validator->fails()) {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
@@ -46,7 +46,8 @@ class ClientesController extends \BaseController {
 	/**
 	 * Display the specified cliente.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function show($id)
@@ -59,7 +60,8 @@ class ClientesController extends \BaseController {
 	/**
 	 * Show the form for editing the specified cliente.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function edit($id)
@@ -72,7 +74,8 @@ class ClientesController extends \BaseController {
 	/**
 	 * Update the specified cliente in storage.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function update($id)
@@ -81,8 +84,7 @@ class ClientesController extends \BaseController {
 
 		$validator = Validator::make($data = Input::all(), Cliente::$rules);
 
-		if ($validator->fails())
-		{
+		if($validator->fails()) {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
@@ -94,7 +96,8 @@ class ClientesController extends \BaseController {
 	/**
 	 * Remove the specified cliente from storage.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function destroy($id)

@@ -1,34 +1,49 @@
 <?php
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register all of the routes for an application.
+| It's a breeze. Simply tell Laravel the URIs it should respond to
+| and give it the Closure to execute when that URI is requested.
+|
+*/
 
-	/*
-	|--------------------------------------------------------------------------
-	| Application Routes
-	|--------------------------------------------------------------------------
-	|
-	| Here is where you can register all of the routes for an application.
-	| It's a breeze. Simply tell Laravel the URIs it should respond to
-	| and give it the Closure to execute when that URI is requested.
-	|
-	*/
+Route::when('*', 'csrf', array(
+	'post',
+	'put',
+	'delete'
+));
 
-	Route::get('', 'HomeController@index');
-	Route::post('', 'HomeController@login');
-	Route::get('logout', 'HomeController@logout');
-	Route::get('politicas', function () {
-		return View::make('politicas');
-	});
+// Patterns
+Route::pattern('canal', '[a-z]{2}');
 
-	Route::resource('bdd_umayors', 'BddUmayorsController');
-	Route::resource('negocios', 'NegociosController');
-	Route::resource('encuestas', 'EncuestasController');
-	Route::resource('pregunta', 'NegociosController');
-	Route::resource('respuestas', 'RespuestasController');
-	Route::resource('canales', 'CanalesController');
+Route::get('/{canal?}', array(
+	'as'   => 'home.index',
+	'uses' => 'HomeController@index'
+));
+Route::post('/', array(
+	'as'   => 'home.login',
+	'uses' => 'HomeController@login'
+));
+Route::get('logout', 'HomeController@logout');
+Route::get('politicas', function () {
+	return View::make('politicas');
+});
 
-	Route::get('test', function () {
-		$a = Cliente::find(1)->bddumayor;
-		Tools::printr($a);
-	});
+Route::resource('bdd_umayors', 'BddUmayorsController');
+Route::resource('negocios', 'NegociosController');
+Route::resource('encuestas', 'EncuestasController');
+Route::resource('pregunta', 'NegociosController');
+Route::resource('respuestas', 'RespuestasController');
+Route::resource('canales', 'CanalesController');
+
+Route::get('test', function () {
+	$a = new Respuesta();
+	$a = $a->select(array('created_at'))->whereIdCliente(Session::get('user_id'))->orderBy('id_respuesta', 'DESC')->first();
+	Tools::printr($a->created_at);
+});
 
 //	GENERA CRYPT CANALES
 //	Route::get('/{encoded_url}', function ($encoded_url) {

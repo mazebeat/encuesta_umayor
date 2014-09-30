@@ -32,14 +32,25 @@
 
 		'connections' => array(
 
+//			'mysql' => array(
+//				'driver'    => 'mysql',
+////				'host'      => '192.168.1.30',
+//				'host'      => 'localhost',
+//				'database'  => 'umayor',
+//				'username'  => 'root',
+////				'password'  => 'root',
+//				'password'  => '1234',
+//				'charset'   => 'utf8',
+//				'collation' => 'utf8_unicode_ci',
+//				'prefix'    => '',
+//			),
+
 			'mysql' => array(
 				'driver'    => 'mysql',
-				'host'      => '192.168.1.30',
-//				'host'      => 'localhost',
+				'host'      => '192.168.1.99',
 				'database'  => 'umayor',
 				'username'  => 'root',
-				'password'  => 'root',
-//				'password'  => '1234',
+				'password'  => 'inteladmin',
 				'charset'   => 'utf8',
 				'collation' => 'utf8_unicode_ci',
 				'prefix'    => '',

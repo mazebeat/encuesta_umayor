@@ -1,6 +1,7 @@
 <?php
 
-class RespuestasController extends \BaseController {
+class RespuestasController extends \BaseController
+{
 
 	/**
 	 * Display a listing of respuestas
@@ -33,8 +34,7 @@ class RespuestasController extends \BaseController {
 	{
 		$validator = Validator::make($data = Input::all(), Respuesta::$rules);
 
-		if ($validator->fails())
-		{
+		if($validator->fails()) {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
@@ -46,7 +46,8 @@ class RespuestasController extends \BaseController {
 	/**
 	 * Display the specified respuesta.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function show($id)
@@ -59,7 +60,8 @@ class RespuestasController extends \BaseController {
 	/**
 	 * Show the form for editing the specified respuesta.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function edit($id)
@@ -72,7 +74,8 @@ class RespuestasController extends \BaseController {
 	/**
 	 * Update the specified respuesta in storage.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function update($id)
@@ -81,8 +84,7 @@ class RespuestasController extends \BaseController {
 
 		$validator = Validator::make($data = Input::all(), Respuesta::$rules);
 
-		if ($validator->fails())
-		{
+		if($validator->fails()) {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
@@ -94,7 +96,8 @@ class RespuestasController extends \BaseController {
 	/**
 	 * Remove the specified respuesta from storage.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function destroy($id)

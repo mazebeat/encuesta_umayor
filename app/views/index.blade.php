@@ -10,9 +10,7 @@
 	<h1 class="text-center"></h1>
 	@if ($errors->has())
 		@if($errors->any())
-            @foreach($errors->all() as $error)
-                {{ HTML::alert('danger', $error, 'Whoops') }}
-            @endforeach
+            {{ HTML::alert('danger', $errors->all(), null) }}
         @endif
     @endif
 	{{--<h1 class="text-center">{{ HTML::image('image/logo.png') }}</h1>--}}

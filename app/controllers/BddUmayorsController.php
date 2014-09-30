@@ -1,6 +1,7 @@
 <?php
 
-class BddUmayorsController extends \BaseController {
+class BddUmayorsController extends \BaseController
+{
 
 	/**
 	 * Display a listing of bddumayors
@@ -33,8 +34,7 @@ class BddUmayorsController extends \BaseController {
 	{
 		$validator = Validator::make($data = Input::all(), Bddumayor::$rules);
 
-		if ($validator->fails())
-		{
+		if($validator->fails()) {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
@@ -46,7 +46,8 @@ class BddUmayorsController extends \BaseController {
 	/**
 	 * Display the specified bddumayor.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function show($id)
@@ -59,7 +60,8 @@ class BddUmayorsController extends \BaseController {
 	/**
 	 * Show the form for editing the specified bddumayor.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function edit($id)
@@ -72,7 +74,8 @@ class BddUmayorsController extends \BaseController {
 	/**
 	 * Update the specified bddumayor in storage.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function update($id)
@@ -81,8 +84,7 @@ class BddUmayorsController extends \BaseController {
 
 		$validator = Validator::make($data = Input::all(), Bddumayor::$rules);
 
-		if ($validator->fails())
-		{
+		if($validator->fails()) {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
@@ -94,7 +96,8 @@ class BddUmayorsController extends \BaseController {
 	/**
 	 * Remove the specified bddumayor from storage.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
 	public function destroy($id)
