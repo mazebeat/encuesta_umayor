@@ -15,7 +15,7 @@ class EncuestasController extends \BaseController
 	 */
 	public function index()
 	{
-		$e = Encuesta::select('id_encuesta')->whereIdEstado(1)->first('id_encuesta');
+		$e = Encuesta::select('id_encuesta')->whereIdEstado(1)->remember(5)->first('id_encuesta');
 		if(!empty($e) && $e != null) {
 			Session::put('encuesta', $e->id_encuesta);
 

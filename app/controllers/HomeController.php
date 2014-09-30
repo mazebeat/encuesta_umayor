@@ -26,7 +26,7 @@ class HomeController extends BaseController
 	{
 		if(isset($canal) && Session::has('canal')) {
 			Session::forget('canal');
-			$c = Canal::select('id_canal')->whereCodigo($canal)->first('id_canal');
+			$c = Canal::select('id_canal')->whereCodigo($canal)->remember(5)->first('id_canal');
 			if(!empty($c) && $c != null) {
 				Session::put('canal', $c->id_canal);
 			}
@@ -59,14 +59,14 @@ class HomeController extends BaseController
 			'nombres',
 			'apellido_paterno',
 			'apellido_materno'
-		))->whereRut(Input::get('rut'))->first(array(
+		))->whereRut(Input::get('rut'))->remember(5)->first(array(
 			'id_alumno',
 			'nombres',
 			'apellido_paterno',
 			'apellido_materno'
 		));
 
-		$cliente = Cliente::select('id_cliente')->whereIdAlumno($alumno->id_alumno)->first('id_cliente');
+		$cliente = Cliente::select('id_cliente')->whereIdAlumno($alumno->id_alumno)->remember(5)->first('id_cliente');
 
 		//		SE CREAN LAS VARIABLES DE SESSION DEL ALUMNO
 		Session::put('user_id', $cliente->id_cliente);
@@ -75,7 +75,7 @@ class HomeController extends BaseController
 		unset($alumno);
 
 		//		SE VALIDAN RESPUESTAS ANTERIORES
-		$resp = Respuesta::select(array('created_at'))->whereIdCliente(Session::get('user_id'))->orderBy('id_respuesta', 'DESC')->first();
+		$resp = Respuesta::select(array('created_at'))->whereIdCliente(Session::get('user_id'))->orderBy('id_respuesta', 'DESC')->remember(5)->first();
 
 		$ya_respondio = false;
 		if(!empty($resp) && count($resp)) {
