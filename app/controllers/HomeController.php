@@ -1,32 +1,13 @@
 <?php
 
-/**
- * Class HomeController
- */
 class HomeController extends BaseController
 {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
-
-	/**
-	 * @return \Illuminate\View\View
-	 */
 	public function index($canal = null)
 	{
 		if(isset($canal) && Session::has('canal')) {
 			Session::forget('canal');
-			$c = Canal::select('id_canal')->whereCodigo($canal)->remember(5)->first('id_canal');
+			$c = Canal::select('id_canal')->whereCodigo($canal)->first('id_canal');
 			if(!empty($c) && $c != null) {
 				Session::put('canal', $c->id_canal);
 			}
@@ -35,14 +16,11 @@ class HomeController extends BaseController
 		return View::make('index');
 	}
 
-	/**
-	 * @return $this|\Illuminate\Http\RedirectResponse
-	 */
 	public function login()
 	{
 		//		VALIDA QUE EL RUT QUE SE INGRESÓ ES CORRECTO
 		$rules = array(
-			'rut' => 'required|rut|exist_rut'
+			'rut' => 'required|between:8,9|alpha_num|rut|exist_rut'
 		);
 
 		$validator = Validator::make(Input::all(), $rules);
@@ -50,23 +28,23 @@ class HomeController extends BaseController
 		if($validator->fails()) {
 			$messages = $validator->messages();
 
-			return Redirect::back()->withErrors($messages);
+			return Redirect::back()->withErrors($messages)->withInput();
 		}
 
 		//		VERIFICA SI EL USUARIO RESPONDIO LA ENCUESTA
-		$alumno  = BddUmayor::select(array(
+		$alumno = BddUmayor::select(array(
 			'id_alumno',
 			'nombres',
 			'apellido_paterno',
 			'apellido_materno'
-		))->whereRut(Input::get('rut'))->remember(5)->first(array(
+		))->whereRut(Input::get('rut'))->first(array(
 			'id_alumno',
 			'nombres',
 			'apellido_paterno',
 			'apellido_materno'
 		));
 
-		$cliente = Cliente::select('id_cliente')->whereIdAlumno($alumno->id_alumno)->remember(5)->first('id_cliente');
+		$cliente = Cliente::select('id_cliente')->whereIdAlumno($alumno->id_alumno)->first('id_cliente');
 
 		//		SE CREAN LAS VARIABLES DE SESSION DEL ALUMNO
 		Session::put('user_id', $cliente->id_cliente);
@@ -75,8 +53,7 @@ class HomeController extends BaseController
 		unset($alumno);
 
 		//		SE VALIDAN RESPUESTAS ANTERIORES
-		$resp = Respuesta::select(array('created_at'))->whereIdCliente(Session::get('user_id'))->orderBy('id_respuesta', 'DESC')->remember(5)->first();
-
+		$resp         = Respuesta::select(array('created_at'))->whereIdCliente(Session::get('user_id'))->orderBy('id_respuesta', 'DESC')->first();
 		$ya_respondio = false;
 		if(!empty($resp) && count($resp)) {
 			$ya_respondio   = true;
@@ -93,8 +70,11 @@ class HomeController extends BaseController
 					'text'  => 'En el actual periodo, ya registramos tus respuestas con fecha <b>' . $last_responsed->toDateString() . '</b> a las <b>' . $last_responsed->toTimeString() . '</b>, ¿deseas actualizar esta información?',
 				),
 				'options' => array(
-					HTML::link("/", "NO", array("class" => "col-md-3 btn btn-default btn-lg text-uppercase")),
-					link_to_route("encuestas.index", "SI", array(), array("class" => "col-md-3 btn btn-hot btn-lg text-uppercase pull-right"))
+					HTML::link('#', 'NO', array(
+						'class' => 'col-xs-4 col-sm-4 col-md-3 btn btn-default btn-lg text-uppercase',
+						'id'    => 'btn_neg'
+					)),
+					link_to_route('encuestas.index', 'SI', array(), array('class' => 'col-xs-4 col-sm-4 col-md-3 btn btn-hot btn-lg text-uppercase pull-right'))
 				)
 			);
 			unset($ya_respondio);
@@ -106,12 +86,12 @@ class HomeController extends BaseController
 		}
 	}
 
-	/**
-	 * @return \Illuminate\View\View
-	 */
 	public function logout()
 	{
 		Session::flush();
+		if(Request::ajax()) {
+			return $msg = 'OK';
+		}
 
 		return Redirect::route('home.index');
 	}

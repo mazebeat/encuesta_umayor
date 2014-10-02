@@ -1,1 +1,0 @@
-C:\xampp\htdocs\encuesta_umayor\app/views/bdd_umayors/show.blade.php

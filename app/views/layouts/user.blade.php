@@ -3,8 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{{ $title or 'DEMO' }}}</title>
+	<title>{{{ $title or 'Encuesta Universidad Mayor' }}}</title>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,11 +21,13 @@
     {{ HTML::style('css/skins/all.css') }}
     {{ HTML::style('css/select2.css') }}
     {{ HTML::style('css/select2-bootstrap.css') }}
-
+	{{ HTML::style('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css') }}
+	{{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/fonts/fontawesome-webfont.woff') }}
 	{{ HTML::style('css/frontend.css') }}
 	{{-- Custom style --}}
 	{{ HTML::style('css/custom.css') }}
-	@yield('style')
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
+    @yield('style')
 
 </head>
 <body>
@@ -55,6 +59,7 @@
     {{ HTML::script('js/select2_locale_es.js') }}
 	{{-- Main script --}}
 	{{ HTML::script('js/frontend.js') }}
+    {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js') }}
 	{{-- Custom script --}}
 	@yield('script')
 </body>

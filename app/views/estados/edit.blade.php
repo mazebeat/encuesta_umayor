@@ -1,1 +1,0 @@
-C:\xampp\htdocs\encuesta_umayor\app/views/estados/edit.blade.php

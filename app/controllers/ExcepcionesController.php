@@ -8,12 +8,6 @@ class ExcepcionesController extends \BaseController
 		$this->beforeFilter('auth.login');
 	}
 
-	/**
-	 * Display a listing of the resource.
-	 * GET /excepciones
-	 *
-	 * @return Response
-	 */
 	public function add()
 	{
 		$e               = new ExcepcionesCliente();

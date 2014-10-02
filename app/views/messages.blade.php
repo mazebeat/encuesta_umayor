@@ -12,6 +12,9 @@
 @stop
 
 @section('script')
-<script>
+<script type="text/javascript">
+  @if(isset($script))
+  {{ $script or '' }}
+  @endif
 </script>
 @stop

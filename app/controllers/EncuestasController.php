@@ -8,14 +8,9 @@ class EncuestasController extends \BaseController
 		$this->beforeFilter('csrf');
 	}
 
-	/**
-	 * Display a listing of encuestas
-	 *
-	 * @return Response
-	 */
 	public function index()
 	{
-		$e = Encuesta::select('id_encuesta')->whereIdEstado(1)->remember(5)->first('id_encuesta');
+		$e = Encuesta::select('id_encuesta')->whereIdEstado(1)->first('id_encuesta');
 		if(!empty($e) && $e != null) {
 			Session::put('encuesta', $e->id_encuesta);
 
@@ -26,15 +21,19 @@ class EncuestasController extends \BaseController
 		}
 	}
 
-	/**
-	 * Store a newly created encuesta in storage.
-	 *
-	 * @return Response
-	 */
 	public function store()
 	{
-		$pass   = false;
-		$inputs = Input::all();
+		$pass = false;
+
+		foreach($inputs = Input::all() as $key => $value) {
+			if($key != '_token') {
+				if(empty((int) array_get($value, 'value', ''))) {
+					$errors = 'Debe contestar todas las preguntas';
+
+					return Redirect::back()->withErrors($errors)->withInput();
+				}
+			}
+		}
 
 		foreach($inputs as $key => $value) {
 			if($key != '_token') {
@@ -64,16 +63,17 @@ class EncuestasController extends \BaseController
 		unset($inputs);
 
 		if($pass) {
-			$msg = array(
+			Session::flush();
+			$msg    = array(
 				'data' => array(
 					'type' => 'success',
 					'text' => '<i class="fa fa-check fa-fw"></i>Gracias por tu tiempo y disponibilidad en responder. ¡Tu opinión es muy importante!'
 				)
 			);
-			Input::flush();
-			Session::flush();
+			$script = "if (typeof window.event == 'undefined'){ document.onkeypress = function(e){ var test_var=e.target.nodeName.toUpperCase(); if (e.target.type) var test_type=e.target.type.toUpperCase(); if ((test_var == 'INPUT' && test_type == 'TEXT') || test_var == 'TEXTAREA'){ return e.keyCode; }else if (e.keyCode == 8 || e.keyCode == 116 || e.keyCode == 122){ e.preventDefault(); } } }else{ document.onkeydown = function(){ var test_var=event.srcElement.tagName.toUpperCase(); if (event.srcElement.type) var test_type=event.srcElement.type.toUpperCase(); if ((test_var == 'INPUT' && test_type == 'TEXT') || test_var == 'TEXTAREA'){ return event.keyCode; } else if (event.keyCode == 8 || e.keyCode == 116 || e.keyCode == 122){ event.returnValue=false; } } } ";
 			unset($pass);
-			return View::make('messages', compact('msg'));
+
+			return View::make('messages', compact('msg'))->with('script', $script);
 		} else {
 			$msg = array(
 				'data' => array(
@@ -82,6 +82,7 @@ class EncuestasController extends \BaseController
 				)
 			);
 			unset($pass);
+
 			return Redirect::back()->with('msg', $msg)->withInput(Input::all());
 		}
 	}

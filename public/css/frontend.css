@@ -255,3 +255,17 @@ p{
 #go-top:hover {
     color: rgba(0, 0, 0, 0.6);
 }
+
+/*  */
+.form-control-feedback {
+    top: 0px;
+}
+
+/*.has-feedback .form-control-feedback {
+    top: 25px;
+    right: 0;
+}
+.form-horizontal .has-feedback .form-control-feedback {
+    top: 0;
+    right: 15px;
+}*/

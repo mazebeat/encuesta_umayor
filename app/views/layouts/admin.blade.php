@@ -3,8 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{{ $title or 'DEMO' }}}</title>
+	<title>{{{ $title or 'Encuesta Universidad Mayor' }}}</title>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -15,6 +17,7 @@
 
 	<!-- Latest compiled and minified CSS -->
 	{{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css') }}
+	{{ HTML::style('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css') }}
 	{{ HTML::style('css/frontend.css') }}
 	@yield('style')
 </head>

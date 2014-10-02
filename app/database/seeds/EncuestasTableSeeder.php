@@ -1,23 +1,16 @@
 <?php
 
-	// Composer: "fzaninotto/faker": "v1.3.0"
-	use Faker\Factory as Faker;
+class EncuestasTableSeeder extends Seeder
+{
 
-	class EncuestasTableSeeder extends Seeder
+	public function run()
 	{
-
-		public function run()
-		{
-			$faker = Faker::create();
-
-			foreach(range(1, 1) as $index) {
-				Encuesta::create([
-					//					'id_negocio'         => 1,
-					'titulo'             => 'Encuesta Institución',
-					'id_estado'          => 1,
-					'fecha_creacion'     => $faker->dateTime,
-					'fecha_modificacion' => $faker->dateTime
-				]);
-			}
+		foreach(range(1, 1) as $index) {
+			Encuesta::create([
+				'titulo'         => 'Encuesta Institución',
+				'id_estado'      => 3,
+				'fecha_creacion' => Carbon::now()
+			]);
 		}
 	}
+}

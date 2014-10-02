@@ -1,1 +1,0 @@
-D:\xampp\htdocs\github\encuesta_umayor\app/views/questions/index.blade.php
