@@ -41,7 +41,7 @@
 	<footer class="container">
 		<p>Copyright 2014 Intelidata© - Universidad Mayor</p>
 	</footer>
-	<a href="#" id="go-top" role="button" title="Click para ir al comienzo!" data-toggle="tooltip" data-placement="left"><i class="fa fa-chevron-circle-up fa-4x"></i></a>
+	<a href="#" id="go-top" role="button" title="Click para ir al comienzo!" data-toggle="tooltip" data-placement="left"><i class="fa fa-chevron-circle-up fa-3x"></i></a>
 	{{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
 	{{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') }}
 	{{-- Latest compiled and minified JavaScript --}}

@@ -128,7 +128,7 @@ return array(
             'label' => true  // show complete route on bar
         ),
         'logs' => array(
-            'file' => null
+            'file' => true
         ),
     ),
 

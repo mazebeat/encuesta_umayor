@@ -27,14 +27,12 @@ class EncuestasController extends \BaseController
 
 		foreach($inputs = Input::all() as $key => $value) {
 			if($key != '_token') {
-				Debugbar::info(array_get($value, 'value', ''));
-				if(empty((int) array_get($value, 'value', ''))) {
+				if(array_get($value, 'value', '') == '' || Str::length(array_get($value, 'value', '')) == 0) {
 					$errors = 'Debe contestar todas las preguntas';
 
 					return Redirect::back()->withErrors($errors)->withInput();
 				}
 			}
-			Redirect::action('HomeController@')
 		}
 
 		foreach($inputs as $key => $value) {

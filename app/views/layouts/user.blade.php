@@ -48,7 +48,7 @@
 	</div>
 	<div class="clearfix"></div>
 	<footer class="container user"></footer>
-	<a href="#" id="go-top" role="button" title="Click para ir al comienzo!" data-toggle="tooltip" data-placement="left"><i class="fa fa-chevron-circle-up fa-4x"></i></a>
+	<a href="#" id="go-top" role="button" title="Click para ir al comienzo!" data-toggle="tooltip" data-placement="left"><i class="fa fa-chevron-circle-up fa-3x"></i></a>
 	{{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
 	{{ HTML::script('//code.jquery.com/jquery-1.11.0.min.js') }}
 	{{-- Latest compiled and minified JavaScript --}}
@@ -60,7 +60,6 @@
 	{{-- Main script --}}
 	{{ HTML::script('js/frontend.js') }}
     {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js') }}
-	{{-- Custom script --}}
 	@yield('script')
 </body>
 </html>

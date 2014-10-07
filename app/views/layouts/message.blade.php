@@ -43,7 +43,7 @@
 	@endif
 	<div class="clearfix"></div>
 	<footer class="container login"></footer>
-	<a href="#" id="go-top" role="button" title="Click para ir al comienzo!" data-toggle="tooltip" data-placement="left"><i class="fa fa-chevron-circle-up fa-4x"></i></a>
+	<a href="#" id="go-top" role="button" title="Click para ir al comienzo!" data-toggle="tooltip" data-placement="left"><i class="fa fa-chevron-circle-up fa-3x"></i></a>
 	{{-- jQuery (necessary for Bootstrap's JavaScript plugins) --}}
 	{{ HTML::script('//code.jquery.com/jquery-1.11.0.min.js') }}
 	{{-- Latest compiled and minified JavaScript --}}
