@@ -1,0 +1,286 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 13px;
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    background: #ffd202;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 180px;
+    color: #000;
+}
+
+header, footer {
+    background: #ffd202;
+    width: 100%;
+}
+
+footer {
+    bottom: 0;
+    position: absolute;
+}
+
+a {
+    color: #ffffff;
+    font-weight: lighter;
+}
+
+.content {
+    color: #000000;
+}
+
+.btn-primary, .label-primary, .alert-info {
+    background: #01474F;
+}
+
+.panel-primary {
+    border-color: #01474F;
+}
+
+.panel-primary > .panel-heading {
+    background-color: #01474F;
+    border-color: #01474F;
+    color: #fff;
+}
+
+.btn-danger, .label-danger, .alert-danger {
+    background: #a4222c;
+    color: #fff;
+    border-color: #a4222c;
+}
+
+.panel-danger {
+    border-color: #a4222c;
+    color: #fff;
+}
+
+.panel-danger > .panel-heading {
+    background-color: #a4222c;
+    border-color: #a4222c;
+    color: #fff;
+}
+
+/* HR */
+hr {
+    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(215, 215, 215, 0.75), rgba(0, 0, 0, 0));
+    background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(215, 215, 215, 0.75), rgba(0, 0, 0, 0));
+    background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(215, 215, 215, 0.75), rgba(0, 0, 0, 0));
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(215, 215, 215, 0.75), rgba(0, 0, 0, 0));
+    border: 0;
+    box-shadow: 0px -2px 4px rgba(136, 136, 136, 0.75);
+    height: 1px;
+    margin: 30px 0;
+}
+
+/* RESPONSIVE FONTS */
+@media screen and (min-width: 500px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 570px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 620px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 680px) {
+    html {
+        font-size: 17px;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    html {
+        font-size: 19px;
+    }
+}
+
+@media screen and (min-width: 860px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 920px) {
+    html {
+        font-size: 21px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    html {
+        font-size: 22px;
+    }
+}
+
+h1 {
+    font-size: 1.9rem;
+    /*margin: 0 0 1rem;*/
+}
+
+h2 {
+    font-size: 1.4rem;
+    /*margin: 1rem 0 2rem;*/
+}
+
+h3 {
+    font-size: 1.2rem;
+    /*margin: 1rem 0 2rem;*/
+}
+
+h4 {
+    font-size: 0.9rem;
+    /*margin: 1rem 0 2rem;*/
+}
+
+p {
+    font-size: 0.7rem;
+    /*margin: 1rem 0;*/
+}
+
+/* BUTTONS */
+.btn {
+    margin: 4px;
+    box-shadow: 1px 1px 5px #888888;
+}
+
+.btn-xs {
+    font-weight: 300;
+}
+
+.btn-hot {
+    border-bottom: 2px solid #b25560;
+    background-color: #a4222c; /* #db5566 */
+    color: #fff;
+}
+
+.btn-hot:hover, .btn-sky.active:focus, .btn-hot:focus, .open > .dropdown-toggle.btn-hot {
+    border-bottom: 2px solid #b25560;
+    background-color: #df6a78;
+    color: #fff;
+    outline: none;
+}
+
+.btn-hot:active, .btn-hot.active {
+    background-color: #c04b59;
+    border-top: 2px solid #9a3c47;
+    color: #fff;
+    /*margin-top: 2px;*/
+}
+
+.btn-sunny {
+    background-color: #f4ad49;
+    border-bottom: 2px solid #c38a3a;
+    color: #fff;
+}
+
+.btn-sunny:hover, .btn-sky.active:focus, .btn-sunny:focus, .open > .dropdown-toggle.btn-sunny {
+    background-color: #f5b75f;
+    border-bottom: 2px solid #c4924c;
+    color: #fff;
+    outline: none;
+}
+
+.btn-sunny:active, .btn-sunny.active {
+    background-color: #d69840;
+    border-top: 2px solid #ab7a33;
+    color: #fff;
+    margin-top: 2px;
+}
+
+.btn-fresh {
+    background-color: #51bf87;
+    border-bottom: 2px solid #41996c;
+    color: #fff;
+}
+
+.btn-fresh:hover, .btn-sky.active:focus, .btn-fresh:focus, .open > .dropdown-toggle.btn-fresh {
+    background-color: #66c796;
+    border-bottom: 2px solid #529f78;
+    color: #fff;
+    outline: none;
+}
+
+.btn-fresh:active, .btn-fresh.active {
+    background-color: #47a877;
+    border-top: 2px solid #39865f;
+    color: #fff;
+    margin-top: 2px;
+    outline-offset: none;
+    outline: none;
+}
+
+.btn-sky {
+    background-color: #0bacd3;
+    border-bottom: 2px solid #098aa9;
+    color: #fff;
+}
+
+.btn-sky:hover, .btn-sky.active:focus, .btn-sky:focus, .open > .dropdown-toggle.btn-sky {
+    background-color: #29b6d8;
+    border-bottom: 2px solid #2192ad;
+    color: #fff;
+    outline: none;
+}
+
+.btn-sky:active, .btn-sky.active {
+    background-color: #0a97b9;
+    border-top: 2px solid #087994;
+    color: #fff;
+    margin-top: 2px;
+    outline-offset: none;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+    outline-offset: 0px;
+    outline: none;
+}
+
+/* GO TOP */
+#go-top {
+    bottom: 2em;
+    color: rgba(0, 0, 0, 0.3);
+    display: none;
+    position: fixed;
+    right: 2em;
+    text-decoration: none;
+}
+
+#go-top:hover {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/*  */
+.form-control-feedback {
+    top: 0px;
+}
+
+/*.has-feedback .form-control-feedback {
+    top: 25px;
+    right: 0;
+}
+.form-horizontal .has-feedback .form-control-feedback {
+    top: 0;
+    right: 15px;
+}*/
