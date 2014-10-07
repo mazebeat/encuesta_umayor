@@ -10,7 +10,11 @@
 |
 */
 
-Route::when('*', 'csrf', array('post', 'put', 'delete'));
+Route::when('*', 'csrf', array(
+	'post',
+	'put',
+	'delete'
+));
 
 // Patterns
 Route::pattern('canal', '[a-z]{2}');
@@ -27,11 +31,11 @@ Route::get('logout', 'HomeController@logout');
 Route::get('politicas', function () {
 	return View::make('politicas');
 });
-
+Route::get('add_exception', array(
+	'as'   => 'excepciones.add',
+	'uses' => 'ExcepcionesController@add'
+));
 Route::resource('encuestas', 'EncuestasController');
-Route::get('add_exception', array('as'   => 'excepciones.add',
-                                  'uses' => 'ExcepcionesController@add'
-	));
 
 Route::get('test', function () {
 	return View::make('test');

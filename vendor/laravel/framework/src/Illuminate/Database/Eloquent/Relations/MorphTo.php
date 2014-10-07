@@ -180,7 +180,7 @@ class MorphTo extends BelongsTo {
 		{
 			return head($models)->{$foreign};
 
-		});
+		})->unique();
 	}
 
 	/**

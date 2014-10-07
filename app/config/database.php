@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => '192.168.1.99',
+			'host'     => 'host',
 			'database'  => 'umayor',
 			'username'  => 'root',
-			'password'  => 'inteladmin',
+			'password' => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

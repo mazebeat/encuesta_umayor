@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 4, to provide autocomplete information to your IDE
- * Generated for Laravel 4.2.9 on 2014-09-28.
+ * Generated for Laravel 4.2.10 on 2014-10-03.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -5005,6 +5005,17 @@ namespace {
         public static function forget($event){
             \Illuminate\Events\Dispatcher::forget($event);
         }
+
+        /**
+         * Forget all of the queued listeners.
+         *
+         * @return void
+         * @static
+         */
+        public static function forgetQueued()
+        {
+            \Illuminate\Events\Dispatcher::forgetQueued();
+        }
         
     }
 
@@ -5477,6 +5488,19 @@ namespace {
             return \Illuminate\Html\FormBuilder::textarea($name, $value, $options);
         }
         
+        /**
+         * Create a number input field.
+         *
+         * @param string $name
+         * @param array  $options
+         * @return string
+         * @static
+         */
+        public static function number($name, $value = null, $options = array())
+        {
+            return \Illuminate\Html\FormBuilder::number($name, $value, $options);
+        }
+
         /**
          * Create a select box field.
          *
@@ -6005,10 +6029,23 @@ namespace {
     class Input extends \Illuminate\Support\Facades\Input{
         
         /**
+         * Retrieve an input item from the request.
+         *
+         * @param string $key
+         * @param mixed  $default
+         * @return string
+         * @static
+         */
+        public static function input($key = null, $default = null)
+        {
+            return \Illuminate\Http\Request::input($key, $default);
+        }
+
+        /**
          * Return the Request instance.
          *
-         * @return $this 
-         * @static 
+         * @return $this
+         * @static
          */
         public static function instance(){
             return \Illuminate\Http\Request::instance();
@@ -6017,8 +6054,8 @@ namespace {
         /**
          * Get the request method.
          *
-         * @return string 
-         * @static 
+         * @return string
+         * @static
          */
         public static function method(){
             return \Illuminate\Http\Request::method();
@@ -6027,8 +6064,8 @@ namespace {
         /**
          * Get the root URL for the application.
          *
-         * @return string 
-         * @static 
+         * @return string
+         * @static
          */
         public static function root(){
             return \Illuminate\Http\Request::root();
@@ -6037,8 +6074,8 @@ namespace {
         /**
          * Get the URL (no query string) for the request.
          *
-         * @return string 
-         * @static 
+         * @return string
+         * @static
          */
         public static function url(){
             return \Illuminate\Http\Request::url();
@@ -6047,8 +6084,8 @@ namespace {
         /**
          * Get the full URL for the request.
          *
-         * @return string 
-         * @static 
+         * @return string
+         * @static
          */
         public static function fullUrl(){
             return \Illuminate\Http\Request::fullUrl();
@@ -6057,8 +6094,8 @@ namespace {
         /**
          * Get the current path info for the request.
          *
-         * @return string 
-         * @static 
+         * @return string
+         * @static
          */
         public static function path(){
             return \Illuminate\Http\Request::path();
@@ -6067,8 +6104,8 @@ namespace {
         /**
          * Get the current encoded path info for the request.
          *
-         * @return string 
-         * @static 
+         * @return string
+         * @static
          */
         public static function decodedPath(){
             return \Illuminate\Http\Request::decodedPath();
@@ -6079,8 +6116,9 @@ namespace {
          *
          * @param string $index
          * @param mixed $default
-         * @return string 
-         * @static 
+         *
+         * @return string
+         * @static
          */
         public static function segment($index, $default = null){
             return \Illuminate\Http\Request::segment($index, $default);
@@ -6089,8 +6127,8 @@ namespace {
         /**
          * Get all of the segments for the request path.
          *
-         * @return array 
-         * @static 
+         * @return array
+         * @static
          */
         public static function segments(){
             return \Illuminate\Http\Request::segments();
@@ -6100,8 +6138,9 @@ namespace {
          * Determine if the current request URI matches a pattern.
          *
          * @param mixed  string
-         * @return bool 
-         * @static 
+         *
+         * @return bool
+         * @static
          */
         public static function is(){
             return \Illuminate\Http\Request::is();
@@ -6110,8 +6149,8 @@ namespace {
         /**
          * Determine if the request is the result of an AJAX call.
          *
-         * @return bool 
-         * @static 
+         * @return bool
+         * @static
          */
         public static function ajax(){
             return \Illuminate\Http\Request::ajax();
@@ -6120,8 +6159,8 @@ namespace {
         /**
          * Determine if the request is over HTTPS.
          *
-         * @return bool 
-         * @static 
+         * @return bool
+         * @static
          */
         public static function secure(){
             return \Illuminate\Http\Request::secure();
@@ -6130,8 +6169,8 @@ namespace {
         /**
          * Returns the client IP address.
          *
-         * @return string 
-         * @static 
+         * @return string
+         * @static
          */
         public static function ip(){
             return \Illuminate\Http\Request::ip();
@@ -6140,8 +6179,8 @@ namespace {
         /**
          * Returns the client IP addresses.
          *
-         * @return array 
-         * @static 
+         * @return array
+         * @static
          */
         public static function ips(){
             return \Illuminate\Http\Request::ips();
@@ -6151,8 +6190,9 @@ namespace {
          * Determine if the request contains a given input item key.
          *
          * @param string|array $key
-         * @return bool 
-         * @static 
+         *
+         * @return bool
+         * @static
          */
         public static function exists($key){
             return \Illuminate\Http\Request::exists($key);
@@ -6162,8 +6202,9 @@ namespace {
          * Determine if the request contains a non-empty value for an input item.
          *
          * @param string|array $key
-         * @return bool 
-         * @static 
+         *
+         * @return bool
+         * @static
          */
         public static function has($key){
             return \Illuminate\Http\Request::has($key);
@@ -6172,23 +6213,11 @@ namespace {
         /**
          * Get all of the input and files for the request.
          *
-         * @return array 
-         * @static 
+         * @return array
+         * @static
          */
         public static function all(){
             return \Illuminate\Http\Request::all();
-        }
-        
-        /**
-         * Retrieve an input item from the request.
-         *
-         * @param string $key
-         * @param mixed $default
-         * @return string 
-         * @static 
-         */
-        public static function input($key = null, $default = null){
-            return \Illuminate\Http\Request::input($key, $default);
         }
         
         /**
@@ -11539,9 +11568,10 @@ namespace {
          * Generate a absolute URL to the given path.
          *
          * @param string $path
-         * @param mixed $extra
-         * @param bool $secure
-         * @return string 
+         * @param mixed     $extra
+         * @param bool|null $secure
+         *
+*@return string
          * @static 
          */
         public static function to($path, $extra = array(), $secure = null){
@@ -11563,9 +11593,10 @@ namespace {
         /**
          * Generate a URL to an application asset.
          *
-         * @param string $path
-         * @param bool $secure
-         * @return string 
+         * @param string    $path
+         * @param bool|null $secure
+         *
+*@return string
          * @static 
          */
         public static function asset($path, $secure = null){

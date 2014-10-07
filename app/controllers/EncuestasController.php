@@ -27,12 +27,14 @@ class EncuestasController extends \BaseController
 
 		foreach($inputs = Input::all() as $key => $value) {
 			if($key != '_token') {
+				Debugbar::info(array_get($value, 'value', ''));
 				if(empty((int) array_get($value, 'value', ''))) {
 					$errors = 'Debe contestar todas las preguntas';
 
 					return Redirect::back()->withErrors($errors)->withInput();
 				}
 			}
+			Redirect::action('HomeController@')
 		}
 
 		foreach($inputs as $key => $value) {
@@ -68,6 +70,9 @@ class EncuestasController extends \BaseController
 				'data' => array(
 					'type' => 'success',
 					'text' => '<i class="fa fa-check fa-fw"></i>Gracias por tu tiempo y disponibilidad en responder. ¡Tu opinión es muy importante!'
+				),
+				'options' => array(
+					"<script>setTimeout('window.location.href=\"/\";', 5000);</script>"
 				)
 			);
 			$script = "if (typeof window.event == 'undefined'){ document.onkeypress = function(e){ var test_var=e.target.nodeName.toUpperCase(); if (e.target.type) var test_type=e.target.type.toUpperCase(); if ((test_var == 'INPUT' && test_type == 'TEXT') || test_var == 'TEXTAREA'){ return e.keyCode; }else if (e.keyCode == 8 || e.keyCode == 116 || e.keyCode == 122){ e.preventDefault(); } } }else{ document.onkeydown = function(){ var test_var=event.srcElement.tagName.toUpperCase(); if (event.srcElement.type) var test_type=event.srcElement.type.toUpperCase(); if ((test_var == 'INPUT' && test_type == 'TEXT') || test_var == 'TEXTAREA'){ return event.keyCode; } else if (event.keyCode == 8 || e.keyCode == 116 || e.keyCode == 122){ event.returnValue=false; } } } ";

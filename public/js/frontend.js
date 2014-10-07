@@ -1,16 +1,4 @@
-$(window).resize(function () {
-	var radio = $('input[type=radio]');
-	var select = $('select');
-
-	if ($(window).width() < 975) {
-		console.log('MOVIL');
-	} else {
-		console.log('DESKTOP');
-	}
-});
-
 $(document).ready(function () {
-	// BOTON VOLVER ARRIBA
 	$(window).scroll(function () {
 		if ($(this).scrollTop() > 350) {
 			$('#go-top').fadeIn(350);
@@ -26,7 +14,6 @@ $(document).ready(function () {
 		}, 800);
 	}).tooltip('show');
 
-	// BOTON NEGACION SEGUNDA VEZ ENCUESTA
 	$('#btn_neg').click(function (event) {
 		event.preventDefault();
 		var div = $(this).parents('div.alert');
@@ -41,8 +28,8 @@ $(document).ready(function () {
 		});
 	});
 
-	// VALIDACIONES FOMRULARIOS
 	$('#login_form').bootstrapValidator({
+		excluded: [':disabled', ':hidden', ':not(:visible)'],
 		fields: {
 			rut: {
 				message: 'El RUT no es valido',
@@ -68,72 +55,92 @@ $(document).ready(function () {
 
 	$('#survey_form')
 		.bootstrapValidator({
-			excluded: ':disabled',
-			feedbackIcons: {
-				required: 'glyphicon glyphicon-flash',
-				valid: 'glyphicon glyphicon-ok',
-				invalid: 'glyphicon glyphicon-remove',
-				validating: 'glyphicon glyphicon-refresh'
-			},
+			excluded: [':disabled', ':hidden', ':not(:visible)'],
 			fields: {
 				'pregunta_1[value]': {
+					container: '#error_p1',
 					validators: {
 						notEmpty: {
-							message: ' '
+							message: 'Campo requerido '
 						},
 						choice: {
 							min: 1,
-							message: ' '
-						},
-						callback: function (value, validator) {
-							console.log('P1 ' + value);
+							message: 'Debe seleccionar al menos una opción'
 						}
 					}
 				},
 				'pregunta_2[value]': {
+					container: '#error_p2',
 					validators: {
 						notEmpty: {
-							message: ' '
+							message: 'Campo requerido '
 						},
 						choice: {
 							min: 1,
-							message: ' '
-						},
-						callback: function (value, validator) {
-							console.log('P2 ' + value);
+							message: 'Debe seleccionar al menos una opción'
 						}
 					}
 				},
 				'pregunta_3[value]': {
+					container: '#error_p3',
 					validators: {
 						notEmpty: {
-							message: ' '
+							message: 'Campo requerido '
 						},
 						choice: {
 							min: 1,
-							message: ' '
-						},
-						callback: function (value, validator) {
-							console.log('P3 ' + value);
+							message: 'Debe seleccionar al menos una opción'
 						}
 					}
 				},
 				'pregunta_4[value]': {
+					container: '#error_p4',
 					validators: {
 						notEmpty: {
-							message: ' '
+							message: 'Campo requerido '
 						},
 						choice: {
 							min: 1,
-							message: ' '
+							message: 'Debe seleccionar al menos una opción'
+						}
+					}
+				},
+				'pregunta_1[text]': {
+					validators: {
+						notEmpty: {
+							message: 'Campo requerido'
+						},
+						stringLength: {
+							max: 250,
+							message: 'Debe tener un máximo de 250 caracteres'
+						}
+					}
+				},
+				'pregunta_2[text]': {
+					validators: {
+						notEmpty: {
+							message: 'Campo requerido'
+						},
+						stringLength: {
+							max: 250,
+							message: 'Debe tener un máximo de 250 caracteres'
+						}
+					}
+				},
+				'pregunta_3[text]': {
+					validators: {
+						notEmpty: {
+							message: 'Campo requerido'
+						},
+						stringLength: {
+							max: 250,
+							message: 'Debe tener un máximo de 250 caracteres'
 						}
 					}
 				}
 			}
 		});
 
-
-	// FUNCIONES TABLA ENCUESTA
 	$('.table td')
 		.hover(
 		function () {
@@ -144,11 +151,9 @@ $(document).ready(function () {
 	).click(function (event) {
 			event.preventDefault();
 			$(this).find('.iradio_square-red').iCheck('toggle');
-			event.stopPropagation();
 		});
 });
 
-// CARGA ESTILO RADIO BUTTONS EN ENCUESTA Y MODIFICA SU VALOR SEGÚN SELECT(INPUT)
 $('input[type=radio]')
 	.iCheck({
 		radioClass: 'iradio_square-red',
@@ -157,16 +162,13 @@ $('input[type=radio]')
 		cursor: true
 	})
 	.on('ifChecked', function (event) {
-		console.log('ifChecked');
 		event.preventDefault();
 		var $name = $(this).attr('name');
 		var $value = $(this).val();
 		$('select[name="' + $name + '"]').select2('val', $value);
-		console.log('R '+$name);
 		$('#survey_form').bootstrapValidator('revalidateField', $name);
 	});
 
-// CARGA ESTILO SELECT INPUT EN ENCUESTA Y MODIFICA SU VALOR SEGUN RADIO BUTTONS
 $('select')
 	.select2({
 		width: '100%',
@@ -179,6 +181,5 @@ $('select')
 		var $name = $(this).attr('name');
 		var $value = event.val;
 		$('input[type=radio][name="' + $name + '"][value=' + $value++ + ']').iCheck('toggle');
-		console.log('S '+$name);
 		$('#survey_form').bootstrapValidator('revalidateField', $name);
 	});

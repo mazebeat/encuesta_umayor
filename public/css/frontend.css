@@ -1,3 +1,5 @@
+/* Google fonts  */
+
 @import url(http://fonts.googleapis.com/css?family=Oswald);
 
 /* Sticky footer styles
@@ -11,6 +13,7 @@ body {
     background: #ffd202;
     font-family: 'Oswald', sans-serif;
     margin-bottom: 180px;
+    color: #000;
 }
 
 header, footer {
@@ -123,23 +126,23 @@ hr {
 }
 
 h1{
-    font-size: 2rem;
+    font-size: 1.9rem;
     /*margin: 0 0 1rem;*/
 }
 h2{
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     /*margin: 1rem 0 2rem;*/
 }
 h3{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     /*margin: 1rem 0 2rem;*/
 }
 h4{
-    font-size: 1rem;
+    font-size: 0.9rem;
     /*margin: 1rem 0 2rem;*/
 }
 p{
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     /*margin: 1rem 0;*/
 }
 

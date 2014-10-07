@@ -7,16 +7,16 @@
 
 @section('content')
 {{--{{ HTML::survey($survey, $questions) }}--}}
-<div class="col-xs-12 col-xm-12 col-md-12 col-lg-12 text-center">
-	<h3><strong>{{ Session::get('user_name', '')  }}</strong>, en nuestro afán de mejorar la calidad de servicio de la Universidad Mayor, queremos invitarte a contestar este breve cuestionario para conocer la satisfacción con la Universidad.</h3>
+<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-left">
+	<h3><strong>{{ Session::get('user_name', '')  }}</strong>, en nuestro afán de mejorar la experiencia de servicio de la Universidad Mayor, queremos invitarte a contestar este breve cuestionario para conocer la satisfacción con la Universidad.</h3>
 	<h4>Luego de completar la encuesta, presiona "Enviar"</h4>
 </div>
 <div class="panel panel-primary col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
 	<div class="panel-body">
 		@if ($errors->has())
-			@if($errors->any())
-				{{ HTML::alert('danger', $errors->all(), null) }}
-			@endif
+		@if($errors->any())
+		{{ HTML::alert('danger', $errors->all(), null) }}
+		@endif
 		@endif
 		<section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			{{ Form::open(array('route' => 'encuestas.store', 'method' => 'POST', 'accept-charset' => 'UTF-8', 'role' => 'form', 'id' => 'survey_form')) }}
@@ -34,7 +34,7 @@
 						<tbody class="form-group text-center">
 							<tr>
 								<td class="text-left vertical-align"><label class="control-label">Calificación</label></td>
-								<td class="">{{ Form::selectRange2('pregunta_1[value]', '1', '7', null, array('class' => 'form-control', 'data-placeholder' => 'Selecciona una opción', 'data-question' => 1)) }}</td>
+								<td class="">{{ Form::selectRange2('pregunta_1[value]', '1', '7', null, array('class' => 'form-control', 'data-placeholder' => 'Selecciona una opción')) }}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -67,9 +67,11 @@
 						</tbody>
 					</table>
 				</div>
+				<div id="error_p1"></div>
 				<h5>¿Por qué evalúa con esa nota?</h5>
 				<div class="form-group"> 
-					{{ Form::textarea('pregunta_1[text]', null, array('placeholder' => 'Porque...', 'class' => 'form-control', 'rows' => '3', 'data-question-text' => 1,  'maxlength' => '255')) }}
+					{{ Form::textarea('pregunta_1[text]', null, array('placeholder' => 'Porque...', 'class' => 'form-control', 'rows' => '3','length' => '300')) }}
+					<small id="count"></small>
 				</div>
 			</article>
 			<hr>
@@ -120,9 +122,11 @@
 						</tbody>
 					</table>
 				</div>
+				<div id="error_p2"></div>
 				<h5>¿Por qué evalúa con esa nota?</h5>
 				<div class="form-group"> 
-					{{ Form::textarea('pregunta_2[text]', null, array('placeholder' => 'Porque...', 'class' => 'form-control', 'rows' => '3', 'maxlength' => '255')) }}
+					{{ Form::textarea('pregunta_2[text]', null, array('placeholder' => 'Porque...', 'class' => 'form-control', 'rows' => '3', 'length' => '300')) }}
+					<small id="count"></small>
 				</div>
 			</article>
 			<hr>
@@ -173,9 +177,11 @@
 						</tbody>
 					</table>
 				</div>
+				<div id="error_p3"></div>
 				<h5>¿Por qué evalúa con esa nota?</h5>
 				<div class="form-group"> 
-					{{ Form::textarea('pregunta_3[text]', null, array('placeholder' => 'Porque...', 'class' => 'form-control', 'rows' => '3', 'maxlength' => '255')) }}
+					{{ Form::textarea('pregunta_3[text]', null, array('placeholder' => 'Porque...', 'class' => 'form-control', 'rows' => '3')) }}
+					<small id="count"></small>
 				</div>
 			</article>
 			<hr>
@@ -200,6 +206,7 @@
 						</tbody>
 					</table>
 				</div>
+				<div id="error_p4"></div>
 			</article>
 			<br/>
 			{{ HTML::link('/logout', 'Salir', array('class' => 'col-xs-4 col-sm-4 col-md-3 col-lg-3 text-uppercase btn btn-default btn-lg')) }}
@@ -212,18 +219,8 @@
 
 @section('script')
 <script type="text/javascript">
-$(document).ready(function(){
-   // Función a lanzar cada vez que se presiona una tecla en un textarea
-   // en el que se encuentra el atributo maxlength
-   $("textarea[maxlength]").keyup(function() {
-       var limit   = $(this).attr("maxlength"); // Límite del textarea
-       var value   = $(this).val();             // Valor actual del textarea
-       var current = value.length;              // Número de caracteres actual
-       if (limit < current) {                   // Más del límite de caracteres?
-            // Establece el valor del textarea al límite
-            $(this).val(value.substring(0, limit));
-        }
-    });
-});
+   $("textarea").keyup(function() {
+       $(this).parent().find('small#count').text('Caracteres: ' + $(this).val().length);
+   });
 </script>
 @stop

@@ -5,8 +5,8 @@ class HomeController extends BaseController
 
 	public function index($canal = null)
 	{
-		if(isset($canal) && Session::has('canal')) {
-			Session::forget('canal');
+		Session::forget('canal');
+		if(isset($canal) && !Session::has('canal')) {
 			$c = Canal::select('id_canal')->whereCodigo($canal)->first('id_canal');
 			if(!empty($c) && $c != null) {
 				Session::put('canal', $c->id_canal);
