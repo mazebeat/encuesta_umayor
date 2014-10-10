@@ -5,12 +5,8 @@ class HomeController extends BaseController
 
 	public function index($canal = null)
 	{
-		Session::forget('canal');
-		if(isset($canal) && !Session::has('canal')) {
-			$c = Canal::select('id_canal')->whereCodigo($canal)->first('id_canal');
-			if(!empty($c) && $c != null) {
-				Session::put('canal', $c->id_canal);
-			}
+		if($canal != null) {
+			Event::fire('canal', array(array('canal' => $canal)));
 		}
 
 		return View::make('index');
@@ -18,56 +14,24 @@ class HomeController extends BaseController
 
 	public function login()
 	{
-		//		VALIDA QUE EL RUT QUE SE INGRESÓ ES CORRECTO
-		$rules = array(
-			'rut' => 'required|between:8,9|alpha_num|rut|exist_rut'
-		);
+		$rules = array('rut' => 'required|between:8,9|alpha_num|rut|exist_rut');
 
 		$validator = Validator::make(Input::all(), $rules);
 
 		if($validator->fails()) {
-			$messages = $validator->messages();
-
-			return Redirect::back()->withErrors($messages)->withInput();
+			return Redirect::back()->withErrors($validator->messages())->withInput();
 		}
 
-		//		VERIFICA SI EL USUARIO RESPONDIO LA ENCUESTA
-		$alumno = BddUmayor::select(array(
-			'id_alumno',
-			'nombres',
-			'apellido_paterno',
-			'apellido_materno'
-		))->whereRut(Input::get('rut'))->first(array(
-			'id_alumno',
-			'nombres',
-			'apellido_paterno',
-			'apellido_materno'
-		));
+		Event::fire('carga_cliente', array(Input::get('rut')));
 
-		$cliente = Cliente::select('id_cliente')->whereIdAlumno($alumno->id_alumno)->first('id_cliente');
+		$ultima_respuesta = Event::fire('ya_respondio')[0];
 
-		//		SE CREAN LAS VARIABLES DE SESSION DEL ALUMNO
-		Session::put('user_id', $cliente->id_cliente);
-		Session::put('user_name', $alumno->nombres . ' ' . $alumno->apellido_paterno);
-		unset($cliente);
-		unset($alumno);
-
-		//		SE VALIDAN RESPUESTAS ANTERIORES
-		$resp         = Respuesta::select(array('created_at'))->whereIdCliente(Session::get('user_id'))->orderBy('id_respuesta', 'DESC')->first();
-		$ya_respondio = false;
-		if(!empty($resp) && count($resp)) {
-			$ya_respondio   = true;
-			$last_responsed = $resp->created_at;
-			unset($resp);
-		}
-
-		//		SI EL ALUMNO YA RESPONDIO LA ENCUESTA
-		if($ya_respondio) {
+		if(!is_null($ultima_respuesta)) {
 			$msg = array(
 				'data'    => array(
 					'type'  => 'warning',
 					'title' => Session::get('user_name'),
-					'text'  => 'En el actual periodo, ya registramos tus respuestas con fecha <b>' . $last_responsed->toDateString() . '</b> a las <b>' . $last_responsed->toTimeString() . '</b>, ¿deseas actualizar esta información?',
+					'text' => 'En el actual periodo, ya registramos tus respuestas con fecha <b>' . $ultima_respuesta->format('d-m-Y') . '</b> a las <b>' . $ultima_respuesta->toTimeString() . '</b>, ¿deseas actualizar esta información?',
 				),
 				'options' => array(
 					HTML::link('#', 'NO', array(
@@ -77,11 +41,9 @@ class HomeController extends BaseController
 					link_to_route('encuestas.index', 'SI', array(), array('class' => 'col-xs-4 col-sm-4 col-md-3 btn btn-hot btn-lg text-uppercase pull-right'))
 				)
 			);
-			unset($ya_respondio);
 
 			return View::make('messages')->with('msg', $msg);
 		} else {
-			//			SI AÚN NO LA RESPONDE
 			return Redirect::route('encuestas.index');
 		}
 	}

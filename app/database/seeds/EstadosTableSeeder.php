@@ -68,6 +68,14 @@ class EstadosTableSeeder extends Seeder
 			'tipo'        => '2',
 			'descripcion' => 'SI',
 		]);
+		Estado::create([
+			'tipo'        => 'Activo',
+			'descripcion' => 'Última respuesta mes activa',
+		]);
+		Estado::create([
+			'tipo'        => 'Inactivo',
+			'descripcion' => 'Respuestas anteriores',
+		]);
 	}
 
 }

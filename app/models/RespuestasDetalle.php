@@ -9,12 +9,12 @@
  * @property integer $id_respuesta
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @method static \Illuminate\Database\Query\Builder|\RespuestasDetalle whereIdRespuestaDetalle($value) 
- * @method static \Illuminate\Database\Query\Builder|\RespuestasDetalle whereValor1($value) 
- * @method static \Illuminate\Database\Query\Builder|\RespuestasDetalle whereValor2($value) 
- * @method static \Illuminate\Database\Query\Builder|\RespuestasDetalle whereIdRespuesta($value) 
- * @method static \Illuminate\Database\Query\Builder|\RespuestasDetalle whereCreatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\RespuestasDetalle whereUpdatedAt($value) 
+ * @method static \Illuminate\Database\Query\Builder|\RespuestasDetalle whereIdRespuestaDetalle($value)
+ * @method static \Illuminate\Database\Query\Builder|\RespuestasDetalle whereValor1($value)
+ * @method static \Illuminate\Database\Query\Builder|\RespuestasDetalle whereValor2($value)
+ * @method static \Illuminate\Database\Query\Builder|\RespuestasDetalle whereIdRespuesta($value)
+ * @method static \Illuminate\Database\Query\Builder|\RespuestasDetalle whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\RespuestasDetalle whereUpdatedAt($value)
  */
 class RespuestasDetalle extends \Eloquent
 {

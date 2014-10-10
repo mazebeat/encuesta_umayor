@@ -12,9 +12,10 @@ class DatabaseSeeder extends Seeder
 		$this->call('EstadosTableSeeder');
 		$this->call('TiposRespuestaTableSeeder');
 		$this->call('NegociosTableSeeder');
-		// $this->call('BddUmayorTableSeeder');
+		$this->call('BddUmayorTableSeeder');
 		$this->call('EncuestasTableSeeder');
-		// $this->call('ClientesTableSeeder');
+		$this->call('ClientesTableSeeder');
+		// $this->call('ClientesRespuestaTableSeeder');
 		$this->call('ExcepcionesTableSeeder');
 		// $this->call('ExcepcionesClienteTableSeeder');
 		$this->call('PreguntaTableSeeder');

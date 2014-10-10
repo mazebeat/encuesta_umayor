@@ -8,11 +8,11 @@
  * @property string $descripcion
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @method static \Illuminate\Database\Query\Builder|\Canal whereIdCanal($value) 
- * @method static \Illuminate\Database\Query\Builder|\Canal whereCodigo($value) 
- * @method static \Illuminate\Database\Query\Builder|\Canal whereDescripcion($value) 
- * @method static \Illuminate\Database\Query\Builder|\Canal whereCreatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\Canal whereUpdatedAt($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Canal whereIdCanal($value)
+ * @method static \Illuminate\Database\Query\Builder|\Canal whereCodigo($value)
+ * @method static \Illuminate\Database\Query\Builder|\Canal whereDescripcion($value)
+ * @method static \Illuminate\Database\Query\Builder|\Canal whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Canal whereUpdatedAt($value)
  */
 class Canal extends \Eloquent
 {

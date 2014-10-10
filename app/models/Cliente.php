@@ -9,11 +9,11 @@
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property-read \BddUmayor $bddumayor
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereIdCliente($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereIdEstado($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereIdAlumno($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereCreatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\Cliente whereUpdatedAt($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereIdCliente($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereIdEstado($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereIdAlumno($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Cliente whereUpdatedAt($value)
  */
 class Cliente extends \Eloquent
 {

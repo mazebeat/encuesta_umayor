@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'fetch' => PDO::FETCH_CLASS,
+	'fetch'       => PDO::FETCH_CLASS,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
+	'default'     => 'mysql',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -48,22 +48,22 @@ return array(
 
 		'sqlite' => array(
 			'driver'   => 'sqlite',
-			'database' => __DIR__.'/../database/production.sqlite',
+			'database' => __DIR__ . '/../database/production.sqlite',
 			'prefix'   => '',
 		),
 
-		'mysql' => array(
+		'mysql'  => array(
 			'driver'    => 'mysql',
-			'host'     => '192.168.1.103',
+			'host'     => '192.168.1.30',
 			'database'  => 'umayor',
 			'username'  => 'root',
-			'password' => 'inteladmin',
+			'password' => 'root',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
 
-		'pgsql' => array(
+		'pgsql'  => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
 			'database' => 'forge',
@@ -96,7 +96,7 @@ return array(
 	|
 	*/
 
-	'migrations' => 'migrations',
+	'migrations'  => 'migrations',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -109,7 +109,7 @@ return array(
 	|
 	*/
 
-	'redis' => array(
+	'redis'       => array(
 
 		'cluster' => false,
 

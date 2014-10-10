@@ -84,13 +84,27 @@ if(!Config::get('app.debug')) {
 					), 500);
 
 			default:
-				return Response::view('errors', array('code'      => '',
+				return Response::view('errors', array(
+					'code' => $code,
 				                                      'exception' => $exception
 					), $code);
 		}
 	});
+
+	//	App::error(function(RuntimeException $exception)
+	//	{
+	//		Log::error($exception);
+	//	});
+	//
+	//	App::error(function(InvalidUserException $exception)
+	//	{
+	//		Log::error($exception);
+	//	});
 }
 
+App::missing(function ($exception) {
+	Log::warning($exception);
+});
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
@@ -119,4 +133,5 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+require app_path() . '/events.php';
 include app_path().'/libs/macros/macros.php';

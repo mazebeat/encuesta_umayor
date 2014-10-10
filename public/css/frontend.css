@@ -131,7 +131,7 @@ h4, h5, h6 {
     font-family: 'AvenirNextLTPro-Cn', Helvetica, sans-serif;
 }
 
-p, small, span {
+p, small {
     font-family: 'cartogothic_stdbold', Helvetica, sans-serif;
 }
 
@@ -173,7 +173,7 @@ p, small, span {
 
 /* BUTTONS */
 .btn {
-    margin: 4px;
+    /*margin: 4px;*/
     box-shadow: 1px 1px 5px #888888;
 }
 
@@ -244,21 +244,21 @@ p, small, span {
 }
 
 .btn-sky {
-    background-color: #0bacd3;
+    background-color: #01474f;
     border-bottom: 2px solid #098aa9;
     color: #fff;
 }
 
 .btn-sky:hover, .btn-sky.active:focus, .btn-sky:focus, .open > .dropdown-toggle.btn-sky {
-    background-color: #29b6d8;
+    background-color: #255f6c;
     border-bottom: 2px solid #2192ad;
     color: #fff;
     outline: none;
 }
 
 .btn-sky:active, .btn-sky.active {
-    background-color: #0a97b9;
-    border-top: 2px solid #087994;
+    background-color: #237081;
+    border-top: 2px solid #225f6d;
     color: #fff;
     margin-top: 2px;
     outline-offset: none;

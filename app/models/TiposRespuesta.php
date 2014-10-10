@@ -8,11 +8,11 @@
  * @property string $opciones
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @method static \Illuminate\Database\Query\Builder|\TiposRespuesta whereIdTipoRespuesta($value) 
- * @method static \Illuminate\Database\Query\Builder|\TiposRespuesta whereTipo($value) 
- * @method static \Illuminate\Database\Query\Builder|\TiposRespuesta whereOpciones($value) 
- * @method static \Illuminate\Database\Query\Builder|\TiposRespuesta whereCreatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\TiposRespuesta whereUpdatedAt($value) 
+ * @method static \Illuminate\Database\Query\Builder|\TiposRespuesta whereIdTipoRespuesta($value)
+ * @method static \Illuminate\Database\Query\Builder|\TiposRespuesta whereTipo($value)
+ * @method static \Illuminate\Database\Query\Builder|\TiposRespuesta whereOpciones($value)
+ * @method static \Illuminate\Database\Query\Builder|\TiposRespuesta whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\TiposRespuesta whereUpdatedAt($value)
  */
 class TiposRespuesta extends \Eloquent
 {

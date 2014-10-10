@@ -1,10 +1,5 @@
 @extends('layouts.user')
 
-@section('style')
-<style type="text/css">
-</style>
-@stop
-
 @section('content')
 {{--{{ HTML::survey($survey, $questions) }}--}}
 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-left">
@@ -13,16 +8,18 @@
 </div>
 <div class="panel panel-primary col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
 	<div class="panel-body">
+		<div class="errors">
 		@if ($errors->has())
-		@if($errors->any())
-		{{ HTML::alert('danger', $errors->all(), null) }}
+			@if($errors->any())
+				{{ HTML::alert('danger', $errors->all(), null) }}
+			@endif
 		@endif
-		@endif
+		</div>
 		<section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-			{{ Form::open(array('route' => 'encuestas.store', 'method' => 'POST', 'accept-charset' => 'UTF-8', 'role' => 'form', 'id' => 'survey_form')) }}
+			{{ Form::open(array('route' => 'encuestas.store', 'method' => 'POST', 'accept-charset' => 'UTF-8', 'role' => 'form', 'id' => 'survey_form', 'data-bv-onerror' => 'onFormError', 'data-bv-onsuccess' => 'onFormSuccess')) }}
 			{{-- Pregunta 1 --}}
 			<article class="question">
-				<h4>1- Con nota de 1 a 7, donde 1 es muy malo y 7 es muy bueno, ¿Hasta qué punto la marca Universidad Mayor ha logrado satisfacer sus necesidades en forma efectiva?</h4>
+				<h4>1- Con nota de 1 a 7, donde 1 es muy malo y 7 es muy bueno, ¿En qué medida la Universidad Mayor ha logrado satisfacer tus necesidades en forma efectiva?</h4>
 				<div class="table-responsive hidden-md hidden-lg">
 					<table class="table table-hover table-condensed">
 						<thead class="text-center">
@@ -68,7 +65,7 @@
 					</table>
 				</div>
 				<div id="error_p1"></div>
-				<h5>¿Por qué evalúa con esa nota?</h5>
+				<h5>¿Por qué evalúas con esa nota?</h5>
 				<div class="form-group"> 
 					{{ Form::textarea('pregunta_1[text]', null, array('placeholder' => 'Porque...', 'class' => 'form-control', 'rows' => '3','length' => '300')) }}
 					<small id="count"></small>
@@ -77,7 +74,7 @@
 			<hr>
 			{{-- Pregunta 2 --}}
 			<article class="question">
-				<h4>2- Con nota de 1 a 7, donde 1 es muy malo y 7 es muy bueno, ¿Qué tan simple y fácil le ha sido interactuar con Universidad Mayor?</h4>
+				<h4>2- Con nota de 1 a 7, donde 1 es muy malo y 7 es muy bueno, ¿Qué tan simple y fácil te ha sido interactuar con los canales corporativos de comunicación de la Universidad Mayor?</h4>
 				<div class="table-responsive hidden-md hidden-lg">
 					<table class="table table-hover table-condensed">
 						<thead class="text-center">
@@ -123,7 +120,7 @@
 					</table>
 				</div>
 				<div id="error_p2"></div>
-				<h5>¿Por qué evalúa con esa nota?</h5>
+				<h5>¿Por qué evalúas con esa nota?</h5>
 				<div class="form-group"> 
 					{{ Form::textarea('pregunta_2[text]', null, array('placeholder' => 'Porque...', 'class' => 'form-control', 'rows' => '3', 'length' => '300')) }}
 					<small id="count"></small>
@@ -132,7 +129,7 @@
 			<hr>
 			{{-- Pregunta 3 --}}
 			<article class="question">
-				<h4>3- Con nota de 1 a 7, donde 1 es muy malo y 7 es muy bueno, ¿Qué tan agradable ha sido su permanencia en la Universidad Mayor?</h4>
+				<h4>3- Con nota de 1 a 7, donde 1 es muy malo y 7 es muy bueno, ¿Qué tan agradable ha sido tu permanencia en la Universidad Mayor?</h4>
 				<div class="table-responsive hidden-md hidden-lg">
 					<table class="table table-hover table-condensed">
 						<thead class="text-center">
@@ -178,7 +175,7 @@
 					</table>
 				</div>
 				<div id="error_p3"></div>
-				<h5>¿Por qué evalúa con esa nota?</h5>
+				<h5>¿Por qué evalúas con esa nota?</h5>
 				<div class="form-group"> 
 					{{ Form::textarea('pregunta_3[text]', null, array('placeholder' => 'Porque...', 'class' => 'form-control', 'rows' => '3')) }}
 					<small id="count"></small>
@@ -187,7 +184,7 @@
 			<hr>
 			{{-- Pregunta 4 --}}
 			<article class="question">
-				<h4>4- ¿Recomendaría Universidad Mayor a sus conocidos o amigos?</h4>
+				<h4>4- ¿Recomendarías la Universidad Mayor a tus conocidos o amigos?</h4>
 				<div class="table-responsive">
 					<table class="table table-hover table-condensed">
 						<thead class="text-center">
@@ -219,8 +216,6 @@
 
 @section('script')
 <script type="text/javascript">
-   $("textarea").keyup(function() {
-       $(this).parent().find('small#count').text('Caracteres: ' + $(this).val().length);
-   });
+	var $username = '{{{ Session::get('user_name')  }}}';
 </script>
 @stop

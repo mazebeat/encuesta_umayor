@@ -9,12 +9,12 @@
  * @property integer $id_excepcion
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @method static \Illuminate\Database\Query\Builder|\ExcepcionesCliente whereIdExcepcionCliente($value) 
- * @method static \Illuminate\Database\Query\Builder|\ExcepcionesCliente whereFecha($value) 
- * @method static \Illuminate\Database\Query\Builder|\ExcepcionesCliente whereIdCliente($value) 
- * @method static \Illuminate\Database\Query\Builder|\ExcepcionesCliente whereIdExcepcion($value) 
- * @method static \Illuminate\Database\Query\Builder|\ExcepcionesCliente whereCreatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\ExcepcionesCliente whereUpdatedAt($value) 
+ * @method static \Illuminate\Database\Query\Builder|\ExcepcionesCliente whereIdExcepcionCliente($value)
+ * @method static \Illuminate\Database\Query\Builder|\ExcepcionesCliente whereFecha($value)
+ * @method static \Illuminate\Database\Query\Builder|\ExcepcionesCliente whereIdCliente($value)
+ * @method static \Illuminate\Database\Query\Builder|\ExcepcionesCliente whereIdExcepcion($value)
+ * @method static \Illuminate\Database\Query\Builder|\ExcepcionesCliente whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\ExcepcionesCliente whereUpdatedAt($value)
  */
 class ExcepcionesCliente extends \Eloquent
 {

@@ -1,10 +1,5 @@
 @extends('layouts.login')
 
-@section('style')
-<style type="text/css">
-</style>
-@stop
-
 @section('content')
 <div class="col-md-4 col-md-offset-4">
 	<h1 class="text-center"></h1>
@@ -22,6 +17,7 @@
 				<fieldset>
 					<div class="form-group">
 						<input class="form-control" placeholder="Ingresar RUT sin puntos ni guión" name="rut" id="rut_field" type="text" maxlength="9" autocomplete="off" required>
+						 <span class="help-block text-muted"><em>Ejemplo: 111111111</em></span>
 					</div>
 					<input class="btn btn-lg btn-hot btn-block text-uppercase" type="submit" value="Entrar">
 				</fieldset>
@@ -29,10 +25,4 @@
 		</div>
 	</div>
 </div>
-@stop
-
-@section('script')
-<script type="text/javascript">
-document.getElementById('rut_field').value= '';
-</script>
 @stop

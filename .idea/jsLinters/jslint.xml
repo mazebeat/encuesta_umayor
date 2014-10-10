@@ -10,6 +10,7 @@
     <option eqeq="true" />
     <option indent="4" />
     <option maxerr="50" />
+    <option node="true" />
     <option plusplus="true" />
   </component>
 </project>

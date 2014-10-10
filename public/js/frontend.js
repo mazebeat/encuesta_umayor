@@ -16,14 +16,25 @@ $(document).ready(function () {
 
 	$('#btn_neg').click(function (event) {
 		event.preventDefault();
+		$('.politicas').remove();
 		var div = $(this).parents('div.alert');
 		div.find('h4').remove();
 		div.find('p').remove();
 		div.append('<p><i class="fa fa-check fa-fw"></i>Gracias por tu tiempo. ¡Tu opinión es muy importante!</p>');
 		div.removeClass('alert-warning').addClass('alert-success');
-		$.get("logout", function (msg) {
+		$.get("logout", function ($message) {
+			if ($message == 'OK') {
+				setTimeout('window.location.href=\"http://www.umayor.cl/\";', 5000);
+			}
+		});
+	});
+
+	$('#modal1_ok').click(function (event) {
+		event.preventDefault();
+		$("#modal1").modal('toggle');
+		$.get("add_exception", function (msg) {
 			if (msg == 'OK') {
-				setTimeout("window.location.href='/';", 4000);
+				setTimeout('window.location.href=\"http://www.umayor.cl/\";', 5000);
 			}
 		});
 	});
@@ -140,19 +151,37 @@ $(document).ready(function () {
 				}
 			}
 		});
-
-	$('.table td')
-		.hover(
-		function () {
-			$(this).find('.iradio_square-red').addClass('hover');
-		}, function () {
-			$(this).find('.iradio_square-red').removeClass("hover");
-		}
-	).click(function (event) {
-			event.preventDefault();
-			$(this).find('.iradio_square-red').iCheck('toggle');
-		});
 });
+
+function onFormError(event) {
+	event.preventDefault();
+	$('html, body').animate({
+		scrollTop: $(".errors").offset().top
+	}, 1000);
+	var $msg = '<div class="errors alert alert-danger">' + $username + ', necesitamos respuesta a todas tus preguntas</div>';
+	$('.errors').append($msg);
+}
+
+function onFormSuccess(e) {
+	console.log('enter');
+	$('.errors').empty();
+}
+
+$("textarea").keyup(function () {
+	$(this).parent().find('small#count').text('Caracteres: ' + $(this).val().length);
+});
+
+$('.table td')
+	.hover(
+	function () {
+		$(this).find('.iradio_square-red').addClass('hover');
+	}, function () {
+		$(this).find('.iradio_square-red').removeClass("hover");
+	}
+).click(function (event) {
+		event.preventDefault();
+		$(this).find('.iradio_square-red').iCheck('toggle');
+	});
 
 $('input[type=radio]')
 	.iCheck({

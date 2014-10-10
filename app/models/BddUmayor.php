@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * BddUmayor
  *
@@ -23,24 +24,24 @@
  * @property \Carbon\Carbon $updated_at
  * @property-read \Negocio $negocio
  * @property-read \Illuminate\Database\Eloquent\Collection|\Cliente[] $clientes
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereIdAlumno($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereFacultad($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereEscuela($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereCarrera($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereJornada($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereSede($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereCampus($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereRut($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereApellidoPaterno($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereApellidoMaterno($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereNombres($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereSexo($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereAñoIngreso1añoCarrera($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereAñoIngresoCarrera($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereAñoEgresoPlanRegular($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereFechaRegistro($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereCreatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereUpdatedAt($value) 
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereIdAlumno($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereFacultad($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereEscuela($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereCarrera($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereJornada($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereSede($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereCampus($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereRut($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereApellidoPaterno($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereApellidoMaterno($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereNombres($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereSexo($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereAñoIngreso1añoCarrera($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereAñoIngresoCarrera($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereAñoEgresoPlanRegular($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereFechaRegistro($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereUpdatedAt($value)
  */
 class BddUmayor extends \Eloquent
 {
@@ -92,7 +93,8 @@ class BddUmayor extends \Eloquent
 
 	public function existRut($rut)
 	{
-		if(count($this->whereRut($rut)->first())) {
+		$a = $this->whereRut($rut)->count('id_alumno');
+		if($a > 0) {
 			return true;
 		}
 

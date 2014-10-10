@@ -7,7 +7,7 @@ class ClientesTableSeeder extends Seeder
 	{
 		foreach(range(1, 6) as $index) {
 			Cliente::create([
-				'id_estado' => 1,
+				'id_estado' => 2,
 				'id_alumno' => $index
 			]);
 		}

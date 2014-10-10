@@ -29,12 +29,12 @@ return array(
 	'connections' => array(
 
 		'production' => array(
-			'host'      => '',
-			'username'  => '',
-			'password'  => '',
+			'host'     => '192.168.5.11',
+			'username' => 'webdes',
+			'password' => 'webdes.,123',
 			'key'       => '',
 			'keyphrase' => '',
-			'root'      => '/var/www',
+			'root'     => '/var/www/html/encuesta_umayor',
 		),
 
 	),

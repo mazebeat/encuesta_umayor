@@ -8,11 +8,11 @@
  * @property string $descripcion
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @method static \Illuminate\Database\Query\Builder|\Estado whereIdEstado($value) 
- * @method static \Illuminate\Database\Query\Builder|\Estado whereTipo($value) 
- * @method static \Illuminate\Database\Query\Builder|\Estado whereDescripcion($value) 
- * @method static \Illuminate\Database\Query\Builder|\Estado whereCreatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\Estado whereUpdatedAt($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Estado whereIdEstado($value)
+ * @method static \Illuminate\Database\Query\Builder|\Estado whereTipo($value)
+ * @method static \Illuminate\Database\Query\Builder|\Estado whereDescripcion($value)
+ * @method static \Illuminate\Database\Query\Builder|\Estado whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Estado whereUpdatedAt($value)
  */
 class Estado extends \Eloquent
 {

@@ -11,34 +11,31 @@
 */
 
 Route::when('*', 'csrf', array(
-	'post',
-	'put',
-	'delete'
-));
-
-// Patterns
+        'post',
+        'put',
+        'delete'
+    ));
 Route::pattern('canal', '[a-z]{2}');
-
 Route::get('/{canal?}', array(
-	'as'   => 'home.index',
-	'uses' => 'HomeController@index'
-));
+        'as'   => 'home.index',
+        'uses' => 'HomeController@index'
+    ));
 Route::post('/', array(
-	'as'   => 'home.login',
-	'uses' => 'HomeController@login'
-));
+        'as'   => 'home.login',
+        'uses' => 'HomeController@login'
+    ));
 Route::get('logout', 'HomeController@logout');
-Route::get('politicas', function () {
-	return View::make('politicas');
-});
+Route::get('politicas', array(
+        'as'   => '',
+        'uses' => 'PoliticasController@index'
+    ));
 Route::get('add_exception', array(
-	'as'   => 'excepciones.add',
-	'uses' => 'ExcepcionesController@add'
-));
+        'as'   => 'excepciones.add',
+        'uses' => 'ExcepcionesController@add'
+    ));
 Route::resource('encuestas', 'EncuestasController');
 
 Route::get('test', function () {
-	return View::make('test');
 });
 
 //	LINKS PARA CANALES

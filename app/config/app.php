@@ -27,6 +27,7 @@
 		*/
 
 		'url'             => 'http://192.168.1.86/',
+		// 'url'             => 'http://umayor.dev/',
 
 		/*
 		|--------------------------------------------------------------------------
@@ -121,7 +122,6 @@
 			'Illuminate\Validation\ValidationServiceProvider',
 			'Illuminate\View\ViewServiceProvider',
 			'Illuminate\Workbench\WorkbenchServiceProvider',
-
 			'Barryvdh\Debugbar\ServiceProvider',
 			'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 			'Way\Generators\GeneratorsServiceProvider',
@@ -153,7 +153,6 @@
 		*/
 
 		'aliases'         => array(
-
 			'App'               => 'Illuminate\Support\Facades\App',
 			'Artisan'           => 'Illuminate\Support\Facades\Artisan',
 			'Auth'              => 'Illuminate\Support\Facades\Auth',
@@ -166,7 +165,7 @@
 			'Crypt'             => 'Illuminate\Support\Facades\Crypt',
 			'DB'                => 'Illuminate\Support\Facades\DB',
 			'Eloquent'          => 'Illuminate\Database\Eloquent\Model',
-			'Events'            => 'Illuminate\Support\Facades\Event',
+			'Event' => 'Illuminate\Support\Facades\Event',
 			'File'              => 'Illuminate\Support\Facades\File',
 			'Form'              => 'Illuminate\Support\Facades\Form',
 			'Hash'              => 'Illuminate\Support\Facades\Hash',
@@ -192,11 +191,9 @@
 			'URL'               => 'Illuminate\Support\Facades\URL',
 			'Validator'         => 'Illuminate\Support\Facades\Validator',
 			'View'              => 'Illuminate\Support\Facades\View',
-
 			'Debugbar'          => 'Barryvdh\Debugbar\Facade',
 			'Faker'             => 'Faker\Factory',
 			'Carbon'            => 'Carbon\Carbon',
-
 		),
 
 	);

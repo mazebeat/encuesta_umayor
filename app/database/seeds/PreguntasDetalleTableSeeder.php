@@ -7,7 +7,7 @@ class PreguntasDetalleTableSeeder extends Seeder
 	{
 		foreach(range(1, 7) as $index) {
 			PreguntasDetalle::create([
-				'descripcion' => Pregunta::select('descripcion_1')->whereIdEncuesta($index)->first(),
+				'descripcion' => Pregunta::whereIdPregunta($index)->first(array('descripcion_1')),
 				'id_estado'   => 5,
 				'id_encuesta' => 1,
 				'id_pregunta' => $index,

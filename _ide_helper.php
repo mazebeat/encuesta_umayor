@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 4, to provide autocomplete information to your IDE
- * Generated for Laravel 4.2.10 on 2014-10-03.
+ * Generated for Laravel 4.2.11 on 2014-10-10.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -3652,16 +3652,6 @@ namespace {
         }
         
         /**
-         * Run the default delete function on the builder.
-         *
-         * @return mixed 
-         * @static 
-         */
-        public static function forceDelete(){
-            return \Illuminate\Database\Eloquent\Builder::forceDelete();
-        }
-        
-        /**
          * Register a replacement for the default delete function.
          *
          * @param \Closure $callback
@@ -4867,7 +4857,8 @@ namespace {
     }
 
 
-    class Events extends \Illuminate\Support\Facades\Event{
+    class Event extends \Illuminate\Support\Facades\Event
+    {
         
         /**
          * Register an event listener with the dispatcher.
@@ -5010,7 +5001,7 @@ namespace {
          * Forget all of the queued listeners.
          *
          * @return void
-         * @static
+         * @static 
          */
         public static function forgetQueued()
         {
@@ -5493,11 +5484,11 @@ namespace {
          *
          * @param string $name
          * @param array  $options
+         *
          * @return string
-         * @static
+         * @static 
          */
-        public static function number($name, $value = null, $options = array())
-        {
+        public static function number($name, $value = null, $options = array()){
             return \Illuminate\Html\FormBuilder::number($name, $value, $options);
         }
 
@@ -6033,11 +6024,11 @@ namespace {
          *
          * @param string $key
          * @param mixed  $default
-         * @return string
+         *
+*@return string
          * @static
          */
-        public static function input($key = null, $default = null)
-        {
+        public static function input($key = null, $default = null){
             return \Illuminate\Http\Request::input($key, $default);
         }
 
@@ -6116,7 +6107,6 @@ namespace {
          *
          * @param string $index
          * @param mixed $default
-         *
          * @return string
          * @static
          */
@@ -6138,7 +6128,6 @@ namespace {
          * Determine if the current request URI matches a pattern.
          *
          * @param mixed  string
-         *
          * @return bool
          * @static
          */
@@ -6190,7 +6179,6 @@ namespace {
          * Determine if the request contains a given input item key.
          *
          * @param string|array $key
-         *
          * @return bool
          * @static
          */
@@ -6202,7 +6190,6 @@ namespace {
          * Determine if the request contains a non-empty value for an input item.
          *
          * @param string|array $key
-         *
          * @return bool
          * @static
          */
@@ -11568,10 +11555,10 @@ namespace {
          * Generate a absolute URL to the given path.
          *
          * @param string $path
-         * @param mixed     $extra
+         * @param mixed  $extra
          * @param bool|null $secure
          *
-*@return string
+         * @return string
          * @static 
          */
         public static function to($path, $extra = array(), $secure = null){
@@ -11596,7 +11583,7 @@ namespace {
          * @param string    $path
          * @param bool|null $secure
          *
-*@return string
+         * @return string
          * @static 
          */
         public static function asset($path, $secure = null){

@@ -14,17 +14,17 @@
  * @property integer $id_encuesta
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @method static \Illuminate\Database\Query\Builder|\Pregunta whereIdPregunta($value) 
- * @method static \Illuminate\Database\Query\Builder|\Pregunta whereDescripcion1($value) 
- * @method static \Illuminate\Database\Query\Builder|\Pregunta whereDescripcion2($value) 
- * @method static \Illuminate\Database\Query\Builder|\Pregunta whereDescripcion3($value) 
- * @method static \Illuminate\Database\Query\Builder|\Pregunta whereNumeroPregunta($value) 
- * @method static \Illuminate\Database\Query\Builder|\Pregunta whereIdPreguntaPadre($value) 
- * @method static \Illuminate\Database\Query\Builder|\Pregunta whereIdTipoRespuesta($value) 
- * @method static \Illuminate\Database\Query\Builder|\Pregunta whereIdEstado($value) 
- * @method static \Illuminate\Database\Query\Builder|\Pregunta whereIdEncuesta($value) 
- * @method static \Illuminate\Database\Query\Builder|\Pregunta whereCreatedAt($value) 
- * @method static \Illuminate\Database\Query\Builder|\Pregunta whereUpdatedAt($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta whereIdPregunta($value)
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta whereDescripcion1($value)
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta whereDescripcion2($value)
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta whereDescripcion3($value)
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta whereNumeroPregunta($value)
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta whereIdPreguntaPadre($value)
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta whereIdTipoRespuesta($value)
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta whereIdEstado($value)
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta whereIdEncuesta($value)
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Pregunta whereUpdatedAt($value)
  */
 class Pregunta extends \Eloquent
 {

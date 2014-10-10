@@ -19,7 +19,6 @@ App::before(function ($request) {
 App::after(function ($request, $response) {
 	//
 });
-
 /*
 |--------------------------------------------------------------------------
 | Authentication Filters
@@ -55,7 +54,7 @@ Route::filter('auth.login', function () {
 				'text'  => 'Usuario no logueado'
 			),
 			'options' => array(
-				'left' => HTML::link(URL::to('/'), 'Volver', array('class' => 'col-md-3 btn btn-default btn-lg pull-right text-uppercase'))
+				'left' => HTML::link(URL::to('/'), 'Salir', array('class' => 'col-md-3 btn btn-default btn-lg pull-right text-uppercase'))
 			)
 		);
 

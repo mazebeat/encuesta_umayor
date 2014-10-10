@@ -119,20 +119,6 @@ HTML::macro('alert', function ($type, $messages, $head = null) {
 	foreach($messages as $value) {
 		$message .= $count++ . '- ' . $value . '<br>';
 	}
-	//		switch($type) {
-	//			case 'danger': //red
-	//				$head = $head ? $head : 'Error:';
-	//				break;
-	//			case 'warning': //yellow
-	//				$head = $head ? $head : 'Warning:';
-	//				break;
-	//			case 'info': //blue
-	//				$head = $head ? $head : 'Info:';
-	//				break;
-	//			case 'success': //green
-	//				$head = $head ? $head : 'Success:';
-	//				break;
-	//		}
 	$script = '
 		<script type="text/javascript">
 			setTimeout(function () {
