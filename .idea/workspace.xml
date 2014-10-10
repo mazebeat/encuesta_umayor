@@ -4,99 +4,225 @@
     <bookmark url="file://$PROJECT_DIR$/app/views/index.blade.php" line="15" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caab43af-8d5c-4a8b-a4a7-02182db2d7ff" name="Default" comment="1.0.1">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/events.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/frontend.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vagrant.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\app\database\migrations\2014_09_25_153936_create_canales_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\app\database\migrations\2014_09_25_153956_create_estados_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\app\database\migrations\2014_09_25_154015_create_tipos_respuesta_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\app\database\migrations\2014_09_25_154031_create_negocios_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\app\database\migrations\2014_09_25_154049_create_bdd_umayor_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\app\database\migrations\2014_09_25_154108_create_encuestas_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\app\database\migrations\2014_09_25_154126_create_clientes_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\app\database\migrations\2014_09_25_154149_create_excepciones_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\app\database\migrations\2014_09_25_154210_create_excepciones_cliente_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\app\database\migrations\2014_09_25_154227_create_preguntas_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\app\database\migrations\2014_09_25_154242_create_preguntas_detalle_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\app\database\migrations\2014_09_25_154300_create_respuestas_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\app\database\migrations\2014_09_25_154316_create_respuestas_detalle_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\app\views\frontend.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\public\image\logo.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\public\js\flowtype.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp2\htdocs\encuesta_umayor\public\js\jquery.rut.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/BD_Estructura datos estudiantes.xls" afterPath="$PROJECT_DIR$/data/BD_Estructura datos estudiantes.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Application.php" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Application.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/BddUmayor.php" afterPath="$PROJECT_DIR$/app/models/BddUmayor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/CHANGES" afterPath="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/CHANGES" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Canal.php" afterPath="$PROJECT_DIR$/app/models/Canal.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Cliente.php" afterPath="$PROJECT_DIR$/app/models/Cliente.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/seeds/ClientesTableSeeder.php" afterPath="$PROJECT_DIR$/app/database/seeds/ClientesTableSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/app/database/seeds/DatabaseSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Encuesta.php" afterPath="$PROJECT_DIR$/app/models/Encuesta.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/EncuestasController.php" afterPath="$PROJECT_DIR$/app/controllers/EncuestasController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Estado.php" afterPath="$PROJECT_DIR$/app/models/Estado.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/seeds/EstadosTableSeeder.php" afterPath="$PROJECT_DIR$/app/database/seeds/EstadosTableSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Excepcion.php" afterPath="$PROJECT_DIR$/app/models/Excepcion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/ExcepcionesCliente.php" afterPath="$PROJECT_DIR$/app/models/ExcepcionesCliente.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ExcepcionesController.php" afterPath="$PROJECT_DIR$/app/controllers/ExcepcionesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/HomeController.php" afterPath="$PROJECT_DIR$/app/controllers/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Message.php" afterPath="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Message.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Negocio.php" afterPath="$PROJECT_DIR$/app/models/Negocio.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Pregunta.php" afterPath="$PROJECT_DIR$/app/models/Pregunta.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/PreguntasDetalle.php" afterPath="$PROJECT_DIR$/app/models/PreguntasDetalle.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/seeds/PreguntasDetalleTableSeeder.php" afterPath="$PROJECT_DIR$/app/database/seeds/PreguntasDetalleTableSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Respuesta.php" afterPath="$PROJECT_DIR$/app/models/Respuesta.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/RespuestasDetalle.php" afterPath="$PROJECT_DIR$/app/models/RespuestasDetalle.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/lib/classes/Swift.php" afterPath="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/lib/classes/Swift.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/TiposRespuesta.php" afterPath="$PROJECT_DIR$/app/models/TiposRespuesta.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/VERSION" afterPath="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/VERSION" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_ide_helper.php" afterPath="$PROJECT_DIR$/_ide_helper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/admin.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/admin.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/app.php" afterPath="$PROJECT_DIR$/app/config/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/dev/app.php" afterPath="$PROJECT_DIR$/app/config/dev/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/autoload.php" afterPath="$PROJECT_DIR$/vendor/autoload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/migrations/backup.php" afterPath="$PROJECT_DIR$/app/database/migrations/backup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/composer.json" afterPath="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/custom.css" afterPath="$PROJECT_DIR$/public/css/custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/database.php" afterPath="$PROJECT_DIR$/app/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/dev/database.php" afterPath="$PROJECT_DIR$/app/config/dev/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/local/database.php" afterPath="$PROJECT_DIR$/app/config/local/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/encuesta.blade.php" afterPath="$PROJECT_DIR$/app/views/encuesta.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encuesta_umayor.iml" afterPath="$PROJECT_DIR$/.idea/encuesta_umayor.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/errors.blade.php" afterPath="$PROJECT_DIR$/app/views/errors.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/filters.php" afterPath="$PROJECT_DIR$/app/filters.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/frontend.css" afterPath="$PROJECT_DIR$/public/css/frontend.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/frontend.js" afterPath="$PROJECT_DIR$/public/js/frontend.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/general.css" afterPath="$PROJECT_DIR$/public/css/general.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/start/global.php" afterPath="$PROJECT_DIR$/app/start/global.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/index.blade.php" afterPath="$PROJECT_DIR$/app/views/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/doc/installing.rst" afterPath="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/doc/installing.rst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLinters/jslint.xml" afterPath="$PROJECT_DIR$/.idea/jsLinters/jslint.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/login.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/login.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/login.css" afterPath="$PROJECT_DIR$/public/css/login.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/libs/macros/macros.php" afterPath="$PROJECT_DIR$/app/libs/macros/macros.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/message.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/message.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/messages.blade.php" afterPath="$PROJECT_DIR$/app/views/messages.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/politicas.blade.php" afterPath="$PROJECT_DIR$/app/views/politicas.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/queue.php" afterPath="$PROJECT_DIR$/app/config/queue.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/remote.php" afterPath="$PROJECT_DIR$/app/config/remote.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/select2.min.js" afterPath="$PROJECT_DIR$/public/js/select2.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/session.php" afterPath="$PROJECT_DIR$/app/config/session.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap/start.php" afterPath="$PROJECT_DIR$/bootstrap/start.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/user.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/user.blade.php" />
+    <list default="true" id="caab43af-8d5c-4a8b-a4a7-02182db2d7ff" name="Default" comment="1.0.2.1">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/footer-1_movil.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/footer-2_movil.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/header-1_movil.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/header-2_movil.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/yuicompressor/build/yuicompressor-2.4.8.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/uglify-to-browserify/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/.tern-port" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/uglify-to-browserify/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2014_10_09_123719_create_canales_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2014_10_09_123739_create_estados_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2014_10_09_123808_create_tipos_respuesta_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2014_10_09_123856_create_negocios_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2014_10_09_123932_create_bdd_umayor_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2014_10_09_124004_create_encuestas_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2014_10_09_124021_create_clientes_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2014_10_09_124036_create_clientes_respuesta_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2014_10_09_124106_create_excepciones_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2014_10_09_124129_create_excepciones_cliente_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2014_10_09_124149_create_preguntas_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2014_10_09_124214_create_preguntas_detalle_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2014_10_09_124234_create_respuestas_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2014_10_09_124250_create_respuestas_detalle_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/CHANGELOG.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/ClientesRespuesta.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/async/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/uglify-to-browserify/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/Makefile.dryice.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/Makefile.dryice.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/PoliticasController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/README.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/async/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/uglify-to-browserify/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/yuicompressor/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/test/_.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/test/_.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/amdefine.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/amdefine.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/test/_/argv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map/array-set.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map/array-set.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/arrays.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/arrays.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/build/assert-shim.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/ast.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/ast.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/async/lib/async.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/async/lib/async.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map/base64-vlq.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map/base64-vlq.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map/base64.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map/base64.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/test/_/bin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map/binary-search.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map/binary-search.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/blocks.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/blocks.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/example/bool.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/example/boolean_double.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/example/boolean_single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/test/break.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/example/center.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/example/center.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/yuicompressor/nodejs/cli.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/async/component.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/compress.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/compress.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/concat-strings.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/concat-strings.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/conditionals.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/conditionals.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/custom.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/dead-code.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/dead-code.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/debugger.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/debugger.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/example/default_hash.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/example/default_singles.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/example/divide.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/drop-unused.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/drop-unused.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/test/idleness.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/uglify-to-browserify/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/uglify-to-browserify/test/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/yuicompressor/nodejs/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/index.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/uglify-to-browserify/index.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/uglify-to-browserify/test/index.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/yuicompressor/nodejs/index.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/intercept.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/intercept.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-105.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-105.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-12.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-12.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-126.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-126.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-143.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-143.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-22.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-22.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-267.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-267.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-269.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-44.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-44.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-59.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/issue-59.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/labels.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/labels.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/example/line_count.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/example/line_count_options.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/example/line_count_wrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/loops.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/loops.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/example/meat.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/build/mini-require.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/build/mini-require.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/mozilla-ast.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/mozilla-ast.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/negate-iife.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/negate-iife.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/tools/node.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/tools/node.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/example/nonopt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/output.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/output.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/async/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/uglify-to-browserify/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/yuicompressor/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/parse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/test/parse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/parse.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/build/prefix-source-map.jsm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/build/prefix-utils.jsm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/properties.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/readme.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/example/reflect.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/run-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/run-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/scope.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/scope.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/sequences.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/sequences.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/example/short.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map/source-map-consumer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map/source-map-consumer.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map/source-map-generator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map/source-map-generator.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map/source-node.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map/source-node.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/sourcemap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/sourcemap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/example/string.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/build/suffix-browser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/build/suffix-browser.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/build/suffix-source-map.jsm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/build/suffix-utils.jsm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/switch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/switch.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/test-api.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/test-array-set.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/test-array-set.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/test-base64-vlq.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/test-base64-vlq.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/test-base64.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/test-binary-search.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/test-binary-search.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/test-dog-fooding.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/test-dog-fooding.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/build/test-prefix.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/test-source-map-consumer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/test-source-map-generator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/test-source-node.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/build/test-suffix.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/build/test-suffix.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/test-util.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/test-util.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/transform.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/transform.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/typeof.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/test/compress/typeof.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/.bin/uglifyjs.cmd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/.bin/uglifyjs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/bin/uglifyjs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/example/usage-options.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/test/usage.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map/util.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/util.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/lib/source-map/util.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/test/source-map/util.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/utils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/lib/utils.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/test/wrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/test/wrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/uglify-js/node_modules/optimist/example/xup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/.bin/yuicompressor.cmd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/.bin/yuicompressor" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="encuesta_umayor.iws" />
@@ -684,10 +810,16 @@
       <option name="project" value="LOCAL" />
       <updated>1412721309658</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="1.0.2">
+      <created>1412966261858</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1412966261858</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
-  <component name="TodoView" selected-index="0">
+  <component name="TodoView">
     <todo-panel id="selected-file">
       <are-packages-shown value="false" />
       <are-modules-shown value="false" />
@@ -711,22 +843,24 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2742475" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4916388" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20234114" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" x="198" y="303" width="949" height="195" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2826087" sideWeight="0.50075644" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19227858" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18849356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26755852" sideWeight="0.64220876" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38795987" sideWeight="0.35779122" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48160535" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48662207" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2826087" sideWeight="0.50075644" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21092564" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18849356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20499243" sideWeight="0.5" order="0" side_tool="true" content_ui="combo" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38795987" sideWeight="0.35779122" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48160535" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20499243" sideWeight="0.5" order="0" side_tool="true" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5986622" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="430" y="304" width="500" height="129" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48996654" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36956522" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972136" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2792642" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -734,8 +868,6 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="SLIDING" visible="false" weight="0.64647996" sideWeight="0.5" order="7" side_tool="true" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49832776" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26755852" sideWeight="0.64220876" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48662207" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -778,7 +910,9 @@
     <MESSAGE value="0.0.3" />
     <MESSAGE value="1.0.0" />
     <MESSAGE value="1.0.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.1" />
+    <MESSAGE value="1.0.2" />
+    <MESSAGE value="1.0.2.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.2.1" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1111,6 +1245,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="28526">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
