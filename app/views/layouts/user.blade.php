@@ -17,12 +17,11 @@
 	{{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}
 	{{ HTML::style('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css') }}
 	{{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css') }}
-	{{ HTML::style('css/frontend.css') }}
     {{ HTML::style('css/skins/all.css') }}
-    {{ HTML::style('css/select2.css') }}
-    {{ HTML::style('css/select2-bootstrap.css') }}
+    {{ HTML::style('css/select2.min.css') }}
+    {{ HTML::style('css/select2-bootstrap.min.css') }}
 	{{-- Custom style --}}
-	{{ HTML::style('css/custom.css') }}
+	{{ HTML::style('css/frontend.min.css') }}
 	@yield('style')
 
 </head>
@@ -32,15 +31,7 @@
 		<div class="row">
 			@yield('content')
 		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<div class="text-center politicas">
-                        <h4><span class="label label-primary"><a href="{{ URL::to('politicas') }}"><i class="fa fa-lock"></i> Politicas de Privacidad</a></span></h4>
-                    </div>
-				</div>
-			</div>
-		</div>
+		@include('layouts.politicas_tmp')
 	</div>
 	<div class="clearfix"></div>
 	<footer class="container user"></footer>
@@ -51,7 +42,7 @@
     {{ HTML::script('js/icheck.min.js') }}
     {{ HTML::script('js/select2.min.js') }}
     {{ HTML::script('js/select2_locale_es.js') }}
-	{{ HTML::script('js/frontend.js') }}
+	{{ HTML::script('js/frontend.min.js') }}
 	@yield('script')
 </body>
 </html>

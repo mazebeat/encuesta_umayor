@@ -15,7 +15,7 @@
 
 	{{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}
 	{{ HTML::style('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css') }}
-	{{ HTML::style('css/frontend.css') }}
+	{{ HTML::style('css/frontend.min.css') }}
 	@yield('style')
 </head>
 <body>
@@ -24,15 +24,7 @@
 		<div class="row">
 			@yield('content')
 		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<div class="text-center politicas">
-                	    <h4><span class="label label-primary"><a href="{{ URL::to('politicas') }}"><i class="fa fa-lock"></i> Politicas de Privacidad</a></span></h4>
-                	</div>
-				</div>
-			</div>
-		</div>
+		@include('layouts.politicas_tmp')
 	</div>
 	<div class="clearfix"></div>
 	<footer class="container">
@@ -41,7 +33,7 @@
 	<a href="#" id="go-top" role="button" title="Click para ir al comienzo!" data-toggle="tooltip" data-placement="left"><i class="fa fa-chevron-circle-up fa-3x"></i></a>
 	{{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') }}
 	{{ HTML::script('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}
-	{{ HTML::script('js/frontend.js') }}
+	{{ HTML::script('js/frontend.min.js') }}
 	@yield('script')
 </body>
 </html>

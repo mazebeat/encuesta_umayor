@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="col-md-12">
-	<h1>Privacidad y uso de la Información</h1>
-	<p><strong>CustomerTrigger S.A.</strong> en nombre de la Universidad Mayor realiza este proceso de medición de experiencia con el afán de establecer procesos de mejora y transformación del servicio que presta la Universidad Mayor a su comunidad.</p>
-	<p>Las preferencias registradas por Usted junto a sus datos personales se mantienen en estricta confidencialidad, son de propiedad de la Universidad Mayor y serán utilizados solo para los efectos indicados anteriormente, sin perjuicio que la Universidad pueda utilizar el conocimiento registrado para entregar información personalizada y relevante a Usted.</p>
-	<p>Si Usted no quiere ser sujeto de este proceso de medición, por favor haga clic {{ HTML::link('#', 'aquí', array('class' => 'text-uppercase',  'data-toggle' => 'modal', 'data-target' => '#modal1')); }} para eliminar su registro del sistema de medición.</p>
+	<h1><strong>Privacidad y uso de la Información</strong></h1>
+	<p>CustomerTrigger S.A. en nombre de la Universidad Mayor realiza este proceso de medición de calidad de servicio.</p>
+	<p>Las preferencias registradas por usted junto a sus datos personales se mantienen en estricta confidencialidad, son de propiedad de la Universidad Mayor y serán utilizados solo para los efectos indicados anteriormente, sin perjuicio que la Universidad pueda utilizar el conocimiento registrado para entregar información personalizada y relevante a usted.</p>
+	<p>Si usted no quiere ser sujeto de este proceso de medición, por favor haga clic {{ HTML::link('#', 'aquí', array('class' => '',  'data-toggle' => 'modal', 'data-target' => '#modal1')); }} para eliminar su registro del sistema de medición.</p>
 	<p>Para acceder a información de nuestra compañía y a nuestros canales de contacto, puede visitar <a href="http://www.customertrigger.com"><i class="fa fa-link fa-fw"></i>www.CustomerTrigger.com</a></p>
 	<ul class="list-unstyled">
 		<li><i class="fa fa-location-arrow fa-fw"></i>Catedral 1284, Piso 9, Santiago de Chile.</li>
@@ -24,7 +24,7 @@
 				<h4 class="modal-title" id="modal1lavel">Atención!</h4>
 			</div>
 			<div class="modal-body">
-				<p>¿Estas seguro que desear ser eliminado de este proceso de medición?</p>
+				<p>¿Estas seguro que deseas ser eliminado de este proceso de medición?</p>
 			</div>
 			<div class="modal-footer">
 				<ul class="list-inline">

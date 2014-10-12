@@ -16,8 +16,7 @@
 	{{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}
 	{{ HTML::style('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css') }}
 	{{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css') }}
-	{{ HTML::style('css/login.css') }}
-	{{ HTML::style('css/frontend.css') }}
+	{{ HTML::style('css/frontend.min.css') }}
 	@yield('style')
 </head>
 <body>
@@ -34,7 +33,7 @@
 	{{ HTML::script('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}
     {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js') }}
     {{ HTML::script('js/jquery.rut.min.js') }}
-	{{ HTML::script('js/frontend.js') }}
+	{{ HTML::script('js/frontend.min.js') }}
 	@yield('script')
 </body>
 </html>

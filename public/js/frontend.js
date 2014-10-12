@@ -20,7 +20,7 @@ $(document).ready(function () {
 		var div = $(this).parents('div.alert');
 		div.find('h4').remove();
 		div.find('p').remove();
-		div.append('<p><i class="fa fa-check fa-fw"></i>Gracias por tu tiempo. ¡Tu opinión es muy importante!</p>');
+		div.append('<p><i class="fa fa-check fa-fw"></i>Gracias por tu tiempo, ¡Tu opinión es muy importante!</p>');
 		div.removeClass('alert-warning').addClass('alert-success');
 		$.get("logout", function ($message) {
 			if ($message == 'OK') {

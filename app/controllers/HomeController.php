@@ -31,7 +31,7 @@ class HomeController extends BaseController
 				'data'    => array(
 					'type'  => 'warning',
 					'title' => Session::get('user_name'),
-					'text' => 'En el actual periodo, ya registramos tus respuestas con fecha <b>' . $ultima_respuesta->format('d-m-Y') . '</b> a las <b>' . $ultima_respuesta->toTimeString() . '</b>, ¿deseas actualizar esta información?',
+					'text' => 'En el actual periodo, ya registramos tus respuestas con fecha <b>' . $ultima_respuesta->format('d-m-Y') . '</b> a las <b>' . $ultima_respuesta->toTimeString() . '</b>, ¿Deseas actualizar esta información?',
 				),
 				'options' => array(
 					HTML::link('#', 'NO', array(
