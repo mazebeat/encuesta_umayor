@@ -34,12 +34,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			//			'host'      => '192.168.1.99',
-			'host'      => 'localhost',
+			'host'     => 'localhost',
 			'database'  => 'umayor',
 			'username'  => 'root',
-			//			'password'  => 'inteladmin',
-			'password'  => '1234',
+			'password' => '1234',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

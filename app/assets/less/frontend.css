@@ -4,7 +4,7 @@ html {
   background-color: #feda3f;
   min-height: 100%;
   position: relative;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.45;
 }
 body {
@@ -26,7 +26,7 @@ a {
 }
 a,
 .btn {
-  font-size: 20px;
+  font-size: 14px;
 }
 hr {
   background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(215, 215, 215, 0.75), rgba(0, 0, 0, 0));
@@ -264,8 +264,6 @@ small {
 label,
 .label {
   font-weight: lighter;
-  padding-left: 0;
-  min-width: 100%;
 }
 label.hover {
   background-color: rgba(0, 0, 0, 0.1);
@@ -285,55 +283,76 @@ input[type=radio] {
 article.question {
   margin-bottom: 15px;
 }
-header.login,
+header.login {
+  height: 100px;
+  width: 100%;
+}
 footer.login {
   height: 180px;
   width: 100%;
 }
-header.login {
-  /*background: url("../image/header-1.jpg") top center no-repeat;*/
-}
 footer.login {
-  background-image: url("../image/FOOTER2.jpg");
+  background-image: url("../image/v3/footer-12.png");
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: contain;
+  background-origin: content-box;
 }
-@media only screen and (max-width: 520px) {
-  footer.login {
-    background-image: url("../image/FOOTER1.jpg");
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
+header.user,
+footer.user {
+  height: 180px;
+  width: 100%;
+}
+header.user img,
+footer.user img {
+  margin: 0 auto;
 }
 header.user {
-  background-image: url("../image/HEADER2.jpg");
-  background-position: top center;
+  background-image: url("../image/v3/header-22.png");
+  background-position: center center;
   background-repeat: no-repeat;
-  background-size: contain;
-  height: 180px;
-  width: 100%;
+  background-size: auto;
+  background-origin: content-box;
 }
 footer.user {
-  background-image: url("../image/FOOTER-TXT1.jpg");
+  background-image: url("../image/v3/footer-22.png");
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: contain;
-  height: 180px;
-  width: 100%;
+  background-origin: content-box;
 }
-@media only screen and (max-width: 520px) {
-  header.user {
-    background-image: url("../image/HEADER1.jpg");
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: contain;
+@media screen and (max-width: 600px) {
+  header.user img,
+  footer.user img {
+    width: 100%;
   }
-  footer.user {
-    background-image: url("../image/FOOTER-TXT2.jpg");
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    background-size: contain;
+  header.user {
+    height: 100px;
+    background-size: 100% auto;
+  }
+}
+@media screen and (min-width: 900px) {
+  header.user img,
+  footer.user img {
+    width: 50%;
+  }
+  header.user {
+    height: 180px;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  header.user img,
+  footer.user img {
+    width: 60%;
+  }
+}
+@media screen and (max-device-width: 480px) {
+  header.user img,
+  footer.user img {
+    width: 100%;
+  }
+  header.user {
+    height: 100px;
+    background-size: auto;
   }
 }

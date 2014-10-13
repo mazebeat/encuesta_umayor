@@ -1,7 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
-<div class="col-md-4 col-md-offset-4">
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-sm-offset-3 col-md-offset-4 col-lg-offset-4">
 	<h1 class="text-center"></h1>
 	@if ($errors->has())
 		@if($errors->any())

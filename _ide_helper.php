@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 4, to provide autocomplete information to your IDE
- * Generated for Laravel 4.2.11 on 2014-10-10.
+ * Generated for Laravel 4.2.11 on 2014-10-13.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -5000,7 +5000,7 @@ namespace {
         /**
          * Forget all of the queued listeners.
          *
-         * @return void
+         * @return void 
          * @static 
          */
         public static function forgetQueued()
@@ -6025,7 +6025,7 @@ namespace {
          * @param string $key
          * @param mixed  $default
          *
-*@return string
+         * @return string
          * @static
          */
         public static function input($key = null, $default = null){

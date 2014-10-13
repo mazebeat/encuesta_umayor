@@ -14,9 +14,9 @@
 	<![endif]--}}
 
 	{{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}
+	{{ HTML::style('css/frontend.min.css') }}
 	{{ HTML::style('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css') }}
 	{{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css') }}
-	{{ HTML::style('css/frontend.min.css') }}
 	@yield('style')
 </head>
 <body>

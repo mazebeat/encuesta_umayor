@@ -15,18 +15,23 @@
 
 	{{-- Latest compiled and minified CSS --}}
 	{{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}
-	{{ HTML::style('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css') }}
+	{{ HTML::style('css/frontend.min.css') }}
 	{{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css') }}
     {{ HTML::style('css/skins/all.css') }}
     {{ HTML::style('css/select2.min.css') }}
     {{ HTML::style('css/select2-bootstrap.min.css') }}
-	{{-- Custom style --}}
-	{{ HTML::style('css/frontend.min.css') }}
+	{{ HTML::style('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css') }}
 	@yield('style')
 
 </head>
 <body>
-	<header class="container user"></header>
+	<header class="container user">
+		<div class="row">
+    		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    			{{--{{ HTML::image('image/v3/header-2.png', null, array('class' => 'img-responsive')) }}--}}
+    		</div>
+    	</div>
+	</header>
 	<div class="container">
 		<div class="row">
 			@yield('content')
@@ -34,7 +39,13 @@
 		@include('layouts.politicas_tmp')
 	</div>
 	<div class="clearfix"></div>
-	<footer class="container user"></footer>
+	<footer class="container user">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				{{--{{ HTML::image('image/v3/footer-2.png', null, array('class' => 'img-responsive')) }}--}}
+			</div>
+		</div>
+	</footer>
 	<a href="#" id="go-top" role="button" title="Click para ir al comienzo!" data-toggle="tooltip" data-placement="left"><i class="fa fa-chevron-circle-up fa-3x"></i></a>
 	{{ HTML::script('//code.jquery.com/jquery-1.11.0.min.js') }}
 	{{ HTML::script('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}
