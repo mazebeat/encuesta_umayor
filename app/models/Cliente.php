@@ -1,5 +1,10 @@
 <?php
 
+use Illuminate\Auth\Reminders\RemindableInterface;
+use Illuminate\Auth\Reminders\RemindableTrait;
+use Illuminate\Auth\UserInterface;
+use Illuminate\Auth\UserTrait;
+
 /**
  * Cliente
  *
@@ -15,8 +20,10 @@
  * @method static \Illuminate\Database\Query\Builder|\Cliente whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\Cliente whereUpdatedAt($value)
  */
-class Cliente extends \Eloquent
+class Cliente extends \Eloquent implements UserInterface, RemindableInterface
 {
+	use UserTrait, RemindableTrait;
+
 	public static $rules = array(
 		'id_negocio' => 'required',
 		'estado'     => 'required',

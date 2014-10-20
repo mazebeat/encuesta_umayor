@@ -32,8 +32,8 @@ $(document).ready(function () {
 	$('#modal1_ok').click(function (event) {
 		event.preventDefault();
 		$("#modal1").modal('toggle');
-		$.get("add_exception", function (msg) {
-			if (msg == 'OK') {
+		$.get("addexception", function (msg) {
+			if (msg === 'OK') {
 				setTimeout('window.location.href=\"http://www.umayor.cl/\";', 5000);
 			}
 		});
@@ -63,6 +63,51 @@ $(document).ready(function () {
 			}
 		}
 	});
+	//.on('success.form.bv', function (e) {
+	//e.preventDefault();
+	//var $form = $(e.target);
+	//var $url = $form.attr('action');
+	//var $data = $form.serialize();
+	//var bv = $form.data('bootstrapValidator');
+	//$.post($url, $data, function ($result) {
+	//	if($result === 'OK') {
+	//		location.href="/encuestas";
+	//	}
+	//	if($result === 'ERROR'){
+	//		var $msg  = '<div class="alert alert-danger" role="alert">Usuario no registrado.</div>';
+	//		$('.panel').parent().prepend($msg);
+	//	}
+	//	var $data = $result.data;
+	//	var $options = $result.options;
+	//	var $title = $data.title;
+	//	var $subtitle = $data.subtitle;
+	//	var $text = $data.text;
+	//	var $type = $data.type;
+	//	var $output = '<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">' +
+	//		'<div role="alert" class="alert alert-' + $type + ' fade in">' +
+	//		'<button data-dismiss="alert" class="close" type="button"><i class="fa fa-times"></i></button>';
+	//	if (typeof $title != 'undefined' || $title.length != 0) {
+	//		$output = $output + '<h4>' + $title + '</h4>';
+	//	}
+	//	if (typeof $subtitle != 'undefined' || $subtitle.length != 0) {
+	//		$output = $output + '<h5>' + $subtitle + '</h5>';
+	//	}
+	//	if (typeof $text != 'undefined' || $text.length != 0) {
+	//		$output = $output + '<p>' + $text + '</p>';
+	//	}
+	//	if (typeof $options != 'undefined' || $options.length != 0) {
+	//		$output = $output + '<p>';
+	//		$.each($options, function (index, value) {
+	//			$output = $output + value;
+	//		});
+	//		$output = $output + '</p>';
+	//	}
+	//	$output = $output + '<p class="clearfix">';
+	//	$output = $output + '</div></div>';
+	//	$('#login_umayor').children().remove();
+	//	$('#login_umayor').parent().append($output);
+	//}, 'json');
+	//});
 
 	$('#survey_form')
 		.bootstrapValidator({
@@ -162,8 +207,7 @@ function onFormError(event) {
 	$('.errors').append($msg);
 }
 
-function onFormSuccess(e) {
-	console.log('enter');
+function onFormSuccess(event) {
 	$('.errors').empty();
 }
 

@@ -17,7 +17,12 @@ App::before(function ($request) {
 
 
 App::after(function ($request, $response) {
-	//
+	if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') || strpos($_SERVER['HTTP_USER_AGENT'], 'Safari')) {
+		$response->header('P3P', 'CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
+		//		header('P3P: CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"');
+		//		header('P3P: CP="CAO PSA OUR"');
+		//
+	}
 });
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +40,19 @@ Route::filter('auth', function () {
 		if(Request::ajax()) {
 			return Response::make('Unauthorized', 401);
 		} else {
-			return Redirect::guest('login');
+			//			return Redirect::guest('login');
+			$msg = array(
+				'data'    => array(
+					'type'  => 'danger',
+					'title' => 'Atención',
+					'text'  => 'Usuario no logueado'
+				),
+				'options' => array(
+					'left' => HTML::link(URL::to('/'), 'Salir', array('class' => 'col-md-3 btn btn-default btn-lg pull-right text-uppercase'))
+				)
+			);
+
+			return View::make('messages', compact('msg'));
 		}
 	}
 });
@@ -44,23 +61,23 @@ Route::filter('auth.basic', function () {
 	return Auth::basic();
 });
 
-Route::filter('auth.login', function () {
-	if(!(Session::has('user_id') && Session::get('user_id') != null)) {
-		Session::flush();
-		$msg = array(
-			'data'    => array(
-				'type'  => 'danger',
-				'title' => 'Atención',
-				'text'  => 'Usuario no logueado'
-			),
-			'options' => array(
-				'left' => HTML::link(URL::to('/'), 'Salir', array('class' => 'col-md-3 btn btn-default btn-lg pull-right text-uppercase'))
-			)
-		);
+//Route::filter('auth.login', function () {
+//	if(!(Session::has('user_id') && Session::get('user_id') != null)) {
+//		Session::flush();
+//		$msg = array(
+//			'data'    => array(
+//				'type'  => 'danger',
+//				'title' => 'Atención',
+//				'text'  => 'Usuario no logueado'
+//			),
+//			'options' => array(
+//				'left' => HTML::link(URL::to('/'), 'Salir', array('class' => 'col-md-3 btn btn-default btn-lg pull-right text-uppercase'))
+//			)
+//		);
 
-		return View::make('messages', compact('msg'));
-	}
-});
+//		return View::make('messages', compact('msg'));
+//	}
+//});
 
 /*
 |--------------------------------------------------------------------------
@@ -97,7 +114,11 @@ Route::filter('csrf', function ($route, $request) {
 	$token = $request->header('X-CSRF-Token') ?: Input::get('_token');
 
 	if(Session::token() != $token) {
-		return Redirect::route('home.index');
-		throw new Illuminate\Session\TokenMismatchException;
+		try {
+			return Redirect::back();
+		} catch(Illuminate\Session\TokenMismatchException $exception) {
+			Log::error($exception);
+			throw new Illuminate\Session\TokenMismatchException;
+		}
 	}
 });

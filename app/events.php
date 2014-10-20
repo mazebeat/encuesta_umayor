@@ -13,18 +13,21 @@ Event::listen('carga_cliente', function ($rut) {
 		'id_alumno',
 		'nombres'
 	));
-	$cliente = Cliente::whereIdAlumno(array($alumno->id_alumno))->whereIdEstado(array('2'))->first(array('id_cliente'));
-
-	Session::put('user_id', $cliente->id_cliente);
-	Session::put('user_name', $alumno->nombres);
-
-	unset($alumno);
-	unset($cliente);
+	if($alumno) {
+		$cliente = Cliente::whereIdAlumno(array($alumno->id_alumno))->whereIdEstado(array('2'))->first(array('id_cliente'));
+		if($cliente) {
+			Auth::loginUsingId($cliente->id_cliente);
+			//			Session::put('user_id', $cliente->id_cliente);
+			Session::put('user_name', $alumno->nombres);
+		}
+		unset($alumno);
+		unset($cliente);
+	}
 });
 
 Event::listen('ya_respondio', function () {
-	if(ClientesRespuesta::hasResquests()) {
-		$resp = ClientesRespuesta::whereIdCliente(array(Session::get('user_id')))->whereRaw('MONTH(ultima_respuesta) = MONTH(CURRENT_DATE) AND YEAR(ultima_respuesta) = YEAR(CURRENT_DATE)')->orderBy('id_cliente_respuesta', 'DESC')->first(array('ultima_respuesta'));
+	if(ClientesRespuesta::hasRequests()) {
+		$resp = ClientesRespuesta::whereIdCliente(array(Auth::user()->id_cliente))->whereRaw('MONTH(ultima_respuesta) = MONTH(CURRENT_DATE) AND YEAR(ultima_respuesta) = YEAR(CURRENT_DATE)')->orderBy('id_cliente_respuesta', 'DESC')->first(array('ultima_respuesta'));
 		if(!is_null($resp->ultima_respuesta)) {
 			Session::put('ya_respondio', true);
 

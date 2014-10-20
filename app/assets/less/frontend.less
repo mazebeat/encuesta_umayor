@@ -307,6 +307,12 @@ label.hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+.aqui {
+  font-style: normal;
+  color: #428bca;
+  text-decoration: underline;
+}
+
 input[type=radio] {
   margin-right: 10px;
 }
@@ -345,7 +351,7 @@ footer.login {
 }
 
 header.user, footer.user {
-  height: 180px;
+  height: 250px;
   width: 100%;
   img {
     margin: 0 auto;
@@ -354,7 +360,7 @@ header.user, footer.user {
 
 header.user {
   background-image: url("../image/v3/header-22.png");
-  background-position: center center;
+  background-position: top center;
   background-repeat: no-repeat;
   background-size: auto;
   background-origin: content-box;
@@ -368,54 +374,83 @@ footer.user {
   background-origin: content-box;
 }
 
+//Pantalla chica
 @media screen and (max-width: 600px) {
   header.user, footer.user {
     img {
       width: 100%;
     }
   }
-
   header.user {
-    height: 100px;
-    background-size: 100% auto;
+    max-height: 180px;
+    background-position: center center;
+    background-size: contain;
+  }
+
+  footer.user {
+    height: 180px;
+    background-size: contain;
   }
 }
 
+//Pantalla grande
 @media screen and (min-width: 900px) {
+  body {
+    margin-bottom: 250px;
+  }
+
   header.user, footer.user {
+    height: 250px;
     img {
       width: 50%;
     }
   }
-
-  header.user {
-    height: 180px;
-    //    background-size: contain;
-  }
 }
 
+//Intermedio
 @media screen and (min-width: 600px) and (max-width: 900px) {
+  body {
+    margin-bottom: 180px;
+  }
+
   header.user, footer.user {
     img {
       width: 60%;
     }
   }
-
   header.user {
-    //    height: 100px;
-    //    background-size: contain;
+    background-size: contain;
+  }
+
+  footer.user {
+    height: 180px;
+    background-size: contain;
   }
 }
 
+//IPhones
 @media screen and (max-device-width: 480px) {
+  body {
+    margin-bottom: 180px;
+  }
   header.user, footer.user {
+    height: 180px;
+    background-size: contain;
     img {
       width: 100%;
     }
   }
-
   header.user {
-    height: 100px;
+    height: 150px;
+    background-image: url("../image/v3/header-23.png");
+    background-position: top center;
+    background-repeat: no-repeat;
     background-size: auto;
+    background-origin: content-box;
+  }
+
+  footer.user {
+    height: 180px;
+    background-size: contain;
   }
 }

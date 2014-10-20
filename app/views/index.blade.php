@@ -1,7 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
-<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-sm-offset-3 col-md-offset-4 col-lg-offset-4">
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-sm-offset-3 col-md-offset-4 col-lg-offset-4" id="login_umayor">
 	<h1 class="text-center"></h1>
 	@if ($errors->has())
 		@if($errors->any())
@@ -13,7 +13,7 @@
 			<h3 class="panel-title">Ingresa tu RUT</h3>
 		</div>
 		<div class="panel-body">
-			{{ Form::open(array('action' => 'HomeController@index', 'method' => 'POST', 'accept-charset' => 'UTF-8', 'role' => 'form', 'id' => 'login_form')) }}
+			{{ Form::open(array('url' => '/', 'method' => 'POST', 'accept-charset' => 'UTF-8', 'role' => 'form', 'id' => 'login_form')) }}
 				<fieldset>
 					<div class="form-group">
 						<input class="form-control" placeholder="Ingresar RUT sin puntos ni guión" name="rut" id="rut_field" type="text" maxlength="9" autocomplete="off" required>

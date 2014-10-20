@@ -5,7 +5,7 @@
  * @package  Laravel
  * @author   Taylor Otwell <taylorotwell@gmail.com>
  */
-
+header('Content-type: text/html; charset=utf-8');
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader

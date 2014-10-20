@@ -19,6 +19,9 @@ class HomeController extends BaseController
 		$validator = Validator::make(Input::all(), $rules);
 
 		if($validator->fails()) {
+			if(Request::ajax()) {
+				return json_encode('ERROR');
+			}
 			return Redirect::back()->withErrors($validator->messages())->withInput();
 		}
 
@@ -38,23 +41,33 @@ class HomeController extends BaseController
 						'class' => 'col-xs-4 col-sm-4 col-md-3 btn btn-default btn-lg text-uppercase',
 						'id'    => 'btn_neg'
 					)),
-					link_to_route('encuestas.index', 'SI', array(), array('class' => 'col-xs-4 col-sm-4 col-md-3 btn btn-hot btn-lg text-uppercase pull-right'))
+					HTML::link('encuestas', 'SÍ', array(
+						'class' => 'col-xs-4 col-sm-4 col-md-3 btn btn-hot btn-lg text-uppercase pull-right',
+					))
 				)
 			);
 
+			if(Request::ajax()) {
+				return json_encode($msg);
+			}
 			return View::make('messages')->with('msg', $msg);
 		} else {
-			return Redirect::route('encuestas.index');
+			if(Request::ajax()) {
+				return json_encode('OK');
+			}
+
+			return Redirect::to('encuestas');
 		}
 	}
 
 	public function logout()
 	{
 		Session::flush();
+		Auth::logout();
 		if(Request::ajax()) {
 			return $msg = 'OK';
 		}
 
-		return Redirect::route('home.index');
+		return Redirect::to('/');
 	}
 }

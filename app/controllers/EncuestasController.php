@@ -4,7 +4,7 @@ class EncuestasController extends \BaseController
 {
 	public function __construct()
 	{
-		$this->beforeFilter('auth.login');
+		$this->beforeFilter('auth');
 		$this->beforeFilter('csrf');
 	}
 
@@ -43,7 +43,7 @@ class EncuestasController extends \BaseController
 		}
 
 		$cr                   = new ClientesRespuesta();
-		$cr->id_cliente       = Session::get('user_id');
+		$cr->id_cliente = Auth::user()->id_cliente;
 		$cr->ultima_respuesta = Carbon::now();
 		$cr->id_estado        = 15;
 		if($cr->save()) {
@@ -64,7 +64,7 @@ class EncuestasController extends \BaseController
 						'id_encuesta'          => Session::get('encuesta', 1),
 						'id_pregunta'          => (int)str_replace('pregunta_', '', $key),
 						'id_pregunta_detalle'  => 1,
-						'id_cliente'           => Session::get('user_id'),
+						'id_cliente' => Auth::user()->id_cliente,
 						'id_cliente_respuesta' => $cli_resp,
 						'created_at'           => Carbon::now()
 					));

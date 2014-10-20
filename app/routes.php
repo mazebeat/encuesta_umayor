@@ -10,32 +10,26 @@
 |
 */
 
-Route::when('*', 'csrf', array(
-        'post',
-        'put',
-        'delete'
-    ));
-Route::pattern('canal', '[a-z]{2}');
-Route::get('/{canal?}', array(
-        'as'   => 'home.index',
-        'uses' => 'HomeController@index'
-    ));
-Route::post('/', array(
-        'as'   => 'home.login',
-        'uses' => 'HomeController@login'
-    ));
-Route::get('logout', 'HomeController@logout');
-Route::get('politicas', array(
-        'as'   => '',
-        'uses' => 'PoliticasController@index'
-    ));
-Route::get('add_exception', array(
-        'as'   => 'excepciones.add',
-        'uses' => 'ExcepcionesController@add'
-    ));
-Route::resource('encuestas', 'EncuestasController');
+//var_dump(Session::all());
+//if(!Auth::guest()){
+//    var_dump(Auth::user()->id_cliente);
+//}
 
+//Route::when('*', 'csrf', array(
+//        'post',
+//        'put',
+//        'delete'
+//    ));
+Route::pattern('canal', '[a-z]{2}');
+Route::get('/{canal?}', 'HomeController@index');
+Route::post('/', 'HomeController@login');
+Route::get('logout', 'HomeController@logout');
+Route::get('politicas', 'PoliticasController@index');
+Route::get('addexception', 'ExcepcionesController@add');
+Route::get('encuestas', 'EncuestasController@index');
+Route::post('encuestas', 'EncuestasController@store');
 Route::get('test', function () {
+    var_dump('TESTER');
 });
 
 //	LINKS PARA CANALES

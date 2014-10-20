@@ -34,11 +34,13 @@ class ClientesRespuesta extends \Eloquent
 		'id_estado'
 	);
 
-	public static function hasResquests()
+	public static function hasRequests()
 	{
-		$count = ClientesRespuesta::whereIdCliente(array(Session::get('user_id')))->whereRaw('MONTH(ultima_respuesta) = MONTH(CURRENT_DATE) AND YEAR(ultima_respuesta) = YEAR(CURRENT_DATE)')->orderBy('id_cliente_respuesta', 'DESC')->count(array('id_cliente'));
-		if($count) {
-			return true;
+		if(!Auth::guest()) {
+			$count = ClientesRespuesta::whereIdCliente(array(Auth::user()->id_cliente))->whereRaw('MONTH(ultima_respuesta) = MONTH(CURRENT_DATE) AND YEAR(ultima_respuesta) = YEAR(CURRENT_DATE)')->orderBy('id_cliente_respuesta', 'DESC')->count(array('id_cliente'));
+			if($count) {
+				return true;
+			}
 		}
 
 		return false;
@@ -49,8 +51,8 @@ class ClientesRespuesta extends \Eloquent
 		parent::boot();
 
 		static::saving(function ($model) {
-			if(Session::get('ya_respondio', false)) {
-				ClientesRespuesta::whereIdCliente(array(Session::get('user_id')))->whereRaw('MONTH(ultima_respuesta) = MONTH(CURRENT_DATE) AND YEAR(ultima_respuesta) = YEAR(CURRENT_DATE)')->whereIdEstado(15)->update(array('id_estado' => 16));
+			if(!Auth::guest() && Session::get('ya_respondio', false)) {
+				ClientesRespuesta::whereIdCliente(array(Auth::user()->id_cliente))->whereRaw('MONTH(ultima_respuesta) = MONTH(CURRENT_DATE) AND YEAR(ultima_respuesta) = YEAR(CURRENT_DATE)')->whereIdEstado(15)->update(array('id_estado' => 16));
 			}
 		});
 	}

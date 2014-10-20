@@ -3,7 +3,7 @@
 @section('content')
 {{--{{ HTML::survey($survey, $questions) }}--}}
 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-left">
-	<h3><strong>{{ Session::get('user_name', '')  }}</strong>, en nuestro afán de mejorar la experiencia de servicio de la Universidad Mayor, queremos invitarte a contestar este breve cuestionario para conocer la satisfacción con la Universidad.</h3>
+	<h3><strong>{{ Session::get('user_name', '')  }}</strong>, en nuestro afán de mejorar la experiencia de servicio de la Universidad Mayor, queremos invitarte a contestar este breve cuestionario.</h3>
 	<h4>Luego de completar la encuesta, presiona "Enviar"</h4>
 </div>
 <div class="panel panel-primary col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
@@ -16,7 +16,7 @@
 		@endif
 		</div>
 		<section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-			{{ Form::open(array('route' => 'encuestas.store', 'method' => 'POST', 'accept-charset' => 'UTF-8', 'role' => 'form', 'id' => 'survey_form', 'data-bv-onerror' => 'onFormError', 'data-bv-onsuccess' => 'onFormSuccess')) }}
+			{{ Form::open(array('url' => 'encuestas', 'method' => 'POST', 'accept-charset' => 'UTF-8', 'role' => 'form', 'id' => 'survey_form', 'data-bv-onerror' => 'onFormError', 'data-bv-onsuccess' => 'onFormSuccess')) }}
 			{{-- Pregunta 1 --}}
 			<article class="question">
 				<h4>1- Con nota de 1 a 7, donde 1 es muy malo y 7 es muy bueno, ¿En qué medida la Universidad Mayor ha logrado satisfacer tus necesidades en forma efectiva?</h4>

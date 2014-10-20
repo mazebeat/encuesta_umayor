@@ -268,6 +268,12 @@ label,
 label.hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
+.aqui {
+  font-style: normal;
+  color: #428bca;
+  text-decoration: underline;
+}
 input[type=radio] {
   margin-right: 10px;
 }
@@ -300,7 +306,7 @@ footer.login {
 }
 header.user,
 footer.user {
-  height: 180px;
+  height: 250px;
   width: 100%;
 }
 header.user img,
@@ -309,7 +315,7 @@ footer.user img {
 }
 header.user {
   background-image: url("../image/v3/header-22.png");
-  background-position: center center;
+  background-position: top center;
   background-repeat: no-repeat;
   background-size: auto;
   background-origin: content-box;
@@ -327,32 +333,73 @@ footer.user {
     width: 100%;
   }
   header.user {
-    height: 100px;
-    background-size: 100% auto;
+    max-height: 180px;
+    background-position: center center;
+    background-size: contain;
+  }
+
+  footer.user {
+    height: 180px;
+    background-size: contain;
   }
 }
 @media screen and (min-width: 900px) {
+  body {
+    margin-bottom: 250px;
+  }
+
+  header.user,
+  footer.user {
+    height: 250px;
+  }
   header.user img,
   footer.user img {
     width: 50%;
   }
-  header.user {
-    height: 180px;
-  }
 }
 @media screen and (min-width: 600px) and (max-width: 900px) {
+  body {
+    margin-bottom: 180px;
+  }
   header.user img,
   footer.user img {
     width: 60%;
   }
+
+  header.user {
+    background-size: contain;
+  }
+
+  footer.user {
+    height: 180px;
+    background-size: contain;
+  }
 }
 @media screen and (max-device-width: 480px) {
+  body {
+    margin-bottom: 180px;
+  }
+
+  header.user,
+  footer.user {
+    height: 180px;
+    background-size: contain;
+  }
   header.user img,
   footer.user img {
     width: 100%;
   }
   header.user {
-    height: 100px;
+    height: 150px;
+    background-image: url("../image/v3/header-23.png");
+    background-position: top center;
+    background-repeat: no-repeat;
     background-size: auto;
+    background-origin: content-box;
+  }
+
+  footer.user {
+    height: 180px;
+    background-size: contain;
   }
 }

@@ -1,12 +1,12 @@
-@extends('layouts.login')
+@extends('layouts.politicas')
 
 @section('content')
 <div class="col-md-12">
 	<h1><strong>Privacidad y uso de la Información</strong></h1>
-	<p>CustomerTrigger S.A. en nombre de la Universidad Mayor realiza este proceso de medición de calidad de servicio.</p>
+	<p>CustomerTrigger S.A. en nombre de la Universidad Mayor realiza este proceso de medición de experiencia de servicio con el afán de conocer las inquietudes de sus alumnos.</p>
 	<p>Las preferencias registradas por usted junto a sus datos personales se mantienen en estricta confidencialidad, son de propiedad de la Universidad Mayor y serán utilizados solo para los efectos indicados anteriormente, sin perjuicio que la Universidad pueda utilizar el conocimiento registrado para entregar información personalizada y relevante a usted.</p>
-	<p>Si usted no quiere ser sujeto de este proceso de medición, por favor haga clic {{ HTML::link('#', 'aquí', array('class' => '',  'data-toggle' => 'modal', 'data-target' => '#modal1')); }} para eliminar su registro del sistema de medición.</p>
-	<p>Para acceder a información de nuestra compañía y a nuestros canales de contacto, puede visitar <a href="http://www.customertrigger.com"><i class="fa fa-link fa-fw"></i>www.CustomerTrigger.com</a></p>
+	<p>Si usted no quiere ser sujeto de este proceso de medición, por favor haga clic {{ HTML::link('#', 'aquí', array('class' => 'aqui',  'data-toggle' => 'modal', 'data-target' => '#modal1')); }} para eliminar su registro del sistema de medición.</p>
+	<p>Para acceder a información de nuestra compañía y a nuestros canales de contacto, puede visitar <a href="http://www.customertrigger.com" class="aqui"><i class="fa fa-link fa-fw"></i>www.CustomerTrigger.com</a></p>
 	<ul class="list-unstyled">
 		<li><i class="fa fa-location-arrow fa-fw"></i>Catedral 1284, Piso 9, Santiago de Chile.</li>
 		<li><i class="fa fa-phone fa-fw"></i> Teléfono +562 28769500</li>
@@ -21,10 +21,10 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="modal1lavel">Atención!</h4>
+				<h4 class="modal-title" id="modal1lavel">¡Atención!</h4>
 			</div>
 			<div class="modal-body">
-				<p>¿Estas seguro que deseas ser eliminado de este proceso de medición?</p>
+				<p>¿Estás seguro que deseas ser eliminado de este proceso de medición?</p>
 			</div>
 			<div class="modal-footer">
 				<ul class="list-inline">
