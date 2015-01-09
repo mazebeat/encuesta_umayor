@@ -16,9 +16,6 @@
  */
 class Canal extends \Eloquent
 {
-
-	public static $rules = array(// 'title'            => 'required'
-	);
 	protected $table = 'canales';
 
 	// Add your validation rules here

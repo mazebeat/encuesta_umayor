@@ -5,11 +5,15 @@ class HomeController extends BaseController
 
 	public function index($canal = null)
 	{
-		if($canal != null) {
+		$date = Carbon::now();
+
+		if(!($date->month == 1 || $date->month == 2) && $canal != null && ($canal == 'fa' || $canal == 'em' || $canal == 'ce' || $canal == 'ca')) {
 			Event::fire('canal', array(array('canal' => $canal)));
+
+			return View::make('index');
 		}
 
-		return View::make('index');
+		return Redirect::to('http://www.umayor.cl/');				
 	}
 
 	public function login()
@@ -22,6 +26,7 @@ class HomeController extends BaseController
 			if(Request::ajax()) {
 				return json_encode('ERROR');
 			}
+
 			return Redirect::back()->withErrors($validator->messages())->withInput();
 		}
 
@@ -50,6 +55,7 @@ class HomeController extends BaseController
 			if(Request::ajax()) {
 				return json_encode($msg);
 			}
+
 			return View::make('messages')->with('msg', $msg);
 		} else {
 			if(Request::ajax()) {

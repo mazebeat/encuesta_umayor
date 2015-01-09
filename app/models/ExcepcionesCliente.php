@@ -19,8 +19,6 @@
 class ExcepcionesCliente extends \Eloquent
 {
 
-	public static $rules = array(// 'title'            => 'required'
-	);
 	protected $table = 'excepciones_cliente';
 
 	// Add your validation rules here

@@ -10,6 +10,9 @@
       <option name="immediateSync" value="true" />
       <option name="name" value="YUI Compressor CSS" />
       <option name="output" value="$FileNameWithoutExtension$.min.css" />
+      <option name="outputFilters">
+        <array />
+      </option>
       <option name="outputFromStdout" value="false" />
       <option name="passParentEnvs" value="true" />
       <option name="program" value="$PROJECT_DIR$/node_modules/yuicompressor/build/yuicompressor-2.4.8.jar" />
@@ -27,6 +30,9 @@
       <option name="immediateSync" value="true" />
       <option name="name" value="YUI Compressor JS" />
       <option name="output" value="$FileNameWithoutExtension$.min.js" />
+      <option name="outputFilters">
+        <array />
+      </option>
       <option name="outputFromStdout" value="false" />
       <option name="passParentEnvs" value="true" />
       <option name="program" value="$PROJECT_DIR$/node_modules/yuicompressor/build/yuicompressor-2.4.8.jar" />

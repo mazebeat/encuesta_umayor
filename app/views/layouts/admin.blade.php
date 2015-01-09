@@ -5,7 +5,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+
 	<title>{{{ $title or 'Encuesta Universidad Mayor' }}}</title>
+
+	<link rel = "shortcut icon" href = "http://www.umayor.cl/favicon.ico" />
+	<link rel = "apple-touch-icon-precomposed" href = "http://www.umayor.cl/favicon.ico" >
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,6 +21,7 @@
 	{{ HTML::style('css/bootstrap.min.css') }}
 	{{ HTML::style('css/frontend.min.css') }}
 	{{ HTML::style('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css') }}
+
 	@yield('style')
 </head>
 <body>

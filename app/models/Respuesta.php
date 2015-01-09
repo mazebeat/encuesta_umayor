@@ -28,9 +28,6 @@
  */
 class Respuesta extends \Eloquent
 {
-
-	public static $rules = array(// 'title'            => 'required'
-	);
 	protected $table = 'respuestas';
 
 	// Add your validation rules here

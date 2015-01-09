@@ -4,76 +4,39 @@
     <bookmark url="file://$PROJECT_DIR$/app/views/index.blade.php" line="15" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caab43af-8d5c-4a8b-a4a7-02182db2d7ff" name="Default" comment="1.0.4">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/font/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/font/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/font/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/v3/header-23.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/image/v3/header-23.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/tests/TestRutIsRequiered.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Vagrantfile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/action_provision" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/action_set_name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/QA/app.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/bootstrap.min.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/bootstrap.min.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/QA/database.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/testing/database.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/font/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/index_uuid" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/layouts/politicas.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/synced_folders" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/image/v3/HEADER2.psd" afterPath="$PROJECT_DIR$/public/image/v3/HEADER2.psd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/image/v3/header-22.png" afterPath="$PROJECT_DIR$/public/image/v3/header-22.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Cliente.php" afterPath="$PROJECT_DIR$/app/models/Cliente.php" />
+    <list default="true" id="caab43af-8d5c-4a8b-a4a7-02182db2d7ff" name="Default" comment="2.0.0">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/cssxfire.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Canal.php" afterPath="$PROJECT_DIR$/app/models/Canal.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/ClientesRespuesta.php" afterPath="$PROJECT_DIR$/app/models/ClientesRespuesta.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/EncuestasController.php" afterPath="$PROJECT_DIR$/app/controllers/EncuestasController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ExcepcionesController.php" afterPath="$PROJECT_DIR$/app/controllers/ExcepcionesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Estado.php" afterPath="$PROJECT_DIR$/app/models/Estado.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Excepcion.php" afterPath="$PROJECT_DIR$/app/models/Excepcion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/ExcepcionesCliente.php" afterPath="$PROJECT_DIR$/app/models/ExcepcionesCliente.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/HomeController.php" afterPath="$PROJECT_DIR$/app/controllers/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/PoliticasController.php" afterPath="$PROJECT_DIR$/app/controllers/PoliticasController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tests/TestCase.php" afterPath="$PROJECT_DIR$/app/tests/TestCase.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_ide_helper.php" afterPath="$PROJECT_DIR$/_ide_helper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/PreguntasDetalle.php" afterPath="$PROJECT_DIR$/app/models/PreguntasDetalle.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Respuesta.php" afterPath="$PROJECT_DIR$/app/models/Respuesta.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/RespuestasDetalle.php" afterPath="$PROJECT_DIR$/app/models/RespuestasDetalle.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/TiposRespuesta.php" afterPath="$PROJECT_DIR$/app/models/TiposRespuesta.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Vagrantfile" afterPath="$PROJECT_DIR$/Vagrantfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/action_provision" afterPath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/action_provision" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/action_set_name" afterPath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/action_set_name" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/admin.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/admin.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/app.php" afterPath="$PROJECT_DIR$/app/config/app.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/dev/app.php" afterPath="$PROJECT_DIR$/app/config/dev/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/local/app.php" afterPath="$PROJECT_DIR$/app/config/local/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/auth.php" afterPath="$PROJECT_DIR$/app/config/auth.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/autoload.php" afterPath="$PROJECT_DIR$/vendor/autoload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/database.php" afterPath="$PROJECT_DIR$/app/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/local/database.php" afterPath="$PROJECT_DIR$/app/config/local/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/encuesta.blade.php" afterPath="$PROJECT_DIR$/app/views/encuesta.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encuesta_umayor.iml" afterPath="$PROJECT_DIR$/.idea/encuesta_umayor.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/dev/database.php" afterPath="$PROJECT_DIR$/app/config/dev/database.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/events.php" afterPath="$PROJECT_DIR$/app/events.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/filters.php" afterPath="$PROJECT_DIR$/app/filters.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/frontend.css" afterPath="$PROJECT_DIR$/app/assets/less/frontend.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/frontend.css" afterPath="$PROJECT_DIR$/public/css/frontend.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/frontend.js" afterPath="$PROJECT_DIR$/public/js/frontend.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/frontend.less" afterPath="$PROJECT_DIR$/app/assets/less/frontend.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/less/frontend.min.css" afterPath="$PROJECT_DIR$/app/assets/less/frontend.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/frontend.min.css" afterPath="$PROJECT_DIR$/public/css/frontend.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/frontend.min.js" afterPath="$PROJECT_DIR$/public/js/frontend.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/include_paths.php" afterPath="$PROJECT_DIR$/vendor/composer/include_paths.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/index.blade.php" afterPath="$PROJECT_DIR$/app/views/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.php" afterPath="$PROJECT_DIR$/public/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/start/global.php" afterPath="$PROJECT_DIR$/app/start/global.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/id" afterPath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/id" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/index_uuid" afterPath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/index_uuid" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/login.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/login.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/message.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/message.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/politicas.blade.php" afterPath="$PROJECT_DIR$/app/views/politicas.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/queue.php" afterPath="$PROJECT_DIR$/app/config/queue.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/politicas.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/politicas.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/session.php" afterPath="$PROJECT_DIR$/app/config/session.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap/start.php" afterPath="$PROJECT_DIR$/bootstrap/start.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/synced_folders" afterPath="$PROJECT_DIR$/.vagrant/machines/default/virtualbox/synced_folders" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/user.blade.php" afterPath="$PROJECT_DIR$/app/views/layouts/user.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vagrant.xml" afterPath="$PROJECT_DIR$/.idea/vagrant.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="encuesta_umayor.iws" />
@@ -121,14 +84,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Vagrantfile" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Vagrantfile">
-          <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2972028" vertical-offset="612" max-vertical-offset="2176">
-              <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+            <state vertical-scroll-proportion="10.269231" vertical-offset="369" max-vertical-offset="935">
+              <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1445">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -160,6 +130,9 @@
   <component name="JsBowerSettings">
     <exe-path>C:\Users\Administrador\AppData\Roaming\npm\bower.cmd</exe-path>
     <config-path />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
   </component>
   <component name="PHPUnitCoveragePlugin">
     <option name="cloverXmlPath" value="$PROJECT_DIR$/phpunit.xml" />
@@ -261,6 +234,9 @@
             <id>CSS</id>
           </State>
           <State>
+            <id>Code SmellPHP</id>
+          </State>
+          <State>
             <id>Code StylePHP</id>
           </State>
           <State>
@@ -309,31 +285,34 @@
             <id>HTML</id>
           </State>
           <State>
-            <id>Ini Files</id>
-          </State>
-          <State>
-            <id>Internationalization issues</id>
-          </State>
-          <State>
             <id>Invalid elementsCSS</id>
           </State>
           <State>
             <id>JavaScript</id>
           </State>
           <State>
+            <id>JavaScript function metricsJavaScript</id>
+          </State>
+          <State>
             <id>JavaScript validity issuesJavaScript</id>
           </State>
           <State>
-            <id>LESS</id>
+            <id>Node.jsJavaScript</id>
           </State>
           <State>
             <id>PHP</id>
+          </State>
+          <State>
+            <id>PHPDocPHP</id>
           </State>
           <State>
             <id>Portability issues</id>
           </State>
           <State>
             <id>Potentially confusing code constructsJavaScript</id>
+          </State>
+          <State>
+            <id>Probable bugsCSS</id>
           </State>
           <State>
             <id>Probable bugsCoffeeScript</id>
@@ -354,10 +333,10 @@
             <id>SQL</id>
           </State>
           <State>
-            <id>ServiceSymfony2</id>
+            <id>Type compatibilityPHP</id>
           </State>
           <State>
-            <id>Symfony2</id>
+            <id>UndefinedPHP</id>
           </State>
           <State>
             <id>UnusedPHP</id>
@@ -374,7 +353,7 @@
         </expanded-state>
         <selected-state>
           <State>
-            <id>LessUnresolvedVariable</id>
+            <id>Blade files</id>
           </State>
         </selected-state>
       </profile-state>
@@ -394,7 +373,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -412,16 +391,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="encuesta_umayor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="encuesta_umayor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="encuesta_umayor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -484,7 +453,7 @@
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/vendor/autoload.php" />
-    <property name="options.lastSelected" value="reference.settingsdialog.project.vagrant" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="options.splitter.main.proportions" value="0.2375" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -540,7 +509,7 @@
       <recent name="C:\xampp2\htdocs\encuesta_umayor\app" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Web Application.umayor">
+  <component name="RunManager" selected="PHP Web Application.homestead">
     <configuration default="false" name="tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner directory="$PROJECT_DIR$/app/tests" />
       <RunnerSettings RunnerId="PhpRunner" />
@@ -559,7 +528,7 @@
       <ConfigurationWrapper RunnerId="PhpUnitDebugRunner" />
       <method />
     </configuration>
-    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="laravel">
+    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="homestead">
       <method />
     </configuration>
     <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
@@ -578,9 +547,7 @@
       <method />
     </configuration>
     <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
-      <method />
-    </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <BehatRunner />
       <method />
     </configuration>
     <configuration default="true" type="XSLT" factoryName="XSLT">
@@ -611,6 +578,7 @@
       <method />
     </configuration>
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
       <method />
     </configuration>
     <configuration default="true" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$">
@@ -630,6 +598,11 @@
     <configuration default="true" type="AppEnginePhpConfigurationType" factoryName="App Engine for PHP">
       <method />
     </configuration>
+    <configuration default="false" name="homestead" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="homestead">
+      <RunnerSettings RunnerId="PhpRunner" />
+      <ConfigurationWrapper RunnerId="PhpRunner" />
+      <method />
+    </configuration>
     <configuration default="false" name="umayor" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="umayor">
       <RunnerSettings RunnerId="PhpRunner" />
       <RunnerSettings RunnerId="PhpWebAppDebugRunner" />
@@ -637,10 +610,11 @@
       <ConfigurationWrapper RunnerId="PhpWebAppDebugRunner" />
       <method />
     </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="PHP Web Application.umayor" />
-      <item index="1" class="java.lang.String" itemvalue="PHPUnit.tests" />
-      <item index="2" class="java.lang.String" itemvalue="PHPUnit.TestRutIsRequiered" />
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="PHP Web Application.homestead" />
+      <item index="1" class="java.lang.String" itemvalue="PHP Web Application.umayor" />
+      <item index="2" class="java.lang.String" itemvalue="PHPUnit.tests" />
+      <item index="3" class="java.lang.String" itemvalue="PHPUnit.TestRutIsRequiered" />
     </list>
     <recent_temporary>
       <list size="2">
@@ -713,7 +687,13 @@
       <option name="project" value="LOCAL" />
       <updated>1413213851446</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="2.0.0">
+      <created>1413814356354</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1413814356354</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -737,44 +717,56 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42474917" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.451505" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" x="198" y="303" width="949" height="195" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30602008" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19213313" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18060201" sideWeight="0.64220876" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34615386" sideWeight="0.35779122" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26755852" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45317724" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CSS-X-Fire" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43645486" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" x="198" y="303" width="949" height="195" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2826087" sideWeight="0.50075644" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19213313" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21028744" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20499243" sideWeight="0.5" order="0" side_tool="true" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43311036" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21709532" sideWeight="0.5" order="0" side_tool="true" content_ui="combo" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34615386" sideWeight="0.35779122" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26755852" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="430" y="304" width="500" height="129" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30030257" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48996654" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37625417" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972136" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2792642" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="SLIDING" visible="false" weight="0.64647996" sideWeight="0.5" order="7" side_tool="true" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30602008" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18060201" sideWeight="0.64220876" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48662207" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="true" />
     <option name="SHOW_DIRTY_RECURSIVELY" value="true" />
@@ -785,7 +777,8 @@
     <MESSAGE value="1.0.2.1" />
     <MESSAGE value="1.0.3" />
     <MESSAGE value="1.0.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.4" />
+    <MESSAGE value="2.0.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.0.0" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -794,6 +787,7 @@
     <breakpoint-manager>
       <option name="time" value="38" />
     </breakpoint-manager>
+    <watches-manager />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <PATH>
@@ -808,41 +802,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/config/auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537" vertical-offset="527" max-vertical-offset="1309">
-          <caret line="43" column="24" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/backup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2550">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_09_30_133558_create_session_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/storage/sessions/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.68" vertical-offset="0" max-vertical-offset="119">
-          <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="850">
-          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_ide_helper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="218093">
@@ -960,13 +919,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.0555556" vertical-offset="144" max-vertical-offset="544">
           <caret line="15" column="37" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.9444444" vertical-offset="0" max-vertical-offset="1309">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1131,13 +1083,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/Code/laravel/app/views/hello.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52037615" vertical-offset="480" max-vertical-offset="816">
-          <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.2951807" vertical-offset="80" max-vertical-offset="646">
@@ -1149,7 +1094,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="364">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1157,7 +1101,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5532544" vertical-offset="0" max-vertical-offset="408">
           <caret line="11" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="10" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.vagrant/machines/default/virtualbox/action_set_name">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.vagrant/machines/default/virtualbox/synced_folders">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="440">
+          <caret line="0" column="221" selection-start-line="0" selection-start-column="217" selection-end-line="0" selection-end-column="225" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.vagrant/machines/default/virtualbox/index_uuid">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.vagrant/machines/default/virtualbox/action_provision">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1166,8 +1137,23 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2972028" vertical-offset="612" max-vertical-offset="2176">
-          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.678487" vertical-offset="1753" max-vertical-offset="2176">
+          <caret line="120" column="55" selection-start-line="120" selection-start-column="55" selection-end-line="120" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="10.269231" vertical-offset="369" max-vertical-offset="935">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1445">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1189,4 +1175,3 @@
     </states>
   </component>
 </project>
-

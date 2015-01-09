@@ -22,11 +22,6 @@ class ClientesRespuesta extends \Eloquent
 	protected $table = 'clientes_respuesta';
 	protected $primaryKey = 'id_cliente_respuesta';
 
-	// Add your validation rules here
-	//	public static $rules  = array(
-	// 'title'            => 'required'
-	//	);
-
 	// Don't forget to fill this array
 	protected $fillable = array(
 		'id_cliente',

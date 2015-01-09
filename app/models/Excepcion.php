@@ -15,8 +15,6 @@
 class Excepcion extends \Eloquent
 {
 
-	public static $rules = array(// 'title'            => 'required'
-	);
 	protected $table = 'excepciones';
 
 	// Add your validation rules here

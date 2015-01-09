@@ -24,6 +24,7 @@ App::after(function ($request, $response) {
 		//
 	}
 });
+
 /*
 |--------------------------------------------------------------------------
 | Authentication Filters
@@ -60,24 +61,6 @@ Route::filter('auth', function () {
 Route::filter('auth.basic', function () {
 	return Auth::basic();
 });
-
-//Route::filter('auth.login', function () {
-//	if(!(Session::has('user_id') && Session::get('user_id') != null)) {
-//		Session::flush();
-//		$msg = array(
-//			'data'    => array(
-//				'type'  => 'danger',
-//				'title' => 'Atención',
-//				'text'  => 'Usuario no logueado'
-//			),
-//			'options' => array(
-//				'left' => HTML::link(URL::to('/'), 'Salir', array('class' => 'col-md-3 btn btn-default btn-lg pull-right text-uppercase'))
-//			)
-//		);
-
-//		return View::make('messages', compact('msg'));
-//	}
-//});
 
 /*
 |--------------------------------------------------------------------------

@@ -17,8 +17,6 @@
 class TiposRespuesta extends \Eloquent
 {
 
-	public static $rules = array(// 'title'            => 'required'
-	);
 	protected $table = 'tipos_respuesta';
 
 	// Add your validation rules here

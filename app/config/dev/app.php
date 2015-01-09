@@ -12,6 +12,6 @@
 		| application. If disabled, a simple generic error page is shown.
 		|
 		*/
-		'debug' => false,
+		'debug' => true,
 
 	);

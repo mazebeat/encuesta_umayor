@@ -25,8 +25,6 @@
 class PreguntasDetalle extends \Eloquent
 {
 
-	public static $rules = array(// 'title'            => 'required'
-	);
 	protected $table = 'preguntas_detalle';
 
 	// Add your validation rules here

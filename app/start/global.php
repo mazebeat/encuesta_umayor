@@ -132,6 +132,6 @@ App::down(function()
 |
 */
 
-require app_path().'/filters.php';
+require app_path() . '/filters.php';
 require app_path() . '/events.php';
-include app_path().'/libs/macros/macros.php';
+include app_path() . '/libs/macros/macros.php';

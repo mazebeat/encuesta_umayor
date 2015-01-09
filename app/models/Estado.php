@@ -16,9 +16,6 @@
  */
 class Estado extends \Eloquent
 {
-
-	public static $rules = array(// 'title'            => 'required'
-	);
 	protected $table = 'estados';
 
 	// Add your validation rules here

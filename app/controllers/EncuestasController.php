@@ -17,6 +17,7 @@ class EncuestasController extends \BaseController
 			return View::make('encuesta');
 		} else {
 			Tools::printr('No hay encuestas activas');
+
 			die();
 		}
 	}
@@ -46,6 +47,7 @@ class EncuestasController extends \BaseController
 		$cr->id_cliente = Auth::user()->id_cliente;
 		$cr->ultima_respuesta = Carbon::now();
 		$cr->id_estado        = 15;
+
 		if($cr->save()) {
 			$cli_resp = $cr->id_cliente_respuesta;
 		} else {
@@ -60,7 +62,7 @@ class EncuestasController extends \BaseController
 					$respuesta = Respuesta::insertGetId(array(
 						'fecha'                => Carbon::now(),
 						'id_estado'            => '6',
-						'id_canal'             => Session::get('canal', 3),
+						'id_canal'   => Session::get('canal'),
 						'id_encuesta'          => Session::get('encuesta', 1),
 						'id_pregunta'          => (int)str_replace('pregunta_', '', $key),
 						'id_pregunta_detalle'  => 1,
@@ -69,8 +71,8 @@ class EncuestasController extends \BaseController
 						'created_at'           => Carbon::now()
 					));
 					if(!is_null($respuesta)) {
-						$val  = array_get($value, 'value', '');
-						$text = array_get($value, 'text', '');
+						$val  = array_get($value, 'value');
+						$text = array_get($value, 'text');
 						array_push($respuesta_detalle, array(
 							'valor1'       => trim($val) != '' ? $val : null,
 							'valor2'       => trim($text) != '' && Str::length($text) > 0 ? $text : null,
