@@ -13,17 +13,17 @@
 
 ClassLoader::addDirectories(array(
 
-	app_path().'/commands',
-	app_path().'/controllers',
-	app_path().'/models',
-	app_path().'/libs',
-	app_path().'/libs/functions',
-	app_path().'/libs/validators',
-	app_path().'/database/seeds',
+	app_path() . '/commands',
+	app_path() . '/controllers',
+	app_path() . '/models',
+	app_path() . '/libs',
+	app_path() . '/libs/functions',
+	app_path() . '/libs/validators',
+	app_path() . '/database/seeds',
 
 ));
 
-Validator::resolver(function($translator, $data, $rules, $messages) {
+Validator::resolver(function ($translator, $data, $rules, $messages) {
 	return new CustomValidator($translator, $data, $rules, $messages);
 });
 
@@ -38,7 +38,7 @@ Validator::resolver(function($translator, $data, $rules, $messages) {
 |
 */
 
-Log::useFiles(storage_path().'/logs/laravel.log');
+Log::useFiles(storage_path() . '/logs/laravel.log');
 
 /*
 |--------------------------------------------------------------------------
@@ -64,30 +64,34 @@ if(!Config::get('app.debug')) {
 
 		switch($code) {
 			case 401:
-				return Response::view('errors', array('code'      => $code,
-				                                      'exception' => $exception
-					), 403);
+				return Response::view('errors', array(
+					'code'      => $code,
+					'exception' => $exception
+				), 403);
 
 			case 403:
-				return Response::view('errors', array('code'      => $code,
-				                                      'exception' => $exception
-					), 403);
+				return Response::view('errors', array(
+					'code'      => $code,
+					'exception' => $exception
+				), 403);
 
 			case 404:
-				return Response::view('errors', array('code'      => $code,
-				                                      'exception' => $exception
-					), 404);
+				return Response::view('errors', array(
+					'code'      => $code,
+					'exception' => $exception
+				), 404);
 
 			case 500:
-				return Response::view('errors', array('code'      => $code,
-				                                      'exception' => $exception
-					), 500);
+				return Response::view('errors', array(
+					'code'      => $code,
+					'exception' => $exception
+				), 500);
 
 			default:
 				return Response::view('errors', array(
-					'code' => $code,
-				                                      'exception' => $exception
-					), $code);
+					'code'      => $code,
+					'exception' => $exception
+				), $code);
 		}
 	});
 
@@ -116,8 +120,7 @@ App::missing(function ($exception) {
 |
 */
 
-App::down(function()
-{
+App::down(function () {
 	return Response::make("Estaremos pronto de vuelta!", 503);
 });
 

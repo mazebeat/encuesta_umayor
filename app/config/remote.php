@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'default' => 'production',
+	'default'     => 'production',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -29,12 +29,12 @@ return array(
 	'connections' => array(
 
 		'production' => array(
-			'host'     => '192.168.5.11',
-			'username' => 'webdes',
-			'password' => 'webdes.,123',
+			'host'     => '',
+			'username' => '',
+			'password' => '',
 			'key'       => '',
 			'keyphrase' => '',
-			'root'     => '/var/www/html/encuesta_umayor',
+			'root'     => '',
 		),
 
 	),
@@ -50,7 +50,7 @@ return array(
 	|
 	*/
 
-	'groups' => array(
+	'groups'      => array(
 
 		'web' => array('production')
 

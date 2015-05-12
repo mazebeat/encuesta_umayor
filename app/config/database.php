@@ -52,12 +52,17 @@ return array(
 			'prefix'   => '',
 		),
 
-		'mysql'  => array(
+		'mysql' => array(
+			'read'     => array(
+				'host' => '192.168.1.30',
+			),
+			'write'    => array(
+				'host' => '192.168.1.30'
+			),
 			'driver'    => 'mysql',
-			'host'      => '192.168.1.52',
 			'database'  => 'umayor',
-			'username'  => 'umayor',
-			'password'  => 'umayor',
+			'username' => 'dpinto',
+			'password' => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

@@ -19,5 +19,5 @@ Route::get('addexception', 'ExcepcionesController@add');
 Route::get('encuestas', 'EncuestasController@index');
 Route::post('encuestas', 'EncuestasController@store');
 Route::get('test', function () {
-    var_dump('TESTER');
+	var_dump('TESTER');
 });

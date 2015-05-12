@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 4, to provide autocomplete information to your IDE
- * Generated for Laravel 4.2.11 on 2014-10-17.
+ * Generated for Laravel 4.2.17 on 2015-05-12.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -366,11 +366,12 @@ namespace {
         }
         
         /**
-         * Terminate the request and send the response to the browser.
+         * Call the "finish" and "shutdown" callbacks assigned to the application.
          *
          * @param \Symfony\Component\HttpFoundation\Request $request
          * @param \Symfony\Component\HttpFoundation\Response $response
-         * @return void 
+         *
+*@return void
          * @static 
          */
         public static function terminate($request, $response){
@@ -1095,7 +1096,7 @@ namespace {
         }
         
         /**
-         * Set an input definition set to be used with this application
+         * Set an input definition set to be used with this application.
          *
          * @param \Symfony\Component\Console\InputDefinition $definition The input definition
          * @api 
@@ -1351,7 +1352,7 @@ namespace {
         }
         
         /**
-         * Tries to figure out the terminal dimensions based on the current environment
+         * Tries to figure out the terminal dimensions based on the current environment.
          *
          * @return array Array containing width and height
          * @static 
@@ -3106,7 +3107,7 @@ namespace {
          *
          * @param string $query
          * @param array $bindings
-         * @param $time
+         * @param float|null $time
          * @return void 
          * @static 
          */
@@ -3718,7 +3719,7 @@ namespace {
          * @param string $operator
          * @param int $count
          * @param string $boolean
-         * @param \Closure $callback
+         * @param \Closure|null $callback
          * @return \Illuminate\Database\Eloquent\Builder|static 
          * @static 
          */
@@ -3727,6 +3728,20 @@ namespace {
         }
         
         /**
+         * Add a relationship count condition to the query.
+         *
+         * @param string        $relation
+         * @param string        $boolean
+         * @param \Closure|null $callback
+         * @return \Illuminate\Database\Eloquent\Builder|static
+         * @static
+         */
+	    public static function doesntHave($relation, $boolean = 'and', $callback = null)
+	    {
+		    return \Illuminate\Database\Eloquent\Builder::doesntHave($relation, $boolean, $callback);
+	    }
+
+	    /**
          * Add a relationship count condition to the query with where clauses.
          *
          * @param string $relation
@@ -3741,6 +3756,19 @@ namespace {
         }
         
         /**
+         * Add a relationship count condition to the query with where clauses.
+         *
+         * @param string        $relation
+         * @param \Closure|null $callback
+         * @return \Illuminate\Database\Eloquent\Builder|static
+         * @static
+         */
+	    public static function whereDoesntHave($relation, $callback = null)
+	    {
+		    return \Illuminate\Database\Eloquent\Builder::whereDoesntHave($relation, $callback);
+	    }
+
+	    /**
          * Add a relationship count condition to the query with an "or".
          *
          * @param string $relation
@@ -4241,6 +4269,21 @@ namespace {
         }
         
         /**
+         * Add a "where date" statement to the query.
+         *
+         * @param string $column
+         * @param string $operator
+         * @param int    $value
+         * @param string $boolean
+         * @return \Illuminate\Database\Query\Builder|static
+         * @static
+         */
+	    public static function whereDate($column, $operator, $value, $boolean = 'and')
+	    {
+		    return \Illuminate\Database\Query\Builder::whereDate($column, $operator, $value, $boolean);
+	    }
+
+	    /**
          * Add a "where day" statement to the query.
          *
          * @param string $column
@@ -4297,6 +4340,7 @@ namespace {
         /**
          * Add a "group by" clause to the query.
          *
+         * @param array|string $column,...
          * @return $this 
          * @static 
          */
@@ -4853,12 +4897,22 @@ namespace {
         public static function getGrammar(){
             return \Illuminate\Database\Query\Builder::getGrammar();
         }
+
+	    /**
+	     * Use the write pdo for query.
+	     *
+	     * @return $this
+	     * @static
+	     */
+	    public static function useWritePdo()
+	    {
+		    return \Illuminate\Database\Query\Builder::useWritePdo();
+	    }
         
     }
 
 
-    class Event extends \Illuminate\Support\Facades\Event
-    {
+	class Event extends \Illuminate\Support\Facades\Event{
         
         /**
          * Register an event listener with the dispatcher.
@@ -4997,14 +5051,13 @@ namespace {
             \Illuminate\Events\Dispatcher::forget($event);
         }
 
-        /**
+		/**
          * Forget all of the queued listeners.
          *
          * @return void 
          * @static 
          */
-        public static function forgetQueued()
-        {
+		public static function forgetQueued(){
             \Illuminate\Events\Dispatcher::forgetQueued();
         }
         
@@ -5064,11 +5117,13 @@ namespace {
          *
          * @param string $path
          * @param string $contents
+         * @param bool   $lock
          * @return int 
          * @static 
          */
-        public static function put($path, $contents){
-            return \Illuminate\Filesystem\Filesystem::put($path, $contents);
+	    public static function put($path, $contents, $lock = false)
+	    {
+		    return \Illuminate\Filesystem\Filesystem::put($path, $contents, $lock);
         }
         
         /**
@@ -5131,6 +5186,18 @@ namespace {
         }
         
         /**
+         * Extract the file name from a file path.
+         *
+         * @param string $path
+         * @return string
+         * @static
+         */
+	    public static function name($path)
+	    {
+		    return \Illuminate\Filesystem\Filesystem::name($path);
+	    }
+
+	    /**
          * Extract the file extension from a file path.
          *
          * @param string $path
@@ -5483,16 +5550,16 @@ namespace {
          * Create a number input field.
          *
          * @param string $name
-         * @param array  $options
-         *
-         * @return string
+         * @param string|null $value
+         * @param array $options
+         * @return string 
          * @static 
          */
         public static function number($name, $value = null, $options = array()){
             return \Illuminate\Html\FormBuilder::number($name, $value, $options);
         }
 
-        /**
+	    /**
          * Create a select box field.
          *
          * @param string $name
@@ -5771,6 +5838,18 @@ namespace {
         public static function needsRehash($hashedValue, $options = array()){
             return \Illuminate\Hashing\BcryptHasher::needsRehash($hashedValue, $options);
         }
+
+	    /**
+	     * Set the default crypt cost factor.
+	     *
+	     * @param int $rounds
+	     * @return void
+	     * @static
+	     */
+	    public static function setRounds($rounds)
+	    {
+		    \Illuminate\Hashing\BcryptHasher::setRounds($rounds);
+	    }
         
     }
 
@@ -6020,23 +6099,10 @@ namespace {
     class Input extends \Illuminate\Support\Facades\Input{
         
         /**
-         * Retrieve an input item from the request.
-         *
-         * @param string $key
-         * @param mixed  $default
-         *
-*@return string
-         * @static
-         */
-        public static function input($key = null, $default = null){
-            return \Illuminate\Http\Request::input($key, $default);
-        }
-
-        /**
          * Return the Request instance.
          *
          * @return $this
-         * @static
+         * @static 
          */
         public static function instance(){
             return \Illuminate\Http\Request::instance();
@@ -6046,7 +6112,7 @@ namespace {
          * Get the request method.
          *
          * @return string
-         * @static
+         * @static 
          */
         public static function method(){
             return \Illuminate\Http\Request::method();
@@ -6056,7 +6122,7 @@ namespace {
          * Get the root URL for the application.
          *
          * @return string
-         * @static
+         * @static 
          */
         public static function root(){
             return \Illuminate\Http\Request::root();
@@ -6066,7 +6132,7 @@ namespace {
          * Get the URL (no query string) for the request.
          *
          * @return string
-         * @static
+         * @static 
          */
         public static function url(){
             return \Illuminate\Http\Request::url();
@@ -6076,7 +6142,7 @@ namespace {
          * Get the full URL for the request.
          *
          * @return string
-         * @static
+         * @static 
          */
         public static function fullUrl(){
             return \Illuminate\Http\Request::fullUrl();
@@ -6086,7 +6152,7 @@ namespace {
          * Get the current path info for the request.
          *
          * @return string
-         * @static
+         * @static 
          */
         public static function path(){
             return \Illuminate\Http\Request::path();
@@ -6096,7 +6162,7 @@ namespace {
          * Get the current encoded path info for the request.
          *
          * @return string
-         * @static
+         * @static 
          */
         public static function decodedPath(){
             return \Illuminate\Http\Request::decodedPath();
@@ -6108,7 +6174,7 @@ namespace {
          * @param string $index
          * @param mixed $default
          * @return string
-         * @static
+         * @static 
          */
         public static function segment($index, $default = null){
             return \Illuminate\Http\Request::segment($index, $default);
@@ -6118,7 +6184,7 @@ namespace {
          * Get all of the segments for the request path.
          *
          * @return array
-         * @static
+         * @static 
          */
         public static function segments(){
             return \Illuminate\Http\Request::segments();
@@ -6129,7 +6195,7 @@ namespace {
          *
          * @param mixed  string
          * @return bool
-         * @static
+         * @static 
          */
         public static function is(){
             return \Illuminate\Http\Request::is();
@@ -6139,7 +6205,7 @@ namespace {
          * Determine if the request is the result of an AJAX call.
          *
          * @return bool
-         * @static
+         * @static 
          */
         public static function ajax(){
             return \Illuminate\Http\Request::ajax();
@@ -6149,7 +6215,7 @@ namespace {
          * Determine if the request is over HTTPS.
          *
          * @return bool
-         * @static
+         * @static 
          */
         public static function secure(){
             return \Illuminate\Http\Request::secure();
@@ -6159,7 +6225,7 @@ namespace {
          * Returns the client IP address.
          *
          * @return string
-         * @static
+         * @static 
          */
         public static function ip(){
             return \Illuminate\Http\Request::ip();
@@ -6169,7 +6235,7 @@ namespace {
          * Returns the client IP addresses.
          *
          * @return array
-         * @static
+         * @static 
          */
         public static function ips(){
             return \Illuminate\Http\Request::ips();
@@ -6180,7 +6246,7 @@ namespace {
          *
          * @param string|array $key
          * @return bool
-         * @static
+         * @static 
          */
         public static function exists($key){
             return \Illuminate\Http\Request::exists($key);
@@ -6191,7 +6257,7 @@ namespace {
          *
          * @param string|array $key
          * @return bool
-         * @static
+         * @static 
          */
         public static function has($key){
             return \Illuminate\Http\Request::has($key);
@@ -6201,13 +6267,26 @@ namespace {
          * Get all of the input and files for the request.
          *
          * @return array
-         * @static
+         * @static 
          */
         public static function all(){
             return \Illuminate\Http\Request::all();
         }
         
         /**
+         * Retrieve an input item from the request.
+         *
+         * @param string $key
+         * @param mixed  $default
+         * @return string
+         * @static
+         */
+	    public static function input($key = null, $default = null)
+	    {
+		    return \Illuminate\Http\Request::input($key, $default);
+	    }
+
+	    /**
          * Get a subset of the items from the input data.
          *
          * @param array $keys
@@ -6234,7 +6313,7 @@ namespace {
          *
          * @param string $key
          * @param mixed $default
-         * @return string 
+         * @return string|array 
          * @static 
          */
         public static function query($key = null, $default = null){
@@ -6545,7 +6624,7 @@ namespace {
          * Overrides the PHP global variables according to this request instance.
          * 
          * It overrides $_GET, $_POST, $_REQUEST, $_SERVER, $_COOKIE.
-         * $_FILES is never override, see rfc1867
+         * $_FILES is never overridden, see rfc1867
          *
          * @api 
          * @static 
@@ -6659,6 +6738,9 @@ namespace {
          * 
          * Be warned that enabling this feature might lead to CSRF issues in your code.
          * Check that you are using CSRF tokens when required.
+         * If the HTTP method parameter override is enabled, an html-form with method "POST" can be altered
+         * and used to send a "PUT" or "DELETE" request via the _method request parameter.
+         * If these methods are not protected against CSRF, this presents a possible vulnerability.
          * 
          * The HTTP method can only be overridden when the real HTTP method is POST.
          *
@@ -7082,8 +7164,8 @@ namespace {
          * The method is always an uppercased string.
          *
          * @return string The request method
-         * @api 
-         * @see getRealMethod
+         * @api
+         * @see getRealMethod()
          * @static 
          */
         public static function getMethod(){
@@ -7095,7 +7177,7 @@ namespace {
          * Gets the "real" request method.
          *
          * @return string The request method
-         * @see getMethod
+         * @see getMethod()
          * @static 
          */
         public static function getRealMethod(){
@@ -7339,7 +7421,7 @@ namespace {
         }
         
         /**
-         * Gets a list of content types acceptable by the client browser
+         * Gets a list of content types acceptable by the client browser.
          *
          * @return array List of content types in preferable order
          * @api 
@@ -7352,8 +7434,8 @@ namespace {
         
         /**
          * Returns true if the request is a XMLHttpRequest.
-         * 
-         * It works if your JavaScript library set an X-Requested-With HTTP header.
+         *
+         * It works if your JavaScript library sets an X-Requested-With HTTP header.
          * It is known to work with common JavaScript frameworks:
          *
          * @link http://en.wikipedia.org/wiki/List_of_Ajax_frameworks#JavaScript
@@ -7701,7 +7783,7 @@ namespace {
          * Register an error_log handler.
          *
          * @param string $level
-         * @param integer $messageType
+         * @param int    $messageType
          * @return void 
          * @static 
          */
@@ -8414,7 +8496,7 @@ namespace {
         }
         
         /**
-         * Push a new an array of jobs onto the queue.
+         * Push an array of jobs onto the queue.
          *
          * @param array $jobs
          * @param mixed $data
@@ -8866,7 +8948,7 @@ namespace {
          *
          * @param string $key
          * @param mixed $default
-         * @return string 
+         * @return string|array 
          * @static 
          */
         public static function query($key = null, $default = null){
@@ -9177,7 +9259,7 @@ namespace {
          * Overrides the PHP global variables according to this request instance.
          * 
          * It overrides $_GET, $_POST, $_REQUEST, $_SERVER, $_COOKIE.
-         * $_FILES is never override, see rfc1867
+         * $_FILES is never overridden, see rfc1867
          *
          * @api 
          * @static 
@@ -9291,6 +9373,9 @@ namespace {
          * 
          * Be warned that enabling this feature might lead to CSRF issues in your code.
          * Check that you are using CSRF tokens when required.
+         * If the HTTP method parameter override is enabled, an html-form with method "POST" can be altered
+         * and used to send a "PUT" or "DELETE" request via the _method request parameter.
+         * If these methods are not protected against CSRF, this presents a possible vulnerability.
          * 
          * The HTTP method can only be overridden when the real HTTP method is POST.
          *
@@ -9714,8 +9799,8 @@ namespace {
          * The method is always an uppercased string.
          *
          * @return string The request method
-         * @api 
-         * @see getRealMethod
+         * @api
+         * @see getRealMethod()
          * @static 
          */
         public static function getMethod(){
@@ -9727,7 +9812,7 @@ namespace {
          * Gets the "real" request method.
          *
          * @return string The request method
-         * @see getMethod
+         * @see getMethod()
          * @static 
          */
         public static function getRealMethod(){
@@ -9971,7 +10056,7 @@ namespace {
         }
         
         /**
-         * Gets a list of content types acceptable by the client browser
+         * Gets a list of content types acceptable by the client browser.
          *
          * @return array List of content types in preferable order
          * @api 
@@ -9984,8 +10069,8 @@ namespace {
         
         /**
          * Returns true if the request is a XMLHttpRequest.
-         * 
-         * It works if your JavaScript library set an X-Requested-With HTTP header.
+         *
+         * It works if your JavaScript library sets an X-Requested-With HTTP header.
          * It is known to work with common JavaScript frameworks:
          *
          * @link http://en.wikipedia.org/wiki/List_of_Ajax_frameworks#JavaScript
@@ -10854,7 +10939,7 @@ namespace {
         }
         
         /**
-         * Sets the session ID
+         * Sets the session ID.
          *
          * @param string $id
          * @api 
@@ -10904,9 +10989,9 @@ namespace {
          * session and deletes the old session from persistence.
          *
          * @param int $lifetime Sets the cookie lifetime for the session cookie. A null value
-         *                          will leave the system settings unchanged, 0 sets the cookie
-         *                          to expire with browser session. Time is in seconds, and is
-         *                          not a Unix timestamp.
+         *                      will leave the system settings unchanged, 0 sets the cookie
+         *                      to expire with browser session. Time is in seconds, and is
+         *                      not a Unix timestamp.
          * @return bool True if session invalidated, false if error.
          * @api 
          * @static 
@@ -10921,9 +11006,9 @@ namespace {
          *
          * @param bool $destroy Whether to delete the old session or leave it to garbage collection.
          * @param int $lifetime Sets the cookie lifetime for the session cookie. A null value
-         *                          will leave the system settings unchanged, 0 sets the cookie
-         *                          to expire with browser session. Time is in seconds, and is
-         *                          not a Unix timestamp.
+         *                       will leave the system settings unchanged, 0 sets the cookie
+         *                       to expire with browser session. Time is in seconds, and is
+         *                       not a Unix timestamp.
          * @return bool True if session migrated, false if error.
          * @api 
          * @static 
@@ -11557,8 +11642,7 @@ namespace {
          * @param string $path
          * @param mixed  $extra
          * @param bool|null $secure
-         *
-         * @return string
+         * @return string 
          * @static 
          */
         public static function to($path, $extra = array(), $secure = null){
@@ -11582,8 +11666,7 @@ namespace {
          *
          * @param string    $path
          * @param bool|null $secure
-         *
-         * @return string
+         * @return string 
          * @static 
          */
         public static function asset($path, $secure = null){
@@ -12311,7 +12394,7 @@ namespace {
         /**
          * Modify the response and inject the debugbar (or data in headers)
          *
-         * @param \Illuminate\Http\Request $request
+         * @param \Symfony\Component\HttpFoundation\Request $request
          * @param \Symfony\Component\HttpFoundation\Response $response
          * @return \Symfony\Component\HttpFoundation\Response 
          * @static 

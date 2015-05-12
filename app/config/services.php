@@ -23,7 +23,7 @@ return array(
 		'secret' => '',
 	),
 
-	'stripe' => array(
+	'stripe'  => array(
 		'model'  => 'User',
 		'secret' => '',
 	),

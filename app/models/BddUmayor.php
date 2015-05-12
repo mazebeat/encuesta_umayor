@@ -4,25 +4,25 @@
 /**
  * BddUmayor
  *
- * @property integer $id_alumno
- * @property string $facultad
- * @property string $escuela
- * @property string $carrera
- * @property string $jornada
- * @property string $sede
- * @property string $campus
- * @property string $rut
- * @property string $apellido_paterno
- * @property string $apellido_materno
- * @property string $nombres
- * @property string $sexo
- * @property integer $año_ingreso_1año_carrera
- * @property integer $año_ingreso_carrera
- * @property integer $año_egreso_plan_regular
- * @property string $fecha_registro
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
- * @property-read \Negocio $negocio
+ * @property integer                                                  $id_alumno
+ * @property string                                                   $facultad
+ * @property string                                                   $escuela
+ * @property string                                                   $carrera
+ * @property string                                                   $jornada
+ * @property string                                                   $sede
+ * @property string                                                   $campus
+ * @property string                                                   $rut
+ * @property string                                                   $apellido_paterno
+ * @property string                                                   $apellido_materno
+ * @property string                                                   $nombres
+ * @property string                                                   $sexo
+ * @property integer                                                  $año_ingreso_1año_carrera
+ * @property integer                                                  $año_ingreso_carrera
+ * @property integer                                                  $año_egreso_plan_regular
+ * @property string                                                   $fecha_registro
+ * @property \Carbon\Carbon                                           $created_at
+ * @property \Carbon\Carbon                                           $updated_at
+ * @property-read \Negocio                                            $negocio
  * @property-read \Illuminate\Database\Eloquent\Collection|\Cliente[] $clientes
  * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereIdAlumno($value)
  * @method static \Illuminate\Database\Query\Builder|\BddUmayor whereFacultad($value)

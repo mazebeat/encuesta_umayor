@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'default' => 'sync',
+	'default'     => 'sync',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ return array(
 
 	'connections' => array(
 
-		'sync' => array(
+		'sync'  => array(
 			'driver' => 'sync',
 		),
 
@@ -41,7 +41,7 @@ return array(
 			'ttr'    => 60,
 		),
 
-		'sqs' => array(
+		'sqs'   => array(
 			'driver' => 'sqs',
 			'key'    => 'your-public-key',
 			'secret' => 'your-secret-key',
@@ -49,7 +49,7 @@ return array(
 			'region' => 'us-east-1',
 		),
 
-		'iron' => array(
+		'iron'  => array(
 			'driver'  => 'iron',
 			'host'    => 'mq-aws-us-east-1.iron.io',
 			'token'   => 'your-token',
@@ -76,9 +76,10 @@ return array(
 	|
 	*/
 
-	'failed' => array(
+	'failed'      => array(
 
-		'database' => 'mysql', 'table' => 'failed_jobs',
+		'database' => 'mysql',
+		'table'    => 'failed_jobs',
 
 	),
 

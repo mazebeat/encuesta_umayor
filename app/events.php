@@ -9,14 +9,14 @@ Event::listen('canal', function ($canal) {
 });
 
 Event::listen('carga_cliente', function ($rut) {
-	$alumno  = BddUmayor::whereRut(array($rut))->orderBy('id_alumno', 'DESC')->first(array(
+	$alumno = BddUmayor::whereRut(array($rut))->orderBy('id_alumno', 'DESC')->first(array(
 		'id_alumno',
 		'nombres'
 	));
 	if($alumno) {
 		$cliente = Cliente::whereIdAlumno(array($alumno->id_alumno))->whereIdEstado(array('2'))->first(array('id_cliente'));
 		if($cliente) {
-			Auth::loginUsingId($cliente->id_cliente);			
+			Auth::loginUsingId($cliente->id_cliente);
 			Session::put('user_name', $alumno->nombres);
 		}
 		unset($alumno);
@@ -28,7 +28,8 @@ Event::listen('ya_respondio', function () {
 	if(ClientesRespuesta::hasRequests()) {
 		$resp = ClientesRespuesta::whereIdCliente(array(Auth::user()->id_cliente))->whereRaw('MONTH(ultima_respuesta) = MONTH(CURRENT_DATE) AND YEAR(ultima_respuesta) = YEAR(CURRENT_DATE)')->orderBy('id_cliente_respuesta', 'DESC')->first(array('ultima_respuesta'));
 		if(!is_null($resp->ultima_respuesta)) {
-			Session::put('ya_respondio', true);			
+			Session::put('ya_respondio', true);
+
 			return $last_responsed = new Carbon($resp->ultima_respuesta);
 		}
 		unset($resp);

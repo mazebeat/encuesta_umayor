@@ -13,7 +13,7 @@ class HomeController extends BaseController
 			return View::make('index');
 		}
 
-		return Redirect::to('http://www.umayor.cl/');				
+		return Redirect::to('http://www.umayor.cl/');
 	}
 
 	public function login()

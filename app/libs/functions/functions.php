@@ -1,6 +1,7 @@
 <?php
 
-class Tools {
+class Tools
+{
 
 	public static function printr($a)
 	{
